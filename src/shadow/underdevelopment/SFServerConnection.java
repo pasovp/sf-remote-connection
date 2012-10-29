@@ -17,19 +17,17 @@ import shadow.system.data.java.SFOutputStreamJava;
 
 /**
  * @author Luigi Pasotti
+ * A class for handle the ServerSocket.
+ * I really need this code? I don't know, but I don't want delete it...
  *
  */
 public class SFServerConnection {
 	private ServerSocket serverSocket = null;
-	private Socket clientSocket = null;
+	//private Socket clientSocket = null;
 	private int port;
 	
-	public SFServerConnection(int port){
+	public SFServerConnection(int port) throws IOException{
 		this.port = port;
-	}
-	
-	//TODO: architettura di risposta asincrona
-	public void openConnections() throws IOException{
 		try{
 			serverSocket = new ServerSocket(this.port);
 		} catch (IOException e) {
@@ -37,6 +35,32 @@ public class SFServerConnection {
 			e.printStackTrace();
 			throw e;
 		}
+	}
+	
+	public Socket acceptConnection() throws IOException {
+		Socket clientSocket = null;
+		try{
+			clientSocket = serverSocket.accept();
+		} catch (IOException e) {
+			System.err.println("Accept failed");
+			e.printStackTrace();
+			throw e;
+		}
+		return clientSocket;
+	}
+	
+	public SFServerConnectionStatus getStatus(){
+		//TODO: do a serious check on the connection status
+		return SFServerConnectionStatus.SOCKET_CONNECTED;
+	}
+	
+	
+	/* Trash?!?
+	 * Don't need this
+	 * 
+	
+	public void openConnection() throws IOException{
+		
 		try{
 			clientSocket = serverSocket.accept();
 		} catch (IOException e) {
@@ -49,17 +73,12 @@ public class SFServerConnection {
 	public void closeConnection() throws IOException {
 		try {
 			clientSocket.close();
-			serverSocket.close();
+			//serverSocket.close();
 		} catch (IOException e) {
 			System.err.println("An I/O error occurs when closing this socket.");
 			e.printStackTrace();
 			throw e;
 		}
-	}
-	
-	public SFServerConnectionStatus getStatus(){
-		//TODO: do a serious check on the connection status
-		return SFServerConnectionStatus.SOCKET_CONNECTED;
 	}
 	
 	public InputStream getInputStream() throws IOException {
@@ -130,5 +149,6 @@ public class SFServerConnection {
 		}
 		return output;
 	}
+	*/
 
 }

@@ -20,7 +20,7 @@ import shadow.system.data.java.SFOutputStreamJava;
  * @author Luigi Pasotti
  * 
  */
-public class SFClientConnection {
+public class SFConnection {
 	
 	private Socket socket = null;
 	private String host = null;
@@ -31,7 +31,7 @@ public class SFClientConnection {
 	 * @param address the IP address.
 	 * @param port the port number.
 	 */
-	public SFClientConnection(InetAddress address, int port) {
+	public SFConnection(InetAddress address, int port) {
 		super();
 		this.address = address;
 		this.port = port;
@@ -41,10 +41,17 @@ public class SFClientConnection {
 	 * @param host the host name, or null for the loopback address.
 	 * @param port the port number.
 	 */
-	public SFClientConnection(String host, int port) throws UnknownHostException {
+	public SFConnection(String host, int port) throws UnknownHostException {
 		super();
 		setHost(host);
 		this.port = port;
+	}
+	
+	public SFConnection(Socket socket){
+		this.socket = socket;
+		this.port = this.socket.getPort();
+		this.address = this.socket.getInetAddress();
+		this.host = this.address.getHostName();
 	}
 	
 	/**
@@ -80,9 +87,9 @@ public class SFClientConnection {
 	/**
 	 * @return the status of the connection.
 	 */
-	public SFClientConnectionStatus getStatus(){
+	public SFConnectionStatus getStatus(){
 		//TODO: do a serious check on the connection status
-		return SFClientConnectionStatus.SOCKET_CONNECTED;
+		return SFConnectionStatus.SOCKET_CONNECTED;
 	}
 	
 	/**
