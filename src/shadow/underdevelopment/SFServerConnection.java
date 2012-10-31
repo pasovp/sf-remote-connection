@@ -4,16 +4,8 @@
 package shadow.underdevelopment;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-
-import shadow.system.data.SFInputStream;
-import shadow.system.data.SFOutputStream;
-import shadow.system.data.java.SFIOExceptionKeeper;
-import shadow.system.data.java.SFInputStreamJava;
-import shadow.system.data.java.SFOutputStreamJava;
 
 /**
  * @author Luigi Pasotti

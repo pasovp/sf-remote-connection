@@ -70,16 +70,16 @@ public class SFConnection {
 	
 	/**
 	 * Close the connection socket.
-	 * @throws IOException
 	 */
-	public void closeConnection() throws IOException {
+	public void closeConnection() {
 		if((socket!=null)&&(!socket.isClosed())){
 			try {
+				socket.shutdownInput();
+				socket.shutdownOutput();
 				socket.close();
 			} catch (IOException e) {
 				System.err.println("An I/O error occurs when closing this socket.");
 				e.printStackTrace();
-				throw e;
 			}
 		}
 	}
