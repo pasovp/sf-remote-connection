@@ -1,7 +1,7 @@
 /**
  * 
  */
-package shadow.application.wip;
+package shadow.application.client;
 
 /**
  * @author Luigi Pasotti

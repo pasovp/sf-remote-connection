@@ -1,13 +1,13 @@
 /**
  * 
  */
-package shadow.application.wip;
+package shadow.application.client;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
 
 import shadow.renderer.viewer.SFViewer;
-import shadow.underdevelopment.SFClientConnection;
+import shadow.underdevelopment.SFConnection;
 
 /**
  * @author Luigi Pasotti
@@ -22,7 +22,7 @@ public class ClientViewer {
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		SFViewer.prepare();
 		SFViewer viewer = new SFViewer();
-		SFClientConnection connection = new SFClientConnection("acquarius", 4444);
+		SFConnection connection = new SFConnection("acquarius", 4444);
 		connection.openConnection();
 		
 

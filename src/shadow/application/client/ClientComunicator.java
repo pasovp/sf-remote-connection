@@ -1,16 +1,16 @@
 /**
  * 
  */
-package shadow.application.wip;
+package shadow.application.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
+import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataset;
-import shadow.system.data.objects.SFDatasetObject;
-import shadow.underdevelopment.SFClientConnection;
+import shadow.underdevelopment.SFConnection;
 
 /**
  * @author Luigi Pasotti
@@ -19,23 +19,39 @@ import shadow.underdevelopment.SFClientConnection;
  */
 public class ClientComunicator {
 	
-	private SFClientConnection connection;
+	private SFConnection connection;
+	private ClientComunicatorExceptionListener listener;
 	
 	/**
 	 * @param connection
 	 */
-	public ClientComunicator(SFClientConnection connection) {
+	public ClientComunicator(SFConnection connection, ClientComunicatorExceptionListener listener ) {
 		super();
 		this.connection = connection;
+		this.listener = listener;
 	}
 	
-	public SFDataset requestDataset(String name) throws IOException {
-		SFDataset dataset;
+	public SFDataset requestDataset(String name) {
+		SFDataset dataset = null;
 		BufferedReader in;
 		PrintWriter out;
 		
-		in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-		out = new PrintWriter(connection.getOutputStream(), true);
+		try {
+			in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			out = new PrintWriter(connection.getOutputStream(), true);
+			
+			out.println("request");
+			if (in.readLine()=="listen") {
+				out.println(name);
+				dataset = SFDataCenter.getDataCenter().readDataset(connection.getSFInputStream());
+			}
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			listener.exceptionCatched(e);
+		}
+		
 		
 		
 		
