@@ -1,0 +1,13 @@
+			CLIENT							SERVER
+Request		request			---->			
+							<----			reply 1
+							<----			reply 2
+							<----			reply 3
+							<----			idle
+
+Request:		"request,name1,name2,name3,...,nameN\n"
+Close:			"close\n"
+
+
+ReplyX:			"nameX\n" + Dataset
+ReplyX-fail:	"fail,nameX\n"
