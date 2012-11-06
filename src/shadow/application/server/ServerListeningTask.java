@@ -15,14 +15,15 @@ import shadow.underdevelopment.SFServerConnection;
  */
 public class ServerListeningTask implements Runnable {
 	private SFServerConnection serverConnection;
-	//private ExecutorService threadExecutor;
+	private ServerDataHandler dataHandler;
 
 	/**
 	 * @param serverConnection
 	 */
-	public ServerListeningTask(SFServerConnection serverConnection) {
+	public ServerListeningTask(SFServerConnection serverConnection, ServerDataHandler dataHandler) {
 		super();
 		this.serverConnection = serverConnection;
+		this.dataHandler = dataHandler;
 	}
 
 	/* (non-Javadoc)
@@ -34,7 +35,7 @@ public class ServerListeningTask implements Runnable {
 		ExecutorService threadExecutor = Server.getThreadExecutor();
 		while(listening){
 			try {
-				threadExecutor.execute(new ServerComunicationTask(new SFConnection(serverConnection.acceptConnection())));
+				threadExecutor.execute(new ServerComunicationTask(new SFConnection(serverConnection.acceptConnection()), this.dataHandler));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

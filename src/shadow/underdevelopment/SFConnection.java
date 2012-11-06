@@ -159,13 +159,13 @@ public class SFConnection {
 					
 					@Override
 					public void launch(IOException exception) {
-						System.err.println("Couldn't create an SFInputStream from ImputStream.");
+						System.err.println("Couldn't create an SFOutputStream from OutputStream.");
 						exception.printStackTrace();
 					}
 				});
 			}
 		} catch (IOException e) {
-			System.err.println("Couldn't get an InputStream from socket.");
+			System.err.println("Couldn't get an OutputStream from socket.");
 			e.printStackTrace();
 			throw e;
 		}

@@ -25,10 +25,10 @@ public class Server {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		
-		
+		ServerDataHandler dataHandler = new ServerDataHandler();
+		dataHandler.loadLibrary();
 		SFServerConnection serverConnection = new SFServerConnection(4444);
-		ServerListeningTask listeningTask = new ServerListeningTask(serverConnection);
+		ServerListeningTask listeningTask = new ServerListeningTask(serverConnection, dataHandler);
 		threadExecutor.execute(listeningTask);
 		//TODO: can add a gui or a command line for interaction with the server application
 
