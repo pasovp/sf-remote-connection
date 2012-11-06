@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-import shadow.renderer.data.utils.SFViewerDatasetFactory;
+import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataset;
 import shadow.underdevelopment.SFConnection;
 
@@ -16,13 +16,13 @@ import shadow.underdevelopment.SFConnection;
  * @author Luigi Pasotti
  *
  */
-public class ServerComunicator {
+public class ServerCommunicator {
 	private SFConnection connection;
-	private SFViewerDatasetFactory factory;
+	private SFDataCenter datacenter;
 	
-	public ServerComunicator(SFConnection connection) {
+	public ServerCommunicator(SFConnection connection) {
 		this.connection = connection;
-		this.factory = new SFViewerDatasetFactory();
+		this.datacenter = SFDataCenter.getDataCenter(); 
 	}
 	
 	/**
@@ -45,7 +45,7 @@ public class ServerComunicator {
 	public void sendDataset(SFDataset dataset) {
 		// TODO Control correct send of the dataset 
 		try {
-			this.factory.writeDataset(connection.getSFOutputStream(), dataset);
+			this.datacenter.writeDataset(connection.getSFOutputStream(), dataset);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,7 +56,7 @@ public class ServerComunicator {
 		PrintWriter out;
 		try {
 			out = new PrintWriter(connection.getOutputStream(), true);
-			out.println("request");
+			out.println(line);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

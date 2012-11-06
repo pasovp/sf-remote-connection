@@ -5,9 +5,9 @@ package shadow.application.client;
 
 /**
  * @author Luigi Pasotti
- * A listener of exception for the ClientComunicator.
+ * A listener of exception for the ClientCommunicator.
  */
-public interface ClientComunicatorExceptionListener {
+public interface ClientCommunicatorExceptionListener {
 	
 	/**
 	 * Callback for a catched exception in ClienComunicator

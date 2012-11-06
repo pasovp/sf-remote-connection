@@ -13,8 +13,8 @@ import shadow.underdevelopment.SFConnection;
  * @author Luigi Pasotti
  *
  */
-public class ServerComunicationTask implements Runnable {
-	private ServerComunicator comunicator;
+public class ServerCommunicationTask implements Runnable {
+	private ServerCommunicator comunicator;
 	private InterfServerDataLibrary library;
 	
 	private static final int IDLE = 0;
@@ -27,9 +27,9 @@ public class ServerComunicationTask implements Runnable {
 	/**
 	 * @param connection
 	 */
-	public ServerComunicationTask(SFConnection connection, InterfServerDataLibrary library) {
+	public ServerCommunicationTask(SFConnection connection, InterfServerDataLibrary library) {
 		super();
-		this.comunicator = new ServerComunicator(connection);
+		this.comunicator = new ServerCommunicator(connection);
 		this.library = library;
 	}
 
@@ -45,12 +45,12 @@ public class ServerComunicationTask implements Runnable {
 			switch (state) {
 			case IDLE:
 				String input = comunicator.readLine();
-				if ((input==null)|| (input=="close")) {
+				if ( (input==null) || (input.compareTo("close")==0) ) {
 					state = CLOSING;
 				} else {
 					StringTokenizer tokenizer = new StringTokenizer(input, ",");
 					String token = tokenizer.nextToken();
-					if (token=="request") {
+					if (token.compareTo("request")==0) {
 						while (tokenizer.hasMoreTokens()) {
 							token = tokenizer.nextToken();
 							requests.add(token);

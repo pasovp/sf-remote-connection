@@ -35,7 +35,7 @@ public class ServerListeningTask implements Runnable {
 		ExecutorService threadExecutor = Server.getThreadExecutor();
 		while(listening){
 			try {
-				threadExecutor.execute(new ServerComunicationTask(new SFConnection(serverConnection.acceptConnection()), this.dataHandler));
+				threadExecutor.execute(new ServerCommunicationTask(new SFConnection(serverConnection.acceptConnection()), this.dataHandler));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

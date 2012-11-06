@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import shadow.renderer.data.utils.SFViewerDatasetFactory;
+import shadow.system.data.SFDataCenter;
 import shadow.underdevelopment.SFServerConnection;
 
 /**
@@ -25,8 +27,11 @@ public class Server {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
+		SFDataCenter.setDatasetFactory(new SFViewerDatasetFactory());
+		
 		ServerDataHandler dataHandler = new ServerDataHandler();
 		dataHandler.loadLibrary();
+		
 		SFServerConnection serverConnection = new SFServerConnection(4444);
 		ServerListeningTask listeningTask = new ServerListeningTask(serverConnection, dataHandler);
 		threadExecutor.execute(listeningTask);

@@ -14,18 +14,20 @@ import shadow.underdevelopment.SFConnection;
 
 /**
  * @author Luigi Pasotti
- * Class {@link ClientComunicator} implements the communication logic of the client.
+ * Class {@link ClientCommunicator} implements the communication logic of the client.
  *
  */
-public class ClientComunicator {
+public class ClientCommunicator {
 	
 	private SFConnection connection;
-	private ClientComunicatorExceptionListener listener;
+	private ClientCommunicatorExceptionListener listener;
+	
 	
 	/**
 	 * @param connection
+	 * @param listener the listener of the exceptions of the communicator, or null when there isn't an external management for exceptions.
 	 */
-	public ClientComunicator(SFConnection connection, ClientComunicatorExceptionListener listener ) {
+	public ClientCommunicator(SFConnection connection, ClientCommunicatorExceptionListener listener ) {
 		super();
 		this.connection = connection;
 		this.listener = listener;
@@ -45,16 +47,12 @@ public class ClientComunicator {
 				out.println(name);
 				dataset = SFDataCenter.getDataCenter().readDataset(connection.getSFInputStream());
 			}
-			
-			
 		} catch (IOException e) {
 			e.printStackTrace();
-			listener.exceptionCatched(e);
+			if (listener!=null) {
+				listener.exceptionCatched(e);
+			}
 		}
-		
-		
-		
-		
 		return dataset;
 	}
 
