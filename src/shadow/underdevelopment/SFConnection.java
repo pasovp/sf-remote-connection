@@ -71,7 +71,7 @@ public class SFConnection {
 	/**
 	 * Close the connection socket.
 	 */
-	public void closeConnection() {
+	public void closeConnection() throws IOException {
 		if((socket!=null)&&(!socket.isClosed())){
 			try {
 				socket.shutdownInput();
