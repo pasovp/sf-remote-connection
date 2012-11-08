@@ -77,4 +77,11 @@ public class GenericCommunicator {
 		this.connection = connection;
 	}
 
+	/**
+	 * @return the listener
+	 */
+	public CommunicatorExceptionListener getListener() {
+		return listener;
+	}
+
 }
