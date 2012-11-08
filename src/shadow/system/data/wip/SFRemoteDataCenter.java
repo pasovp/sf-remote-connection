@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import shadow.application.client.ClientCommunicatorOld;
+import shadow.application.client.ClientCommunicator;
 import shadow.system.data.SFDataCenterListener;
 import shadow.system.data.SFDataset;
 import shadow.system.data.SFIDataCenter;
@@ -27,7 +27,7 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	/**
 	 * 
 	 */
-	public SFRemoteDataCenter(ClientCommunicatorOld comunicator) {
+	public SFRemoteDataCenter(ClientCommunicator comunicator) {
 		this.library = new SFObjectsLibrary();
 		this.requests = new HashMap<String, SFProxyDataset>();
 	}

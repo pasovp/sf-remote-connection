@@ -14,7 +14,7 @@ import shadow.underdevelopment.SFConnection;
  *
  */
 public class ServerCommunicationTask implements Runnable {
-	private ServerCommunicator comunicator;
+	private ServerCommunicator communicator;
 	private InterfServerDataLibrary library;
 	
 	private static final int IDLE = 0;
@@ -29,7 +29,7 @@ public class ServerCommunicationTask implements Runnable {
 	 */
 	public ServerCommunicationTask(SFConnection connection, InterfServerDataLibrary library) {
 		super();
-		this.comunicator = new ServerCommunicator(connection);
+		this.communicator = new ServerCommunicator(connection);
 		this.library = library;
 	}
 
@@ -44,8 +44,8 @@ public class ServerCommunicationTask implements Runnable {
 		while (state != CLOSE) {
 			switch (state) {
 			case IDLE:
-				String input = comunicator.readLine();
-				if ( (input==null) || (input.compareTo("close")==0) ) {
+				String input = communicator.readLine();
+				if ( (input==null) || (input.compareTo("close") == 0) ) {
 					state = CLOSING;
 				} else {
 					StringTokenizer tokenizer = new StringTokenizer(input, ",");
@@ -65,19 +65,19 @@ public class ServerCommunicationTask implements Runnable {
 					String datasetName = requests.remove(0);
 					SFDataset dataset = library.getDataset(datasetName);
 					if (dataset!=null) {
-						comunicator.sendLine(datasetName);
-						comunicator.sendDataset(dataset);
+						communicator.sendLine(datasetName);
+						communicator.sendDataset(dataset);
 					} else {
-						comunicator.sendLine("fail," + datasetName);
+						communicator.sendLine("fail," + datasetName);
 					}
 				}
-				comunicator.sendLine("idle");
+				communicator.sendLine("idle");
 				state = IDLE;
 				
 				break;
 				
 			case CLOSING:
-				comunicator.closeComunication();
+				communicator.closeComunication();
 				state = CLOSE;
 				break;
 
