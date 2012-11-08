@@ -1,11 +1,17 @@
 /**
  * 
  */
-package shadow.system.data;
+package shadow.system.data.wip;
 
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-import shadow.underdevelopment.SFClientConnection;
+import shadow.application.client.ClientCommunicatorOld;
+import shadow.system.data.SFDataCenterListener;
+import shadow.system.data.SFDataset;
+import shadow.system.data.SFIDataCenter;
+import shadow.system.data.SFObjectsLibrary;
 
 /**
  * @author Luigi Pasotti
@@ -15,33 +21,42 @@ import shadow.underdevelopment.SFClientConnection;
 public class SFRemoteDataCenter implements SFIDataCenter {
 	
 	private SFObjectsLibrary library;
-	private SFClientConnection connection;
+	private ExecutorService threadExecutor;
+	private HashMap<String, SFProxyDataset> requests;
 
 	/**
 	 * 
 	 */
-	public SFRemoteDataCenter(SFClientConnection connection) {
+	public SFRemoteDataCenter(ClientCommunicatorOld comunicator) {
 		this.library = new SFObjectsLibrary();
-		this.connection = connection;
-		//TODO: make sure that the connection is active
+		this.requests = new HashMap<String, SFProxyDataset>();
 	}
 
 	/* (non-Javadoc)
-	 * @see shadow.system.data.SFIDataCenter#makeDatasetAvailable(java.lang.String, shadow.system.data.SFDataCenterListener)
+	 * @see shadow.system.data.wip.SFIDataCenter#makeDatasetAvailable(java.lang.String, shadow.system.data.wip.SFDataCenterListener)
 	 */
 	@Override
 	public void makeDatasetAvailable(String name, SFDataCenterListener<?> listener) {
-		SFDataset dataset=library.retrieveDataset(name);
+		SFDataset dataset = library.retrieveDataset(name);
 		if (dataset == null){
-			
+			SFProxyDataset proxy = new SFProxyDataset();
+			dataset = proxy;
+			synchronized (requests) {
+				requests.put(name, proxy);
+			}
+			if (threadExecutor == null) {
+				threadExecutor = Executors.newCachedThreadPool();
+				threadExecutor.execute(new SFRemoteDataCenterRequestsCreationTask(requests));
+			}
 		}
 		((SFDataCenterListener<SFDataset>)listener).onDatasetAvailable(name, dataset);
 	}
 	
-	private SFDataset requestDataSet(String name) {
-		SFDataset dataset = null;
-		
-		return dataset;
-	}
+	// TODO Delete this code?
+//	private SFDataset requestDataSet(String name) {
+//		SFDataset dataset = null;
+//		
+//		return dataset;
+//	}
 
 }

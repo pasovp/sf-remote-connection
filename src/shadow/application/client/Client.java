@@ -13,7 +13,7 @@ import shadow.underdevelopment.SFConnection;
  * @author Luigi Pasotti
  *
  */
-public class ClientViewer {
+public class Client {
 
 	/**
 	 * @param args
@@ -23,9 +23,7 @@ public class ClientViewer {
 		SFViewer.prepare();
 		SFViewer viewer = new SFViewer();
 		SFConnection connection = new SFConnection("acquarius", 4444);
-		connection.openConnection();
 		
-
 	}
 
 }
