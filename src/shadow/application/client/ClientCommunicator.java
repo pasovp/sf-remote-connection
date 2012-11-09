@@ -27,8 +27,13 @@ public class ClientCommunicator extends GenericCommunicator {
 	public ClientCommunicator(SFConnection connection, CommunicatorExceptionListener listener ) {
 		super(connection, listener);
 		this.datacenter = SFDataCenter.getDataCenter(); 
+		try {
+			super.getConnection().openConnection();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
 	
 	public SFDataset readDataset() {
 		SFDataset dataset = null;

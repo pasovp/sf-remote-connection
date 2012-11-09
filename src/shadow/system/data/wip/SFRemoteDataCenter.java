@@ -3,11 +3,13 @@
  */
 package shadow.system.data.wip;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import shadow.application.client.ClientCommunicator;
+import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataCenterListener;
 import shadow.system.data.SFDataset;
 import shadow.system.data.SFIDataCenter;
@@ -22,41 +24,41 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	
 	private SFObjectsLibrary library;
 	private ExecutorService threadExecutor;
-	private HashMap<String, SFProxyDataset> requests;
+	private HashMap<String,SFDataset> requests;
 
 	/**
 	 * 
 	 */
-	public SFRemoteDataCenter(ClientCommunicator comunicator) {
+	public SFRemoteDataCenter() {
 		this.library = new SFObjectsLibrary();
-		this.requests = new HashMap<String, SFProxyDataset>();
+		this.requests = new HashMap<String, SFDataset>();
 	}
 
 	/* (non-Javadoc)
 	 * @see shadow.system.data.wip.SFIDataCenter#makeDatasetAvailable(java.lang.String, shadow.system.data.wip.SFDataCenterListener)
 	 */
 	@Override
-	public void makeDatasetAvailable(String name, SFDataCenterListener<?> listener) {
+	@SuppressWarnings("all")
+	//public void makeDatasetAvailable(String name, SFDataCenterListener<?> listener) {
+	public void makeDatasetAvailable(String name, SFDataCenterListener listener) {
+		Type[] t = listener.getClass().getGenericInterfaces();
+		ParameterizedType pt = (ParameterizedType) t[0];
+		Type[] ptt = pt.getActualTypeArguments();
+		//System.out.println(((Class) ptt[0]).getSimpleName());
+		
 		SFDataset dataset = library.retrieveDataset(name);
 		if (dataset == null){
-			SFProxyDataset proxy = new SFProxyDataset();
-			dataset = proxy;
+			dataset = SFDataCenter.getDataCenter().createDataset(((Class) ptt[0]).getSimpleName());
 			synchronized (requests) {
-				requests.put(name, proxy);
+				requests.put(name, dataset);
 			}
+			library.put(name, dataset);
 			if (threadExecutor == null) {
 				threadExecutor = Executors.newCachedThreadPool();
 				threadExecutor.execute(new SFRemoteDataCenterRequestsCreationTask(requests));
 			}
 		}
-		((SFDataCenterListener<SFDataset>)listener).onDatasetAvailable(name, dataset);
+		//((SFDataCenterListener<SFDataset>)listener).onDatasetAvailable(name, dataset);
+		listener.onDatasetAvailable(name, dataset);
 	}
-	
-	// TODO Delete this code?
-//	private SFDataset requestDataSet(String name) {
-//		SFDataset dataset = null;
-//		
-//		return dataset;
-//	}
-
 }

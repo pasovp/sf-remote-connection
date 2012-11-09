@@ -3,6 +3,8 @@
  */
 package shadow.system.data.wip;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Set;
@@ -10,6 +12,8 @@ import java.util.StringTokenizer;
 
 import shadow.application.client.ClientCommunicator;
 import shadow.system.data.SFDataset;
+import shadow.system.data.java.SFInputStreamJava;
+import shadow.system.data.java.SFOutputStreamJava;
 import shadow.underdevelopment.SFConnection;
 
 /**
@@ -17,10 +21,10 @@ import shadow.underdevelopment.SFConnection;
  *
  */
 public class SFRemoteDataCenterRequestTask implements Runnable {
-	private HashMap<String, SFProxyDataset> requests;
+	private HashMap<String, SFDataset> requests;
 	private ClientCommunicator communicator;
 	
-	public SFRemoteDataCenterRequestTask(HashMap<String, SFProxyDataset> requests) {
+	public SFRemoteDataCenterRequestTask(HashMap<String,SFDataset> requests) {
 		this.requests = requests;
 		
 		//TODO: add a way to request the connection from an external class
@@ -42,7 +46,7 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 		}
 		String request = "request";
 		for (String req : reqKeys) {
-			request.concat(","+req);
+			request = request.concat(","+req);
 		}
 		
 		communicator.sendLine(request);
@@ -65,11 +69,14 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 				} else {
 					SFDataset dataset = communicator.readDataset();
 					synchronized (requests) {
-						requests.get(token).setSFDataset(dataset);
+						ByteArrayOutputStream out = new ByteArrayOutputStream();
+						dataset.getSFDataObject().writeOnStream(new SFOutputStreamJava(out , null));
+						requests.get(token).getSFDataObject().readFromStream(new SFInputStreamJava(new ByteArrayInputStream(out.toByteArray()), null));
 						requests.remove(token);
 					}
 				}
 			}
 		}
+		communicator.sendLine("close");
 	}
 }

@@ -25,6 +25,7 @@ public class GenericCommunicator {
 	 * @return A String containing the contents of the line, not including any line-termination characters, or null if the end of the stream has been reached 
 	 */
 	public String readLine() {
+		
 		BufferedReader in;
 		String line = null;
 		try {

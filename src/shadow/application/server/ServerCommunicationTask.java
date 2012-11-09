@@ -44,31 +44,42 @@ public class ServerCommunicationTask implements Runnable {
 		while (state != CLOSE) {
 			switch (state) {
 			case IDLE:
+				System.out.println("state: idle");
 				String input = communicator.readLine();
-				if ( (input==null) || (input.compareTo("close") == 0) ) {
+				System.out.println("input: "+input);
+				if ( (input==null) || (input.compareTo("close") == 0) ) {	
 					state = CLOSING;
 				} else {
 					StringTokenizer tokenizer = new StringTokenizer(input, ",");
-					String token = tokenizer.nextToken();
-					if (token.compareTo("request")==0) {
-						while (tokenizer.hasMoreTokens()) {
-							token = tokenizer.nextToken();
-							requests.add(token);
-							state = REPLY;
+					if (tokenizer.hasMoreTokens()) {
+						String token = tokenizer.nextToken();
+						if (token.compareTo("request") == 0) {
+							while (tokenizer.hasMoreTokens()) {
+								token = tokenizer.nextToken();
+								requests.add(token);
+								state = REPLY;
+							}
+						} else {
+							System.out.println("error: not a request");
 						}
 					}
 				}
 				break;
 			
 			case REPLY:
+				System.out.println("state: reply");
 				while (!requests.isEmpty()) {
 					String datasetName = requests.remove(0);
 					SFDataset dataset = library.getDataset(datasetName);
 					if (dataset!=null) {
 						communicator.sendLine(datasetName);
+						System.out.println("sending: "+datasetName);
 						communicator.sendDataset(dataset);
+						communicator.sendLine("");
+						System.out.println("sent: "+datasetName);
 					} else {
 						communicator.sendLine("fail," + datasetName);
+						System.out.println("fail: "+ datasetName);
 					}
 				}
 				communicator.sendLine("idle");
@@ -77,6 +88,7 @@ public class ServerCommunicationTask implements Runnable {
 				break;
 				
 			case CLOSING:
+				System.out.println("state: closing");
 				communicator.closeComunication();
 				state = CLOSE;
 				break;

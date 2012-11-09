@@ -1,22 +1,21 @@
-/**
- * 
- */
 package shadow.system.data.wip;
 
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import shadow.system.data.SFDataset;
+
 /**
  * @author Luigi Pasotti
  *
  */
 public class SFRemoteDataCenterRequestsCreationTask implements Runnable {
-	private HashMap<String, SFProxyDataset> requests;
+	private HashMap<String,SFDataset> requests;
 	private ExecutorService threadExecutor;
 	
 
-	public SFRemoteDataCenterRequestsCreationTask(HashMap<String, SFProxyDataset> requests) {
+	public SFRemoteDataCenterRequestsCreationTask(HashMap<String,SFDataset> requests) {
 		this.requests = requests;
 	}
 
