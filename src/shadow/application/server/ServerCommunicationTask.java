@@ -74,9 +74,12 @@ public class ServerCommunicationTask implements Runnable {
 					if (dataset!=null) {
 						communicator.sendLine(datasetName);
 						System.out.println("sending: "+datasetName);
+						
+						communicator.readLine();
+						
 						communicator.sendDataset(dataset);
-						communicator.sendLine("");
 						System.out.println("sent: "+datasetName);
+						
 					} else {
 						communicator.sendLine("fail," + datasetName);
 						System.out.println("fail: "+ datasetName);

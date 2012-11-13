@@ -24,18 +24,21 @@ public class SFRemoteDataCenterRequestsCreationTask implements Runnable {
 	 */
 	@Override
 	public void run() {
-		synchronized (requests) {
-			if (!requests.isEmpty()) {
-				if (threadExecutor == null) {
-					threadExecutor = Executors.newCachedThreadPool();
+		while (true) {
+			synchronized (requests) {
+				if (!requests.isEmpty()) {
+					if (threadExecutor == null) {
+						threadExecutor = Executors.newCachedThreadPool();
+					}
+					threadExecutor.execute(new SFRemoteDataCenterRequestTask(
+							requests));
 				}
-				threadExecutor.execute(new SFRemoteDataCenterRequestTask(requests));
 			}
-		}
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

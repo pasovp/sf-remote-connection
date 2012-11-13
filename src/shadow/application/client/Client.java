@@ -32,16 +32,9 @@ public class Client {
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		Client client = new Client();
 		client.configureDataCenter();
-		//SFViewer.prepare();
-		SFDataCenter.getDataCenter().makeDatasetAvailable("RedMushroom", new SFDataCenterListener<SFObjectModelData>() {
-			@Override
-			public void onDatasetAvailable(String name, SFObjectModelData dataset) {
-				
-				
-				//SFObjectModel model=(SFObjectModel)dataset.getResource();
-				//SFViewer.generateFrame(model,CommonMaterial.generateColoursController(model),SFViewer.getLightStepController());
-			}
-		});
+		ClientDataCenterListener<SFObjectModelData> listener = new ClientDataCenterListener<SFObjectModelData>();
+		SFViewer.prepare();
+		SFDataCenter.getDataCenter().makeDatasetAvailable("RedMushroom", listener);
 		
 	}
 	

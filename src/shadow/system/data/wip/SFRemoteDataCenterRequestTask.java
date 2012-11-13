@@ -55,6 +55,7 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 			String input = communicator.readLine();
 			
 			if (input.compareTo("idle") == 0) {
+				communicator.sendLine("close");
 				communicator.closeComunication();
 				break;
 			} else {
@@ -67,16 +68,20 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 						// TODO add a notification of the failed request
 					} 
 				} else {
+					communicator.sendLine("ok");
 					SFDataset dataset = communicator.readDataset();
 					synchronized (requests) {
 						ByteArrayOutputStream out = new ByteArrayOutputStream();
 						dataset.getSFDataObject().writeOnStream(new SFOutputStreamJava(out , null));
 						requests.get(token).getSFDataObject().readFromStream(new SFInputStreamJava(new ByteArrayInputStream(out.toByteArray()), null));
+						
+						synchronized (requests.get(token)) {
+							requests.get(token).notifyAll();
+						}
 						requests.remove(token);
 					}
 				}
 			}
 		}
-		communicator.sendLine("close");
 	}
 }

@@ -38,13 +38,10 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	 * @see shadow.system.data.wip.SFIDataCenter#makeDatasetAvailable(java.lang.String, shadow.system.data.wip.SFDataCenterListener)
 	 */
 	@Override
-	@SuppressWarnings("all")
-	//public void makeDatasetAvailable(String name, SFDataCenterListener<?> listener) {
-	public void makeDatasetAvailable(String name, SFDataCenterListener listener) {
+	public void makeDatasetAvailable(String name, SFDataCenterListener<?> listener) {
 		Type[] t = listener.getClass().getGenericInterfaces();
 		ParameterizedType pt = (ParameterizedType) t[0];
 		Type[] ptt = pt.getActualTypeArguments();
-		//System.out.println(((Class) ptt[0]).getSimpleName());
 		
 		SFDataset dataset = library.retrieveDataset(name);
 		if (dataset == null){
@@ -58,7 +55,14 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 				threadExecutor.execute(new SFRemoteDataCenterRequestsCreationTask(requests));
 			}
 		}
-		//((SFDataCenterListener<SFDataset>)listener).onDatasetAvailable(name, dataset);
-		listener.onDatasetAvailable(name, dataset);
+		synchronized (dataset) {
+			try {
+				dataset.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		((SFDataCenterListener<SFDataset>)listener).onDatasetAvailable(name, dataset);
 	}
 }
