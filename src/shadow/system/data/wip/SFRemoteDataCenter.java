@@ -18,11 +18,12 @@ import shadow.system.data.SFObjectsLibrary;
 /**
  * @author Luigi Pasotti
  * This is an implementation of a SFIDataCenter for a client program
- *
+ * 
  */
 public class SFRemoteDataCenter implements SFIDataCenter {
 	
 	private SFObjectsLibrary library;
+	private SFObjectsLibrary defaultReferencesLibrary;
 	private ExecutorService threadExecutor;
 	private HashMap<String,SFDataset> requests;
 

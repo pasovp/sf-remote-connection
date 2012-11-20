@@ -27,7 +27,7 @@ public class ServerDataHandler implements InterfServerDataLibrary {
 	
 	public void loadLibrary() {		
 		SFDataset dataset = SFDataUtility.loadDataset(ROOT, FILENAME + ".sf");
-		this.library = (SFObjectsLibrary)(dataset); 
+		this.library = (SFObjectsLibrary)(dataset);
 	}
 
 

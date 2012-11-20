@@ -4,13 +4,10 @@ package shadow.application.client;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
-import shadow.renderer.SFObjectModel;
-import shadow.renderer.contents.tests.common.CommonMaterial;
 import shadow.renderer.data.SFObjectModelData;
 import shadow.renderer.data.utils.SFViewerDatasetFactory;
 import shadow.renderer.viewer.SFViewer;
 import shadow.system.data.SFDataCenter;
-import shadow.system.data.SFDataCenterListener;
 import shadow.system.data.wip.SFRemoteDataCenter;
 
 /**
