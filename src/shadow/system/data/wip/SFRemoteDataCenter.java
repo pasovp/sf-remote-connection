@@ -3,13 +3,10 @@
  */
 package shadow.system.data.wip;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataCenterListener;
 import shadow.system.data.SFDataset;
 import shadow.system.data.SFIDataCenter;
@@ -40,13 +37,14 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	 */
 	@Override
 	public void makeDatasetAvailable(String name, SFDataCenterListener<?> listener) {
-		Type[] t = listener.getClass().getGenericInterfaces();
-		ParameterizedType pt = (ParameterizedType) t[0];
-		Type[] ptt = pt.getActualTypeArguments();
+//		Type[] t = listener.getClass().getGenericInterfaces();
+//		ParameterizedType pt = (ParameterizedType) t[0];
+//		Type[] ptt = pt.getActualTypeArguments();
 		
 		SFDataset dataset = library.retrieveDataset(name);
 		if (dataset == null){
-			dataset = SFDataCenter.getDataCenter().createDataset(((Class) ptt[0]).getSimpleName());
+			//dataset = SFDataCenter.getDataCenter().createDataset(((Class) ptt[0]).getSimpleName());
+			dataset = library.retrieveDataset(((SFDefaultDatasetReference)defaultReferencesLibrary.retrieveDataset(name)).getName().getString()).generateNewDatasetInstance();
 			synchronized (requests) {
 				requests.put(name, dataset);
 			}
