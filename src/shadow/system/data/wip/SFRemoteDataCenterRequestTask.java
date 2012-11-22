@@ -75,6 +75,8 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 						dataset.getSFDataObject().writeOnStream(new SFOutputStreamJava(out , null));
 						requests.get(token).getSFDataObject().readFromStream(new SFInputStreamJava(new ByteArrayInputStream(out.toByteArray()), null));
 						
+						//FIXME buildare il dataset ricevuto e aggiungerlo agli initiable (se inizializzabile)
+						
 						synchronized (requests.get(token)) {
 							requests.get(token).notifyAll();
 						}

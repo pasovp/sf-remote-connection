@@ -200,13 +200,6 @@ public class SFConnection {
 		return this.address;
 	}
 
-//	/**
-//	 * @param address the address to set
-//	 */
-//	public void setAddress(InetAddress address) {
-//		//TODO:Must create a new SocketAddress with the address and the port number
-//	}
-
 	/**
 	 * Returns the remote port to which this socket is connected. 
 	 * @return the port the remote port number to which this socket is connected, or 0 if the socket is not connected yet.

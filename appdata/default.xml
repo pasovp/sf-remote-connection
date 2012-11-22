@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+	<SFStructureArrayDataUnit8 name="BasicMatColours">
+		<structure>Mat01</structure>
+		<values>
+			<values_element>(0.5,0.0,0.0)</values_element>
+			<values_element>(1.0,0.0,0.0)</values_element>
+			<values_element>(0.0,0.5,0.0)</values_element>
+			<values_element>(0.5,0.5,0.0)</values_element>
+			<values_element>(0.5,0.0,0.5)</values_element>
+			<values_element>(0.0,0.0,0.5)</values_element>
+			<values_element>(0.5,0.0,1.0)</values_element>
+			<values_element>(0.5,1.0,0.0)</values_element>
+			<values_element>(0.6,1.0,0.4)</values_element>
+			<values_element>(0.0,1.0,1.0)</values_element>
+			<values_element>(1.0,0.6,0.0)</values_element>
+			<values_element>(1.0,0.84800005,0.0)</values_element>
+			<values_element>(0.0,0.6,0.2)</values_element>
+			<values_element>(0.1,0.0,0.3)</values_element>
+			<values_element>(1.0,1.0,1.0)</values_element>
+			<values_element>(0.6,0.6,0.6)</values_element>
+			<values_element>(0.0,0.0,1.0)</values_element>
+		</values>
+	</SFStructureArrayDataUnit8>
+	
+	<SFVertexListData16 name="CubeVertexes">
+		<vertices>
+			<!-- front face -->
+			<vertices_element>(0.0,0.0,0.0)</vertices_element>
+			<vertices_element>(0.0,0.5,0.0)</vertices_element>
+			<vertices_element>(0.5,0.5,0.0)</vertices_element>
+			<vertices_element>(0.5,0.0,0.0)</vertices_element>
+			<!-- back face -->
+			<vertices_element>(0.0,0.0,0.5)</vertices_element>
+			<vertices_element>(0.0,0.5,0.5)</vertices_element>
+			<vertices_element>(0.5,0.5,0.5)</vertices_element>
+			<vertices_element>(0.5,0.0,0.5)</vertices_element>
+		</vertices>
+	</SFVertexListData16>
+	
+	<SFVertexListData16 name="CubeNormals">
+		<vertices>
+			<!-- front face normal-->
+			<vertices_element>(0.0,0.0,-1.0)</vertices_element>
+			<!-- back face normal-->
+			<vertices_element>(0.0,0.0,1.0)</vertices_element>
+			<!-- up face normal-->
+			<vertices_element>(0.0,1.0,0.0)</vertices_element>
+			<!-- down face normal-->
+			<vertices_element>(0.0,-1.0,0.0)</vertices_element>
+			<!-- right face normal-->
+			<vertices_element>(1.0,0.0,0.0)</vertices_element>
+			<!-- left face normal-->
+			<vertices_element>(-1.0,0.0,0.0)</vertices_element>
+		</vertices>
+	</SFVertexListData16>
+	
+	
+	<SFMeshGeometryData>
+		<SFPrimitiveArrayData>
+			
+		</SFPrimitiveArrayData>
+	</SFMeshGeometryData>
+</library>
