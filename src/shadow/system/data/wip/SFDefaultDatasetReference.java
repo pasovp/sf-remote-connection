@@ -17,7 +17,19 @@ import shadow.system.data.objects.SFString;
 public class SFDefaultDatasetReference implements SFDataset, SFDataObject {
 	
 	private SFString name;
-	private SFLong timestamp; 
+	private SFLong timestamp;
+	
+	public SFDefaultDatasetReference() {
+		super();
+		name = new SFString("");
+		timestamp = new SFLong(0);
+	}
+	
+	public SFDefaultDatasetReference(String name, long timestamp) {
+		super();
+		this.name = new SFString(name);
+		this.timestamp = new SFLong(timestamp);
+	}
 	
 	/**
 	 * @return the name
@@ -46,19 +58,13 @@ public class SFDefaultDatasetReference implements SFDataset, SFDataObject {
 	public void setTimestamp(SFLong timestamp) {
 		this.timestamp = timestamp;
 	}
-
-	public SFDefaultDatasetReference() {
-		super();
-		name = new SFString("");
-		timestamp = new SFLong(0);
-	}
 	
 	/* (non-Javadoc)
 	 * @see shadow.system.data.SFDataObject#clone()
 	 */
 	@Override
 	public SFDefaultDatasetReference clone() {
-		return new SFDefaultDatasetReference();
+		return new SFDefaultDatasetReference(this.name.getString(),this.timestamp.getLongValue());
 	}
 	
 	/* (non-Javadoc)
