@@ -57,7 +57,7 @@
 	
 	
 	<SFMeshGeometryData name="Cube">
-		<SFPrimitiveArrayData name="faceData">
+		<SFPrimitiveArrayData name="linesData">
 			<primitive>QuadPN</primitive>
 			<references id="primitiveData">
 				<reference>CubeVertexes</reference>
