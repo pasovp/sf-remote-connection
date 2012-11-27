@@ -30,8 +30,7 @@ public class SFRemoteDataCenterRequestsCreationTask implements Runnable {
 					if (threadExecutor == null) {
 						threadExecutor = Executors.newCachedThreadPool();
 					}
-					threadExecutor.execute(new SFRemoteDataCenterRequestTask(
-							requests));
+					threadExecutor.execute(new SFRemoteDataCenterRequestTask(requests));
 				}
 			}
 			try {

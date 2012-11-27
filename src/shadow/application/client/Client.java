@@ -8,6 +8,7 @@ import shadow.renderer.data.SFObjectModelData;
 import shadow.renderer.data.utils.SFViewerDatasetFactory;
 import shadow.renderer.viewer.SFViewer;
 import shadow.system.data.SFDataCenter;
+import shadow.system.data.wip.SFDefaultDatasetReference;
 import shadow.system.data.wip.SFRemoteDataCenter;
 
 /**
@@ -17,7 +18,9 @@ import shadow.system.data.wip.SFRemoteDataCenter;
 public class Client {
 	
 	public void configureDataCenter(){
-		SFDataCenter.setDatasetFactory(new SFViewerDatasetFactory());
+		SFViewerDatasetFactory factory = new SFViewerDatasetFactory();
+		factory.addSFDataset(new SFDefaultDatasetReference());
+		SFDataCenter.setDatasetFactory(factory);
 		SFRemoteDataCenter implementation = new SFRemoteDataCenter();
 		SFDataCenter.setDataCenterImplementation(implementation);
 	}
@@ -32,10 +35,5 @@ public class Client {
 		ClientDataCenterListener<SFObjectModelData> listener = new ClientDataCenterListener<SFObjectModelData>();
 		SFViewer.prepare();
 		SFDataCenter.getDataCenter().makeDatasetAvailable("RedMushroom", listener);
-		
 	}
-	
-	
-	
-
 }

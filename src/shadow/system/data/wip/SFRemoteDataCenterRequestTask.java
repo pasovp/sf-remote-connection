@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import shadow.application.client.ClientCommunicator;
+import shadow.renderer.data.SFAsset;
 import shadow.system.data.SFDataset;
 import shadow.system.data.java.SFInputStreamJava;
 import shadow.system.data.java.SFOutputStreamJava;
@@ -74,13 +75,15 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 						ByteArrayOutputStream out = new ByteArrayOutputStream();
 						dataset.getSFDataObject().writeOnStream(new SFOutputStreamJava(out , null));
 						requests.get(token).getSFDataObject().readFromStream(new SFInputStreamJava(new ByteArrayInputStream(out.toByteArray()), null));
-						
-						//FIXME buildare il dataset ricevuto e aggiungerlo agli initiable (se inizializzabile)
-						
-						synchronized (requests.get(token)) {
-							requests.get(token).notifyAll();
-						}
+						dataset = requests.get(token);
 						requests.remove(token);
+					}
+					synchronized (dataset) {
+						if(dataset instanceof SFAsset) {
+							SFAsset asset = (SFAsset)(dataset);
+							asset.getResource();
+						}
+						dataset.notifyAll();
 					}
 				}
 			}
