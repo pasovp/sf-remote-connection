@@ -4,6 +4,8 @@ package shadow.application.client;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
+import shadow.geometry.geometries.data.SFMeshGeometryData;
+import shadow.renderer.contents.tests.common.CommonPipeline;
 import shadow.renderer.data.SFObjectModelData;
 import shadow.renderer.data.utils.SFViewerDatasetFactory;
 import shadow.renderer.viewer.SFViewer;
@@ -30,10 +32,12 @@ public class Client {
 	 * @throws UnknownHostException 
 	 */
 	public static void main(String[] args) throws UnknownHostException, IOException {
+		//SFViewer.prepare();
+		CommonPipeline.prepare();
 		Client client = new Client();
 		client.configureDataCenter();
 		ClientDataCenterListener<SFObjectModelData> listener = new ClientDataCenterListener<SFObjectModelData>();
-		SFViewer.prepare();
+		
 		SFDataCenter.getDataCenter().makeDatasetAvailable("RedMushroom", listener);
 	}
 }

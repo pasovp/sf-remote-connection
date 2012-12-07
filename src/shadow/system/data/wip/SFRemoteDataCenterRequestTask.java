@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
 
 import shadow.application.client.ClientCommunicator;
 import shadow.renderer.data.SFAsset;
+import shadow.renderer.data.SFDataAsset;
 import shadow.system.data.SFDataset;
 import shadow.system.data.java.SFInputStreamJava;
 import shadow.system.data.java.SFOutputStreamJava;
@@ -81,7 +82,9 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 					synchronized (dataset) {
 						if(dataset instanceof SFAsset) {
 							SFAsset asset = (SFAsset)(dataset);
+							SFDataAsset.setUpdateMode(true);
 							asset.getResource();
+							SFDataAsset.setUpdateMode(false);
 						}
 						dataset.notifyAll();
 					}

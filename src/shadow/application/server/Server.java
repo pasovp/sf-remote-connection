@@ -28,7 +28,7 @@ public class Server {
 		ServerDataHandler dataHandler = new ServerDataHandler();
 		dataHandler.loadLibrary();
 		dataHandler.loadDefaultReferences();
-		
+		//dataHandler.testCopy();
 		SFServerConnection serverConnection = new SFServerConnection(4444);
 		ServerListeningTask listeningTask = new ServerListeningTask(serverConnection, dataHandler);
 		threadExecutor.execute(listeningTask);

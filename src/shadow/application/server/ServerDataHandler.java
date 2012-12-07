@@ -3,6 +3,9 @@
  */
 package shadow.application.server;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 import shadow.renderer.data.java.SFObjectsLibraryDecoder;
 import shadow.renderer.data.java.SFXMLDataInterpreter;
 import shadow.renderer.data.utils.SFDataUtility;
@@ -11,6 +14,8 @@ import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataset;
 import shadow.system.data.SFObjectsLibrary;
 import shadow.system.data.SFObjectsLibrary.RecordData;
+import shadow.system.data.java.SFInputStreamJava;
+import shadow.system.data.java.SFOutputStreamJava;
 import shadow.system.data.wip.SFDefaultDatasetReference;
 
 /**
@@ -86,6 +91,17 @@ public class ServerDataHandler implements InterfServerDataLibrary {
 	public SFDataset getDataset(String datasetName) {
 		SFDataset dataset = library.retrieveDataset(datasetName);
 		return dataset;
+	}
+
+	public void testCopy() {
+		SFDataset dataset1 = library.retrieveDataset("Cube");
+		SFDataset dataset2 = dataset1.generateNewDatasetInstance();
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		dataset1.getSFDataObject().writeOnStream(new SFOutputStreamJava(out , null));
+		dataset2.getSFDataObject().readFromStream(new SFInputStreamJava(new ByteArrayInputStream(out.toByteArray()), null));
+		
+		System.out.println();
+		
 	}
 
 }

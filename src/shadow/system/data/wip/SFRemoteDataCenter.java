@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import shadow.geometry.geometries.data.SFMeshGeometryData;
 import shadow.system.data.SFDataCenterListener;
 import shadow.system.data.SFDataset;
 import shadow.system.data.SFIDataCenter;
@@ -39,7 +40,7 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 		requests.put("DefaultReferences", defaultReferencesLibrary);
 		requests.put("DefaultAssetLibrary", library);
 		Thread thread = new Thread(new SFRemoteDataCenterRequestTask(requests));
-		thread.run();
+		thread.start();
 		
 		try {
 			thread.join();
