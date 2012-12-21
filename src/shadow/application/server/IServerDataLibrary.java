@@ -9,7 +9,7 @@ import shadow.system.data.SFDataset;
  * @author Luigi Pasotti
  *
  */
-public interface InterfServerDataLibrary {
+public interface IServerDataLibrary {
 	/**
 	 * @param datasetName The name of the dataset;
 	 * @return The SFDataset

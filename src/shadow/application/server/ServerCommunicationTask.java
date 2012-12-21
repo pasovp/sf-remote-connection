@@ -15,7 +15,7 @@ import shadow.underdevelopment.SFConnection;
  */
 public class ServerCommunicationTask implements Runnable {
 	private ServerCommunicator communicator;
-	private InterfServerDataLibrary library;
+	private IServerDataLibrary library;
 	
 	private static final int IDLE = 0;
 	private static final int REPLY = 1;
@@ -27,7 +27,7 @@ public class ServerCommunicationTask implements Runnable {
 	/**
 	 * @param connection
 	 */
-	public ServerCommunicationTask(SFConnection connection, InterfServerDataLibrary library) {
+	public ServerCommunicationTask(SFConnection connection, IServerDataLibrary library) {
 		super();
 		this.communicator = new ServerCommunicator(connection);
 		this.library = library;

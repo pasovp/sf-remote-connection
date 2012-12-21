@@ -22,7 +22,7 @@ import shadow.system.data.wip.SFDefaultDatasetReference;
  * @author Luigi Pasotti
  *
  */
-public class ServerDataHandler implements InterfServerDataLibrary {
+public class ServerDataHandler implements IServerDataLibrary {
 
 	private SFObjectsLibrary library;
 	private SFObjectsLibrary defaultReferencesLibrary;
@@ -85,7 +85,7 @@ public class ServerDataHandler implements InterfServerDataLibrary {
 	}
 
 	/* (non-Javadoc)
-	 * @see shadow.application.server.InterfServerDataLibrary#getDataset(java.lang.String)
+	 * @see shadow.application.server.IServerDataLibrary#getDataset(java.lang.String)
 	 */
 	@Override
 	public SFDataset getDataset(String datasetName) {
@@ -93,6 +93,7 @@ public class ServerDataHandler implements InterfServerDataLibrary {
 		return dataset;
 	}
 
+	//DEBUG METHOD
 	public void testCopy() {
 		SFDataset dataset1 = library.retrieveDataset("Cube");
 		SFDataset dataset2 = dataset1.generateNewDatasetInstance();
@@ -100,7 +101,7 @@ public class ServerDataHandler implements InterfServerDataLibrary {
 		dataset1.getSFDataObject().writeOnStream(new SFOutputStreamJava(out , null));
 		dataset2.getSFDataObject().readFromStream(new SFInputStreamJava(new ByteArrayInputStream(out.toByteArray()), null));
 		
-		System.out.println();
+		//System.out.println();
 		
 	}
 
