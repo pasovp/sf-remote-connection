@@ -3,19 +3,15 @@
  */
 package shadow.system.data.wip;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.net.UnknownHostException;
-import java.util.HashMap;
-import java.util.Set;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import shadow.application.client.ClientCommunicator;
 import shadow.renderer.data.SFAsset;
 import shadow.renderer.data.SFDataAsset;
+import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataset;
-import shadow.system.data.java.SFInputStreamJava;
-import shadow.system.data.java.SFOutputStreamJava;
 import shadow.underdevelopment.SFConnection;
 
 /**
@@ -23,12 +19,14 @@ import shadow.underdevelopment.SFConnection;
  *
  */
 public class SFRemoteDataCenterRequestTask implements Runnable {
-	private HashMap<String, SFDataset> requests;
+	//private ArrayList<String> requests;
+	SFRemoteRequests requests;
+	private ArrayList<String> requestList;
 	private ClientCommunicator communicator;
 	
-	public SFRemoteDataCenterRequestTask(HashMap<String,SFDataset> requests) {
-		this.requests = requests;
-		
+	public SFRemoteDataCenterRequestTask() {
+		this.requests = ((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).getRequests();
+		//this.buffer = new ArrayList<String>();
 		//TODO: add a way to request the connection from an external class
 		try {
 			this.communicator = new ClientCommunicator(new SFConnection("acquarius", 4444), null);
@@ -42,16 +40,22 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 	 */
 	@Override
 	public void run() {
-		Set<String> reqKeys;
-		synchronized (requests) {
-			reqKeys = requests.keySet();
-		}
-		String request = "request";
-		for (String req : reqKeys) {
-			request = request.concat(","+req);
+
+		String requestString = "request";
+		requestList = requests.getRequests();
+		
+//		synchronized (requests) {
+//			for (String req : requests) {
+//				request = request.concat(","+req);
+//				buffer.add(req);
+//			}
+//			requests.clear();
+//		}
+		for (String req : requestList) {
+			requestString = requestString.concat(","+req);
 		}
 		
-		communicator.sendLine(request);
+		communicator.sendLine(requestString);
 		
 		while (true) {
 			String input = communicator.readLine();
@@ -65,30 +69,27 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 				String token = tokenizer.nextToken();
 				if (token.compareTo("fail") == 0) {
 					token = tokenizer.nextToken();
-					synchronized (requests) {
-						requests.remove(token);
-						// TODO add a notification of the failed request
-					} 
+					// TODO add a notification of the failed request
+ 
 				} else {
 					communicator.sendLine("ok");
 					SFDataset dataset = communicator.readDataset();
-					synchronized (requests) {
-						ByteArrayOutputStream out = new ByteArrayOutputStream();
-						dataset.getSFDataObject().writeOnStream(new SFOutputStreamJava(out , null));
-						requests.get(token).getSFDataObject().readFromStream(new SFInputStreamJava(new ByteArrayInputStream(out.toByteArray()), null));
-						dataset = requests.get(token);
-						requests.remove(token);
-					}
+					
 					synchronized (dataset) {
 						if(dataset instanceof SFAsset) {
 							SFAsset asset = (SFAsset)(dataset);
+							//FIXME Non sono sicuro che sia più necessario usare l'UpdateMode
 							SFDataAsset.setUpdateMode(true);
 							asset.getResource();
 							SFDataAsset.setUpdateMode(false);
 						}
-						dataset.notifyAll();
 					}
+					((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).addDatasetToLibraty(token, dataset);
+					
+					//requests.onRequestUpdate(token);
+					requests.onRequestUpdateTest(token);
 				}
+					
 			}
 		}
 	}

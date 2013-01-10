@@ -5,11 +5,9 @@ package shadow.system.data.wip;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import shadow.geometry.geometries.data.SFMeshGeometryData;
 import shadow.system.data.SFDataCenterListener;
 import shadow.system.data.SFDataset;
 import shadow.system.data.SFIDataCenter;
@@ -27,19 +25,27 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	private SFObjectsLibrary library;
 	private SFObjectsLibrary defaultReferencesLibrary;
 	private ExecutorService threadExecutor;
-	private HashMap<String,SFDataset> requests;
-
+	//private ArrayList<String> requests;
+	private SFRemoteRequests requests;
+	
+	
 	/**
 	 * 
 	 */
 	public SFRemoteDataCenter() throws SFDataCenterCreationException {
 		library = new SFObjectsLibrary();
 		defaultReferencesLibrary = new SFObjectsLibrary();
-		requests = new HashMap<String, SFDataset>();
+		//requests = new ArrayList<String>();
+		requests = new SFRemoteRequests();
+	}
+	
+	public void loadDefaultData() {
+		//requests.add("DefaultReferences");
+		//requests.add("DefaultAssetLibrary");
+		requests.addRequest("DefaultReferences");
+		requests.addRequest("DefaultAssetLibrary");
 		
-		requests.put("DefaultReferences", defaultReferencesLibrary);
-		requests.put("DefaultAssetLibrary", library);
-		Thread thread = new Thread(new SFRemoteDataCenterRequestTask(requests));
+		Thread thread = new Thread(new SFRemoteDataCenterRequestTask());
 		thread.start();
 		
 		try {
@@ -48,9 +54,36 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if ((library == null) || (defaultReferencesLibrary == null)) {
+		
+		SFDataset assetLib = library.retrieveDataset("DefaultAssetLibrary");
+		SFDataset defRef = library.retrieveDataset("DefaultReferences");
+		
+		if ((assetLib != null) && (defRef!=null)) {
+			defaultReferencesLibrary.addLibrary((SFObjectsLibrary)defRef);
+			library.addLibrary((SFObjectsLibrary)assetLib);
+		} else {
 			throw new SFDataCenterCreationException("SFRemoteDataCenter: can't download default assets library");
 		}
+	}
+	
+	public synchronized void addDatasetToLibraty(String name, SFDataset dataset) {
+		this.library.put(name, dataset);
+	}
+	
+//	public synchronized void removeRequest(String name) {
+//		this.requests.remove(name);
+//	}
+//	
+//	public synchronized void addRequest(String name) {
+//		this.requests.add(name);
+//	}
+	
+//	public synchronized ArrayList<String> getRequests() {
+//		return requests;
+//	}
+	
+	public SFRemoteRequests getRequests() {
+		return this.requests;
 	}
 
 	/* (non-Javadoc)
@@ -58,32 +91,34 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	 */
 	@Override
 	public void makeDatasetAvailable(String name, SFDataCenterListener<?> listener) {
-//		Type[] t = listener.getClass().getGenericInterfaces();
-//		ParameterizedType pt = (ParameterizedType) t[0];
-//		Type[] ptt = pt.getActualTypeArguments();
 		
 		SFDataset dataset = library.retrieveDataset(name);
 		if (dataset == null){
-			//dataset = SFDataCenter.getDataCenter().createDataset(((Class) ptt[0]).getSimpleName());
-			
-			// FIXME Wishing a clone-like generateNewDatasetInstance() or a method for using a simple  
 			SFDataset tmp = library.retrieveDataset(((SFDefaultDatasetReference)defaultReferencesLibrary.retrieveDataset(name)).getName().getString());
 			dataset = tmp.generateNewDatasetInstance();
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
 			tmp.getSFDataObject().writeOnStream(new SFOutputStreamJava(out , null));
 			dataset.getSFDataObject().readFromStream(new SFInputStreamJava(new ByteArrayInputStream(out.toByteArray()), null));
 			
+			this.addDatasetToLibraty(name, dataset);
 			synchronized (requests) {
-				requests.put(name, dataset);
+				//requests.add(name);
+				requests.addUpdateListenerTest(name, listener);
+				requests.addRequest(name);
 			}
-			library.put(name, dataset);
 			
 			if (threadExecutor == null) {
 				threadExecutor = Executors.newCachedThreadPool();
-				threadExecutor.execute(new SFRemoteDataCenterRequestsCreationTask(requests));
+				threadExecutor.execute(new SFRemoteDataCenterRequestsCreationTask());
 			}
-			//threadExecutor.execute(new SFRemoteDataCenterRequestsCreationTask(requests));
 		}
 		((SFDataCenterListener<SFDataset>)listener).onDatasetAvailable(name, dataset);
+	}
+	
+	public <T extends SFDataset> void makeUpdatableDatasetAvailable(String name, SFUpdatableDatasetListener<T> listener){
+		
+		requests.addUpdateListener(name, listener);
+		makeDatasetAvailable(name, listener);
+		
 	}
 }

@@ -19,7 +19,6 @@ public class ClientCommunicator extends GenericCommunicator {
 	
 	private SFDataCenter datacenter;
 	
-
 	/**
 	 * @param connection
 	 * @param listener the listener of the exceptions of the communicator, or null when there isn't an external management for exceptions.

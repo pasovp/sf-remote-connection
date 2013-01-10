@@ -1,22 +1,23 @@
 package shadow.system.data.wip;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import shadow.system.data.SFDataset;
+import shadow.system.data.SFDataCenter;
 
 /**
  * @author Luigi Pasotti
  *
  */
 public class SFRemoteDataCenterRequestsCreationTask implements Runnable {
-	private HashMap<String,SFDataset> requests;
+	//private ArrayList<String> requests;
+	SFRemoteRequests requests;
 	private ExecutorService threadExecutor;
 	
-
-	public SFRemoteDataCenterRequestsCreationTask(HashMap<String,SFDataset> requests) {
-		this.requests = requests;
+	
+	public SFRemoteDataCenterRequestsCreationTask() {
+		this.requests = ((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).getRequests();
 	}
 
 	/* (non-Javadoc)
@@ -26,11 +27,11 @@ public class SFRemoteDataCenterRequestsCreationTask implements Runnable {
 	public void run() {
 		while (true) {
 			synchronized (requests) {
-				if (!requests.isEmpty()) {
+				if (requests.hasNewRequests()) {
 					if (threadExecutor == null) {
 						threadExecutor = Executors.newCachedThreadPool();
 					}
-					threadExecutor.execute(new SFRemoteDataCenterRequestTask(requests));
+					threadExecutor.execute(new SFRemoteDataCenterRequestTask());
 				}
 			}
 			try {
