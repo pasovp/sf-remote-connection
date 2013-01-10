@@ -13,7 +13,6 @@ import shadow.renderer.data.utils.SFViewerDatasetFactory;
 import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataset;
 import shadow.system.data.SFObjectsLibrary;
-import shadow.system.data.SFObjectsLibrary.RecordData;
 import shadow.system.data.java.SFInputStreamJava;
 import shadow.system.data.java.SFOutputStreamJava;
 import shadow.system.data.wip.SFDefaultDatasetReference;
@@ -42,45 +41,42 @@ public class ServerDataHandler implements IServerDataLibrary {
 		SFDataCenter.setDatasetFactory(factory);
 	}
 	
+	public void generateLibraryFromXML() {
+		SFObjectsLibrary lib;
+		lib = new SFObjectsLibrary();
+		SFObjectsLibraryDecoder decoder = new SFObjectsLibraryDecoder(lib);
+		SFXMLDataInterpreter interpreter = new SFXMLDataInterpreter(decoder);
+		interpreter.generateInterpretation(ROOT + "/" + FILENAME + ".xml" );
+		SFDataUtility.saveDataset(ROOT, FILENAME + ".sf", lib);
+		
+		lib = new SFObjectsLibrary();
+		decoder = new SFObjectsLibraryDecoder(lib);
+		interpreter = new SFXMLDataInterpreter(decoder);
+		interpreter.generateInterpretation(ROOT + "/default.xml" );
+		SFDataUtility.saveDataset(ROOT, "default.sf", lib);
+		
+	}
+	
 	public void loadLibrary() {
 		SFObjectsLibrary lib;
 		lib = (SFObjectsLibrary) SFDataUtility.loadDataset(ROOT, FILENAME + ".sf");
 		this.library = lib;
-		
-		// FIXME default assets builded at runtime
-		//lib = (SFObjectsLibrary) SFDataUtility.loadDataset(ROOT, "default.sf");
-		lib=null;
-		if(lib == null){
-			lib = new SFObjectsLibrary();
-			SFObjectsLibraryDecoder decoder = new SFObjectsLibraryDecoder(lib);
-			SFXMLDataInterpreter interpreter = new SFXMLDataInterpreter(decoder);
-			interpreter.generateInterpretation(ROOT + "/default.xml" );
-			SFDataUtility.saveDataset(ROOT, "default.sf", lib);
-		} 
-		
-		//this.library.addLibrary(lib);
+		lib = (SFObjectsLibrary) SFDataUtility.loadDataset(ROOT, "default.sf");
 		this.library.put("DefaultAssetLibrary",lib);
 	}
 	
 	public void generateDefaultReferences() {
 		this.defaultReferencesLibrary.put("BasicMatColours", new SFDefaultDatasetReference("MatColours", System.currentTimeMillis()));
 		this.defaultReferencesLibrary.put("Mushroom", new SFDefaultDatasetReference("Cube", System.currentTimeMillis()));
-		this.defaultReferencesLibrary.put("RedMushroom", new SFDefaultDatasetReference("RedCube", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("RedMushroom", new SFDefaultDatasetReference("GreenCube", System.currentTimeMillis()));
 		
 		SFDataUtility.saveDataset(ROOT, "defaultReferences.sf", this.defaultReferencesLibrary);
 	}
 	
-	// FIXME default references builded at runtime
-	@SuppressWarnings("unused")
 	public void loadDefaultReferences() {
 		SFObjectsLibrary lib;
-		//lib = (SFObjectsLibrary) SFDataUtility.loadDataset(ROOT, "defaultReferences.sf");
-		lib = null;
-		if(lib == null) {
-			generateDefaultReferences();
-		} else {
-			this.defaultReferencesLibrary.addLibrary(lib);
-		}
+		lib = (SFObjectsLibrary) SFDataUtility.loadDataset(ROOT, "defaultReferences.sf");
+		this.defaultReferencesLibrary.addLibrary(lib);
 		this.library.put("DefaultReferences", this.defaultReferencesLibrary);
 	}
 

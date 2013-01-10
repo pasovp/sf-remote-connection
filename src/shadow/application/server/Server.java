@@ -26,7 +26,9 @@ public class Server {
 	 */
 	public static void main(String[] args) throws IOException {
 		ServerDataHandler dataHandler = new ServerDataHandler();
+		dataHandler.generateLibraryFromXML();
 		dataHandler.loadLibrary();
+		dataHandler.generateDefaultReferences();
 		dataHandler.loadDefaultReferences();
 		//dataHandler.testCopy();
 		SFServerConnection serverConnection = new SFServerConnection(4444);
