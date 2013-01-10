@@ -5,7 +5,7 @@
 		<values>
 			<values_element>(0.5,0.0,0.0)</values_element>
 			<values_element>(1.0,0.0,0.0)</values_element>
-			<values_element>(0.0,0.5,0.0)</values_element>
+			<values_element>(0.0,1.0,0.0)</values_element>
 			<values_element>(0.5,0.5,0.0)</values_element>
 			<values_element>(0.5,0.0,0.5)</values_element>
 			<values_element>(0.0,0.0,0.5)</values_element>
@@ -77,7 +77,7 @@
 		<firstElement>0</firstElement>
 		<lastElement>6</lastElement>
 	</SFMeshGeometryData>
-	<SFObjectModelData name="RedCube">
+	<SFObjectModelData name="GreenCube">
 		<SFTranslateAndScaleFixed16Data name="transform">
 			<x>0.0</x>
 			<y>0.0</y>
@@ -93,7 +93,7 @@
 		<SFProgramAssetData name="materialComponent">
 			<program>BasicMat</program>
 			<structures>
-				<structures_element>MatColours:1</structures_element>
+				<structures_element>MatColours:2</structures_element>
 			</structures>
 			<textures></textures>
 		</SFProgramAssetData>

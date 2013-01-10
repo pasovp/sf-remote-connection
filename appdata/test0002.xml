@@ -74,7 +74,7 @@
 		<SFProgramAssetData name="materialComponent">
 			<program>BasicMat</program>
 			<structures>
-				<structures_element>BasicMatColours:2</structures_element>
+				<structures_element>BasicMatColours:1</structures_element>
 			</structures>
 			<textures>
 			</textures>
