@@ -103,7 +103,7 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 			this.addDatasetToLibraty(name, dataset);
 			synchronized (requests) {
 				//requests.add(name);
-				requests.addUpdateListener(name, listener);
+				requests.addUpdateListenerTest(name, listener);
 				requests.addRequest(name);
 			}
 			
@@ -117,7 +117,7 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	
 	public <T extends SFDataset> void makeUpdatableDatasetAvailable(String name, SFUpdatableDatasetListener<T> listener){
 		
-		requests.addUpdateListenerOld(name, listener);
+		requests.addUpdateListener(name, listener);
 		makeDatasetAvailable(name, listener);
 		
 	}
