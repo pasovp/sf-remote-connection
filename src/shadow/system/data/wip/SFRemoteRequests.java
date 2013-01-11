@@ -11,8 +11,8 @@ import shadow.system.data.SFDataset;
 
 public class SFRemoteRequests {
 	private ArrayList<String> requests = new ArrayList<String>();
-	private HashMap<String, ArrayList<SFUpdatableDatasetListener<SFDataset>>> listeners = new HashMap<String, ArrayList<SFUpdatableDatasetListener<SFDataset>>>();
-	private HashMap<String, ArrayList<SFDataCenterListener<SFDataset>>> listenersTest = new HashMap<String, ArrayList<SFDataCenterListener<SFDataset>>>();
+	@Deprecated private HashMap<String, ArrayList<SFUpdatableDatasetListener<SFDataset>>> listenersOld = new HashMap<String, ArrayList<SFUpdatableDatasetListener<SFDataset>>>();
+	private HashMap<String, ArrayList<SFDataCenterListener<SFDataset>>> listeners = new HashMap<String, ArrayList<SFDataCenterListener<SFDataset>>>();
 	
 	public synchronized void addRequest(String name) {
 		this.requests.add(name);
@@ -35,16 +35,18 @@ public class SFRemoteRequests {
 //		}
 //		this.listeners.get(name).add((SFUpdatableDatasetListener<SFDataset>)listener);
 //	}
-	
-	public synchronized <T extends SFDataset> void addUpdateListener(String name, SFUpdatableDatasetListener<T> listener) {
-		if(this.listeners.get(name) == null) {
-			this.listeners.put(name, new ArrayList<SFUpdatableDatasetListener<SFDataset>>());
+	@SuppressWarnings("unchecked")
+	@Deprecated
+	public synchronized <T extends SFDataset> void addUpdateListenerOld(String name, SFUpdatableDatasetListener<T> listener) {
+		if(this.listenersOld.get(name) == null) {
+			this.listenersOld.put(name, new ArrayList<SFUpdatableDatasetListener<SFDataset>>());
 		}
-		this.listeners.get(name).add((SFUpdatableDatasetListener<SFDataset>)listener);
+		this.listenersOld.get(name).add((SFUpdatableDatasetListener<SFDataset>)listener);
 	}
 	
-	public synchronized void onRequestUpdate(String name) {
-		ArrayList<SFUpdatableDatasetListener<SFDataset>> listenersList = this.listeners.get(name);
+	@Deprecated
+	public synchronized void onRequestUpdateOld(String name) {
+		ArrayList<SFUpdatableDatasetListener<SFDataset>> listenersList = this.listenersOld.get(name);
 		
 		if (listenersList != null) {
 			for (SFUpdatableDatasetListener<SFDataset> listener : listenersList ) {
@@ -54,22 +56,18 @@ public class SFRemoteRequests {
 		}
 	}
 	
-	
-	//TEST METHODS
-	
-	public synchronized <T extends SFDataset> void addUpdateListenerTest(String name, SFDataCenterListener<T> listener) {
-		if(this.listenersTest.get(name) == null) {
-			this.listenersTest.put(name, new ArrayList<SFDataCenterListener<SFDataset>>());
+	public synchronized <T extends SFDataset> void addUpdateListener(String name, SFDataCenterListener<T> listener) {
+		if(this.listeners.get(name) == null) {
+			this.listeners.put(name, new ArrayList<SFDataCenterListener<SFDataset>>());
 		}
-		this.listenersTest.get(name).add((SFDataCenterListener<SFDataset>)listener);
+		this.listeners.get(name).add((SFDataCenterListener<SFDataset>)listener);
 	}
 	
-	public synchronized void onRequestUpdateTest(String name) {
-		ArrayList<SFDataCenterListener<SFDataset>> listenersList = this.listenersTest.get(name);
+	public synchronized void onRequestUpdate(String name) {
+		ArrayList<SFDataCenterListener<SFDataset>> listenersList = this.listeners.get(name);
 		
 		if (listenersList != null) {
 			for (SFDataCenterListener<SFDataset> listener : listenersList ) {
-				//listener.onDatasetUpdate(name, SFDataCenter.getDataCenter().getAlreadyAvailableDataset(name));
 				listener.onDatasetAvailable(name, SFDataCenter.getDataCenter().getAlreadyAvailableDataset(name));
 			}
 			listenersList.clear();
