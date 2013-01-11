@@ -87,7 +87,7 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 					((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).addDatasetToLibraty(token, dataset);
 					
 					//requests.onRequestUpdate(token);
-					requests.onRequestUpdateTest(token);
+					requests.onRequestUpdate(token);
 				}
 					
 			}
