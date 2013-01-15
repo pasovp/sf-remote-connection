@@ -1,9 +1,10 @@
 
-package shadow.application.client;
+package shadow.application.client.test;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
 
+import shadow.application.client.ClientDataCenterListener;
 import shadow.renderer.contents.tests.common.CommonPipeline;
 import shadow.renderer.data.SFObjectModelData;
 import shadow.renderer.data.utils.SFViewerDatasetFactory;
@@ -15,7 +16,7 @@ import shadow.system.data.wip.SFRemoteDataCenter;
  * @author Luigi Pasotti
  *
  */
-public class Client {
+public class Test0004 {
 	
 	public void configureDataCenter(){
 		SFViewerDatasetFactory factory = new SFViewerDatasetFactory();
@@ -33,10 +34,10 @@ public class Client {
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		//SFViewer.prepare();
 		CommonPipeline.prepare();
-		Client client = new Client();
+		Test0004 client = new Test0004();
 		client.configureDataCenter();
 		ClientDataCenterListener<SFObjectModelData> listener = new ClientDataCenterListener<SFObjectModelData>();
 		
-		SFDataCenter.getDataCenter().makeDatasetAvailable("RedMushroom", listener);
+		SFDataCenter.getDataCenter().makeDatasetAvailable("PerlinMushroom", listener);
 	}
 }

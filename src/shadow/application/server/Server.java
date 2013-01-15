@@ -16,6 +16,7 @@ import shadow.underdevelopment.SFServerConnection;
 public class Server {
 
 	private static ExecutorService threadExecutor = Executors.newCachedThreadPool();
+	//private static String FILENAME = "test0004";
 	
 	public static ExecutorService getThreadExecutor() {
 		return threadExecutor;
@@ -26,10 +27,14 @@ public class Server {
 	 */
 	public static void main(String[] args) throws IOException {
 		ServerDataHandler dataHandler = new ServerDataHandler();
-		dataHandler.generateLibraryFromXML();
-		dataHandler.loadLibrary();
-		dataHandler.generateDefaultReferences();
-		dataHandler.loadDefaultReferences();
+		
+		dataHandler.generateTestLibrariesFromXML();
+		dataHandler.generateSFLibraryFromXML("default.xml");
+		dataHandler.generateDefaultReferencesLibrary();
+		
+		dataHandler.loadDefaultData();
+		dataHandler.loadTestLibraries();
+		
 		//dataHandler.testCopy();
 		SFServerConnection serverConnection = new SFServerConnection(4444);
 		ServerListeningTask listeningTask = new ServerListeningTask(serverConnection, dataHandler);
