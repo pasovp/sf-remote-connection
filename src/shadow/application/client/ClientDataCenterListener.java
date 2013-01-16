@@ -1,12 +1,13 @@
 package shadow.application.client;
 
+import shadow.renderer.SFNode;
 import shadow.renderer.SFObjectModel;
 import shadow.renderer.contents.tests.common.CommonMaterial;
-import shadow.renderer.data.SFObjectModelData;
+import shadow.renderer.data.SFDataAsset;
 import shadow.renderer.viewer.SFViewer;
 import shadow.system.data.SFDataCenterListener;
 
-public class ClientDataCenterListener<T extends SFObjectModelData> implements SFDataCenterListener<SFObjectModelData> {
+public class ClientDataCenterListener<T extends SFDataAsset<SFNode>> implements SFDataCenterListener<SFDataAsset<SFNode>> {
 	//private SFObjectModel mainNode = new SFObjectModel();
 	private boolean windowOpened = false;
 	private SFViewer viewer;
@@ -16,13 +17,13 @@ public class ClientDataCenterListener<T extends SFObjectModelData> implements SF
 	}
 	
 	@Override
-	public synchronized void onDatasetAvailable(String name, SFObjectModelData dataset) {
-		SFObjectModel model=(SFObjectModel)dataset.getResource();
+	public synchronized void onDatasetAvailable(String name, SFDataAsset<SFNode> dataset) {
+		//SFObjectModel model=(SFObjectModel)dataset.getResource();
 		
 		try {
 			if(windowOpened == false) {
-				viewer = SFViewer.generateFrame(model,
-					CommonMaterial.generateColoursController(model),
+				viewer = SFViewer.generateFrame(dataset.getResource(),
+					//CommonMaterial.generateColoursController(model),
 					SFViewer.getLightStepController(),
 					SFViewer.getRotationController(),
 					SFViewer.getWireframeController(),
@@ -33,7 +34,7 @@ public class ClientDataCenterListener<T extends SFObjectModelData> implements SF
 //				}
 				windowOpened = true;
 			} else {
-				viewer.setNode(model);
+				viewer.setNode(dataset.getResource());
 			}
 		} catch (Exception e) {
 			

@@ -16,7 +16,6 @@ import shadow.underdevelopment.SFServerConnection;
 public class Server {
 
 	private static ExecutorService threadExecutor = Executors.newCachedThreadPool();
-	//private static String FILENAME = "test0004";
 	
 	public static ExecutorService getThreadExecutor() {
 		return threadExecutor;

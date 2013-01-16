@@ -6,6 +6,8 @@ package shadow.application.server;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
+import shadow.renderer.SFNode;
+import shadow.renderer.data.SFDataAsset;
 import shadow.renderer.data.java.SFObjectsLibraryDecoder;
 import shadow.renderer.data.java.SFXMLDataInterpreter;
 import shadow.renderer.data.utils.SFDataUtility;
@@ -27,7 +29,9 @@ public class ServerDataHandler implements IServerDataLibrary {
 	private SFObjectsLibrary defaultReferencesLibrary;
 	private String ROOT = "appdata";
 	private String[] fileList = new String[] {	"test0002",
-												"test0004", };
+												"test0004",
+												"test0005",
+												"test0006"};
 	
 	/**
 	 * 
@@ -76,13 +80,26 @@ public class ServerDataHandler implements IServerDataLibrary {
 	}
 	
 	public void generateDefaultReferencesLibrary() {
+		//test0002
 		this.defaultReferencesLibrary.put("BasicMatColours", new SFDefaultDatasetReference("MatColours", System.currentTimeMillis()));
 		this.defaultReferencesLibrary.put("Mushroom", new SFDefaultDatasetReference("Cube", System.currentTimeMillis()));
 		this.defaultReferencesLibrary.put("RedMushroom", new SFDefaultDatasetReference("GreenCube", System.currentTimeMillis()));
-		
+		//test0004
 		this.defaultReferencesLibrary.put("PerlinMushroom", new SFDefaultDatasetReference("GreenCube", System.currentTimeMillis()));
 		this.defaultReferencesLibrary.put("TexturedMushroom", new SFDefaultDatasetReference("Cube", System.currentTimeMillis()));
 		this.defaultReferencesLibrary.put("PerlinTexture", new SFDefaultDatasetReference("Texture", System.currentTimeMillis()));
+		//test0005
+		this.defaultReferencesLibrary.put("ReddishGrayAndBrightMushroom", new SFDefaultDatasetReference("GreenCube", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("TexturedMushroom", new SFDefaultDatasetReference("Cube", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("PerlinTexture", new SFDefaultDatasetReference("Texture", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("ReddishGrayAndBrightPerlinNoise", new SFDefaultDatasetReference("Texture", System.currentTimeMillis()));
+		//test0006
+		this.defaultReferencesLibrary.put("MushroomObject01", new SFDefaultDatasetReference("GreenCube", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("MushroomObject02", new SFDefaultDatasetReference("GreenCube", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("MushroomObject03", new SFDefaultDatasetReference("GreenCube", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("PerlinTexture", new SFDefaultDatasetReference("Texture", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("ReddishGrayAndBrightPerlinNoise", new SFDefaultDatasetReference("Texture", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("Scene01", new SFDefaultDatasetReference("GreenCube", System.currentTimeMillis()));
 		
 		SFDataUtility.saveDataset(ROOT, "defaultReferences.sf", this.defaultReferencesLibrary);
 		defaultReferencesLibrary = new SFObjectsLibrary();
