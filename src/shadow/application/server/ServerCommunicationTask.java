@@ -44,9 +44,9 @@ public class ServerCommunicationTask implements Runnable {
 		while (state != CLOSE) {
 			switch (state) {
 			case IDLE:
-				System.out.println("state: idle");
+				System.out.println(Thread.currentThread().getName() + " state: idle");
 				String input = communicator.readLine();
-				System.out.println("input: "+input);
+				System.out.println(Thread.currentThread().getName() + " input: "+input);
 				if ( (input==null) || (input.compareTo("close") == 0) ) {	
 					state = CLOSING;
 				} else {
@@ -60,29 +60,29 @@ public class ServerCommunicationTask implements Runnable {
 								state = REPLY;
 							}
 						} else {
-							System.out.println("error: not a request");
+							System.out.println(Thread.currentThread().getName() + " error: not a request");
 						}
 					}
 				}
 				break;
 			
 			case REPLY:
-				System.out.println("state: reply");
+				System.out.println(Thread.currentThread().getName() + " state: reply");
 				while (!requests.isEmpty()) {
 					String datasetName = requests.remove(0);
 					SFDataset dataset = library.getDataset(datasetName);
 					if (dataset!=null) {
 						communicator.sendLine(datasetName);
-						System.out.println("sending: "+datasetName);
+						System.out.println(Thread.currentThread().getName() + " sending: "+datasetName);
 						
 						communicator.readLine();
 						
 						communicator.sendDataset(dataset);
-						System.out.println("sent: "+datasetName);
+						System.out.println(Thread.currentThread().getName() + " sent: "+datasetName);
 						
 					} else {
 						communicator.sendLine("fail," + datasetName);
-						System.out.println("fail: "+ datasetName);
+						System.out.println(Thread.currentThread().getName() + " fail: "+ datasetName);
 					}
 				}
 				communicator.sendLine("idle");
@@ -91,7 +91,7 @@ public class ServerCommunicationTask implements Runnable {
 				break;
 				
 			case CLOSING:
-				System.out.println("state: closing");
+				System.out.println(Thread.currentThread().getName() + " state: closing");
 				communicator.closeComunication();
 				state = CLOSE;
 				break;
