@@ -38,6 +38,6 @@ public class Test0007 {
 		client.configureDataCenter();
 		ClientDataCenterListener<SFObjectModelData> listener = new ClientDataCenterListener<SFObjectModelData>();
 		
-		SFDataCenter.getDataCenter().makeDatasetAvailable("ReddishGrayAndBrightMushroom", listener);
+		SFDataCenter.getDataCenter().makeDatasetAvailable("TexturedCube", listener);
 	}
 }

@@ -154,14 +154,14 @@
 		</SFTranslateAndScaleFixed16Data>
 		<geometry>CubeTx</geometry>
 		<SFProgramAssetData name="transformComponent">
-			<program>BasicPNTransform</program>
+			<program>BasicPNTx0Transform</program>
 			<structures></structures>
 			<textures></textures>
 		</SFProgramAssetData>
 		<SFProgramAssetData name="materialComponent">
 			<program>TexturedMat</program>
 			<structures>
-				<structures_element>MatColours:2</structures_element>
+				<!-- <structures_element>MatColours:2</structures_element>  -->
 			</structures>
 			<textures>
 				<textures_element>Texture:</textures_element>
