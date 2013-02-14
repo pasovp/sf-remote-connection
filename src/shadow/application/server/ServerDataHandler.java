@@ -85,12 +85,12 @@ public class ServerDataHandler implements IServerDataLibrary {
 		this.defaultReferencesLibrary.put("Mushroom", new SFDefaultDatasetReference("Cube", System.currentTimeMillis()));
 		this.defaultReferencesLibrary.put("RedMushroom", new SFDefaultDatasetReference("GreenCube", System.currentTimeMillis()));
 		//test0004
-		this.defaultReferencesLibrary.put("PerlinMushroom", new SFDefaultDatasetReference("GreenCube", System.currentTimeMillis()));
-		this.defaultReferencesLibrary.put("TexturedMushroom", new SFDefaultDatasetReference("Cube", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("PerlinMushroom", new SFDefaultDatasetReference("TexturedCube", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("TexturedMushroom", new SFDefaultDatasetReference("CubeTx", System.currentTimeMillis()));
 		this.defaultReferencesLibrary.put("PerlinTexture", new SFDefaultDatasetReference("Texture", System.currentTimeMillis()));
 		//test0005
 		this.defaultReferencesLibrary.put("ReddishGrayAndBrightMushroom", new SFDefaultDatasetReference("GreenCube", System.currentTimeMillis()));
-		this.defaultReferencesLibrary.put("TexturedMushroom", new SFDefaultDatasetReference("Cube", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("TexturedMushroom", new SFDefaultDatasetReference("CubeTx", System.currentTimeMillis()));
 		this.defaultReferencesLibrary.put("PerlinTexture", new SFDefaultDatasetReference("Texture", System.currentTimeMillis()));
 		this.defaultReferencesLibrary.put("ReddishGrayAndBrightPerlinNoise", new SFDefaultDatasetReference("Texture", System.currentTimeMillis()));
 		//test0006
@@ -98,7 +98,7 @@ public class ServerDataHandler implements IServerDataLibrary {
 		this.defaultReferencesLibrary.put("MushroomObject02", new SFDefaultDatasetReference("TexturedCube", System.currentTimeMillis()));
 		this.defaultReferencesLibrary.put("MushroomObject03", new SFDefaultDatasetReference("TexturedCube", System.currentTimeMillis()));
 		this.defaultReferencesLibrary.put("PerlinTexture", new SFDefaultDatasetReference("Texture", System.currentTimeMillis()));
-		this.defaultReferencesLibrary.put("ReddishGrayAndBrightPerlinNoise", new SFDefaultDatasetReference("Texture", System.currentTimeMillis()));
+		this.defaultReferencesLibrary.put("ReddishGrayAndBrightPerlinNoise", new SFDefaultDatasetReference("Texture01", System.currentTimeMillis()));
 		this.defaultReferencesLibrary.put("Scene01", new SFDefaultDatasetReference("TexturedCube", System.currentTimeMillis()));
 		//test0007
 		

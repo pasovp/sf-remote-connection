@@ -108,8 +108,9 @@
 		</SFNoTransformData>
 		<references id="nodes">
 			<reference>MushroomObject01</reference>
-<!-- 			<reference>MushroomObject02</reference> -->
-<!-- 			<reference>MushroomObject03</reference> -->
+			<reference>MushroomObject02</reference>
+			<reference>MushroomObject03</reference>
+<!-- 			<reference>TexturedCube</reference> -->
 		</references>
 	</SFReferenceNodeData>
 	<SFQuadsSurfaceGeometryData name="TexturedMushroom">

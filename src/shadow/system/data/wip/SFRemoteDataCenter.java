@@ -35,13 +35,10 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	public SFRemoteDataCenter() throws SFDataCenterCreationException {
 		library = new SFObjectsLibrary();
 		defaultReferencesLibrary = new SFObjectsLibrary();
-		//requests = new ArrayList<String>();
 		requests = new SFRemoteRequests();
 	}
 	
 	public void loadDefaultData() {
-		//requests.add("DefaultReferences");
-		//requests.add("DefaultAssetLibrary");
 		requests.addRequest("DefaultReferences");
 		requests.addRequest("DefaultAssetLibrary");
 		
@@ -73,7 +70,7 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 //	public synchronized void removeRequest(String name) {
 //		this.requests.remove(name);
 //	}
-//	
+	
 //	public synchronized void addRequest(String name) {
 //		this.requests.add(name);
 //	}
@@ -91,34 +88,42 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	 */
 	@Override
 	public void makeDatasetAvailable(String name, SFDataCenterListener<?> listener) {
-		
-		SFDataset dataset = library.retrieveDataset(name);
-		if (dataset == null){
-			SFDataset tmp = library.retrieveDataset(((SFDefaultDatasetReference)defaultReferencesLibrary.retrieveDataset(name)).getName().getString());
-			dataset = tmp.generateNewDatasetInstance();
-			ByteArrayOutputStream out = new ByteArrayOutputStream();
-			tmp.getSFDataObject().writeOnStream(new SFOutputStreamJava(out , null));
-			dataset.getSFDataObject().readFromStream(new SFInputStreamJava(new ByteArrayInputStream(out.toByteArray()), null));
-			
-			this.addDatasetToLibraty(name, dataset);
-			synchronized (requests) {
-				//requests.add(name);
+		SFDataset dataset;
+		synchronized (requests) {
+			dataset = library.retrieveDataset(name);
+			if (dataset == null) {
+				SFDataset tmp = library.retrieveDataset(((SFDefaultDatasetReference) defaultReferencesLibrary.retrieveDataset(name)).getName().getString());
+				dataset = tmp.generateNewDatasetInstance();
+				ByteArrayOutputStream out = new ByteArrayOutputStream();
+				tmp.getSFDataObject().writeOnStream(new SFOutputStreamJava(out, null));
+				dataset.getSFDataObject().readFromStream(new SFInputStreamJava(new ByteArrayInputStream(out.toByteArray()), null));
+				
+				this.addDatasetToLibraty(name, dataset);
+	
 				requests.addUpdateListener(name, listener);
 				requests.addRequest(name);
-			}
-			
-			if (threadExecutor == null) {
-				threadExecutor = Executors.newCachedThreadPool();
-				threadExecutor.execute(new SFRemoteDataCenterRequestsCreationTask());
+	
+				if (threadExecutor == null) {
+					threadExecutor = Executors.newCachedThreadPool();
+					threadExecutor.execute(new SFRemoteDataCenterRequestsCreationTask());
+				}
+			} else {
+				if(requests.updatePending(name)) {
+					requests.addUpdateListener(name, listener);
+				}
 			}
 		}
+		
 		((SFDataCenterListener<SFDataset>)listener).onDatasetAvailable(name, dataset);
 	}
 	
-	public <T extends SFDataset> void makeUpdatableDatasetAvailable(String name, SFUpdatableDatasetListener<T> listener){
-		
-		requests.addUpdateListenerOld(name, listener);
-		makeDatasetAvailable(name, listener);
-		
+	protected SFDataset getUpdatedDataset(String name) {
+		return library.retrieveDataset(name);
 	}
+	
+//	public <T extends SFDataset> void makeUpdatableDatasetAvailable(String name, SFUpdatableDatasetListener<T> listener){		
+//		requests.addUpdateListenerOld(name, listener);
+//		makeDatasetAvailable(name, listener);
+//	}
+
 }

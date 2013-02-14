@@ -42,7 +42,7 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 	public void run() {
 
 		String requestString = "request";
-		requestList = requests.getRequests();
+		requestList = requests.removeRequests();
 		
 //		synchronized (requests) {
 //			for (String req : requests) {
@@ -79,14 +79,13 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 						if(dataset instanceof SFAsset) {
 							SFAsset asset = (SFAsset)(dataset);
 							//FIXME Non sono sicuro che sia più necessario usare l'UpdateMode
-							SFDataAsset.setUpdateMode(true);
+							//SFDataAsset.setUpdateMode(true);
 							asset.getResource();
-							SFDataAsset.setUpdateMode(false);
+							//SFDataAsset.setUpdateMode(false);
 						}
 					}
 					((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).addDatasetToLibraty(token, dataset);
 					
-					//requests.onRequestUpdate(token);
 					requests.onRequestUpdate(token);
 				}
 					

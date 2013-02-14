@@ -54,9 +54,13 @@
 	</SFVertexListData16>
 	<SFVertexListData16 name="CubeTexCoord">
 		<vertices>
+			
 			<vertices_element>(0.0,0.0)</vertices_element>
+			
 			<vertices_element>(1.0,0.0)</vertices_element>
+			
 			<vertices_element>(1.0,1.0)</vertices_element>
+			
 			<vertices_element>(0.0,1.0)</vertices_element>
 		</vertices>
 	</SFVertexListData16>
@@ -124,27 +128,6 @@
 			</SFBitmapArrayData>
 		</SFBitmapPerlinNoiseData>
 	</SFBitmapTextureData>
-	<SFFilteredRenderedTextureData name="Texture01">
-		<textures>
-			<textures_element>200:200:RGB8:LINEAR:REPEAT:REPEAT:</textures_element>
-			<textures_element>200:200:RGB8:LINEAR:REPEAT:REPEAT:</textures_element>
-		</textures>
-		<SFProgramAssetData name="lightComponent">
-			<program>ReddishGrayAndBright</program>
-			<structures>
-			</structures>
-			<textures>
-			</textures>
-		</SFProgramAssetData>
-		<SFProgramAssetData name="materialComponent">
-			<program>TexturedMat</program>
-			<structures>
-			</structures>
-			<textures>
-				<textures_element>Texture:</textures_element>
-			</textures>
-		</SFProgramAssetData>
-	</SFFilteredRenderedTextureData>
 	<SFObjectModelData name="GreenCube">
 		<SFTranslateAndScaleFixed16Data name="transform">
 			<x>0.0</x>
@@ -175,17 +158,16 @@
 		</SFTranslateAndScaleFixed16Data>
 		<geometry>CubeTx</geometry>
 		<SFProgramAssetData name="transformComponent">
-			<program>BasicPNTx0Transform</program>
+			<program>BasicPNTransform</program>
 			<structures></structures>
 			<textures></textures>
 		</SFProgramAssetData>
 		<SFProgramAssetData name="materialComponent">
 			<program>TexturedMat</program>
 			<structures>
+				<structures_element>Texture:</structures_element>
 			</structures>
-			<textures>
-				<textures_element>Texture:</textures_element>
-			</textures>
+			<textures></textures>
 		</SFProgramAssetData>
 	</SFObjectModelData>
 </library>

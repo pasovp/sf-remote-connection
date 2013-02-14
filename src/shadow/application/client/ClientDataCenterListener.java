@@ -4,6 +4,7 @@ import shadow.renderer.SFNode;
 import shadow.renderer.SFObjectModel;
 import shadow.renderer.contents.tests.common.CommonMaterial;
 import shadow.renderer.data.SFDataAsset;
+import shadow.renderer.viewer.SFFrameController;
 import shadow.renderer.viewer.SFViewer;
 import shadow.system.data.SFDataCenterListener;
 
@@ -16,9 +17,9 @@ public class ClientDataCenterListener<T extends SFDataAsset<SFNode>> implements 
 	public ClientDataCenterListener() {
 	}
 	
+	
 	@Override
 	public synchronized void onDatasetAvailable(String name, SFDataAsset<SFNode> dataset) {
-		//SFObjectModel model=(SFObjectModel)dataset.getResource();
 		
 		try {
 			if(windowOpened == false) {
@@ -27,7 +28,9 @@ public class ClientDataCenterListener<T extends SFDataAsset<SFNode>> implements 
 					SFViewer.getLightStepController(),
 					SFViewer.getRotationController(),
 					SFViewer.getWireframeController(),
-					SFViewer.getZoomController());
+					SFViewer.getZoomController(),
+					new SFDebugController(this)
+					);
 //				counter++;
 //				if(counter>=2){
 //					throw new RuntimeException("2 finestre");
@@ -40,5 +43,32 @@ public class ClientDataCenterListener<T extends SFDataAsset<SFNode>> implements 
 			
 			e.printStackTrace();
 		}
+	}
+	
+	private static class SFDebugController implements SFFrameController {
+		
+		private String name = "Debug";
+		private String[] alternatives = new String[]{"break"};
+		private ClientDataCenterListener listener; 
+		
+		public SFDebugController(ClientDataCenterListener listener) {
+			this.listener = listener;
+		}
+		
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		@Override
+		public String[] getAlternatives() {
+			return alternatives;
+		}
+
+		@Override
+		public void select(int index) {
+			//DEBUG: set here a breakpoint to see the viewer state
+		}
+		
 	}
 }
