@@ -6,8 +6,6 @@ package shadow.application.server;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
-import shadow.renderer.SFNode;
-import shadow.renderer.data.SFDataAsset;
 import shadow.renderer.data.java.SFObjectsLibraryDecoder;
 import shadow.renderer.data.java.SFXMLDataInterpreter;
 import shadow.renderer.data.utils.SFDataUtility;

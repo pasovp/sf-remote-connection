@@ -3,8 +3,6 @@ package shadow.system.data.wip;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.sql.rowset.spi.SyncResolver;
-
 import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataCenterListener;
 import shadow.system.data.SFDataset;
@@ -27,20 +25,12 @@ public class SFRemoteRequests {
 		return !this.requests.isEmpty();
 	}
 	
-//	public synchronized <T extends SFDataset> void addUpdatableRequest(String name, SFUpdatableDatasetListener<T> listener) {
-//		this.requests.add(name);
-//		if(this.listeners.get(name) == null) {
-//			this.listeners.put(name, new ArrayList<SFUpdatableDatasetListener<SFDataset>>());
-//		}
-//		this.listeners.get(name).add((SFUpdatableDatasetListener<SFDataset>)listener);
-//	}
-	
 	public synchronized <T extends SFDataset> void addUpdateListener(String name, SFDataCenterListener<T> listener) {
 		if(this.listeners.get(name) == null) {
 			this.listeners.put(name, new ArrayList<SFDataCenterListener<SFDataset>>());
 		}
-		System.err.println("Listener for:"+ name);
 		this.listeners.get(name).add((SFDataCenterListener<SFDataset>)listener);
+		System.err.println("Time:" + System.currentTimeMillis() + " Listener for:"+ name);
 	}
 	
 	public synchronized void onRequestUpdate(String name) {
@@ -49,8 +39,8 @@ public class SFRemoteRequests {
 		
 		if (listenersList != null) {
 			for (SFDataCenterListener<SFDataset> listener : listenersList ) {
-				System.err.println("Update for:"+ name);
 				listener.onDatasetAvailable(name, ((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).getUpdatedDataset(name));
+				System.err.println("Time:" + System.currentTimeMillis() + " Update for:"+ name);
 			}
 			listenersList.clear();
 			//this.listeners.remove(name);

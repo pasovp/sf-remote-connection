@@ -1,6 +1,5 @@
 package shadow.system.data.wip;
 
-import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -11,7 +10,6 @@ import shadow.system.data.SFDataCenter;
  *
  */
 public class SFRemoteDataCenterRequestsCreationTask implements Runnable {
-	//private ArrayList<String> requests;
 	SFRemoteRequests requests;
 	private ExecutorService threadExecutor;
 	

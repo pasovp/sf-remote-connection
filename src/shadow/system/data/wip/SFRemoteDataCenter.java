@@ -25,7 +25,6 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	private SFObjectsLibrary library;
 	private SFObjectsLibrary defaultReferencesLibrary;
 	private ExecutorService threadExecutor;
-	//private ArrayList<String> requests;
 	private SFRemoteRequests requests;
 	
 	
@@ -66,18 +65,6 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	public synchronized void addDatasetToLibraty(String name, SFDataset dataset) {
 		this.library.put(name, dataset);
 	}
-	
-//	public synchronized void removeRequest(String name) {
-//		this.requests.remove(name);
-//	}
-	
-//	public synchronized void addRequest(String name) {
-//		this.requests.add(name);
-//	}
-	
-//	public synchronized ArrayList<String> getRequests() {
-//		return requests;
-//	}
 	
 	public SFRemoteRequests getRequests() {
 		return this.requests;
@@ -120,10 +107,5 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	protected SFDataset getUpdatedDataset(String name) {
 		return library.retrieveDataset(name);
 	}
-	
-//	public <T extends SFDataset> void makeUpdatableDatasetAvailable(String name, SFUpdatableDatasetListener<T> listener){		
-//		requests.addUpdateListenerOld(name, listener);
-//		makeDatasetAvailable(name, listener);
-//	}
 
 }

@@ -1,12 +1,7 @@
 \select@language {italian}
-\contentsline {section}{\numberline {0.1}tmp1}{7}{section.0.1}
-\contentsline {subsection}{\numberline {0.1.1}tmp2}{7}{subsection.0.1.1}
-\contentsline {subsubsection}{tmp3}{7}{section*.5}
-\contentsline {paragraph}{tmp4}{7}{section*.6}
-\contentsline {subparagraph}{tmp5}{7}{section*.7}
-\contentsline {chapter}{\numberline {1}Gestione dei dati}{9}{chapter.1}
-\contentsline {section}{\numberline {1.1}Il package shadow.system.data}{9}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}SFDataCenter}{9}{subsection.1.1.1}
-\contentsline {subsubsection}{tmp3}{9}{section*.8}
-\contentsline {paragraph}{tmp4}{9}{section*.9}
-\contentsline {subparagraph}{tmp5}{9}{section*.10}
+\contentsline {part}{I\hspace {1em}Lo Shadow Framework}{9}{part.1}
+\contentsline {chapter}{\numberline {1}Gestione dei dati}{11}{chapter.1}
+\contentsline {section}{\numberline {1.1}Il package \texttt {shadow.system.data}}{11}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}SFDataObject}{11}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}SFDataset}{11}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}SFDataCenter}{11}{subsection.1.1.3}

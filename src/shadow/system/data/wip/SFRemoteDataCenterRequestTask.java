@@ -9,7 +9,6 @@ import java.util.StringTokenizer;
 
 import shadow.application.client.ClientCommunicator;
 import shadow.renderer.data.SFAsset;
-import shadow.renderer.data.SFDataAsset;
 import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataset;
 import shadow.underdevelopment.SFConnection;

@@ -1,0 +1,31 @@
+%!TEX root = ../tesi.tex
+%----------------------------------------------------------
+%	
+%----------------------------------------------------------
+\chapter{Gestione dei dati}
+\label{ch:gestdati}
+%----------------------------------------------------------
+%	 CHANGE
+Data management is an important task in the Framework. Through an abstract data layer, any module of the framework can be stored in datafile or transfered to datastream and loaded at any time. 
+%----------------------------------------------------------
+
+\section{Il package \texttt{shadow.system.data}}
+Questo package contiene una serie di classi ed interfacce base su cui si basa l'astrazione dei dati del framework.
+
+\subsection{SFDataObject}
+
+\subsection{SFDataset}
+
+\subsection{SFDataCenter}
+\label{ss:sfdatacenter} 
+
+Il \textbf{DataCenter} \'e il nodo fondamentale della gestione dei dati all'interno del framework. \'E un oggetto \textit{singleton} a cui le applicazioni accedono per richiedere i Dataset di cui hanno bisogno fornendo un'astrazione su come i dati sono effettivamente reperiti.
+Per poter funzionare, al DataCenter deve essere fornita un'implementazione per:
+\begin{itemize}
+\item  \texttt{SFAbstractDatasetFactory}
+\item  \texttt{SFIDataCenter}
+\end{itemize}
+
+L'implementazione di \texttt{SFAbstractDatasetFactory} deve essere essere una factory in grado di generare istanze di tutti i tipi di Dataset necessari all'applicazione, il package fornisce un'implementazione di default, di nome \texttt{SFGenericDatasetFactory}, che \`e sufficiente inizializzare passando un'istanza base dei Dataset.
+
+L'interfaccia \texttt{SFIDataCenter} fornisce l'astrazione di una Mappa di Dataset identificati attraverso il proprio nome. Attraverso di essa possiamo chiedere ad un oggetto che la implementa di recuperare un Dataset. In oltre il Dataset recuperato non viene restituito direttamente, ma viene inviato attraverso un meccanismo di callback ad una implementazione di \texttt{SFDataCenterListener} passata come parametro, nel momento in cui \`e pronto. Questo tipo di astrazione permette di separare la logica di utilizzo del Dataset da quella di come esso viene reperito, consentendo ad una applicazione di usare dati locali o dati di rete semplicemente cambiando l'implementazione di \texttt{SFIDataCenter}.

@@ -1,0 +1,434 @@
+-------------------------------------------------------------------------------------
+NOTE: 
+
+nome test:			Test0006
+risultato visivo: 	errato (finestra vuota)
+note esecuzione:	finestra non funzionante (cercare di chiuderla provoca un'eccezione aggiuntiva, trascritta in fondo: EXCP)
+					ConcurrentModificationException ancora presente sui figli del ReferenceNode
+					NullPointerException in fase di draw del frame
+					NullPointerException in fase di init della SFFilteredRenderedTexture
+-------------------------------------------------------------------------------------
+
+Time:1361269496915 Listener for:Scene01
+Time:1361269496992 Listener for:MushroomObject01
+Time:1361269496992 Listener for:MushroomObject02
+Time:1361269496993 Listener for:MushroomObject03
+Time:1361269498251 Update for:Scene01
+Time:1361269498296 Listener for:TexturedMushroom
+Time:1361269498297 Listener for:ReddishGrayAndBrightPerlinNoise
+Time:1361269498301 Update for:MushroomObject01
+shaderText[0] varying vec2 texCoord0;
+varying vec3 normal;
+void main(void){
+	 gl_Position=gl_Vertex;
+	 texCoord0=vec2(0.5,0.5)+gl_Vertex.xy*vec2(0.5,0.5);
+	 normal=vec3(0,0,-1);
+}
+
+shaderText[0] varying vec3 normal;
+varying vec2 texCoord0;
+
+uniform sampler2D texture0;
+
+
+
+void main(void){
+	vec4 color=texture2D(texture0,texCoord0);
+	vec3 matnormal=normal;
+	vec3 bright=vec3(0.4,0.4,0.4);
+	vec4 grayscale=vec4(0.3,0.5,0.2,0.0);
+	float gray=dot(color,grayscale);
+	vec3 gray3=vec3(gray);
+	vec4 red1=vec4(1.0,0.2,0.2,1.0);
+	vec4 fColor0=(red1+color);
+	vec4 fColor1=(color*red1);
+
+	gl_FragData[0]=fColor0;
+	gl_FragData[1]=fColor1;
+}
+Time:1361269498653 Listener for:TexturedMushroom
+Time:1361269498653 Listener for:ReddishGrayAndBrightPerlinNoise
+Time:1361269498654 Update for:MushroomObject02
+evaluateProgram()QuadPNTxO
+Time:1361269498655 Listener for:TexturedMushroom
+Time:1361269498656 Listener for:PerlinTexture
+Time:1361269498656 Update for:MushroomObject03
+shaderText[0] 
+uniform vec3 PA;
+uniform vec3 PB;
+uniform vec3 PC;
+uniform vec3 PD;
+
+uniform vec3 NA;
+uniform vec3 NB;
+uniform vec3 NC;
+uniform vec3 ND;
+
+uniform vec2 Tx0A;
+uniform vec2 Tx0B;
+uniform vec2 Tx0C;
+uniform vec2 Tx0D;
+uniform mat4 modelview;
+uniform mat4 projection;
+varying vec4 position;
+uniform mat4 vectorsModelview;
+varying vec3 normal;
+varying vec2 texCoord0;
+
+
+
+void main(void){
+	float u=gl_Vertex.x;
+	float v=gl_Vertex.y;
+	float Pum=(1.0-u);
+	float Pvm=(1.0-v);
+	vec3 P=((vec3((Pvm*Pum))*PA)+(vec3((Pvm*u))*PB)+(vec3((v*Pum))*PD)+(vec3((u*v))*PC));
+	float Num=(1.0-u);
+	float Nvm=(1.0-v);
+	vec3 N=((vec3((Nvm*Num))*NA)+(vec3((Nvm*u))*NB)+(vec3((v*Num))*ND)+(vec3((u*v))*NC));
+	float Tx0um=(1.0-u);
+	float Tx0vm=(1.0-v);
+	vec2 Tx0=((vec2((Tx0vm*Tx0um))*Tx0A)+(vec2((Tx0vm*u))*Tx0B)+(vec2((v*Tx0um))*Tx0D)+(vec2((u*v))*Tx0C));
+	position=((projection*modelview)*vec4(P,1));
+	normal=((vectorsModelview*vec4(N,1))).xyz;
+	texCoord0=Tx0;
+
+	gl_Position=vec4(position);
+}
+shaderText[0] varying vec3 normal;
+varying vec2 texCoord0;
+
+uniform sampler2D texture0;
+varying vec4 position;
+
+uniform vec3 intensity;
+uniform vec3 lPosition;
+
+
+
+void main(void){
+	vec4 color=texture2D(texture0,texCoord0);
+	vec3 matnormal=normal;
+	vec3 tmp1=(normalize((vec4(lPosition,1)-position))).xyz;
+	vec3 tmp3=vec3((0.4+(0.6*dot(normalize(matnormal),tmp1))));
+	vec4 fColor=(color*vec4((intensity*tmp3),1));
+
+	gl_FragColor=fColor;
+}
+java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:782)
+	at java.util.ArrayList$Itr.next(ArrayList.java:754)
+	at shadow.renderer.SFRenderer.render(SFRenderer.java:63)
+	at shadow.renderer.viewer.SFViewer.draw(SFViewer.java:160)
+	at shadow.renderer.viewer.SFDrawableFrame$SFDrawableFrameListener.display(SFDrawableFrame.java:99)
+	at jogamp.opengl.GLDrawableHelper.displayImpl(GLDrawableHelper.java:373)
+	at jogamp.opengl.GLDrawableHelper.display(GLDrawableHelper.java:358)
+	at javax.media.opengl.awt.GLCanvas$7.run(GLCanvas.java:983)
+	at jogamp.opengl.GLDrawableHelper.invokeGLImpl(GLDrawableHelper.java:655)
+	at jogamp.opengl.GLDrawableHelper.invokeGL(GLDrawableHelper.java:594)
+	at javax.media.opengl.awt.GLCanvas$8.run(GLCanvas.java:996)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:216)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:673)
+	at java.awt.EventQueue.access$300(EventQueue.java:96)
+	at java.awt.EventQueue$2.run(EventQueue.java:634)
+	at java.awt.EventQueue$2.run(EventQueue.java:632)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:105)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:643)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:275)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:200)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:190)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:185)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:177)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:138)
+Time:1361269498806 Update for:TexturedMushroom
+Time:1361269498807 Update for:TexturedMushroom
+Time:1361269498807 Update for:TexturedMushroom
+Time:1361269498847 Listener for:PerlinTexture
+[0, 2, 30, 1, 16, 15, 0, 2, 30, 1, 16, 15, 0, 2, 30, 1, 16, 15]
+[32, 30, 2, 31, 16, 17, 32, 30, 2, 31, 16, 17, 32, 30, 2, 31, 16, 17]
+[2, 4, 32, 3, 18, 17, 2, 4, 32, 3, 18, 17, 2, 4, 32, 3, 18, 17]
+[34, 32, 4, 33, 18, 19, 34, 32, 4, 33, 18, 19, 34, 32, 4, 33, 18, 19]
+[4, 6, 34, 5, 20, 19, 4, 6, 34, 5, 20, 19, 4, 6, 34, 5, 20, 19]
+[36, 34, 6, 35, 20, 21, 36, 34, 6, 35, 20, 21, 36, 34, 6, 35, 20, 21]
+[6, 8, 36, 7, 22, 21, 6, 8, 36, 7, 22, 21, 6, 8, 36, 7, 22, 21]
+[38, 36, 8, 37, 22, 23, 38, 36, 8, 37, 22, 23, 38, 36, 8, 37, 22, 23]
+[8, 10, 38, 9, 24, 23, 8, 10, 38, 9, 24, 23, 8, 10, 38, 9, 24, 23]
+[40, 38, 10, 39, 24, 25, 40, 38, 10, 39, 24, 25, 40, 38, 10, 39, 24, 25]
+[10, 12, 40, 11, 26, 25, 10, 12, 40, 11, 26, 25, 10, 12, 40, 11, 26, 25]
+[42, 40, 12, 41, 26, 27, 42, 40, 12, 41, 26, 27, 42, 40, 12, 41, 26, 27]
+[12, 14, 42, 13, 28, 27, 12, 14, 42, 13, 28, 27, 12, 14, 42, 13, 28, 27]
+[44, 42, 14, 43, 28, 29, 44, 42, 14, 43, 28, 29, 44, 42, 14, 43, 28, 29]
+[30, 32, 60, 31, 46, 45, 30, 32, 60, 31, 46, 45, 30, 32, 60, 31, 46, 45]
+[62, 60, 32, 61, 46, 47, 62, 60, 32, 61, 46, 47, 62, 60, 32, 61, 46, 47]
+[32, 34, 62, 33, 48, 47, 32, 34, 62, 33, 48, 47, 32, 34, 62, 33, 48, 47]
+[64, 62, 34, 63, 48, 49, 64, 62, 34, 63, 48, 49, 64, 62, 34, 63, 48, 49]
+[34, 36, 64, 35, 50, 49, 34, 36, 64, 35, 50, 49, 34, 36, 64, 35, 50, 49]
+[66, 64, 36, 65, 50, 51, 66, 64, 36, 65, 50, 51, 66, 64, 36, 65, 50, 51]
+[36, 38, 66, 37, 52, 51, 36, 38, 66, 37, 52, 51, 36, 38, 66, 37, 52, 51]
+[68, 66, 38, 67, 52, 53, 68, 66, 38, 67, 52, 53, 68, 66, 38, 67, 52, 53]
+[38, 40, 68, 39, 54, 53, 38, 40, 68, 39, 54, 53, 38, 40, 68, 39, 54, 53]
+[70, 68, 40, 69, 54, 55, 70, 68, 40, 69, 54, 55, 70, 68, 40, 69, 54, 55]
+[40, 42, 70, 41, 56, 55, 40, 42, 70, 41, 56, 55, 40, 42, 70, 41, 56, 55]
+[72, 70, 42, 71, 56, 57, 72, 70, 42, 71, 56, 57, 72, 70, 42, 71, 56, 57]
+[42, 44, 72, 43, 58, 57, 42, 44, 72, 43, 58, 57, 42, 44, 72, 43, 58, 57]
+[74, 72, 44, 73, 58, 59, 74, 72, 44, 73, 58, 59, 74, 72, 44, 73, 58, 59]
+[60, 62, 90, 61, 76, 75, 60, 62, 90, 61, 76, 75, 60, 62, 90, 61, 76, 75]
+[92, 90, 62, 91, 76, 77, 92, 90, 62, 91, 76, 77, 92, 90, 62, 91, 76, 77]
+[62, 64, 92, 63, 78, 77, 62, 64, 92, 63, 78, 77, 62, 64, 92, 63, 78, 77]
+[94, 92, 64, 93, 78, 79, 94, 92, 64, 93, 78, 79, 94, 92, 64, 93, 78, 79]
+[64, 66, 94, 65, 80, 79, 64, 66, 94, 65, 80, 79, 64, 66, 94, 65, 80, 79]
+[96, 94, 66, 95, 80, 81, 96, 94, 66, 95, 80, 81, 96, 94, 66, 95, 80, 81]
+[66, 68, 96, 67, 82, 81, 66, 68, 96, 67, 82, 81, 66, 68, 96, 67, 82, 81]
+[98, 96, 68, 97, 82, 83, 98, 96, 68, 97, 82, 83, 98, 96, 68, 97, 82, 83]
+[68, 70, 98, 69, 84, 83, 68, 70, 98, 69, 84, 83, 68, 70, 98, 69, 84, 83]
+[100, 98, 70, 99, 84, 85, 100, 98, 70, 99, 84, 85, 100, 98, 70, 99, 84, 85]
+[70, 72, 100, 71, 86, 85, 70, 72, 100, 71, 86, 85, 70, 72, 100, 71, 86, 85]
+[102, 100, 72, 101, 86, 87, 102, 100, 72, 101, 86, 87, 102, 100, 72, 101, 86, 87]
+[72, 74, 102, 73, 88, 87, 72, 74, 102, 73, 88, 87, 72, 74, 102, 73, 88, 87]
+[104, 102, 74, 103, 88, 89, 104, 102, 74, 103, 88, 89, 104, 102, 74, 103, 88, 89]
+[90, 92, 120, 91, 106, 105, 90, 92, 120, 91, 106, 105, 90, 92, 120, 91, 106, 105]
+[122, 120, 92, 121, 106, 107, 122, 120, 92, 121, 106, 107, 122, 120, 92, 121, 106, 107]
+[92, 94, 122, 93, 108, 107, 92, 94, 122, 93, 108, 107, 92, 94, 122, 93, 108, 107]
+[124, 122, 94, 123, 108, 109, 124, 122, 94, 123, 108, 109, 124, 122, 94, 123, 108, 109]
+[94, 96, 124, 95, 110, 109, 94, 96, 124, 95, 110, 109, 94, 96, 124, 95, 110, 109]
+[126, 124, 96, 125, 110, 111, 126, 124, 96, 125, 110, 111, 126, 124, 96, 125, 110, 111]
+[96, 98, 126, 97, 112, 111, 96, 98, 126, 97, 112, 111, 96, 98, 126, 97, 112, 111]
+[128, 126, 98, 127, 112, 113, 128, 126, 98, 127, 112, 113, 128, 126, 98, 127, 112, 113]
+[98, 100, 128, 99, 114, 113, 98, 100, 128, 99, 114, 113, 98, 100, 128, 99, 114, 113]
+[130, 128, 100, 129, 114, 115, 130, 128, 100, 129, 114, 115, 130, 128, 100, 129, 114, 115]
+[100, 102, 130, 101, 116, 115, 100, 102, 130, 101, 116, 115, 100, 102, 130, 101, 116, 115]
+[132, 130, 102, 131, 116, 117, 132, 130, 102, 131, 116, 117, 132, 130, 102, 131, 116, 117]
+[102, 104, 132, 103, 118, 117, 102, 104, 132, 103, 118, 117, 102, 104, 132, 103, 118, 117]
+[134, 132, 104, 133, 118, 119, 134, 132, 104, 133, 118, 119, 134, 132, 104, 133, 118, 119]
+[120, 122, 150, 121, 136, 135, 120, 122, 150, 121, 136, 135, 120, 122, 150, 121, 136, 135]
+[152, 150, 122, 151, 136, 137, 152, 150, 122, 151, 136, 137, 152, 150, 122, 151, 136, 137]
+[122, 124, 152, 123, 138, 137, 122, 124, 152, 123, 138, 137, 122, 124, 152, 123, 138, 137]
+[154, 152, 124, 153, 138, 139, 154, 152, 124, 153, 138, 139, 154, 152, 124, 153, 138, 139]
+[124, 126, 154, 125, 140, 139, 124, 126, 154, 125, 140, 139, 124, 126, 154, 125, 140, 139]
+[156, 154, 126, 155, 140, 141, 156, 154, 126, 155, 140, 141, 156, 154, 126, 155, 140, 141]
+[126, 128, 156, 127, 142, 141, 126, 128, 156, 127, 142, 141, 126, 128, 156, 127, 142, 141]
+[158, 156, 128, 157, 142, 143, 158, 156, 128, 157, 142, 143, 158, 156, 128, 157, 142, 143]
+[128, 130, 158, 129, 144, 143, 128, 130, 158, 129, 144, 143, 128, 130, 158, 129, 144, 143]
+[160, 158, 130, 159, 144, 145, 160, 158, 130, 159, 144, 145, 160, 158, 130, 159, 144, 145]
+[130, 132, 160, 131, 146, 145, 130, 132, 160, 131, 146, 145, 130, 132, 160, 131, 146, 145]
+[162, 160, 132, 161, 146, 147, 162, 160, 132, 161, 146, 147, 162, 160, 132, 161, 146, 147]
+[132, 134, 162, 133, 148, 147, 132, 134, 162, 133, 148, 147, 132, 134, 162, 133, 148, 147]
+[164, 162, 134, 163, 148, 149, 164, 162, 134, 163, 148, 149, 164, 162, 134, 163, 148, 149]
+[150, 152, 180, 151, 166, 165, 150, 152, 180, 151, 166, 165, 150, 152, 180, 151, 166, 165]
+[182, 180, 152, 181, 166, 167, 182, 180, 152, 181, 166, 167, 182, 180, 152, 181, 166, 167]
+[152, 154, 182, 153, 168, 167, 152, 154, 182, 153, 168, 167, 152, 154, 182, 153, 168, 167]
+[184, 182, 154, 183, 168, 169, 184, 182, 154, 183, 168, 169, 184, 182, 154, 183, 168, 169]
+[154, 156, 184, 155, 170, 169, 154, 156, 184, 155, 170, 169, 154, 156, 184, 155, 170, 169]
+[186, 184, 156, 185, 170, 171, 186, 184, 156, 185, 170, 171, 186, 184, 156, 185, 170, 171]
+[156, 158, 186, 157, 172, 171, 156, 158, 186, 157, 172, 171, 156, 158, 186, 157, 172, 171]
+[188, 186, 158, 187, 172, 173, 188, 186, 158, 187, 172, 173, 188, 186, 158, 187, 172, 173]
+[158, 160, 188, 159, 174, 173, 158, 160, 188, 159, 174, 173, 158, 160, 188, 159, 174, 173]
+[190, 188, 160, 189, 174, 175, 190, 188, 160, 189, 174, 175, 190, 188, 160, 189, 174, 175]
+[160, 162, 190, 161, 176, 175, 160, 162, 190, 161, 176, 175, 160, 162, 190, 161, 176, 175]
+[192, 190, 162, 191, 176, 177, 192, 190, 162, 191, 176, 177, 192, 190, 162, 191, 176, 177]
+[162, 164, 192, 163, 178, 177, 162, 164, 192, 163, 178, 177, 162, 164, 192, 163, 178, 177]
+[194, 192, 164, 193, 178, 179, 194, 192, 164, 193, 178, 179, 194, 192, 164, 193, 178, 179]
+[180, 182, 210, 181, 196, 195, 180, 182, 210, 181, 196, 195, 180, 182, 210, 181, 196, 195]
+[212, 210, 182, 211, 196, 197, 212, 210, 182, 211, 196, 197, 212, 210, 182, 211, 196, 197]
+[182, 184, 212, 183, 198, 197, 182, 184, 212, 183, 198, 197, 182, 184, 212, 183, 198, 197]
+[214, 212, 184, 213, 198, 199, 214, 212, 184, 213, 198, 199, 214, 212, 184, 213, 198, 199]
+[184, 186, 214, 185, 200, 199, 184, 186, 214, 185, 200, 199, 184, 186, 214, 185, 200, 199]
+[216, 214, 186, 215, 200, 201, 216, 214, 186, 215, 200, 201, 216, 214, 186, 215, 200, 201]
+[186, 188, 216, 187, 202, 201, 186, 188, 216, 187, 202, 201, 186, 188, 216, 187, 202, 201]
+[218, 216, 188, 217, 202, 203, 218, 216, 188, 217, 202, 203, 218, 216, 188, 217, 202, 203]
+[188, 190, 218, 189, 204, 203, 188, 190, 218, 189, 204, 203, 188, 190, 218, 189, 204, 203]
+[220, 218, 190, 219, 204, 205, 220, 218, 190, 219, 204, 205, 220, 218, 190, 219, 204, 205]
+[190, 192, 220, 191, 206, 205, 190, 192, 220, 191, 206, 205, 190, 192, 220, 191, 206, 205]
+[222, 220, 192, 221, 206, 207, 222, 220, 192, 221, 206, 207, 222, 220, 192, 221, 206, 207]
+[192, 194, 222, 193, 208, 207, 192, 194, 222, 193, 208, 207, 192, 194, 222, 193, 208, 207]
+[224, 222, 194, 223, 208, 209, 224, 222, 194, 223, 208, 209, 224, 222, 194, 223, 208, 209]
+evaluateProgram()Triangle2PNTxO
+Time:1361269499022 Update for:ReddishGrayAndBrightPerlinNoise
+Time:1361269499022 Update for:ReddishGrayAndBrightPerlinNoise
+Time:1361269499023 Update for:PerlinTexture
+Time:1361269499024 Update for:PerlinTexture
+shaderText[0] 
+uniform vec3 PA;
+uniform vec3 PB;
+uniform vec3 PC;
+uniform vec3 PD;
+uniform vec3 PE;
+uniform vec3 PF;
+
+uniform vec3 NA;
+uniform vec3 NB;
+uniform vec3 NC;
+uniform vec3 ND;
+uniform vec3 NE;
+uniform vec3 NF;
+
+uniform vec2 Tx0A;
+uniform vec2 Tx0B;
+uniform vec2 Tx0C;
+uniform vec2 Tx0D;
+uniform vec2 Tx0E;
+uniform vec2 Tx0F;
+uniform mat4 modelview;
+uniform mat4 projection;
+varying vec4 position;
+uniform mat4 vectorsModelview;
+varying vec3 normal;
+varying vec2 texCoord0;
+
+
+
+void main(void){
+	float u=gl_Vertex.x;
+	float v=gl_Vertex.y;
+	float w=1.0-gl_Vertex.x-gl_Vertex.y;
+	vec3 P=((PA*vec3((w*w)))+(PB*vec3((u*u)))+(PC*vec3((v*v)))+(PD*vec3((2.0*u*w)))+(PE*vec3((2.0*u*v)))+(PF*vec3((2.0*v*w))));
+	vec3 N=((NA*vec3((w*w)))+(NB*vec3((u*u)))+(NC*vec3((v*v)))+(ND*vec3((2.0*u*w)))+(NE*vec3((2.0*u*v)))+(NF*vec3((2.0*v*w))));
+	vec2 Tx0=((Tx0A*vec2((w*w)))+(Tx0B*vec2((u*u)))+(Tx0C*vec2((v*v)))+(Tx0D*vec2((2.0*u*w)))+(Tx0E*vec2((2.0*u*v)))+(Tx0F*vec2((2.0*v*w))));
+	position=((projection*modelview)*vec4(P,1));
+	normal=((vectorsModelview*vec4(N,1))).xyz;
+	texCoord0=Tx0;
+
+	gl_Position=vec4(position);
+}
+shaderText[0] varying vec3 normal;
+varying vec2 texCoord0;
+
+uniform sampler2D texture0;
+varying vec4 position;
+
+uniform vec3 intensity;
+uniform vec3 lPosition;
+
+
+
+void main(void){
+	vec4 color=texture2D(texture0,texCoord0);
+	vec3 matnormal=normal;
+	vec3 tmp1=(normalize((vec4(lPosition,1)-position))).xyz;
+	vec3 tmp3=vec3((0.4+(0.6*dot(normalize(matnormal),tmp1))));
+	vec4 fColor=(color*vec4((intensity*tmp3),1));
+
+	gl_FragColor=fColor;
+}
+evaluateProgram()Triangle2PNTxO
+evaluateProgram()Triangle2PNTxO
+java.lang.NullPointerException
+	at shadow.pipeline.openGL20.SFGL20UniformData.setData(SFGL20UniformData.java:153)
+	at shadow.pipeline.openGL20.SFGL20AbstractProgram.setData(SFGL20AbstractProgram.java:130)
+	at shadow.pipeline.openGL20.SFGL20PipelineGraphics.loadTexture(SFGL20PipelineGraphics.java:188)
+	at shadow.renderer.SFRenderer.setupMaterialData(SFRenderer.java:106)
+	at shadow.renderer.SFRenderer.setupRenderingData(SFRenderer.java:88)
+	at shadow.renderer.SFRenderer.renderNodeContent(SFRenderer.java:72)
+	at shadow.renderer.SFRenderer.render(SFRenderer.java:62)
+	at shadow.renderer.SFRenderer.render(SFRenderer.java:64)
+	at shadow.renderer.viewer.SFViewer.draw(SFViewer.java:160)
+	at shadow.renderer.viewer.SFDrawableFrame$SFDrawableFrameListener.display(SFDrawableFrame.java:99)
+	at jogamp.opengl.GLDrawableHelper.displayImpl(GLDrawableHelper.java:373)
+	at jogamp.opengl.GLDrawableHelper.display(GLDrawableHelper.java:358)
+	at javax.media.opengl.awt.GLCanvas$7.run(GLCanvas.java:983)
+	at jogamp.opengl.GLDrawableHelper.invokeGLImpl(GLDrawableHelper.java:655)
+	at jogamp.opengl.GLDrawableHelper.invokeGL(GLDrawableHelper.java:594)
+	at javax.media.opengl.awt.GLCanvas$8.run(GLCanvas.java:996)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:216)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:673)
+	at java.awt.EventQueue.access$300(EventQueue.java:96)
+	at java.awt.EventQueue$2.run(EventQueue.java:634)
+	at java.awt.EventQueue$2.run(EventQueue.java:632)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:105)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:643)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:275)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:200)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:190)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:185)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:177)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:138)
+Exception in thread "Timer-0" java.lang.RuntimeException: java.lang.NullPointerException
+	at jogamp.common.awt.AWTEDTExecutor.invoke(AWTEDTExecutor.java:58)
+	at jogamp.opengl.awt.AWTThreadingPlugin.invokeOnOpenGLThread(AWTThreadingPlugin.java:103)
+	at jogamp.opengl.ThreadingImpl.invokeOnOpenGLThread(ThreadingImpl.java:205)
+	at javax.media.opengl.Threading.invokeOnOpenGLThread(Threading.java:172)
+	at javax.media.opengl.Threading.invoke(Threading.java:191)
+	at javax.media.opengl.awt.GLCanvas.display(GLCanvas.java:449)
+	at com.jogamp.opengl.util.AWTAnimatorImpl.display(AWTAnimatorImpl.java:74)
+	at com.jogamp.opengl.util.AnimatorBase.display(AnimatorBase.java:142)
+	at com.jogamp.opengl.util.FPSAnimator$1.run(FPSAnimator.java:128)
+	at java.util.TimerThread.mainLoop(Timer.java:534)
+	at java.util.TimerThread.run(Timer.java:484)
+Caused by: java.lang.NullPointerException
+	at shadow.pipeline.openGL20.SFGL20UniformData.setData(SFGL20UniformData.java:153)
+	at shadow.pipeline.openGL20.SFGL20AbstractProgram.setData(SFGL20AbstractProgram.java:130)
+	at shadow.pipeline.openGL20.SFGL20PipelineGraphics.loadTexture(SFGL20PipelineGraphics.java:188)
+	at shadow.renderer.SFRenderer.setupMaterialData(SFRenderer.java:106)
+	at shadow.image.SFFilteredRenderedTexture.update(SFFilteredRenderedTexture.java:63)
+	at shadow.image.SFFilteredRenderedTexture.init(SFFilteredRenderedTexture.java:47)
+	at shadow.system.SFInitiator.solveInitiables(SFInitiator.java:59)
+	at shadow.renderer.viewer.SFDrawableFrame$SFDrawableFrameListener.display(SFDrawableFrame.java:92)
+	at jogamp.opengl.GLDrawableHelper.displayImpl(GLDrawableHelper.java:373)
+	at jogamp.opengl.GLDrawableHelper.display(GLDrawableHelper.java:358)
+	at javax.media.opengl.awt.GLCanvas$7.run(GLCanvas.java:983)
+	at jogamp.opengl.GLDrawableHelper.invokeGLImpl(GLDrawableHelper.java:655)
+	at jogamp.opengl.GLDrawableHelper.invokeGL(GLDrawableHelper.java:594)
+	at javax.media.opengl.awt.GLCanvas$8.run(GLCanvas.java:996)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:216)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:673)
+	at java.awt.EventQueue.access$300(EventQueue.java:96)
+	at java.awt.EventQueue$2.run(EventQueue.java:634)
+	at java.awt.EventQueue$2.run(EventQueue.java:632)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:105)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:643)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:275)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:200)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:190)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:185)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:177)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:138)
+
+
+-------------------------------------------------------------------------------------
+
+	EXCP: Eccezione aggiuntiva della chiusura di finestra
+
+-------------------------------------------------------------------------------------
+
+	Exception in thread "AWT-EventQueue-0" java.lang.IllegalStateException: Timer already cancelled.
+	at java.util.Timer.sched(Timer.java:376)
+	at java.util.Timer.schedule(Timer.java:244)
+	at com.jogamp.opengl.util.FPSAnimator.startTask(FPSAnimator.java:139)
+	at com.jogamp.opengl.util.FPSAnimator.resume(FPSAnimator.java:212)
+	at javax.media.opengl.awt.GLCanvas$4.run(GLCanvas.java:916)
+	at javax.media.opengl.Threading.invoke(Threading.java:193)
+	at javax.media.opengl.awt.GLCanvas.dispose(GLCanvas.java:455)
+	at javax.media.opengl.awt.GLCanvas.removeNotify(GLCanvas.java:633)
+	at javax.media.opengl.awt.GLCanvas.destroy(GLCanvas.java:468)
+	at javax.media.opengl.awt.GLCanvas$1.run(GLCanvas.java:176)
+	at com.jogamp.nativewindow.awt.AWTWindowClosingProtocol$WindowClosingAdapter.windowClosing(AWTWindowClosingProtocol.java:62)
+	at java.awt.AWTEventMulticaster.windowClosing(AWTEventMulticaster.java:349)
+	at java.awt.AWTEventMulticaster.windowClosing(AWTEventMulticaster.java:349)
+	at java.awt.Window.processWindowEvent(Window.java:1974)
+	at javax.swing.JFrame.processWindowEvent(JFrame.java:290)
+	at java.awt.Window.processEvent(Window.java:1932)
+	at java.awt.Component.dispatchEventImpl(Component.java:4649)
+	at java.awt.Container.dispatchEventImpl(Container.java:2103)
+	at java.awt.Window.dispatchEventImpl(Window.java:2587)
+	at java.awt.Component.dispatchEvent(Component.java:4475)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:675)
+	at java.awt.EventQueue.access$300(EventQueue.java:96)
+	at java.awt.EventQueue$2.run(EventQueue.java:634)
+	at java.awt.EventQueue$2.run(EventQueue.java:632)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:105)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:116)
+	at java.awt.EventQueue$3.run(EventQueue.java:648)
+	at java.awt.EventQueue$3.run(EventQueue.java:646)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:105)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:645)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:275)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:200)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:190)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:185)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:177)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:138)

@@ -1,6 +1,7 @@
 \documentclass[11pt,a4paper]{book}
 \usepackage[italian]{babel}
 
+\usepackage{acronym}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -26,13 +27,16 @@
 %	Fronte - Sommario - Varie
 %----------------------------------------------------------
 \include{Varie/Sommario}
+\include{Varie/Acronimi}
 
 
 
 %----------------------------------------------------------
-%	Capitoli - tmp
+%	Parti
 %----------------------------------------------------------
-\include{TMP/tmp}
+\part{Lo Shadow Framework}
+\label{prt:shadowframework}
+\include{Capitoli/GestioneDati}
 
 %----------------------------------------------------------
 %	Appendici
@@ -44,4 +48,3 @@
 %----------------------------------------------------------
 
 \end{document}
-

@@ -1,8 +1,6 @@
 package shadow.application.client;
 
 import shadow.renderer.SFNode;
-import shadow.renderer.SFObjectModel;
-import shadow.renderer.contents.tests.common.CommonMaterial;
 import shadow.renderer.data.SFDataAsset;
 import shadow.renderer.viewer.SFFrameController;
 import shadow.renderer.viewer.SFViewer;
