@@ -5,9 +5,8 @@ package shadow.system.data.wip;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
+import shadow.system.SFUpdater;
 import shadow.system.data.SFDataCenterListener;
 import shadow.system.data.SFDataset;
 import shadow.system.data.SFIDataCenter;
@@ -24,9 +23,10 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	
 	private SFObjectsLibrary library;
 	private SFObjectsLibrary defaultReferencesLibrary;
-	private ExecutorService threadExecutor;
-	private SFRemoteRequests requests;
-	
+
+	private Boolean loadDefaultRefs = false;
+	private Boolean loadDefaultAssets = false;
+	private Boolean defaultLibrariesError = false;
 	
 	/**
 	 * 
@@ -34,40 +34,70 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	public SFRemoteDataCenter() throws SFDataCenterCreationException {
 		library = new SFObjectsLibrary();
 		defaultReferencesLibrary = new SFObjectsLibrary();
-		requests = new SFRemoteRequests();
 	}
 	
 	public void loadDefaultData() {
-		requests.addRequest("DefaultReferences");
-		requests.addRequest("DefaultAssetLibrary");
 		
-		Thread thread = new Thread(new SFRemoteDataCenterRequestTask());
-		thread.start();
+		SFRemoteDataCenterRequests.getRequest().addUpdateListener("DefaultReferences", new DataCenterRequest(
+			
+			new SFDataCenterListener<SFDataset>() {
+				@Override
+				public void onDatasetAvailable(String name, SFDataset dataset) {
+					loadDefaultRefs = true;
+					defaultReferencesLibrary.addLibrary((SFObjectsLibrary)dataset);
+				}
+			},
+			new IFailedRequestListener() {
+				
+				@Override
+				public void onFailedRequest() {
+					defaultLibrariesError = true;
+					
+				}
+			}
+		));
 		
-		try {
-			thread.join();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		SFRemoteDataCenterRequests.getRequest().addUpdateListener("DefaultAssetLibrary", new DataCenterRequest(
+			
+			new SFDataCenterListener<SFDataset>() {
+				@Override
+				public void onDatasetAvailable(String name, SFDataset dataset) {
+					loadDefaultAssets = true;
+					library.addLibrary((SFObjectsLibrary)dataset);
+				}
+			},
+			new IFailedRequestListener() {
+				
+				@Override
+				public void onFailedRequest() {
+					defaultLibrariesError = true;
+					
+				}
+			}
+		));
+		
+		SFRemoteDataCenterRequests.getRequest().addRequest("DefaultReferences");
+		SFRemoteDataCenterRequests.getRequest().addRequest("DefaultAssetLibrary");
+		System.err.println("Time:" + System.currentTimeMillis() + " default libraries requested");
+		
+		while(!loadDefaultRefs || !loadDefaultAssets){
+			SFUpdater.refresh();
+			
+			try {
+				Thread.sleep(100);
+				System.err.println("Time:" + System.currentTimeMillis() + " waiting for default libraries ");
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 		
-		SFDataset assetLib = library.retrieveDataset("DefaultAssetLibrary");
-		SFDataset defRef = library.retrieveDataset("DefaultReferences");
-		
-		if ((assetLib != null) && (defRef!=null)) {
-			defaultReferencesLibrary.addLibrary((SFObjectsLibrary)defRef);
-			library.addLibrary((SFObjectsLibrary)assetLib);
-		} else {
-			throw new SFDataCenterCreationException("SFRemoteDataCenter: can't download default assets library");
+		if(defaultLibrariesError){
+			throw new SFDataCenterCreationException("SFRemoteDataCenter: can't download default assets libraries");
 		}
 	}
 	
 	public synchronized void addDatasetToLibraty(String name, SFDataset dataset) {
 		this.library.put(name, dataset);
-	}
-	
-	public SFRemoteRequests getRequests() {
-		return this.requests;
 	}
 
 	/* (non-Javadoc)
@@ -76,7 +106,7 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	@Override
 	public void makeDatasetAvailable(String name, SFDataCenterListener<?> listener) {
 		SFDataset dataset;
-		synchronized (requests) {
+		synchronized (SFRemoteDataCenterRequests.getRequest()) {
 			dataset = library.retrieveDataset(name);
 			if (dataset == null) {
 				SFDataset tmp = library.retrieveDataset(((SFDefaultDatasetReference) defaultReferencesLibrary.retrieveDataset(name)).getName().getString());
@@ -86,17 +116,13 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 				dataset.getSFDataObject().readFromStream(new SFInputStreamJava(new ByteArrayInputStream(out.toByteArray()), null));
 				
 				this.addDatasetToLibraty(name, dataset);
+				
+				SFRemoteDataCenterRequests.getRequest().addUpdateListener(name, new DataCenterRequest( (SFDataCenterListener<SFDataset>)listener));
+				SFRemoteDataCenterRequests.getRequest().addRequest(name);
 	
-				requests.addUpdateListener(name, listener);
-				requests.addRequest(name);
-	
-				if (threadExecutor == null) {
-					threadExecutor = Executors.newCachedThreadPool();
-					threadExecutor.execute(new SFRemoteDataCenterRequestsCreationTask());
-				}
 			} else {
-				if(requests.updatePending(name)) {
-					requests.addUpdateListener(name, listener);
+				if(SFRemoteDataCenterRequests.getRequest().updatePending(name)) {
+					SFRemoteDataCenterRequests.getRequest().addUpdateListener(name, new DataCenterRequest( (SFDataCenterListener<SFDataset>)listener));
 				}
 			}
 		}

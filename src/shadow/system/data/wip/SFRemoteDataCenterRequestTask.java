@@ -18,14 +18,11 @@ import shadow.underdevelopment.SFConnection;
  *
  */
 public class SFRemoteDataCenterRequestTask implements Runnable {
-	//private ArrayList<String> requests;
-	SFRemoteRequests requests;
+
 	private ArrayList<String> requestList;
 	private ClientCommunicator communicator;
 	
 	public SFRemoteDataCenterRequestTask() {
-		this.requests = ((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).getRequests();
-		//this.buffer = new ArrayList<String>();
 		//TODO: add a way to request the connection from an external class
 		try {
 			this.communicator = new ClientCommunicator(new SFConnection("acquarius", 4444), null);
@@ -39,17 +36,9 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 	 */
 	@Override
 	public void run() {
-
 		String requestString = "request";
-		requestList = requests.removeRequests();
+		requestList = SFRemoteDataCenterRequests.getRequest().removeRequests();
 		
-//		synchronized (requests) {
-//			for (String req : requests) {
-//				request = request.concat(","+req);
-//				buffer.add(req);
-//			}
-//			requests.clear();
-//		}
 		for (String req : requestList) {
 			requestString = requestString.concat(","+req);
 		}
@@ -68,8 +57,8 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 				String token = tokenizer.nextToken();
 				if (token.compareTo("fail") == 0) {
 					token = tokenizer.nextToken();
-					// TODO add a notification of the failed request
- 
+					SFRemoteDataCenterRequests.getRequest().onRequestFail(token);
+					
 				} else {
 					communicator.sendLine("ok");
 					SFDataset dataset = communicator.readDataset();
@@ -84,8 +73,7 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 						}
 					}
 					((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).addDatasetToLibraty(token, dataset);
-					
-					requests.onRequestUpdate(token);
+					SFRemoteDataCenterRequests.getRequest().onRequestUpdate(token);
 				}
 					
 			}

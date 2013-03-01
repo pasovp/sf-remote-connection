@@ -3,13 +3,14 @@ package shadow.system.data.wip;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import shadow.system.data.SFDataCenter;
-import shadow.system.data.SFDataCenterListener;
+import shadow.system.SFUpdatable;
+import shadow.system.SFUpdater;
 import shadow.system.data.SFDataset;
 
-public class SFRemoteRequests {
+public class SFRemoteRequests<R extends IRequest> {
+
 	private ArrayList<String> requests = new ArrayList<String>();
-	private HashMap<String, ArrayList<SFDataCenterListener<SFDataset>>> listeners = new HashMap<String, ArrayList<SFDataCenterListener<SFDataset>>>();
+	private HashMap<String, ArrayList<R>> listeners = new HashMap<String, ArrayList<R>>();
 	
 	public synchronized void addRequest(String name) {
 		this.requests.add(name);
@@ -25,30 +26,53 @@ public class SFRemoteRequests {
 		return !this.requests.isEmpty();
 	}
 	
-	public synchronized <T extends SFDataset> void addUpdateListener(String name, SFDataCenterListener<T> listener) {
+	public synchronized <T extends SFDataset> void addUpdateListener(String name, /*SFDataCenterListener<T> listener*/R listener) {
 		if(this.listeners.get(name) == null) {
-			this.listeners.put(name, new ArrayList<SFDataCenterListener<SFDataset>>());
+			this.listeners.put(name, new ArrayList<R>());
 		}
-		this.listeners.get(name).add((SFDataCenterListener<SFDataset>)listener);
+		this.listeners.get(name).add(listener);
 		System.err.println("Time:" + System.currentTimeMillis() + " Listener for:"+ name);
 	}
 	
 	public synchronized void onRequestUpdate(String name) {
-		ArrayList<SFDataCenterListener<SFDataset>> listenersList = this.listeners.get(name);
 		
+		final ArrayList<R> listenersList = this.listeners.get(name);
+		final String reqName = name;
 		
 		if (listenersList != null) {
-			for (SFDataCenterListener<SFDataset> listener : listenersList ) {
-				listener.onDatasetAvailable(name, ((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).getUpdatedDataset(name));
-				System.err.println("Time:" + System.currentTimeMillis() + " Update for:"+ name);
-			}
-			listenersList.clear();
-			//this.listeners.remove(name);
+			SFUpdater.addUpdatable(new SFUpdatable() {
+				
+				@Override
+				public void update() {
+					for (R listener : listenersList ) {
+						listener.executeRequest(reqName);
+					}
+					listenersList.clear();
+				}
+			});
+		}
+	}
+	
+	public synchronized void onRequestFail(String name){
+		final ArrayList<R> listenersList = this.listeners.get(name);
+		final String reqName = name;
+		
+		if (listenersList != null) {
+			SFUpdater.addUpdatable(new SFUpdatable() {
+				
+				@Override
+				public void update() {
+					for (R listener : listenersList ) {
+						listener.failedRequest(reqName);
+					}
+					listenersList.clear();
+				}
+			});
 		}
 	}
 	
 	public synchronized boolean updatePending(String name) {
-		ArrayList<SFDataCenterListener<SFDataset>> listenersList = this.listeners.get(name);
+		ArrayList<R> listenersList = this.listeners.get(name);
 		if ((listenersList != null) && (listenersList.size()>0)) {
 			return true;
 		}
