@@ -4,12 +4,12 @@
 		"selected_items":
 		[
 			[
-				"su",
+				"sub",
 				"subsection"
 			],
 			[
-				"sub",
-				"subsubsection"
+				"su",
+				"subsection"
 			]
 		]
 	},
@@ -19,23 +19,7 @@
 			"file": "tesi.tex",
 			"settings":
 			{
-				"buffer_size": 1138,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Varie/Sommario.tex",
-			"settings":
-			{
-				"buffer_size": 70,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Varie/Acronimi.tex",
-			"settings":
-			{
-				"buffer_size": 109,
+				"buffer_size": 1222,
 				"line_ending": "Unix"
 			}
 		},
@@ -43,7 +27,7 @@
 			"file": "Capitoli/GestioneDati.tex",
 			"settings":
 			{
-				"buffer_size": 2292,
+				"buffer_size": 4653,
 				"line_ending": "Unix"
 			}
 		},
@@ -54,22 +38,22 @@
 				"buffer_size": 158,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "Capitoli/SFRemoteConnection.tex",
+			"settings":
+			{
+				"buffer_size": 5591,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 96.0,
+		"height": 392.0,
 		"selected_items":
 		[
-			[
-				"ltxen",
-				"LaTeX Accents: Encode accents"
-			],
-			[
-				"ltxd",
-				"LaTeX Accents: Decode accents"
-			],
 			[
 				"ltxe",
 				"LaTeX Accents: Encode accents"
@@ -79,12 +63,32 @@
 				"LaTeX Accents: Encode accents"
 			],
 			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
 				"lt",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"la",
 				"LaTeX Accents: Decode accents"
 			],
 			[
-				"Package Control: ",
-				"Package Control: Install Package"
+				"Snippet: ",
+				"Snippet: add"
+			],
+			[
+				"ltxen",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"ltxd",
+				"LaTeX Accents: Decode accents"
 			],
 			[
 				"vi",
@@ -128,30 +132,47 @@
 	},
 	"file_history":
 	[
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/log/log01.txt",
+		"/home/luigi/.cache/.fr-f5yyWV/SFRemoteConnection/src/shadow/system/data/wip/SFRemoteDataCenter.java",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Materiale/titoli possibili",
+		"/home/luigi/Documenti/latex/fronte/fronte.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/FrontBackmatter/Titlepage.tex",
+		"/home/luigi/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/luigi/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/luigi/.config/sublime-text-2/Packages/Dictionaries/Italian.dic",
+		"/home/luigi/.config/sublime-text-2/Packages/Dictionaries/Italian.aff",
+		"/home/luigi/.config/sublime-text-2/Packages/Dictionaries/Italian.txt",
+		"/home/luigi/Progetti/singapore/soluzione_sia.c",
 		"/home/luigi/log.txt",
+		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/LaTeX.sublime-completions",
+		"/etc/apt/sources.list.d/spotify-deb-stable.list",
+		"/etc/apt/sources.list.d/ubuntu-wine-ppa-precise.list.save",
+		"/etc/apt/sources.list.d/xorg-edgers-ppa-precise.list",
+		"/etc/apt/sources.list.d/xorg-edgers-ppa-precise.list.save",
+		"/home/luigi/2",
+		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/LaTeX.sublime-commands",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Sommario.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Acronimi.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Sommario.aux",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.log",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/log/log01.txt",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/ShadowFramework.tex",
 		"/home/luigi/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/luigi/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/GestioneDati.fdb_latexmk",
 		"/home/luigi/C:\\nppdf32Log\\debuglog.txt",
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.log",
 		"/home/luigi/.config/sublime-text-2/Packages/BracketHighlighter/BracketHighlighter.sublime-settings",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.log.old",
 		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/Default (Linux).sublime-keymap",
 		"/home/luigi/.cache/.fr-2jZ748/tesi.synctex",
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Sommario.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Bibliografia.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Tesi.tks",
 		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/README.markdown",
 		"/home/luigi/.cache/.fr-ffkVoY/tesi.synctex",
 		"/home/luigi/.config/sublime-text-2/Packages/Terminal/Default (Linux).sublime-keymap",
 		"/home/luigi/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
-		"/home/luigi/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/luigi/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
 		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/LaTeXTools Preferences.sublime-settings",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.fdb_latexmk",
-		"/home/luigi/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/progetto_tesi",
 		"/home/luigi/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
 		"/home/luigi/.config/sublime-text-2/Packages/User/LaTeXTools Preferences.sublime-settings"
@@ -172,6 +193,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"in oltre",
+			"spell",
 			"ctrl+alt+s",
 			"ctrl+b",
 			"\\end",
@@ -207,7 +230,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -215,15 +238,15 @@
 					"file": "tesi.tex",
 					"settings":
 					{
-						"buffer_size": 1138,
+						"buffer_size": 1222,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								715,
-								715
+								628,
+								628
 							]
 						],
 						"settings":
@@ -231,77 +254,25 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 357.0,
+						"translation.y": 255.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Varie/Sommario.tex",
-					"settings":
-					{
-						"buffer_size": 70,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Varie/Acronimi.tex",
-					"settings":
-					{
-						"buffer_size": 109,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "Capitoli/GestioneDati.tex",
 					"settings":
 					{
-						"buffer_size": 2292,
+						"buffer_size": 4653,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								24,
-								24
+								3443,
+								3443
 							]
 						],
 						"settings":
@@ -314,13 +285,13 @@
 							"wrap_width": 0
 						},
 						"translation.x": 0.0,
-						"translation.y": 51.0,
+						"translation.y": 635.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 2,
 					"file": "TMP/tmp.tex",
 					"settings":
 					{
@@ -341,6 +312,33 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Capitoli/SFRemoteConnection.tex",
+					"settings":
+					{
+						"buffer_size": 5591,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5557,
+								5557
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 136.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

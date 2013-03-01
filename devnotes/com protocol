@@ -11,3 +11,4 @@ Close:			"close\n"
 
 ReplyX:			"nameX\n" + Dataset
 ReplyX-fail:	"fail,nameX\n"
+Idle:			"idle"
