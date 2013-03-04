@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import shadow.application.client.ClientCommunicator;
-import shadow.renderer.data.SFAsset;
-import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataset;
 import shadow.underdevelopment.SFConnection;
 
@@ -63,17 +61,17 @@ public class SFRemoteDataCenterRequestTask implements Runnable {
 					communicator.sendLine("ok");
 					SFDataset dataset = communicator.readDataset();
 					
-					synchronized (dataset) {
-						if(dataset instanceof SFAsset) {
-							SFAsset asset = (SFAsset)(dataset);
-							//FIXME Non sono sicuro che sia più necessario usare l'UpdateMode
-							//SFDataAsset.setUpdateMode(true);
-							asset.getResource();
-							//SFDataAsset.setUpdateMode(false);
-						}
-					}
-					((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).addDatasetToLibraty(token, dataset);
-					SFRemoteDataCenterRequests.getRequest().onRequestUpdate(token);
+//					synchronized (dataset) {
+//						if(dataset instanceof SFAsset) {
+//							SFAsset asset = (SFAsset)(dataset);
+//							//FIXME Non sono sicuro che sia più necessario usare l'UpdateMode
+//							//SFDataAsset.setUpdateMode(true);
+//							asset.getResource();
+//							//SFDataAsset.setUpdateMode(false);
+//						}
+//					}
+//					((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).addDatasetToLibraty(token, dataset);
+					SFRemoteDataCenterRequests.getRequest().onRequestUpdate(token,dataset);
 				}
 					
 			}

@@ -1,5 +1,6 @@
 package shadow.system.data.wip;
 
+import shadow.renderer.data.SFAsset;
 import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataCenterListener;
 import shadow.system.data.SFDataset;
@@ -22,8 +23,9 @@ public class DataCenterRequest implements IRequest{
 	}
 
 	@Override
-	public void executeRequest(String name) {
-		listener.onDatasetAvailable(name, ((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).getUpdatedDataset(name));
+	public void executeRequest(String name, SFDataset dataset) {
+		
+		listener.onDatasetAvailable(name, dataset);
 		System.err.println("Time:" + System.currentTimeMillis() + " Update for:"+ name);
 	}
 

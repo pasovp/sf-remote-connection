@@ -39,7 +39,6 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	public void loadDefaultData() {
 		
 		SFRemoteDataCenterRequests.getRequest().addUpdateListener("DefaultReferences", new DataCenterRequest(
-			
 			new SFDataCenterListener<SFDataset>() {
 				@Override
 				public void onDatasetAvailable(String name, SFDataset dataset) {
@@ -58,7 +57,6 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 		));
 		
 		SFRemoteDataCenterRequests.getRequest().addUpdateListener("DefaultAssetLibrary", new DataCenterRequest(
-			
 			new SFDataCenterListener<SFDataset>() {
 				@Override
 				public void onDatasetAvailable(String name, SFDataset dataset) {
@@ -82,7 +80,6 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 		
 		while(!loadDefaultRefs || !loadDefaultAssets){
 			SFUpdater.refresh();
-			
 			try {
 				Thread.sleep(100);
 				System.err.println("Time:" + System.currentTimeMillis() + " waiting for default libraries ");
@@ -114,24 +111,15 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 				ByteArrayOutputStream out = new ByteArrayOutputStream();
 				tmp.getSFDataObject().writeOnStream(new SFOutputStreamJava(out, null));
 				dataset.getSFDataObject().readFromStream(new SFInputStreamJava(new ByteArrayInputStream(out.toByteArray()), null));
-				
 				this.addDatasetToLibraty(name, dataset);
-				
 				SFRemoteDataCenterRequests.getRequest().addUpdateListener(name, new DataCenterRequest( (SFDataCenterListener<SFDataset>)listener));
 				SFRemoteDataCenterRequests.getRequest().addRequest(name);
-	
 			} else {
 				if(SFRemoteDataCenterRequests.getRequest().updatePending(name)) {
 					SFRemoteDataCenterRequests.getRequest().addUpdateListener(name, new DataCenterRequest( (SFDataCenterListener<SFDataset>)listener));
 				}
 			}
 		}
-		
 		((SFDataCenterListener<SFDataset>)listener).onDatasetAvailable(name, dataset);
 	}
-	
-	protected SFDataset getUpdatedDataset(String name) {
-		return library.retrieveDataset(name);
-	}
-
 }

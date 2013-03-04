@@ -3,8 +3,10 @@ package shadow.system.data.wip;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import shadow.renderer.data.SFAsset;
 import shadow.system.SFUpdatable;
 import shadow.system.SFUpdater;
+import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataset;
 
 public class SFRemoteRequests<R extends IRequest> {
@@ -26,7 +28,7 @@ public class SFRemoteRequests<R extends IRequest> {
 		return !this.requests.isEmpty();
 	}
 	
-	public synchronized <T extends SFDataset> void addUpdateListener(String name, /*SFDataCenterListener<T> listener*/R listener) {
+	public synchronized void addUpdateListener(String name, R listener) {
 		if(this.listeners.get(name) == null) {
 			this.listeners.put(name, new ArrayList<R>());
 		}
@@ -34,18 +36,24 @@ public class SFRemoteRequests<R extends IRequest> {
 		System.err.println("Time:" + System.currentTimeMillis() + " Listener for:"+ name);
 	}
 	
-	public synchronized void onRequestUpdate(String name) {
+	public synchronized void onRequestUpdate(String name, SFDataset dataset) {
 		
 		final ArrayList<R> listenersList = this.listeners.get(name);
 		final String reqName = name;
+		final SFDataset reqDataset = dataset;
 		
 		if (listenersList != null) {
 			SFUpdater.addUpdatable(new SFUpdatable() {
 				
 				@Override
 				public void update() {
+					if(reqDataset instanceof SFAsset) {
+						((SFAsset)reqDataset).getResource();
+					}
+					((SFRemoteDataCenter)SFDataCenter.getDataCenter().getDataCenterImplementation()).addDatasetToLibraty(reqName, reqDataset);
+					
 					for (R listener : listenersList ) {
-						listener.executeRequest(reqName);
+						listener.executeRequest(reqName, reqDataset);
 					}
 					listenersList.clear();
 				}
