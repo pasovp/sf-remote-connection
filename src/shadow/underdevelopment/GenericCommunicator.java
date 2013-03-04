@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-
 public class GenericCommunicator {
 
 	private SFConnection connection;
@@ -32,10 +31,7 @@ public class GenericCommunicator {
 			in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			line = in.readLine();
 		} catch (IOException e) {
-			e.printStackTrace();
-			if (listener!=null) {
-				listener.exceptionCatched(e);
-			}
+			handleIOException(e);
 		}
 		return line;
 	}
@@ -46,10 +42,7 @@ public class GenericCommunicator {
 			out = new PrintWriter(connection.getOutputStream(), true);
 			out.println(line);
 		} catch (IOException e) {
-			e.printStackTrace();
-			if (listener!=null) {
-				listener.exceptionCatched(e);
-			}
+			handleIOException(e);
 		}
 	}
 
@@ -57,10 +50,14 @@ public class GenericCommunicator {
 		try {
 			connection.closeConnection();
 		} catch (IOException e) {
-			e.printStackTrace();
-			if (listener!=null) {
-				listener.exceptionCatched(e);
-			}
+			handleIOException(e);
+		}
+	}
+	
+	public void handleIOException(IOException e){
+		e.printStackTrace();
+		if (listener!=null) {
+			listener.exceptionCatched(e);
 		}
 	}
 

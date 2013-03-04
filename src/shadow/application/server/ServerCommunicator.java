@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataset;
+import shadow.underdevelopment.CommunicatorExceptionListener;
 import shadow.underdevelopment.GenericCommunicator;
 import shadow.underdevelopment.SFConnection;
 
@@ -22,13 +23,17 @@ public class ServerCommunicator extends GenericCommunicator {
 		this.datacenter = SFDataCenter.getDataCenter(); 
 	}
 	
+	public ServerCommunicator(SFConnection connection, CommunicatorExceptionListener listener) {
+		super(connection,listener);
+		this.datacenter = SFDataCenter.getDataCenter(); 
+	}
+	
 	public void sendDataset(SFDataset dataset) {
 		// TODO Control correct send of the dataset 
 		try {
 			this.datacenter.writeDataset(super.getConnection().getSFOutputStream(), dataset);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			this.handleIOException(e);
 		}
 	}
 
