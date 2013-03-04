@@ -1,5 +1,5 @@
 
-package shadow.application.client;
+package shadow.application.client.test;
 
 import java.io.IOException;
 import java.net.UnknownHostException;

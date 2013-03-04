@@ -13,7 +13,7 @@ import shadow.underdevelopment.SFConnection;
 
 /**
  * @author Luigi Pasotti
- * Class {@link ClientCommunicator} implements the communication logic of the client.
+ * Class ClientCommunicator implements the communication logic of the client.
  */
 public class ClientCommunicator extends GenericCommunicator {
 	
@@ -29,8 +29,7 @@ public class ClientCommunicator extends GenericCommunicator {
 		try {
 			super.getConnection().openConnection();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			this.handleIOException(e);
 		}
 	}
 	
@@ -39,7 +38,7 @@ public class ClientCommunicator extends GenericCommunicator {
 		try {
 			dataset = this.datacenter.readDataset(super.getConnection().getSFInputStream());
 		} catch (IOException e) {
-			e.printStackTrace();
+			this.handleIOException(e);
 		}
 		return dataset;
 	}

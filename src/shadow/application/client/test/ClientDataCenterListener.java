@@ -1,4 +1,4 @@
-package shadow.application.client;
+package shadow.application.client.test;
 
 import shadow.renderer.SFNode;
 import shadow.renderer.data.SFDataAsset;
