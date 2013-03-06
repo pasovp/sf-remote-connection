@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+	<SFDatasetReplacement name="RedMushroom">
+		<replacement>Mushroom</replacement>
+		<timestamp>1362585226405</timestamp>
+	</SFDatasetReplacement>
+</library>
