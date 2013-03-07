@@ -3,10 +3,10 @@ package shadow.application.server.tasks;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import shadow.application.server.IServerCommunicationTask;
+import shadow.application.server.IServerCommunicationProtocolTask;
 import shadow.application.server.ServerCommunicator;
 
-public class IdleServerCommunicationTask implements IServerCommunicationTask{
+public class IdleServerCommunicationTask implements IServerCommunicationProtocolTask{
 
 	private ServerCommunicator communicator;
 	

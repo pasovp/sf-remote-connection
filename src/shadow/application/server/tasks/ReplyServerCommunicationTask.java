@@ -2,12 +2,12 @@ package shadow.application.server.tasks;
 
 import java.util.ArrayList;
 
-import shadow.application.server.IServerCommunicationTask;
+import shadow.application.server.IServerCommunicationProtocolTask;
 import shadow.application.server.IServerDataLibrary;
 import shadow.application.server.ServerCommunicator;
 import shadow.system.data.SFDataset;
 
-public class ReplyServerCommunicationTask implements IServerCommunicationTask{
+public class ReplyServerCommunicationTask implements IServerCommunicationProtocolTask{
 
 	private ServerCommunicator communicator;
 	private IServerDataLibrary library;

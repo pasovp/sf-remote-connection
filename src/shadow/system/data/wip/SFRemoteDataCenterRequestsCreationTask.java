@@ -10,19 +10,15 @@ import shadow.system.data.SFDataCenter;
  *
  */
 public class SFRemoteDataCenterRequestsCreationTask implements Runnable {
-	private ExecutorService threadExecutor;
+	private ExecutorService threadExecutor = Executors.newCachedThreadPool();
 
 	/* (non-Javadoc)
 	 * @see java.lang.Runnable#run()
 	 */
 	@Override
-	public void run() {		
+	public void run() {
 		while (true) {
-			
 			if (SFRemoteDataCenterRequests.getRequest().hasNewRequests()) {
-				if (threadExecutor == null) {
-					threadExecutor = Executors.newCachedThreadPool();
-				}
 				threadExecutor.execute(new SFRemoteDataCenterRequestTask());
 			}
 			try {

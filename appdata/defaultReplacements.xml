@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+	<SFDatasetReplacement name="BasicMatColours">
+		<replacement>MatColours</replacement>
+		<timestamp>1362586268761</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="Mushroom">
+		<replacement>Cube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="MushroomObject01">
+		<replacement>TexturedCube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="MushroomObject02">
+		<replacement>TexturedCube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="MushroomObject03">
+		<replacement>TexturedCube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="PerlinMushroom">
+		<replacement>TexturedCube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="PerlinTexture">
+		<replacement>Texture</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="RedMushroom">
+		<replacement>GreenCube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="ReddishGrayAndBrightMushroom">
+		<replacement>GreenCube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="ReddishGrayAndBrightPerlinNoise">
+		<replacement>Texture01</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="Scene01">
+		<replacement>TexturedCube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="TexturedMushroom">
+		<replacement>CubeTx</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+</library>

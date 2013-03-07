@@ -22,28 +22,31 @@ import shadow.system.data.java.SFOutputStreamJava;
 public class SFRemoteDataCenter implements SFIDataCenter {
 	
 	private SFObjectsLibrary library;
-	private SFObjectsLibrary defaultReferencesLibrary;
+	private SFObjectsLibrary defaultReplacementsLibrary;
 
-	private Boolean loadDefaultRefs = false;
+	private Boolean loadDefaultReps = false;
 	private Boolean loadDefaultAssets = false;
 	private Boolean defaultLibrariesError = false;
+	
+	private final String REPLACEMENTSLIB = "DefaultReplacements";
+	private final String DEFAULTASSETSLIB = "DefaultAssetLibrary";
 	
 	/**
 	 * 
 	 */
 	public SFRemoteDataCenter() throws SFDataCenterCreationException {
 		library = new SFObjectsLibrary();
-		defaultReferencesLibrary = new SFObjectsLibrary();
+		defaultReplacementsLibrary = new SFObjectsLibrary();
 	}
 	
 	public void loadDefaultData() {
 		
-		SFRemoteDataCenterRequests.getRequest().addUpdateListener("DefaultReferences", new DataCenterRequest(
+		SFRemoteDataCenterRequests.getRequest().addUpdateListener(REPLACEMENTSLIB, new DataCenterRequest(
 			new SFDataCenterListener<SFDataset>() {
 				@Override
 				public void onDatasetAvailable(String name, SFDataset dataset) {
-					loadDefaultRefs = true;
-					defaultReferencesLibrary.addLibrary((SFObjectsLibrary)dataset);
+					loadDefaultReps = true;
+					defaultReplacementsLibrary.addLibrary((SFObjectsLibrary)dataset);
 				}
 			},
 			new IFailedRequestListener() {
@@ -51,12 +54,12 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 				@Override
 				public void onFailedRequest() {
 					defaultLibrariesError = true;
-					
+					loadDefaultReps = true;
 				}
 			}
 		));
 		
-		SFRemoteDataCenterRequests.getRequest().addUpdateListener("DefaultAssetLibrary", new DataCenterRequest(
+		SFRemoteDataCenterRequests.getRequest().addUpdateListener(DEFAULTASSETSLIB, new DataCenterRequest(
 			new SFDataCenterListener<SFDataset>() {
 				@Override
 				public void onDatasetAvailable(String name, SFDataset dataset) {
@@ -69,16 +72,16 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 				@Override
 				public void onFailedRequest() {
 					defaultLibrariesError = true;
-					
+					loadDefaultAssets = true;
 				}
 			}
 		));
 		
-		SFRemoteDataCenterRequests.getRequest().addRequest("DefaultReferences");
-		SFRemoteDataCenterRequests.getRequest().addRequest("DefaultAssetLibrary");
+		SFRemoteDataCenterRequests.getRequest().addRequest(REPLACEMENTSLIB);
+		SFRemoteDataCenterRequests.getRequest().addRequest(DEFAULTASSETSLIB);
 		System.err.println("Time:" + System.currentTimeMillis() + " default libraries requested");
 		
-		while(!loadDefaultRefs || !loadDefaultAssets){
+		while(!loadDefaultReps || !loadDefaultAssets){
 			SFUpdater.refresh();
 			try {
 				Thread.sleep(100);
@@ -106,7 +109,7 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 		synchronized (SFRemoteDataCenterRequests.getRequest()) {
 			dataset = library.retrieveDataset(name);
 			if (dataset == null) {
-				SFDataset tmp = library.retrieveDataset(((SFDefaultDatasetReference) defaultReferencesLibrary.retrieveDataset(name)).getName().getString());
+				SFDataset tmp = library.retrieveDataset(((SFDatasetReplacement) defaultReplacementsLibrary.retrieveDataset(name)).getReplacementName());
 				dataset = tmp.generateNewDatasetInstance();
 				ByteArrayOutputStream out = new ByteArrayOutputStream();
 				tmp.getSFDataObject().writeOnStream(new SFOutputStreamJava(out, null));

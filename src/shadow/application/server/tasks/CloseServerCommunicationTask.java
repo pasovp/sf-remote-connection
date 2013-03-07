@@ -2,10 +2,10 @@ package shadow.application.server.tasks;
 
 import java.util.ArrayList;
 
-import shadow.application.server.IServerCommunicationTask;
+import shadow.application.server.IServerCommunicationProtocolTask;
 import shadow.application.server.ServerCommunicator;
 
-public class CloseServerCommunicationTask implements IServerCommunicationTask{
+public class CloseServerCommunicationTask implements IServerCommunicationProtocolTask{
 
 	private ServerCommunicator communicator;
 	

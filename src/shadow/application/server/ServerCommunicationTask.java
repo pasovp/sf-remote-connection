@@ -5,11 +5,7 @@ package shadow.application.server;
 
 import java.util.ArrayList;
 
-import shadow.application.server.tasks.CloseServerCommunicationTask;
-import shadow.application.server.tasks.IdleServerCommunicationTask;
-import shadow.application.server.tasks.ReplyServerCommunicationTask;
 import shadow.underdevelopment.CommunicationProtocol;
-import shadow.underdevelopment.SFConnection;
 
 /**
  * @author Luigi Pasotti
@@ -17,18 +13,15 @@ import shadow.underdevelopment.SFConnection;
 public class ServerCommunicationTask implements Runnable {
 	
 	private String state = "idle";
-
-	private CommunicationProtocol<IServerCommunicationTask> protocol = new CommunicationProtocol<IServerCommunicationTask>();
+	private CommunicationProtocol<IServerCommunicationProtocolTask> protocol;
+	
+	
 	/**
 	 * @param connection
 	 */
-	public ServerCommunicationTask(SFConnection connection, IServerDataLibrary library) {
+	public ServerCommunicationTask(CommunicationProtocol<IServerCommunicationProtocolTask> protocol) {
 		super();
-		ServerCommunicator communicator = new ServerCommunicator(connection);
-		
-		protocol.getProtocolMap().put("idle",  new IdleServerCommunicationTask(communicator));
-		protocol.getProtocolMap().put("reply",  new ReplyServerCommunicationTask(communicator, library));
-		protocol.getProtocolMap().put("closing",  new CloseServerCommunicationTask(communicator));
+		this.protocol = protocol;
 	}
 
 	/* (non-Javadoc)
@@ -40,8 +33,7 @@ public class ServerCommunicationTask implements Runnable {
 	
 		while (!state.equalsIgnoreCase("close")) {
 			
-			IServerCommunicationTask task=protocol.getProtocolMap().get(state);
-			
+			IServerCommunicationProtocolTask task=protocol.getProtocolMap().get(state);
 			if(task!=null){
 				state = task.doTask(requests);
 			}

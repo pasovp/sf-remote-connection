@@ -34,5 +34,13 @@ public class SFDatasetReplacement extends SFAssetModule {
 		this.replacement.setString(replacement);
 		this.timestamp.setLongValue(timestamp);
 	}
+	
+	public String getReplacementName() {
+		return replacement.getString();
+	}
+	
+	public long getTimestampValue(){
+		return timestamp.getLongValue();
+	}
 
 }
