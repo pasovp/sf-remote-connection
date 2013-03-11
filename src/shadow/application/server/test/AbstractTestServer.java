@@ -14,7 +14,7 @@ import shadow.underdevelopment.SFServerConnection;
 
 public abstract class AbstractTestServer {
 
-	protected static ExecutorService threadExecutor = Executors.newCachedThreadPool();
+	private static ExecutorService threadExecutor = Executors.newCachedThreadPool();
 	private ServerDataHandler dataHandler = new ServerDataHandler();
 	private CommunicationProtocol<IServerCommunicationProtocolTask> protocol = new CommunicationProtocol<IServerCommunicationProtocolTask>();
 	

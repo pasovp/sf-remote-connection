@@ -4,40 +4,32 @@ package shadow.application.client.test;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
-import shadow.application.client.ClientDataCenterListener;
-import shadow.renderer.contents.tests.common.CommonPipeline;
-import shadow.renderer.data.SFObjectModelData;
-import shadow.renderer.data.utils.SFViewerDatasetFactory;
-import shadow.system.data.SFDataCenter;
-import shadow.system.data.wip.SFDefaultDatasetReference;
-import shadow.system.data.wip.SFRemoteDataCenter;
+import shadow.renderer.viewer.SFViewer;
 
 /**
  * @author Luigi Pasotti
  *
  */
-public class Test0002 {
+public class Test0002 extends AbstractClient{
 	
-	public void configureDataCenter(){
-		SFViewerDatasetFactory factory = new SFViewerDatasetFactory();
-		factory.addSFDataset(new SFDefaultDatasetReference());
-		SFDataCenter.setDatasetFactory(factory);
-		SFRemoteDataCenter implementation = new SFRemoteDataCenter();
-		SFDataCenter.setDataCenterImplementation(implementation);
-		implementation.loadDefaultData();
-	}
+	
 
 	/**
 	 * @param args
 	 * @throws UnknownHostException 
 	 */
 	public static void main(String[] args) throws UnknownHostException, IOException {
-		//SFViewer.prepare();
-		CommonPipeline.prepare();
-		Test0002 client = new Test0002();
-		client.configureDataCenter();
-		ClientDataCenterListener<SFObjectModelData> listener = new ClientDataCenterListener<SFObjectModelData>();
+		execute(new Test0002());
 		
-		SFDataCenter.getDataCenter().makeDatasetAvailable("RedMushroom", listener);
+		
+		
+	}
+
+	@Override
+	public void viewTestData() {
+		
+	//	SFDataCenter.getDataCenter().makeDatasetAvailable("RedMushroom", listener);
+		
+		viewNode("RedMushroom",true,SFViewer.getLightStepController());
 	}
 }
