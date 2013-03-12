@@ -6,7 +6,7 @@ package shadow.application.client.test;
  * @author Luigi Pasotti
  *
  */
-public class Test0004 extends AbstractClient{
+public class Test0004 extends AbstractClient {
 	
 	/**
 	 * @param args

@@ -45,8 +45,8 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 			new SFDataCenterListener<SFDataset>() {
 				@Override
 				public void onDatasetAvailable(String name, SFDataset dataset) {
-					loadDefaultReps = true;
 					defaultReplacementsLibrary.addLibrary((SFObjectsLibrary)dataset);
+					loadDefaultReps = true;
 				}
 			},
 			new IFailedRequestListener() {
@@ -63,8 +63,8 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 			new SFDataCenterListener<SFDataset>() {
 				@Override
 				public void onDatasetAvailable(String name, SFDataset dataset) {
-					loadDefaultAssets = true;
 					library.addLibrary((SFObjectsLibrary)dataset);
+					loadDefaultAssets = true;
 				}
 			},
 			new IFailedRequestListener() {
