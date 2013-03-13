@@ -1,29 +1,37 @@
 
-package shadow.application.client.test;
+package junk;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-import junk.SFDefaultDatasetReference;
 
 import shadow.renderer.contents.tests.common.CommonPipeline;
 import shadow.renderer.data.SFObjectModelData;
 import shadow.renderer.data.utils.SFViewerDatasetFactory;
 import shadow.system.data.SFDataCenter;
+import shadow.system.data.wip.SFDatasetReplacement;
 import shadow.system.data.wip.SFRemoteDataCenter;
+import shadow.system.data.wip.SFRemoteDataCenterRequestsCreationTask;
 
 /**
  * @author Luigi Pasotti
  *
  */
-public class OriginalTest0002 {
+public class Client {
+	
+	private ExecutorService threadExecutor;
 	
 	public void configureDataCenter(){
 		SFViewerDatasetFactory factory = new SFViewerDatasetFactory();
-		factory.addSFDataset(new SFDefaultDatasetReference());
+		factory.addSFDataset(new SFDatasetReplacement());
 		SFDataCenter.setDatasetFactory(factory);
 		SFRemoteDataCenter implementation = new SFRemoteDataCenter();
 		SFDataCenter.setDataCenterImplementation(implementation);
+		
+		threadExecutor = Executors.newCachedThreadPool();
+		threadExecutor.execute(new SFRemoteDataCenterRequestsCreationTask());
 		implementation.loadDefaultData();
 	}
 
@@ -34,7 +42,7 @@ public class OriginalTest0002 {
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		//SFViewer.prepare();
 		CommonPipeline.prepare();
-		OriginalTest0002 client = new OriginalTest0002();
+		Client client = new Client();
 		client.configureDataCenter();
 		ClientDataCenterListener<SFObjectModelData> listener = new ClientDataCenterListener<SFObjectModelData>();
 		

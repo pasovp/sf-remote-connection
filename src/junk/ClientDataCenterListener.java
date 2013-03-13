@@ -1,4 +1,4 @@
-package shadow.application.client.test;
+package junk;
 
 import shadow.renderer.SFNode;
 import shadow.renderer.data.SFDataAsset;
