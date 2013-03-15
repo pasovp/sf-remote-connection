@@ -9,7 +9,7 @@ import shadow.renderer.contents.tests.common.CommonPipeline;
 import shadow.renderer.data.SFObjectModelData;
 import shadow.renderer.data.utils.SFViewerDatasetFactory;
 import shadow.system.data.SFDataCenter;
-import shadow.system.data.wip.SFRemoteDataCenter;
+import shadow.system.data.remote.wip.SFRemoteDataCenter;
 
 /**
  * @author Luigi Pasotti

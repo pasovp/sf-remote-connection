@@ -6,11 +6,11 @@ package junk;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import shadow.application.server.IServerCommunicationProtocolTask;
-import shadow.application.server.IServerDataLibrary;
-import shadow.underdevelopment.CommunicationProtocol;
-import shadow.underdevelopment.CommunicatorExceptionListener;
-import shadow.underdevelopment.SFServerConnection;
+import sfrc.application.server.IServerCommunicationProtocolTask;
+import sfrc.application.server.IServerDataLibrary;
+import sfrc.base.communication.CommunicationProtocol;
+import sfrc.base.communication.CommunicatorExceptionListener;
+import sfrc.base.communication.SFServerConnection;
 
 /**
  * @author Luigi Pasotti
