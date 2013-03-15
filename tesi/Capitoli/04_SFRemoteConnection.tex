@@ -10,11 +10,8 @@ In questo capitolo viene descritto il progetto sf-remote-connection, i moduli ch
 Il progetto SF-Remote-Connection è una libreria di classi java ospitate, al momento della scrittura di questo documento, sul portale % TODO: aggiungere stile per link
 code.google.com per la condivisione di codice open source.
 La classi che compongono il progetto sono suddivise in una serie di package. % TODO: decidere se la prossima frase va bene
-Alcuni di questi sono pensati per rappresentare una possibile estensione a quelli forniti dal framework stesso e ne riproducono la struttura e le convenzioni sui nomi, gli altri sono invece package
-
-librerie di utilità alla realizzazione di applicazioni 
-
-Questi package a loro volta possono essere raggruppati in una serie di macro-moduli suddivisi per funzionalità e finalità:
+Alcuni di questi sono pensati per rappresentare una possibile estensione a quelli forniti dal framework stesso e ne riproducono la struttura e le convenzioni sui nomi, gli altri invece affiancano o utilizzano il framework nella costruzione dell'applicazione.
+Questi package possono perciò essere raggruppati in una serie di macro-moduli suddivisi per funzionalità e finalità:
 % TODO: decidere se rinominare i moduli
 \begin{enumerate}
 	\item \textbf{Base Communication}
@@ -26,13 +23,22 @@ Questi package a loro volta possono essere raggruppati in una serie di macro-mod
 \end{enumerate}
 
 \subsubsection{Base Communication}
+\label{subsub:basecommodule}
 Questo modulo riunisce le classi che consentono la creazione e la gestione di connessioni TCP/IP tra applicazioni client/server. Ne fa parte anche la classe di utilità \texttt{GenericCommunicator} che oltre a consentire la gestione della connessione assegnatagli la utilizza per fornire funzionalità di lettura e scrittura di messaggi testuali attraverso il canale aperto.
+Il modulo è composto dal package \texttt{sfrc.base.communication} ed è una libreria totalmente indipendente dal framework.
 
 \subsubsection{RemoteDataCenter Tool}
-Fonrniscono astrazione su i meccanismi di sostituzione dei dataset e sulle richieste
+\label{subsub:remotedatacentertoolmodule}
+Questo modulo raggruppa una serie di classi pensate per essere una estensione del framework.
+
+Forniscono astrazione su i meccanismi di sostituzione dei dataset e sulle richieste
 
 
 \subsubsection{Client}
+\label{subsub:clientmodule}
 \subsubsection{Test Client}
+\label{subsub:tclientmodule}
 \subsubsection{Server}
+\label{subsub:servermodule}
 \subsubsection{Test Server}
+\label{subsub:tservermodule}

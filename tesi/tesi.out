@@ -1,14 +1,24 @@
-\BOOKMARK [-1][-]{part.1}{I Lo Shadow Framework}{}
-\BOOKMARK [0][-]{chapter.1}{Gestione dei dati}{part.1}
-\BOOKMARK [1][-]{section.1.1}{Il package shadow.system.data}{chapter.1}
-\BOOKMARK [2][-]{subsection.1.1.1}{SFDataObject}{section.1.1}
-\BOOKMARK [2][-]{subsection.1.1.2}{SFDataset}{section.1.1}
-\BOOKMARK [2][-]{subsection.1.1.3}{SFDataCenter}{section.1.1}
-\BOOKMARK [2][-]{subsection.1.1.4}{SFObjectsLibrary}{section.1.1}
-\BOOKMARK [2][-]{subsection.1.1.5}{SFLibraryreference}{section.1.1}
-\BOOKMARK [-1][-]{part.2}{II Progetto di Tesi}{}
-\BOOKMARK [0][-]{chapter.2}{SFRemoteConnection}{part.2}
-\BOOKMARK [1][-]{section.2.1}{Obbiettivo del progetto}{chapter.2}
-\BOOKMARK [2][-]{subsection.2.1.1}{Infrastruttura di rete}{section.2.1}
-\BOOKMARK [1][-]{section.2.2}{SFRemoteConnection}{chapter.2}
-\BOOKMARK [1][-]{section.2.3}{}{chapter.2}
+\BOOKMARK [0][-]{chapter.1}{Introduzione}{}
+\BOOKMARK [1][-]{section.1.1}{Lo Shadow Framework}{chapter.1}
+\BOOKMARK [1][-]{section.1.2}{Obbiettivo del progetto}{chapter.1}
+\BOOKMARK [1][-]{section.1.3}{Considerazioni generali}{chapter.1}
+\BOOKMARK [1][-]{section.1.4}{Organizzazione della tesi}{chapter.1}
+\BOOKMARK [0][-]{chapter.2}{Lo Shadow Framework 2.0}{}
+\BOOKMARK [0][-]{chapter.3}{Gestione dei dati nello Shadow Framework 2.0}{}
+\BOOKMARK [1][-]{section.3.1}{Il package shadow.system.data}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.1.1}{SFDataObject}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.2}{SFDataset}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.3}{SFDataCenter}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.4}{SFObjectsLibrary}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.5}{SFLibraryreference}{section.3.1}
+\BOOKMARK [0][-]{chapter.4}{Il Progetto SF-Remote-Connection}{}
+\BOOKMARK [1][-]{subsection.4.0.6}{Descrizione del progetto}{chapter.4}
+\BOOKMARK [0][-]{chapter.5}{Test e Risultati}{}
+\BOOKMARK [0][-]{chapter.6}{Conclusioni}{}
+\BOOKMARK [0][-]{chapter.7}{SFRemoteConnection}{}
+\BOOKMARK [1][-]{section.7.1}{Obbiettivo del progetto}{chapter.7}
+\BOOKMARK [2][-]{subsection.7.1.1}{Infrastruttura di rete}{section.7.1}
+\BOOKMARK [1][-]{section.7.2}{SFRemoteConnection}{chapter.7}
+\BOOKMARK [1][-]{section.7.3}{}{chapter.7}
+\BOOKMARK [1][-]{section.7.4}{tmp1}{chapter.7}
+\BOOKMARK [2][-]{subsection.7.4.1}{tmp2}{section.7.4}
