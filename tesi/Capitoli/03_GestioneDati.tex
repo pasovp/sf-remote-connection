@@ -1,0 +1,55 @@
+%!TEX root = ../tesi.tex
+
+\chapter{Gestione dei dati nello Shadow Framework 2.0}
+\label{ch:gestionedati}
+
+% TODO: ampliare l'introduzione
+La gestione dei dati è un compito molto importante all'interno del framework. Attraverso l'utilizzo di un layer di gestione dati astratto, ogni mudulo del framework può essere salvato e caricato da file o trasferito attraverso un qualsiasi flusso di dati.
+In questo capitolo viene presentata l'astrazione utilizzata dallo Shadow Framework nella gestione dei dati, le funzionalità messe a disposizione ed i principali package e moduli coinvolti.
+
+\section{Il package \texttt{shadow.system.data}}
+\label{sub:shadow_system_data}
+Questo package contiene una serie di classi ed interfacce su cui si basa l'astrazione dei dati del framework.
+
+\subsection{SFDataObject}
+\label{sub:sfdataobject}
+Uno dei moduli principali del package \`e \texttt{SFDataObject}, che rappresenta un'interfaccia con funzionalit\`a di base comuni ad ogni oggetto che contiene dati. 
+Ogni oggetto di questo tipo pu\`o perci\`o:
+\begin{itemize}
+	\item essere scritto su di un \texttt{SFOutputStream};
+	\item essere letto da un \texttt{SFInputStream};
+	\item essere clonato;
+\end{itemize}
+I DataObject si basano sul \textit{Composite Pattern}: possono essere semplici o contenere un insieme di oggetti figli, il fatto che sia gli oggetti complessi che gli oggetti semplici condividano la stessa interfaccia permette di trattare gli oggetti in modo uniforme. Un oggetto contenitore dovr\`a semplicemente richiamare lo stesso metodo di interfaccia per tutti gli oggetti figli i quali, se oggetti semplici, hanno la responsabilit\`a di implementare l'algoritmo per leggere o scrivere se stessi da uno stream.
+
+Tutti i componenti SF utilizzano dei DataObject per incapsulare i dati in modo che questi ultimi possano essere letti e scritti utilizzando stream appropriati.
+
+\subsection{SFDataset}
+\label{sub:sfdataset}
+Un altro modulo importante per la gestione dei dati \`e \texttt{SFDataset}. Un Dataset \`e un oggetto che contiene un DataObject e informazioni sul proprio tipo, rappresentato tramite una stringa. Per rendere possibile il salvataggio e caricamento di collezioni di Dataset da file tramite input e output stream, \`e implementato nel framework un meccanismo di istanziazione di Dataset tramite una Factory.
+A loro volta i Dataset possono essere incapsulati in un DataObject usando un oggetto \texttt{SFDatasetObject}.
+
+\subsection{SFDataCenter}
+\label{sub:sfdatacenter} 
+Il \textbf{DataCenter} \'e il nodo fondamentale della gestione dei dati all'interno del framework. \'E un oggetto \textit{singleton} a cui le applicazioni accedono per richiedere i Dataset di cui hanno bisogno fornendo un'astrazione su come i dati sono effettivamente reperiti.
+Per poter funzionare, al DataCenter deve essere fornita un'implementazione per:
+\begin{itemize}
+	\item \texttt{SFAbstractDatasetFactory}
+	\item \texttt{SFIDataCenter}
+\end{itemize}
+
+L'implementazione di \texttt{SFAbstractDatasetFactory} deve essere essere una factory in grado di generare istanze di tutti i tipi di Dataset necessari all'applicazione, il package fornisce un'implementazione di default, di nome \texttt{SFGenericDatasetFactory}, che \`e sufficiente inizializzare passando un'istanza base dei Dataset.
+
+L'interfaccia \texttt{SFIDataCenter} fornisce l'astrazione di una Mappa di Dataset identificati attraverso il proprio nome, attraverso di essa possiamo chiedere ad un oggetto che la implementa di recuperare un Dataset.
+Inoltre il Dataset recuperato non viene restituito direttamente, ma viene inviato attraverso un meccanismo di callback ad una implementazione di \texttt{SFDataCenterListener} passata come parametro, nel momento in cui \`e pronto. 
+Questo tipo di astrazione permette di separare la logica di utilizzo del Dataset da quella di come esso viene reperito, consentendo ad una applicazione di usare dati locali o dati di rete semplicemente cambiando l'implementazione di \texttt{SFIDataCenter}. 
+
+\subsection{SFObjectsLibrary}
+\label{sub:sfobjectslibrary}
+\'E usata per memorizzare un set di Dataset ed al suo interno ogni elemento \`e identificato tramite un nome univoco.
+Un \texttt{SFObjectsLibrary} \`e a sua volta un Dataset, cos{\`\i} che un ObjectsLibrary possa essere contenuta in altre ObjectsLibrary.
+\'E possibile, ad esempio, utilizzare una ObjectLibrary all'interno di implementazione di \texttt{SFIDataCenter} per creare una mappa di Dataset necessari al funzionamento di un'applicazione.
+
+\subsection{SFLibraryreference}
+\label{sub:sflibraryreference}
+Un LibraryReference \`e un DataObject che pu\`o essere usato da qualsiasi componente per avere un riferimento ad un Dataset memorizzato in una libreria.

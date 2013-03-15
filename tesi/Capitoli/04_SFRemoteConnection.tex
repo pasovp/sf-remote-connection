@@ -1,0 +1,38 @@
+%!TEX root = ../tesi.tex
+
+\chapter{Il Progetto SF-Remote-Connection}
+\label{ch:sfremoteconnection}
+In questo capitolo viene descritto il progetto sf-remote-connection, i moduli che lo compongono, le funzionalità offerte e i package java prodotti.
+
+% TODO: cambiare titolo?
+\subsection{Descrizione del progetto} 
+\label{sub:descrizione}
+Il progetto SF-Remote-Connection è una libreria di classi java ospitate, al momento della scrittura di questo documento, sul portale % TODO: aggiungere stile per link
+code.google.com per la condivisione di codice open source.
+La classi che compongono il progetto sono suddivise in una serie di package. % TODO: decidere se la prossima frase va bene
+Alcuni di questi sono pensati per rappresentare una possibile estensione a quelli forniti dal framework stesso e ne riproducono la struttura e le convenzioni sui nomi, gli altri sono invece package
+
+librerie di utilità alla realizzazione di applicazioni 
+
+Questi package a loro volta possono essere raggruppati in una serie di macro-moduli suddivisi per funzionalità e finalità:
+% TODO: decidere se rinominare i moduli
+\begin{enumerate}
+	\item \textbf{Base Communication}
+	\item \textbf{RemoteDataCenter Tool}
+	\item \textbf{Client}
+	\item \textbf{Test Client}
+	\item \textbf{Server}         
+	\item \textbf{Test Server}
+\end{enumerate}
+
+\subsubsection{Base Communication}
+Questo modulo riunisce le classi che consentono la creazione e la gestione di connessioni TCP/IP tra applicazioni client/server. Ne fa parte anche la classe di utilità \texttt{GenericCommunicator} che oltre a consentire la gestione della connessione assegnatagli la utilizza per fornire funzionalità di lettura e scrittura di messaggi testuali attraverso il canale aperto.
+
+\subsubsection{RemoteDataCenter Tool}
+Fonrniscono astrazione su i meccanismi di sostituzione dei dataset e sulle richieste
+
+
+\subsubsection{Client}
+\subsubsection{Test Client}
+\subsubsection{Server}
+\subsubsection{Test Server}

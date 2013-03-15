@@ -1,0 +1,16 @@
+
+
+1 - descrizione dei contenuti dei capitoli, introduzione al progetto, descrizione obbiettivi della tesi, considerazioni generali (nota x GG:ricordare l'incontro con il tizio autoclavi, le problematiche emerse nel framework stesso)
+
+2 - descrizione dello Shadow Framework e del panorama generale nell'ambito di framework di programmazione per la grafica tridimensionale
+
+3 - descrizione dell'astrazione dati dello SF e suo utilizzo all'interno delle applicazioni SF
+
+4 - descrizione del progetto sf-remote-connection, moduli che lo compongono, package, funzionalità , ?processo di realizzazione?
+
+5 - test effettuati, risultati delle prove
+
+6 - conclusioni
+
+A - appendici (se servono): programmazione ad oggetti, Agile Software Development
+

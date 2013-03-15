@@ -1,0 +1,19 @@
+%!TEX root = ../tesi.tex
+
+\chapter{Introduzione}
+\label{ch:introduzione}
+In questo capitolo vengono presentati brevemente i contenuti dei diversi capitoli della presente tesi di laurea, vengono fornite una descrizione iniziale del progetto di tesi e dei suoi obbietti e presentate alcune considerazioni generali in merito al progetto stesso.
+
+%
+% TODO: DA RIVEDERE, SE È IL CASO DI RISCRIVERE IL DISCORSO IN MANIERA PIÙ OGGETTIVA
+%
+\section{Obbiettivo del progetto}
+\label{sec:obbiettivo}
+L'obbiettivo del progetto di tesi nasce dall'idea di produrre un'applicazione dimostrativa delle funzionalità di rete offerte dallo Shadow Framework.
+L'applicazione che si voleva ottenere era una coppia client-server in cui il server fosse in grado di gestire connessioni simultanee da parte di un numero indefinito di client. 
+Ogni client, ottenuta una connessione con il server, doveva assere in grado di visualizzare una scena iniziale navigabile, richiedendo solamente i dati relativi all'ambiente in prossimità di un eventuale avatar.
+Successivamente si voleva analizzare due possibili approcci: uno in cui, secondo le necessità, il client avrebbe richiesto al server i dati aggiuntivi riguardo la scena, ad esempio una volta raggiunti i bordi dell'ambiente, oppure un secondo in cui il server, comunicando attivamente con il client, tiene traccia degli spostamenti nella navigazione e fosse in grado di comporre in modo dinamico dei pacchetti di dati prevedendo le necessità del client.
+
+Le astrazioni del layer dati del framework sono state progettate specificatamente per consentire lo sfruttamento della comunicazione di rete, ma fino a quel momento non era stata fatta alcuna specifica implementazione che la utilizzasse. Si desiderava perciò produrre questo tipo di applicazione anche per individuare e correggere i probabili bug presenti nel codice e dovuti a vincoli di sincronizzazione ancora non affrontati dato che fino a quel momento tutti i test erano stati effettuati con dati sulla macchina locale.
+
+L'obbiettivo della tesi è così diventato quello di produrre appunto un'implementazione delle astrazioni del framework che utilizzasse la comunicazione di rete per reperire i dati da visualizzare.
