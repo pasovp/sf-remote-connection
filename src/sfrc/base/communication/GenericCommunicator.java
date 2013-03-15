@@ -7,14 +7,14 @@ import java.io.PrintWriter;
 
 public class GenericCommunicator {
 
-	private SFConnection connection;
+	private Connection connection;
 	private CommunicatorExceptionListener listener = null;
 
-	public GenericCommunicator(SFConnection connection) {
+	public GenericCommunicator(Connection connection) {
 		this.connection = connection;
 	}
 	
-	public GenericCommunicator(SFConnection connection, CommunicatorExceptionListener listener) {
+	public GenericCommunicator(Connection connection, CommunicatorExceptionListener listener) {
 		this.connection = connection;
 		this.listener = listener;
 	}
@@ -64,14 +64,14 @@ public class GenericCommunicator {
 	/**
 	 * @return the connection
 	 */
-	public SFConnection getConnection() {
+	public Connection getConnection() {
 		return connection;
 	}
 
 	/**
 	 * @param connection the connection to set
 	 */
-	public void setConnection(SFConnection connection) {
+	public void setConnection(Connection connection) {
 		this.connection = connection;
 	}
 

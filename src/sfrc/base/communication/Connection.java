@@ -10,17 +10,11 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import shadow.system.data.SFInputStream;
-import shadow.system.data.SFOutputStream;
-import shadow.system.data.java.SFIOExceptionKeeper;
-import shadow.system.data.java.SFInputStreamJava;
-import shadow.system.data.java.SFOutputStreamJava;
-
 /**
  * @author Luigi Pasotti
  * 
  */
-public class SFConnection {
+public class Connection {
 	
 	private Socket socket = null;
 	private String host = null;
@@ -31,7 +25,7 @@ public class SFConnection {
 	 * @param address the IP address.
 	 * @param port the port number.
 	 */
-	public SFConnection(InetAddress address, int port) {
+	public Connection(InetAddress address, int port) {
 		super();
 		this.address = address;
 		this.port = port;
@@ -41,13 +35,13 @@ public class SFConnection {
 	 * @param host the host name, or null for the loopback address.
 	 * @param port the port number.
 	 */
-	public SFConnection(String host, int port) throws UnknownHostException {
+	public Connection(String host, int port) throws UnknownHostException {
 		super();
 		setHost(host);
 		this.port = port;
 	}
 	
-	public SFConnection(Socket socket){
+	public Connection(Socket socket){
 		this.socket = socket;
 		this.port = this.socket.getPort();
 		this.address = this.socket.getInetAddress();
@@ -87,9 +81,9 @@ public class SFConnection {
 	/**
 	 * @return the status of the connection.
 	 */
-	public SFConnectionStatus getStatus(){
+	public ConnectionStatus getStatus(){
 		//TODO: do a serious check on the connection status
-		return SFConnectionStatus.SOCKET_CONNECTED;
+		return ConnectionStatus.SOCKET_CONNECTED;
 	}
 	
 	/**
@@ -110,28 +104,6 @@ public class SFConnection {
 		return input;
 	}
 	
-	public SFInputStream getSFInputStream() throws IOException{
-		SFInputStream input = null;
-		try {
-			if (this.socket!=null) {
-				InputStream stream = this.socket.getInputStream();
-				input = new SFInputStreamJava(stream, new SFIOExceptionKeeper() {
-					
-					@Override
-					public void launch(IOException exception) {
-						System.err.println("Couldn't create an SFInputStream from ImputStream.");
-						exception.printStackTrace();
-					}
-				});
-			}
-		} catch (IOException e) {
-			System.err.println("Couldn't get an InputStream from socket.");
-			e.printStackTrace();
-			throw e;
-		}
-		return input;
-	}
-	
 	/**
 	 * @return
 	 * @throws IOException
@@ -141,28 +113,6 @@ public class SFConnection {
 		try {
 			if (this.socket!=null) {
 				output = this.socket.getOutputStream();
-			}
-		} catch (IOException e) {
-			System.err.println("Couldn't get an OutputStream from socket.");
-			e.printStackTrace();
-			throw e;
-		}
-		return output;
-	}
-	
-	public SFOutputStream getSFOutputStream() throws IOException{
-		SFOutputStream output = null;
-		try {
-			if (this.socket!=null) {
-				OutputStream stream = this.socket.getOutputStream();
-				output = new SFOutputStreamJava(stream, new SFIOExceptionKeeper() {
-					
-					@Override
-					public void launch(IOException exception) {
-						System.err.println("Couldn't create an SFOutputStream from OutputStream.");
-						exception.printStackTrace();
-					}
-				});
 			}
 		} catch (IOException e) {
 			System.err.println("Couldn't get an OutputStream from socket.");

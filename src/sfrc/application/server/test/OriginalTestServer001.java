@@ -11,8 +11,8 @@ import sfrc.application.server.tasks.CloseServerCommunicationTask;
 import sfrc.application.server.tasks.IdleServerCommunicationTask;
 import sfrc.application.server.tasks.ReplyServerCommunicationTask;
 import sfrc.base.communication.CommunicationProtocol;
-import sfrc.base.communication.SFConnection;
-import sfrc.base.communication.SFServerConnection;
+import sfrc.base.communication.ServerConnection;
+import shadow.system.data.remote.wip.SFConnection;
 
 public class OriginalTestServer001 {
 
@@ -34,7 +34,7 @@ public class OriginalTestServer001 {
 		dataHandler.loadTestLibraries();
 		dataHandler.loadDefaultData();
 		
-		SFServerConnection serverConnection = new SFServerConnection(4444);
+		ServerConnection serverConnection = new ServerConnection(4444);
 		
 		/*
 		 * TODO: can add a gui or a command line for interaction with the server application

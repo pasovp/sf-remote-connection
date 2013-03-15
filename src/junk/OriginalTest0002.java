@@ -4,7 +4,6 @@ package junk;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
-
 import shadow.renderer.contents.tests.common.CommonPipeline;
 import shadow.renderer.data.SFObjectModelData;
 import shadow.renderer.data.utils.SFViewerDatasetFactory;

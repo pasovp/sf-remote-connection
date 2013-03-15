@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import sfrc.application.client.ClientCommunicator;
-import sfrc.base.communication.SFConnection;
 import shadow.system.data.SFDataset;
 
 /**

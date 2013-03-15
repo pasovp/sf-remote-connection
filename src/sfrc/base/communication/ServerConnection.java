@@ -13,11 +13,11 @@ import java.net.Socket;
  * I really need this code? I don't know, but I don't want delete it...
  *
  */
-public class SFServerConnection {
+public class ServerConnection {
 	private ServerSocket serverSocket = null;
 	private int port;
 	
-	public SFServerConnection(int port) throws IOException{
+	public ServerConnection(int port) throws IOException{
 		this.port = port;
 		try{
 			serverSocket = new ServerSocket(this.port);
@@ -40,9 +40,9 @@ public class SFServerConnection {
 		return clientSocket;
 	}
 	
-	public SFServerConnectionStatus getStatus(){
+	public ServerConnectionStatus getStatus(){
 		//TODO: do a serious check on the connection status
-		return SFServerConnectionStatus.SOCKET_CONNECTED;
+		return ServerConnectionStatus.SOCKET_CONNECTED;
 	}
 	
 

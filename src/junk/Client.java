@@ -6,7 +6,6 @@ import java.net.UnknownHostException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
 import shadow.renderer.contents.tests.common.CommonPipeline;
 import shadow.renderer.data.SFObjectModelData;
 import shadow.renderer.data.utils.SFViewerDatasetFactory;

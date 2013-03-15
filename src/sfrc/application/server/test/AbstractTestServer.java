@@ -8,8 +8,8 @@ import sfrc.application.server.IServerCommunicationProtocolTask;
 import sfrc.application.server.ServerCommunicationTask;
 import sfrc.application.server.ServerCommunicator;
 import sfrc.base.communication.CommunicationProtocol;
-import sfrc.base.communication.SFConnection;
-import sfrc.base.communication.SFServerConnection;
+import sfrc.base.communication.ServerConnection;
+import shadow.system.data.remote.wip.SFConnection;
 
 
 public abstract class AbstractTestServer {
@@ -46,7 +46,7 @@ public abstract class AbstractTestServer {
 	
 	public void listenForConnection() {
 		try {
-			SFServerConnection serverConnection = new SFServerConnection(4444);
+			ServerConnection serverConnection = new ServerConnection(4444);
 			while(true){
 				SFConnection connection = new SFConnection(serverConnection.acceptConnection());
 				ServerCommunicator communicator = new ServerCommunicator(connection);

@@ -10,14 +10,14 @@ import sfrc.application.server.IServerCommunicationProtocolTask;
 import sfrc.application.server.IServerDataLibrary;
 import sfrc.base.communication.CommunicationProtocol;
 import sfrc.base.communication.CommunicatorExceptionListener;
-import sfrc.base.communication.SFServerConnection;
+import sfrc.base.communication.ServerConnection;
 
 /**
  * @author Luigi Pasotti
  * A task that listen on a server socket for incoming connection requests and and allocates threads that handle each request 
  */
 public class ServerListeningTask implements Runnable {
-	private SFServerConnection serverConnection;
+	private ServerConnection serverConnection;
 	private CommunicatorExceptionListener listener;
 	private IServerDataLibrary library;
 	private CommunicationProtocol<IServerCommunicationProtocolTask> protocol;
@@ -27,7 +27,7 @@ public class ServerListeningTask implements Runnable {
 	/**
 	 * @param serverConnection
 	 */
-	public ServerListeningTask(SFServerConnection serverConnection, CommunicatorExceptionListener listener, IServerDataLibrary library, CommunicationProtocol<IServerCommunicationProtocolTask> protocol) {
+	public ServerListeningTask(ServerConnection serverConnection, CommunicatorExceptionListener listener, IServerDataLibrary library, CommunicationProtocol<IServerCommunicationProtocolTask> protocol) {
 		super();
 		this.serverConnection = serverConnection;
 		this.listener = listener;

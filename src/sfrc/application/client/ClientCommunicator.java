@@ -7,9 +7,9 @@ import java.io.IOException;
 
 import sfrc.base.communication.CommunicatorExceptionListener;
 import sfrc.base.communication.GenericCommunicator;
-import sfrc.base.communication.SFConnection;
 import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataset;
+import shadow.system.data.remote.wip.SFConnection;
 
 /**
  * @author Luigi Pasotti
@@ -17,7 +17,7 @@ import shadow.system.data.SFDataset;
  */
 public class ClientCommunicator extends GenericCommunicator {
 	
-	private SFDataCenter datacenter;
+	private SFConnection connection;
 	
 	/**
 	 * @param connection
@@ -25,9 +25,9 @@ public class ClientCommunicator extends GenericCommunicator {
 	 */
 	public ClientCommunicator(SFConnection connection, CommunicatorExceptionListener listener ) {
 		super(connection, listener);
-		this.datacenter = SFDataCenter.getDataCenter(); 
+		this.connection = connection; 
 		try {
-			super.getConnection().openConnection();
+			this.connection.openConnection();
 		} catch (IOException e) {
 			this.handleIOException(e);
 		}
@@ -36,7 +36,7 @@ public class ClientCommunicator extends GenericCommunicator {
 	public SFDataset readDataset() {
 		SFDataset dataset = null;
 		try {
-			dataset = this.datacenter.readDataset(super.getConnection().getSFInputStream());
+			dataset = SFDataCenter.getDataCenter().readDataset(this.connection.getSFInputStream());
 		} catch (IOException e) {
 			this.handleIOException(e);
 		}
