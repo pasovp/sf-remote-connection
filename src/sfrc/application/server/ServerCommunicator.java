@@ -5,11 +5,11 @@ package sfrc.application.server;
 
 import java.io.IOException;
 
+import sfrc.application.SFConnection;
 import sfrc.base.communication.CommunicatorExceptionListener;
 import sfrc.base.communication.GenericCommunicator;
 import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataset;
-import shadow.system.data.remote.wip.SFConnection;
 
 /**
  * @author Luigi Pasotti

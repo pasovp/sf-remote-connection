@@ -7,6 +7,7 @@ import java.util.concurrent.Executors;
 
 import javax.swing.JMenuBar;
 
+import sfrc.application.client.RemoteDataCenterRequestsCreationTask;
 import shadow.image.SFRenderedTexturesSet;
 import shadow.image.SFTexture;
 import shadow.renderer.SFNode;
@@ -23,7 +24,6 @@ import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataCenterListener;
 import shadow.system.data.remote.wip.SFDatasetReplacement;
 import shadow.system.data.remote.wip.SFRemoteDataCenter;
-import shadow.system.data.remote.wip.SFRemoteDataCenterRequestsCreationTask;
 
 public abstract class AbstractClient {
 	
@@ -46,7 +46,7 @@ public abstract class AbstractClient {
 
 	public void setupAmbient() {
 		threadExecutor = Executors.newCachedThreadPool();
-		threadExecutor.execute(new SFRemoteDataCenterRequestsCreationTask());
+		threadExecutor.execute(new RemoteDataCenterRequestsCreationTask());
 		
 		SFViewerDatasetFactory factory = new SFViewerDatasetFactory();
 		factory.addSFDataset(new SFDatasetReplacement());

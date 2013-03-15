@@ -1,13 +1,15 @@
-package shadow.system.data.remote.wip;
+package sfrc.application.client;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import shadow.system.data.remote.wip.SFRemoteDataCenterRequests;
 
 /**
  * @author Luigi Pasotti
  *
  */
-public class SFRemoteDataCenterRequestsCreationTask implements Runnable {
+public class RemoteDataCenterRequestsCreationTask implements Runnable {
 	private ExecutorService threadExecutor = Executors.newCachedThreadPool();
 
 	/* (non-Javadoc)
@@ -17,7 +19,7 @@ public class SFRemoteDataCenterRequestsCreationTask implements Runnable {
 	public void run() {
 		while (true) {
 			if (SFRemoteDataCenterRequests.getRequest().hasNewRequests()) {
-				threadExecutor.execute(new SFRemoteDataCenterRequestTask());
+				threadExecutor.execute(new RemoteDataCenterRequestTask());
 			}
 			try {
 				Thread.sleep(500);

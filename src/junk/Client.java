@@ -6,13 +6,13 @@ import java.net.UnknownHostException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import sfrc.application.client.RemoteDataCenterRequestsCreationTask;
 import shadow.renderer.contents.tests.common.CommonPipeline;
 import shadow.renderer.data.SFObjectModelData;
 import shadow.renderer.data.utils.SFViewerDatasetFactory;
 import shadow.system.data.SFDataCenter;
 import shadow.system.data.remote.wip.SFDatasetReplacement;
 import shadow.system.data.remote.wip.SFRemoteDataCenter;
-import shadow.system.data.remote.wip.SFRemoteDataCenterRequestsCreationTask;
 
 /**
  * @author Luigi Pasotti
@@ -30,7 +30,7 @@ public class Client {
 		SFDataCenter.setDataCenterImplementation(implementation);
 		
 		threadExecutor = Executors.newCachedThreadPool();
-		threadExecutor.execute(new SFRemoteDataCenterRequestsCreationTask());
+		threadExecutor.execute(new RemoteDataCenterRequestsCreationTask());
 		implementation.loadDefaultData();
 	}
 

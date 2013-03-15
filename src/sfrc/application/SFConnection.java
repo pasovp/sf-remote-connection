@@ -1,4 +1,4 @@
-package shadow.system.data.remote.wip;
+package sfrc.application;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,7 +14,7 @@ import shadow.system.data.java.SFIOExceptionKeeper;
 import shadow.system.data.java.SFInputStreamJava;
 import shadow.system.data.java.SFOutputStreamJava;
 
-public class SFConnection extends Connection {
+public class SFConnection extends Connection{
 
 	public SFConnection(InetAddress address, int port) {
 		super(address, port);

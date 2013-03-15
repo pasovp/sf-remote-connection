@@ -1,25 +1,26 @@
 /**
  * 
  */
-package shadow.system.data.remote.wip;
+package sfrc.application.client;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import sfrc.application.client.ClientCommunicator;
+import sfrc.application.SFConnection;
 import shadow.system.data.SFDataset;
+import shadow.system.data.remote.wip.SFRemoteDataCenterRequests;
 
 /**
  * @author Luigi Pasotti
  *
  */
-public class SFRemoteDataCenterRequestTask implements Runnable {
+public class RemoteDataCenterRequestTask implements Runnable {
 
 	private ArrayList<String> requestList;
 	private ClientCommunicator communicator;
 	
-	public SFRemoteDataCenterRequestTask() {
+	public RemoteDataCenterRequestTask() {
 		//TODO: add a way to request the connection from an external class
 		try {
 			this.communicator = new ClientCommunicator(new SFConnection("acquarius", 4444), null);

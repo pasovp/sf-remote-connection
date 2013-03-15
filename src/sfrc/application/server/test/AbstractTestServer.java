@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import sfrc.application.SFConnection;
 import sfrc.application.server.IServerCommunicationProtocolTask;
 import sfrc.application.server.ServerCommunicationTask;
 import sfrc.application.server.ServerCommunicator;
 import sfrc.base.communication.CommunicationProtocol;
 import sfrc.base.communication.ServerConnection;
-import shadow.system.data.remote.wip.SFConnection;
 
 
 public abstract class AbstractTestServer {
