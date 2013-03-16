@@ -4,11 +4,13 @@
 \label{ch:sfremoteconnection}
 In questo capitolo viene descritto il progetto sf-remote-connection, i moduli che lo compongono, le funzionalità offerte e i package java prodotti.
 
-% TODO: cambiare titolo?
-\subsection{Descrizione del progetto} 
-\label{sub:descrizione}
+% TODO: trovare un posto per queste info
 Il progetto SF-Remote-Connection è una libreria di classi java ospitate, al momento della scrittura di questo documento, sul portale % TODO: aggiungere stile per link
 code.google.com per la condivisione di codice open source.
+
+% TODO: cambiare titolo?
+\section{Moduli} 
+\label{sec:moduli}
 La classi che compongono il progetto sono suddivise in una serie di package. % TODO: decidere se la prossima frase va bene
 Alcuni di questi sono pensati per rappresentare una possibile estensione a quelli forniti dal framework stesso e ne riproducono la struttura e le convenzioni sui nomi, gli altri invece affiancano o utilizzano il framework nella costruzione dell'applicazione.
 Questi package possono perciò essere raggruppati in una serie di macro-moduli suddivisi per funzionalità e finalità:
@@ -22,23 +24,35 @@ Questi package possono perciò essere raggruppati in una serie di macro-moduli s
 	\item \textbf{Test Server}
 \end{enumerate}
 
-\subsubsection{Base Communication}
-\label{subsub:basecommodule}
+% TODO: 
+%	inserire un'immagine di come i moduli funzionino su vari livelli
+%	verificare i nomi dei package
+
+\subsection{Base Communication}
+\label{sub:basecommodule}
 Questo modulo riunisce le classi che consentono la creazione e la gestione di connessioni TCP/IP tra applicazioni client/server. Ne fa parte anche la classe di utilità \texttt{GenericCommunicator} che oltre a consentire la gestione della connessione assegnatagli la utilizza per fornire funzionalità di lettura e scrittura di messaggi testuali attraverso il canale aperto.
 Il modulo è composto dal package \texttt{sfrc.base.communication} ed è una libreria totalmente indipendente dal framework.
 
-\subsubsection{RemoteDataCenter Tool}
-\label{subsub:remotedatacentertoolmodule}
-Questo modulo raggruppa una serie di classi pensate per essere una estensione del framework.
+\subsection{RemoteDataCenter Tool}
+\label{sub:remotedatacentertoolmodule}
+Questo modulo raggruppa una serie di classi pensate per essere una estensione del framework e per essere utilizzate principalmente all'interno di una applicazione client.
+La sua funzione principale consiste nel fornire un ponte tra l'astrazione del reperimento dati fornita dal framework e il meccanismo di effettivo reperimento dei dati.
 
-Forniscono astrazione su i meccanismi di sostituzione dei dataset e sulle richieste
+La classe chiave del modulo è \texttt{SFRemoteDataCenter}: le richieste di Dataset effettuate al DataCenter vengono passate a questa classe che le esamina verificando che il dato richiesto sia presente nella libreria dell'applicazione. Se il Dataset non è presente, al richiedente è restituito un Dataset sostitutivo temporaneo scelto opportunamente, contemporaneamente viene generata una richiesta e aggiunta ad un buffer di richieste, questo può essere utilizzato da un modulo esterno in grado di effettuare l'effettivo reperimento dei dati.
+% TODO: decidere se i 2 package aggiuntivi andrebbero inseriti nel modulo
+Il modulo è composto dai package \texttt{shadow.system.data.remote.wip}, \texttt{shadow.system.data.object.wip} e \texttt{shadow.renderer.viewer.wip}.
 
+\subsection{Client}
+\label{sub:clientmodule}
+Questo modulo raggruppa tutte quelle componenti generiche che possono essere utilizzate all'interno di una qualsiasi applicazione client e che servono ad implementare l'effettivo reperimento dei dati. 
+Esso si pone al di sotto del modulo \textbf{RemoteDataCenter Tool} ed utilizza il modulo \textbf{Base Communication} per la gestione del canale di comunicazione e la sua implementazione è pensata per il multi-threading.
+Il package che compone questo modulo è \textbf{sfrc.application.client}.
 
-\subsubsection{Client}
-\label{subsub:clientmodule}
-\subsubsection{Test Client}
-\label{subsub:tclientmodule}
-\subsubsection{Server}
-\label{subsub:servermodule}
-\subsubsection{Test Server}
-\label{subsub:tservermodule}
+\subsection{Test Client}
+\label{sub:tclientmodule}
+In questo modulo sono raccolte le implementazioni test
+
+\subsection{Server}
+\label{sub:servermodule}
+\subsection{Test Server}
+\label{sub:tservermodule}

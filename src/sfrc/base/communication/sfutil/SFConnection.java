@@ -1,4 +1,4 @@
-package sfrc.application;
+package sfrc.base.communication.sfutil;
 
 import java.io.IOException;
 import java.io.InputStream;

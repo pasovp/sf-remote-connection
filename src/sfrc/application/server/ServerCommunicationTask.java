@@ -36,6 +36,8 @@ public class ServerCommunicationTask implements Runnable {
 			IServerCommunicationProtocolTask task=protocol.getProtocolMap().get(state);
 			if(task!=null){
 				state = task.doTask(requests);
+			} else {
+				throw new RuntimeException(this.getClass().getSimpleName()+" - no task defined for state:" + state + " in comuunication protocol.");
 			}
 		}
 

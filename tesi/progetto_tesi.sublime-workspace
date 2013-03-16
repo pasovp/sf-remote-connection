@@ -56,14 +56,6 @@
 			}
 		},
 		{
-			"file": "/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/devnotes/com protocol",
-			"settings":
-			{
-				"buffer_size": 285,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "Capitoli/03_GestioneDati.tex",
 			"settings":
 			{
@@ -72,10 +64,18 @@
 			}
 		},
 		{
+			"file": "/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/devnotes/com protocol",
+			"settings":
+			{
+				"buffer_size": 285,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "Capitoli/04_SFRemoteConnection.tex",
 			"settings":
 			{
-				"buffer_size": 2356,
+				"buffer_size": 3927,
 				"line_ending": "Unix"
 			}
 		},
@@ -99,7 +99,7 @@
 			"file": "TMP/tmp.tex",
 			"settings":
 			{
-				"buffer_size": 158,
+				"buffer_size": 183,
 				"line_ending": "Unix"
 			}
 		}
@@ -200,6 +200,7 @@
 	},
 	"file_history":
 	[
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/03_GestioneDati.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/GestioneDati.tex",
 		"/home/luigi/Progetti/Eclipse Workspace/print-design-1.x/tools/colors.py",
 		"/home/luigi/Progetti/Eclipse Workspace/uniconvertor-2.x/setup.py",
@@ -319,7 +320,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -369,7 +370,7 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 153.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -421,7 +422,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 572.0,
+						"translation.y": 215.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -454,6 +455,32 @@
 				},
 				{
 					"buffer": 5,
+					"file": "Capitoli/03_GestioneDati.tex",
+					"settings":
+					{
+						"buffer_size": 4716,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								643,
+								643
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/devnotes/com protocol",
 					"settings":
 					{
@@ -477,32 +504,6 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Capitoli/03_GestioneDati.tex",
-					"settings":
-					{
-						"buffer_size": 4716,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								774,
-								774
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 153.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
 				}
 			]
 		},
@@ -515,15 +516,15 @@
 					"file": "Capitoli/04_SFRemoteConnection.tex",
 					"settings":
 					{
-						"buffer_size": 2356,
+						"buffer_size": 3927,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2054,
-								2054
+								558,
+								558
 							]
 						],
 						"settings":
@@ -532,7 +533,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 459.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -575,8 +576,8 @@
 						"selection":
 						[
 							[
-								71,
-								71
+								25,
+								25
 							]
 						],
 						"settings":
@@ -594,15 +595,15 @@
 					"file": "TMP/tmp.tex",
 					"settings":
 					{
-						"buffer_size": 158,
+						"buffer_size": 183,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								81,
-								81
+								183,
+								183
 							]
 						],
 						"settings":

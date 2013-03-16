@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import sfrc.application.SFConnection;
 import sfrc.application.server.IServerCommunicationProtocolTask;
 import sfrc.application.server.ServerCommunicationTask;
 import sfrc.application.server.ServerCommunicator;
@@ -13,6 +12,7 @@ import sfrc.application.server.tasks.IdleServerCommunicationTask;
 import sfrc.application.server.tasks.ReplyServerCommunicationTask;
 import sfrc.base.communication.CommunicationProtocol;
 import sfrc.base.communication.ServerConnection;
+import sfrc.base.communication.sfutil.SFConnection;
 
 public class OriginalTestServer001 {
 

@@ -5,9 +5,9 @@ package sfrc.application.client;
 
 import java.io.IOException;
 
-import sfrc.application.SFConnection;
 import sfrc.base.communication.CommunicatorExceptionListener;
 import sfrc.base.communication.GenericCommunicator;
+import sfrc.base.communication.sfutil.SFConnection;
 import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataset;
 

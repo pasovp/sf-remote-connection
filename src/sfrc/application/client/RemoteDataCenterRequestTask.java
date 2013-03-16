@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import sfrc.application.SFConnection;
+import sfrc.base.communication.sfutil.SFConnection;
 import shadow.system.data.SFDataset;
 import shadow.system.data.remote.wip.SFRemoteDataCenterRequests;
 
