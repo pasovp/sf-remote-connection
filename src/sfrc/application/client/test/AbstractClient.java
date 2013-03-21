@@ -7,7 +7,9 @@ import java.util.concurrent.Executors;
 
 import javax.swing.JMenuBar;
 
+import sfrc.application.client.IClientCommunicationProtocolTask;
 import sfrc.application.client.RemoteDataCenterRequestsCreationTask;
+import sfrc.base.communication.CommunicationProtocol;
 import shadow.image.SFRenderedTexturesSet;
 import shadow.image.SFTexture;
 import shadow.renderer.SFNode;
@@ -31,6 +33,10 @@ public abstract class AbstractClient {
 	private boolean windowOpened = false;
 	private SFViewer viewer;
 	private SFTextureViewerN txviewer;
+	private CommunicationProtocol<IClientCommunicationProtocolTask> protocol = new CommunicationProtocol<IClientCommunicationProtocolTask>();
+	
+	private String host = "acquarius";
+	private int	port = 4444;
 	
 	public static void execute(AbstractClient test){
 		test.execute();
@@ -43,10 +49,13 @@ public abstract class AbstractClient {
 	}
 	
 	public abstract void viewTestData();
-
+	public abstract void setupProtocol();
+	
 	public void setupAmbient() {
 		threadExecutor = Executors.newCachedThreadPool();
-		threadExecutor.execute(new RemoteDataCenterRequestsCreationTask());
+		
+		setupProtocol();
+		threadExecutor.execute(new RemoteDataCenterRequestsCreationTask(protocol,host,port));
 		
 		SFViewerDatasetFactory factory = new SFViewerDatasetFactory();
 		factory.addSFDataset(new SFDatasetReplacement());
@@ -59,12 +68,17 @@ public abstract class AbstractClient {
 		CommonPipeline.prepare();
 	}
 	
+	public CommunicationProtocol<IClientCommunicationProtocolTask> getProtocol() {
+		return protocol;
+	}
+	
 	/**
 	 * Show a model already loaded into DataCenter in the SFViewer Frame , using default Frame Controllers.
 	 * @param nodeName the name of the model
 	 */
 	public void viewNode(String nodeName){
 		viewNode(nodeName, 
+				false,
 				false,
 				SFViewer.getLightStepController(),
 				SFViewer.getRotationController(),
@@ -77,14 +91,22 @@ public abstract class AbstractClient {
 	 * @param nodeName the name of the model
 	 * @param controllers the controllers this frame should use
 	 */
-	public void viewNode(String nodeName,final boolean colorController ,final SFFrameController... controllers){
+	public void viewNode(String nodeName,final boolean colorController, final boolean textureController ,final SFFrameController... controllers){
 		SFDataCenter.getDataCenter().makeDatasetAvailable(nodeName, new SFDataCenterListener<SFDataAsset<SFNode>>() {
 			@Override
 			public void onDatasetAvailable(String name, SFDataAsset<SFNode> dataset) {
 				ArrayList<SFFrameController> controls = new ArrayList<SFFrameController>(Arrays.asList(controllers));
+				
 				if(colorController) {
 					SFFrameController cController = CommonMaterial.generateColoursController((SFObjectModel)dataset.getResource());
 					controls.add(cController);
+				}
+				
+				int n = ((SFObjectModel)dataset.getResource()).getModel().getMaterialComponent().getTextures().size();
+				if(textureController && (n>0)) {
+					//int n = ((SFObjectModel)dataset.getResource()).getModel().getMaterialComponent().getTextures().size();
+					SFFrameController tController = CommonTextures.generateTextureSelectionController(((SFObjectModel)dataset.getResource()).getModel().getMaterialComponent().getTextures().get(0), n);
+					controls.add(tController);
 				}
 				
 				if(windowOpened == false) {

@@ -30,7 +30,7 @@ public class Client {
 		SFDataCenter.setDataCenterImplementation(implementation);
 		
 		threadExecutor = Executors.newCachedThreadPool();
-		threadExecutor.execute(new RemoteDataCenterRequestsCreationTask());
+		//threadExecutor.execute(new RemoteDataCenterRequestsCreationTask());
 		implementation.loadDefaultData();
 	}
 

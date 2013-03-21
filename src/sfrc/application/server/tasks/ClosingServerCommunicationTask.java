@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import sfrc.application.server.IServerCommunicationProtocolTask;
 import sfrc.application.server.ServerCommunicator;
 
-public class CloseServerCommunicationTask implements IServerCommunicationProtocolTask{
+public class ClosingServerCommunicationTask implements IServerCommunicationProtocolTask{
 
 	private ServerCommunicator communicator;
 	
-	public CloseServerCommunicationTask(ServerCommunicator communicator) {
+	public ClosingServerCommunicationTask(ServerCommunicator communicator) {
 		super();
 		this.communicator = communicator;
 	}
@@ -19,5 +19,10 @@ public class CloseServerCommunicationTask implements IServerCommunicationProtoco
 		System.out.println(Thread.currentThread().getName() + " state: closing");
 		communicator.closeCommunication();
 		return "close";
+	}
+
+	
+	public static String getTaskName() {
+		return "closing";
 	}
 }

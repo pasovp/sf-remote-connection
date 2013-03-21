@@ -26,8 +26,15 @@ public class ReplyServerCommunicationTask implements IServerCommunicationProtoco
 			String datasetName = requests.remove(0);
 			SFDataset dataset = library.getDataset(datasetName);
 			if (dataset!=null) {
+				communicator.sendLine("reply");
+				
+				System.out.println(Thread.currentThread().getName() + " sent: reply ");
+				//System.out.println(Thread.currentThread().getName() + " client response: " + communicator.readLine());
+				
+				communicator.readLine();
 				communicator.sendLine(datasetName);
 				System.out.println(Thread.currentThread().getName() + " sending: "+datasetName);
+				
 				
 				communicator.readLine();
 				
@@ -35,12 +42,24 @@ public class ReplyServerCommunicationTask implements IServerCommunicationProtoco
 				System.out.println(Thread.currentThread().getName() + " sent: "+datasetName);
 				
 			} else {
-				communicator.sendLine("fail," + datasetName);
+				communicator.sendLine("fail");
+				
+				System.out.println(Thread.currentThread().getName() + " sent: fail ");
+				//System.out.println(Thread.currentThread().getName() + " client response: " + communicator.readLine());
+				
+				communicator.readLine();
+				communicator.sendLine(datasetName);
 				System.out.println(Thread.currentThread().getName() + " fail: "+ datasetName);
 			}
 		}
-		communicator.sendLine("idle");
+		communicator.sendLine("reply-end");
 		
+		System.out.println(Thread.currentThread().getName() + " sent: reply-end ");
+		communicator.readLine();
 		return "idle";
+	}
+	
+	public static String getTaskName() {
+		return "reply";
 	}
 }

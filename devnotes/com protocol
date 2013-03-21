@@ -1,14 +1,34 @@
 			CLIENT							SERVER
-Request		request			---->			
-							<----			reply 1
-							<----			reply 2
-							<----			reply 3
-							<----			idle
+Request		request 		---->			
+							<----			ok
+			x,y,z			---->			
+							<----			reply
+			reply:accept	---->			
+							<----			x
+			ok				---->			
+							<----			xDataset
+							<----			reply
+			reply:accept	---->			
+							<----			y
+			ok				---->			
+							<----			yDataset
+							<----			fail
+			fail:accept	---->			
+							<----			z
+							<----			reply-end
+			reply-end:accept---->			
+			closing			---->			
+							<----			ok
 
-Request:		"request,name1,name2,name3,...,nameN\n"
+Request:		"request\n" + "name1,name2,name3,...,nameN\n"
 Close:			"close\n"
 
 
-ReplyX:			"nameX\n" + Dataset
-ReplyX-fail:	"fail,nameX\n"
-Idle:			"idle"
+Reply:			"reply\n" + "nameX\n" + Dataset
+ReplyX-fail:	"fail\n" + "nameX\n"
+
+Library reply:	"lib-reply\n" + ObjectsLiBrary
+
+Reply-end:		"reply-end\n"
+
+Idle:			"idle\n"

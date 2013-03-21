@@ -1,4 +1,4 @@
-package sfrc.application.server.test;
+package junk;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
@@ -7,9 +7,10 @@ import java.util.concurrent.Executors;
 import sfrc.application.server.IServerCommunicationProtocolTask;
 import sfrc.application.server.ServerCommunicationTask;
 import sfrc.application.server.ServerCommunicator;
-import sfrc.application.server.tasks.CloseServerCommunicationTask;
+import sfrc.application.server.tasks.ClosingServerCommunicationTask;
 import sfrc.application.server.tasks.IdleServerCommunicationTask;
 import sfrc.application.server.tasks.ReplyServerCommunicationTask;
+import sfrc.application.server.test.ServerDataHandler;
 import sfrc.base.communication.CommunicationProtocol;
 import sfrc.base.communication.ServerConnection;
 import sfrc.base.communication.sfutil.SFConnection;
@@ -54,7 +55,7 @@ public class OriginalTestServer001 {
 				CommunicationProtocol<IServerCommunicationProtocolTask> protocol = new CommunicationProtocol<IServerCommunicationProtocolTask>();
 				protocol.getProtocolMap().put("idle",  new IdleServerCommunicationTask(communicator));
 				protocol.getProtocolMap().put("reply",  new ReplyServerCommunicationTask(communicator, dataHandler));
-				protocol.getProtocolMap().put("closing",  new CloseServerCommunicationTask(communicator));
+				protocol.getProtocolMap().put("closing",  new ClosingServerCommunicationTask(communicator));
 				
 				threadExecutor.execute(new ServerCommunicationTask(protocol));
 			} catch (IOException e) {
