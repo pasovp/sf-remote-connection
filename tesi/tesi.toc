@@ -6,30 +6,36 @@
 \contentsline {section}{\numberline {1.4}Organizzazione della tesi}{10}{section.1.4}
 \contentsline {chapter}{\numberline {2}Lo Shadow Framework 2.0}{11}{chapter.2}
 \contentsline {chapter}{\numberline {3}Gestione dei dati nello Shadow Framework 2.0}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}Il package \texttt {shadow.system.data}}{13}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}SFDataObject}{13}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}SFDataset}{14}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}SFDataCenter}{14}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}SFObjectsLibrary}{15}{subsection.3.1.4}
-\contentsline {subsection}{\numberline {3.1.5}SFLibraryreference}{15}{subsection.3.1.5}
-\contentsline {chapter}{\numberline {4}Il Progetto SF-Remote-Connection}{17}{chapter.4}
-\contentsline {section}{\numberline {4.1}Moduli}{17}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Base Communication}{17}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}RemoteDataCenter Tool}{18}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Client}{18}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Test Client}{18}{subsection.4.1.4}
-\contentsline {subsection}{\numberline {4.1.5}Server}{18}{subsection.4.1.5}
-\contentsline {subsection}{\numberline {4.1.6}Test Server}{18}{subsection.4.1.6}
-\contentsline {chapter}{\numberline {5}Test e Risultati}{19}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusioni}{21}{chapter.6}
-\contentsline {chapter}{\numberline {7}SFRemoteConnection}{23}{chapter.7}
-\contentsline {section}{\numberline {7.1}Obbiettivo del progetto}{23}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Infrastruttura di rete}{24}{subsection.7.1.1}
-\contentsline {section}{\numberline {7.2}SFRemoteConnection}{25}{section.7.2}
-\contentsline {section}{\numberline {7.3}}{25}{section.7.3}
-\contentsline {chapter}{\numberline {8}TMP}{27}{chapter.8}
-\contentsline {section}{\numberline {8.1}tmp1}{27}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}tmp2}{27}{subsection.8.1.1}
-\contentsline {subsubsection}{tmp3}{27}{section*.5}
-\contentsline {paragraph}{tmp4}{27}{section*.6}
-\contentsline {subparagraph}{tmp5}{27}{section*.7}
+\contentsline {section}{\numberline {3.1}L'astrazione della gestione dati}{13}{section.3.1}
+\contentsline {section}{\numberline {3.2}Il package \texttt {shadow.system.data}}{14}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}SFDataObject}{14}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}SFDataset}{15}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}SFAbstractDatasetFactory}{15}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}SFGenericDatasetFactory}{15}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}SFIDataCenter}{15}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}SFDataCenterListener}{16}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.7}SFDataCenter}{16}{subsection.3.2.7}
+\contentsline {subsection}{\numberline {3.2.8}SFObjectsLibrary}{16}{subsection.3.2.8}
+\contentsline {subsection}{\numberline {3.2.9}SFLibraryreference}{16}{subsection.3.2.9}
+\contentsline {subsection}{\numberline {3.2.10}SFInputputStream e SFOutputStream}{17}{subsection.3.2.10}
+\contentsline {chapter}{\numberline {4}Il Progetto SF-Remote-Connection}{19}{chapter.4}
+\contentsline {section}{\numberline {4.1}Informazioni generali}{19}{section.4.1}
+\contentsline {section}{\numberline {4.2}Moduli}{19}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Base Communication}{20}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}RemoteDataCenter Tool}{20}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Client}{21}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Test Client}{21}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Server}{21}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Test Server}{21}{subsection.4.2.6}
+\contentsline {section}{\numberline {4.3}Dataset sostitutivi}{22}{section.4.3}
+\contentsline {section}{\numberline {4.4}I Package java}{23}{section.4.4}
+\contentsline {chapter}{\numberline {5}Test e Risultati}{25}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusioni}{27}{chapter.6}
+\contentsline {chapter}{\numberline {A}Note sul Software}{29}{appendix.A}
+\contentsline {section}{\numberline {A.1}Versioni dei software utilizzati}{29}{section.A.1}
+\contentsline {chapter}{\numberline {B}Design Pattern}{31}{appendix.B}
+\contentsline {section}{\numberline {B.1}Pattern Creazionali}{31}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}Abstract Factory}{32}{subsection.B.1.1}
+\contentsline {subsection}{\numberline {B.1.2}Singleton}{32}{subsection.B.1.2}
+\contentsline {section}{\numberline {B.2}Pattern Strutturali}{33}{section.B.2}
+\contentsline {subsection}{\numberline {B.2.1}Composite}{33}{subsection.B.2.1}

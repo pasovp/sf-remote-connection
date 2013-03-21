@@ -19,10 +19,11 @@
     linkcolor=black,%
     urlcolor=black
 }
+% interlinea 1.5
+\onehalfspace
+
 
 \begin{document}
-
-
 %----------------------------------------------------------
 %	Fronte - Sommario - Varie
 %----------------------------------------------------------
@@ -41,15 +42,20 @@
 \include{Capitoli/05_TestRisultati}
 \include{Capitoli/06_Conclusioni}
 
-\include{Capitoli/SFRemoteConnection}
-\include{TMP/tmp}
+%\include{Capitoli/SFRemoteConnection}
+%\include{TMP/tmp}
+
 %----------------------------------------------------------
 %	Appendici
 %----------------------------------------------------------
-
-
+\appendix
+\include{Capitoli/A_NoteSoftware}
+\include{Capitoli/A_DesignPattern}
 %----------------------------------------------------------
 %	Bibliografia - Varie
 %----------------------------------------------------------
+%\include{Varie/Bibiografia}
+\bibliographystyle{plain}
+\bibliography{Varie/Bibliografia}
 
 \end{document}

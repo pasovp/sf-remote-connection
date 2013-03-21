@@ -2,20 +2,8 @@
 
 % NOME PROVVISORIO
 \chapter{SFRemoteConnection}
-\label{ch:sfremoteconnection}
+
 Appunti sparsi sul progetto
-
-% cambiare il discorso
-\section{Obbiettivo del progetto}
-\label{sec:obbiettivo}
-L'obbiettivo del progetto di tesi nasce dall'idea di produrre un'applicazione dimostrativa della capacit\`a del framework di funzionare con dati residenti su di una macchina remota raggiungibile tramite rete.
-L'applicazione che si voleva ottenere era una coppia client-server in cui il server fosse in grado di gestire connessioni simultanee da parte di un numero indefinito di client. 
-Ogni client, ottenuta una connessione con il server, doveva assere in grado di visualizzare una scena iniziale navigabile, richiedendo solamente i dati relativi all'ambiente in prossimit\`a di un eventuale avatar.
-Successivamente si voleva analizzare due possibili approcci: uno in cui, secondo le necessit\`a, il client avrebbe richiesto al server i dati aggiuntivi riguardo la scena, ad esempio una volta raggiunti i bordi dell'ambiente, oppure un secondo in cui il server, comunicando attivamente con il client, tiene traccia degli spostamenti nella navigazione e fosse in grado di comporre in modo dinamico dei pacchetti di dati prevedendo le necessit\`a del client.
-
-Le astrazioni del layer dati del framework sono state progettate specificatamente per consentire lo sfruttamento della comunicazione di rete, ma fino a quel momento non era stata fatta alcuna specifica implementazione che la utilizzasse. Si desiderava perci\`o produrre questo tipo di applicazione anche per individuare e correggere i probabili bug presenti nel codice e dovuti a vincoli di sincronizzazione ancora non affrontati dato che fino a quel momento tutti i test erano stati effettuati con dati sulla macchina locale.
-
-L'obbiettivo della tesi \`e cos{\`\i} diventato quello di produrre appunto un'implementazione delle astrazioni del framework che utilizzasse la comunicazione di rete per reperire i dati da visualizzare.
 
 % cambiare titolo
 \subsection{Infrastruttura di rete} 
@@ -38,20 +26,3 @@ La terza soluzione \`e sicuramente la pi\`u flessibile ed estendibile dato che, 
 
 Nella scelta tra le tre soluzioni hanno pesato prevalentemente la volont\`a di realizzare un'architettura funzionante con la scrittura di meno codice possibile e quella di mantenere una bassa complessit\`a iniziale che non penalizzasse per\`o un'estensione futura delle funzionalit\`a. In quest'ottica la prima soluzione è stata anche la prima ad essere scartata, perché sebbene garantisse un tempo di messa in opera molto basso non consente un'estensione di funzionalità. 
 La scelta finale è ricaduta sulla terza soluzione che pur costringendo a rinunciare alle funzionalità avanzate della seconda, elimina difficoltà e tempistiche di una installazione e configurazione dell'application server. Inoltre, limitando inizialmente lo sviluppo a funzionalità di base, è possibile limitare la complessità del codice ad un livello non molto più elevato rispetto alla seconda soluzione.
-
-
-\section{SFRemoteConnection}
-\label{sec:sfremoteconnection}
-
-un'implementazione di \texttt{SFIDataCenter} che reperisse i dati attraverso la rete. 
-
-
-\section{} 
-\label{sec:}
-
-
-
-
-
-
-

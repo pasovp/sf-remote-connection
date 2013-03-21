@@ -5,27 +5,36 @@
 \BOOKMARK [1][-]{section.1.4}{Organizzazione della tesi}{chapter.1}
 \BOOKMARK [0][-]{chapter.2}{Lo Shadow Framework 2.0}{}
 \BOOKMARK [0][-]{chapter.3}{Gestione dei dati nello Shadow Framework 2.0}{}
-\BOOKMARK [1][-]{section.3.1}{Il package shadow.system.data}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.1.1}{SFDataObject}{section.3.1}
-\BOOKMARK [2][-]{subsection.3.1.2}{SFDataset}{section.3.1}
-\BOOKMARK [2][-]{subsection.3.1.3}{SFDataCenter}{section.3.1}
-\BOOKMARK [2][-]{subsection.3.1.4}{SFObjectsLibrary}{section.3.1}
-\BOOKMARK [2][-]{subsection.3.1.5}{SFLibraryreference}{section.3.1}
+\BOOKMARK [1][-]{section.3.1}{L'astrazione della gestione dati}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{Il package shadow.system.data}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.2.1}{SFDataObject}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.2}{SFDataset}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.3}{SFAbstractDatasetFactory}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.4}{SFGenericDatasetFactory}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.5}{SFIDataCenter}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.6}{SFDataCenterListener}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.7}{SFDataCenter}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.8}{SFObjectsLibrary}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.9}{SFLibraryreference}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.10}{SFInputputStream e SFOutputStream}{section.3.2}
 \BOOKMARK [0][-]{chapter.4}{Il Progetto SF-Remote-Connection}{}
-\BOOKMARK [1][-]{section.4.1}{Moduli}{chapter.4}
-\BOOKMARK [2][-]{subsection.4.1.1}{Base Communication}{section.4.1}
-\BOOKMARK [2][-]{subsection.4.1.2}{RemoteDataCenter Tool}{section.4.1}
-\BOOKMARK [2][-]{subsection.4.1.3}{Client}{section.4.1}
-\BOOKMARK [2][-]{subsection.4.1.4}{Test Client}{section.4.1}
-\BOOKMARK [2][-]{subsection.4.1.5}{Server}{section.4.1}
-\BOOKMARK [2][-]{subsection.4.1.6}{Test Server}{section.4.1}
+\BOOKMARK [1][-]{section.4.1}{Informazioni generali}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{Moduli}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.2.1}{Base Communication}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.2}{RemoteDataCenter Tool}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.3}{Client}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.4}{Test Client}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.5}{Server}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.6}{Test Server}{section.4.2}
+\BOOKMARK [1][-]{section.4.3}{Dataset sostitutivi}{chapter.4}
+\BOOKMARK [1][-]{section.4.4}{I Package java}{chapter.4}
 \BOOKMARK [0][-]{chapter.5}{Test e Risultati}{}
 \BOOKMARK [0][-]{chapter.6}{Conclusioni}{}
-\BOOKMARK [0][-]{chapter.7}{SFRemoteConnection}{}
-\BOOKMARK [1][-]{section.7.1}{Obbiettivo del progetto}{chapter.7}
-\BOOKMARK [2][-]{subsection.7.1.1}{Infrastruttura di rete}{section.7.1}
-\BOOKMARK [1][-]{section.7.2}{SFRemoteConnection}{chapter.7}
-\BOOKMARK [1][-]{section.7.3}{}{chapter.7}
-\BOOKMARK [0][-]{chapter.8}{TMP}{}
-\BOOKMARK [1][-]{section.8.1}{tmp1}{chapter.8}
-\BOOKMARK [2][-]{subsection.8.1.1}{tmp2}{section.8.1}
+\BOOKMARK [0][-]{appendix.A}{Note sul Software}{}
+\BOOKMARK [1][-]{section.A.1}{Versioni dei software utilizzati}{appendix.A}
+\BOOKMARK [0][-]{appendix.B}{Design Pattern}{}
+\BOOKMARK [1][-]{section.B.1}{Pattern Creazionali}{appendix.B}
+\BOOKMARK [2][-]{subsection.B.1.1}{Abstract Factory}{section.B.1}
+\BOOKMARK [2][-]{subsection.B.1.2}{Singleton}{section.B.1}
+\BOOKMARK [1][-]{section.B.2}{Pattern Strutturali}{appendix.B}
+\BOOKMARK [2][-]{subsection.B.2.1}{Composite}{section.B.2}

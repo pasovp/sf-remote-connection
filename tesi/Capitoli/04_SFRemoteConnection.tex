@@ -4,16 +4,21 @@
 \label{ch:sfremoteconnection}
 In questo capitolo viene descritto il progetto sf-remote-connection, i moduli che lo compongono, le funzionalità offerte e i package java prodotti.
 
-% TODO: trovare un posto per queste info
+\section{Informazioni generali} 
+\label{sec:geninfo}
+In base agli obbiettivi di progetto esposti al paragrafo \ref{sec:obbiettivo}, ciò che è stato prodotto consiste in una estensione dello % TODO: possibile acronimo SF
+Shadow Framework e all'implementazione di un sistema di comunicazione dati sfruttato da questa estensione.
 Il progetto SF-Remote-Connection è una libreria di classi java ospitate, al momento della scrittura di questo documento, sul portale % TODO: aggiungere stile per link
 code.google.com per la condivisione di codice open source.
+Il codice è attualmente rilasciato sotto licenza GNU GPL v3.
+Si rimanda all'appendice \ref{a:notesoftware} per le versioni delle librerie utilizzate.
 
 % TODO: cambiare titolo?
 \section{Moduli} 
 \label{sec:moduli}
 La classi che compongono il progetto sono suddivise in una serie di package. % TODO: decidere se la prossima frase va bene
 Alcuni di questi sono pensati per rappresentare una possibile estensione a quelli forniti dal framework stesso e ne riproducono la struttura e le convenzioni sui nomi, gli altri invece affiancano o utilizzano il framework nella costruzione dell'applicazione.
-Questi package possono perciò essere raggruppati in una serie di macro-moduli suddivisi per funzionalità e finalità:
+Questi package possono essere raggruppati in una serie di macro-moduli suddivisi per funzionalità e finalità:
 % TODO: decidere se rinominare i moduli
 \begin{enumerate}
 	\item \textbf{Base Communication}
@@ -26,12 +31,13 @@ Questi package possono perciò essere raggruppati in una serie di macro-moduli s
 
 % TODO: 
 %	inserire un'immagine di come i moduli funzionino su vari livelli
-%	verificare i nomi dei package
+%	verificare i nomi e le appartenenze dei package
 
 \subsection{Base Communication}
 \label{sub:basecommodule}
 Questo modulo riunisce le classi che consentono la creazione e la gestione di connessioni TCP/IP tra applicazioni client/server. Ne fa parte anche la classe di utilità \texttt{GenericCommunicator} che oltre a consentire la gestione della connessione assegnatagli la utilizza per fornire funzionalità di lettura e scrittura di messaggi testuali attraverso il canale aperto.
-Il modulo è composto dal package \texttt{sfrc.base.communication} ed è una libreria totalmente indipendente dal framework.
+
+Il modulo è composto dai package \texttt{sfrc.base.communication} e \texttt{sfrc.base.communication.sfutil}.
 
 \subsection{RemoteDataCenter Tool}
 \label{sub:remotedatacentertoolmodule}
@@ -39,6 +45,8 @@ Questo modulo raggruppa una serie di classi pensate per essere una estensione de
 La sua funzione principale consiste nel fornire un ponte tra l'astrazione del reperimento dati fornita dal framework e il meccanismo di effettivo reperimento dei dati.
 
 La classe chiave del modulo è \texttt{SFRemoteDataCenter}: le richieste di Dataset effettuate al DataCenter vengono passate a questa classe che le esamina verificando che il dato richiesto sia presente nella libreria dell'applicazione. Se il Dataset non è presente, al richiedente è restituito un Dataset sostitutivo temporaneo scelto opportunamente, contemporaneamente viene generata una richiesta e aggiunta ad un buffer di richieste, questo può essere utilizzato da un modulo esterno in grado di effettuare l'effettivo reperimento dei dati.
+Il meccanismo dei Dataset sostitutivi viene descritto esaustivamente nella sezione \ref{sec:dataset_sost}.
+
 % TODO: decidere se i 2 package aggiuntivi andrebbero inseriti nel modulo
 Il modulo è composto dai package \texttt{shadow.system.data.remote.wip}, \texttt{shadow.system.data.object.wip} e \texttt{shadow.renderer.viewer.wip}.
 
@@ -46,13 +54,49 @@ Il modulo è composto dai package \texttt{shadow.system.data.remote.wip}, \textt
 \label{sub:clientmodule}
 Questo modulo raggruppa tutte quelle componenti generiche che possono essere utilizzate all'interno di una qualsiasi applicazione client e che servono ad implementare l'effettivo reperimento dei dati. 
 Esso si pone al di sotto del modulo \textbf{RemoteDataCenter Tool} ed utilizza il modulo \textbf{Base Communication} per la gestione del canale di comunicazione e la sua implementazione è pensata per il multi-threading.
+
 Il package che compone questo modulo è \textbf{sfrc.application.client}.
 
 \subsection{Test Client}
 \label{sub:tclientmodule}
-In questo modulo sono raccolte le implementazioni test
+In questo modulo sono raccolte le implementazioni delle applicazioni di test per le componenti lato client. Questi test sono stati creati principalmente per riprodurre quelli già presenti nel progetto % TODO: aggiungere riferimento online
+SF20LiteTestWorld e usati per mostrare le capacità del framework.
+
+Il package che compone questo modulo è \textbf{sfrc.application.client.test}.
 
 \subsection{Server}
 \label{sub:servermodule}
+Similmente al modulo per le componenti client, in questo vengono raggruppate delle componenti generiche utili alla realizzazione di una applicazione server. Queste componenti si pongono da tramite tra l'applicazione e il modulo di \textbf{Base Communication} tramite cui realizzano l'effetivo trasferimento dei Dataset verso il client connesso.
+Anche in questo caso l'implementazione è pensata per il funzionamento multi-thread in parallelo con l'applicazione principale che può così gestire più client connessi contemporaneamente ed eseguire altre operazioni.
+Vengono fornite infine anche delle interfacce utili per effettuare l'inizializzazione dei dati e per configurare il protocollo di comunicazione.
+
+Il modulo è composto dal package \texttt{sfrc.application.server}
+
 \subsection{Test Server}
 \label{sub:tservermodule}
+Di questo modulo fanno parte le implementazioni di server e applicazioni di test utilizzati per verificare il comportamento delle componenti lato server. Oltre a queste vengono usati per testare i client in differenti condizioni di comunicazione simulate dai server, come ad esempio una risposta a singhiozzo, ecc.
+
+Di questo modulo fanno parte i package \texttt{sfrc.application.server.test} e \texttt{sfrc.application.server.task}.
+
+\section{Dataset sostitutivi}
+\label{sec:dataset_sost}
+Per evitare che, in seguito alla richiesta di un Dataset non presente nella libreria locale di un'applicazione, i moduli richiedenti rimanessero in attesa dei dati bloccando di fatto l'esecuzione, è stato deciso di realizzare un meccanismo di sostituzione-aggiornamento delle richieste.
+Successivamente ad una richiesta il RemoteDataCenter restituisce, attraverso la callback del richiedente, un Dataset sostitutivo temporaneo di tipo compatibile a quello richiesto.
+Contemporaneamente viene generata una richiesta remota che attende di essere evasa. Quando i dati effettivi arrivano dalla rete viene eseguito un update del dato richiamando nuovamente la callback del richiedente.
+Dato che più moduli dell'applicazione potrebbero fare richiesta dello stesso Dataset, tutte le callback dei richiedenti vengono memorizzate e, al momento dell'update, richiamate in successione.
+% TODO: decidere se parlare dell'Updater
+Per permettere il funzionamento di questo automatismo si è resa necessaria la realizzazione di un nuovo tipo di Dataset, l'SFDatasetReplacement, e di una libreria di Dataset sostitutivi.
+
+Utilizzato all'interno di una ObjectsLibrary un DatasetReplacement permette di realizzare una lista di sostituzione che associa il nome di un Dataset "Alfa" richiesto, a quello di un Dataset sostitutivo di default "Beta" e ad un timestamp.
+L'associazione tra nomi viene usata per una ricerca diretta del dato sostitutivo da utilizzare, mentre il timestamp è stato introdotto per lo sviluppo futuro di logiche di aggiornamento della lista di sostituzione.
+Le liste di sostituzione sono state inoltre rese configurabili attraverso file XML leggibili dal decoder interno del framework.
+% TODO: parlare del tool di generazione automatico?
+
+La libreria dei Dataset di default è stata invece realizzata progressivamente durante l'implementazione dei test, quando si rendeva necessaria la costruzione di un Dataset specifico dato che quelli già realizzati erano di tipo incompatibile.
+% TODO: specificare cosa si intende per tipo incompatibile
+
+L'utilizzo di questo meccanismo richiede necessariamente una fase di inizializzazione in cui viene fatto il download o il caricamento da disco locale della lista di sostituzione e della libreria dei Dataset di default. Avendo la possibilità di estendere il protocollo di comunicazione in modo da rendere espandibili queste due librerie durante l'esecuzione, è possibile mantenere la loro dimensione iniziale contenuta.
+
+
+\section{I Package java} 
+\label{sec:sfrc_packages}
