@@ -2,31 +2,32 @@
 
 \chapter{Il Progetto SF-Remote-Connection}
 \label{ch:sfremoteconnection}
-In questo capitolo viene descritto il progetto sf-remote-connection, i moduli che lo compongono, le funzionalità offerte e i package java prodotti.
 
-\section{Informazioni generali} 
-\label{sec:geninfo}
-In base agli obbiettivi di progetto esposti al paragrafo \ref{sec:obbiettivo}, ciò che è stato prodotto consiste in una estensione dello % TODO: possibile acronimo SF
-Shadow Framework e all'implementazione di un sistema di comunicazione dati sfruttato da questa estensione.
-Il progetto SF-Remote-Connection è una libreria di classi java ospitate, al momento della scrittura di questo documento, sul portale % TODO: aggiungere stile per link
-code.google.com per la condivisione di codice open source.
-Il codice è attualmente rilasciato sotto licenza GNU GPL v3.
-Si rimanda all'appendice \ref{a:notesoftware} per le versioni delle librerie utilizzate.
+Vengono ora presentati i moduli software realizzati nel corso dello sviluppo del progetto di tesi.
+Per meglio comprendere gli aspetti di sviluppo legati al progetto è importante tener conto degli obbiettivi di progetto esposti al paragrafo \ref{sec:obbiettivo} e della descrizione dei meccanismi di gestione dati interni del framework, descritti nel capitolo \ref{ch:gestionedati}.
+
+È giusto sottolineare che l'obbiettivo principale è stato la produzione di librerie e tool per lo sviluppo di applicazioni, focalizzandosi sull'estendibilità e il riutilizzo del codice. Non a caso sono infatti presenti alcuni riferimenti di appendice ad alcuni design pattern particolarmente significativi nella produzione di questo tipo di softwaree e che sono utilizzati sia dal framework che dai moduli stessi.
+
+Per il processo di sviluppo è stata di fondamentale importanza la produzione parallela di una serie di test, presentati nel capitolo \ref{ch:testerisultati}. Infatti la progettazione e la realizzazione dei moduli e dei meccanismi presentati in questo capitolo non è stata svolta in maniera distinta, ma si è trattato di un processo iterativo in cui i test hanno svolto più di una volta un ruolo di guida nel refactoring del codice.
+
+Il capitolo è strutturato in modo da fornire 
+innanzitutto una suddivisione e una descrizione dei moduli, 
+vengono poi descritti il meccanismo dei Dataset sostitutivi
+e il protocollo di comunicazione.
+Infine è presente una panoramica sui package java e le principali classi di ognuno di essi.
+
+Si rimanda all'appendice \ref{a:notesoftware} informazioni sul codice sorgente relativo al progetto e per informazioni sulle versioni delle librerie utilizzate.
 
 % TODO: cambiare titolo?
 \section{Moduli} 
 \label{sec:moduli}
-La classi che compongono il progetto sono suddivise in una serie di package. % TODO: decidere se la prossima frase va bene
-Alcuni di questi sono pensati per rappresentare una possibile estensione a quelli forniti dal framework stesso e ne riproducono la struttura e le convenzioni sui nomi, gli altri invece affiancano o utilizzano il framework nella costruzione dell'applicazione.
-Questi package possono essere raggruppati in una serie di macro-moduli suddivisi per funzionalità e finalità:
-% TODO: decidere se rinominare i moduli
+La libreria di classi realizzata può essere suddivisa in quattro macro-moduli suddivisi in base alle finalità e alle funzionalità.
+Di seguito viene data una descrizione degli stessi in questo ordine:
 \begin{enumerate}
 	\item \textbf{Base Communication}
 	\item \textbf{RemoteDataCenter Tool}
 	\item \textbf{Client}
-	\item \textbf{Test Client}
-	\item \textbf{Server}         
-	\item \textbf{Test Server}
+	\item \textbf{Server}
 \end{enumerate}
 
 % TODO: 
@@ -37,14 +38,15 @@ Questi package possono essere raggruppati in una serie di macro-moduli suddivisi
 \label{sub:basecommodule}
 Questo modulo riunisce le classi che consentono la creazione e la gestione di connessioni TCP/IP tra applicazioni client/server. Ne fa parte anche la classe di utilità \texttt{GenericCommunicator} che oltre a consentire la gestione della connessione assegnatagli la utilizza per fornire funzionalità di lettura e scrittura di messaggi testuali attraverso il canale aperto.
 
-Il modulo è composto dai package \texttt{sfrc.base.communication} e \texttt{sfrc.base.communication.sfutil}.
+Il modulo è composto dai package \texttt{sfrc.base.communication} e \\\texttt{sfrc.base.communication.sfutil}.
 
 \subsection{RemoteDataCenter Tool}
 \label{sub:remotedatacentertoolmodule}
 Questo modulo raggruppa una serie di classi pensate per essere una estensione del framework e per essere utilizzate principalmente all'interno di una applicazione client.
-La sua funzione principale consiste nel fornire un ponte tra l'astrazione del reperimento dati fornita dal framework e il meccanismo di effettivo reperimento dei dati.
+La sua funzione principale consiste nel fornire uno strato di comunicazione tra l'astrazione del reperimento dati fornita dal framework e il meccanismo di effettivo reperimento dei dati.
 
-La classe chiave del modulo è \texttt{SFRemoteDataCenter}: le richieste di Dataset effettuate al DataCenter vengono passate a questa classe che le esamina verificando che il dato richiesto sia presente nella libreria dell'applicazione. Se il Dataset non è presente, al richiedente è restituito un Dataset sostitutivo temporaneo scelto opportunamente, contemporaneamente viene generata una richiesta e aggiunta ad un buffer di richieste, questo può essere utilizzato da un modulo esterno in grado di effettuare l'effettivo reperimento dei dati.
+La classe chiave del modulo è \texttt{SFRemoteDataCenter}: questa è una classe di implementazione utilizzabile nel \textit{Bridge} realizzato da \texttt{SFDataCenter}\footnote{Per la classe \texttt{SFDataCenter} si rimanda al paragrafo \ref{sub:sfdatacenter} mentre per il pattern \textit{Bridge} al paragrafo \ref{sub:bridge}.}.
+Le richieste di Dataset effettuate al DataCenter vengono passate a questa classe che le esamina verificando che il dato richiesto sia presente nella libreria dell'applicazione. Se il Dataset non è presente, al richiedente è restituito un Dataset sostitutivo temporaneo scelto opportunamente, contemporaneamente viene generata una richiesta e aggiunta ad un buffer di richieste, questo può essere utilizzato da un modulo esterno in grado di effettuare l'effettivo reperimento dei dati.
 Il meccanismo dei Dataset sostitutivi viene descritto esaustivamente nella sezione \ref{sec:dataset_sost}.
 
 % TODO: decidere se i 2 package aggiuntivi andrebbero inseriti nel modulo
@@ -55,14 +57,7 @@ Il modulo è composto dai package \texttt{shadow.system.data.remote.wip}, \textt
 Questo modulo raggruppa tutte quelle componenti generiche che possono essere utilizzate all'interno di una qualsiasi applicazione client e che servono ad implementare l'effettivo reperimento dei dati. 
 Esso si pone al di sotto del modulo \textbf{RemoteDataCenter Tool} ed utilizza il modulo \textbf{Base Communication} per la gestione del canale di comunicazione e la sua implementazione è pensata per il multi-threading.
 
-Il package che compone questo modulo è \textbf{sfrc.application.client}.
-
-\subsection{Test Client}
-\label{sub:tclientmodule}
-In questo modulo sono raccolte le implementazioni delle applicazioni di test per le componenti lato client. Questi test sono stati creati principalmente per riprodurre quelli già presenti nel progetto % TODO: aggiungere riferimento online
-SF20LiteTestWorld e usati per mostrare le capacità del framework.
-
-Il package che compone questo modulo è \textbf{sfrc.application.client.test}.
+Il package che compone questo modulo è \texttt{sfrc.application.client}.
 
 \subsection{Server}
 \label{sub:servermodule}
@@ -72,15 +67,9 @@ Vengono fornite infine anche delle interfacce utili per effettuare l'inizializza
 
 Il modulo è composto dal package \texttt{sfrc.application.server}
 
-\subsection{Test Server}
-\label{sub:tservermodule}
-Di questo modulo fanno parte le implementazioni di server e applicazioni di test utilizzati per verificare il comportamento delle componenti lato server. Oltre a queste vengono usati per testare i client in differenti condizioni di comunicazione simulate dai server, come ad esempio una risposta a singhiozzo, ecc.
-
-Di questo modulo fanno parte i package \texttt{sfrc.application.server.test} e \texttt{sfrc.application.server.task}.
-
 \section{Dataset sostitutivi}
 \label{sec:dataset_sost}
-Per evitare che, in seguito alla richiesta di un Dataset non presente nella libreria locale di un'applicazione, i moduli richiedenti rimanessero in attesa dei dati bloccando di fatto l'esecuzione, è stato deciso di realizzare un meccanismo di sostituzione-aggiornamento delle richieste.
+Per evitare che, in seguito alla richiesta di un Dataset non presente nella libreria locale di un'applicazione, i moduli richiedenti rimanessero in attesa dei dati bloccando di fatto l'esecuzione, è stato deciso di realizzare un meccanismo di sostituzione dei Dataset con successivo update delle richieste.
 Successivamente ad una richiesta il RemoteDataCenter restituisce, attraverso la callback del richiedente, un Dataset sostitutivo temporaneo di tipo compatibile a quello richiesto.
 Contemporaneamente viene generata una richiesta remota che attende di essere evasa. Quando i dati effettivi arrivano dalla rete viene eseguito un update del dato richiamando nuovamente la callback del richiedente.
 Dato che più moduli dell'applicazione potrebbero fare richiesta dello stesso Dataset, tutte le callback dei richiedenti vengono memorizzate e, al momento dell'update, richiamate in successione.
@@ -97,6 +86,39 @@ La libreria dei Dataset di default è stata invece realizzata progressivamente d
 
 L'utilizzo di questo meccanismo richiede necessariamente una fase di inizializzazione in cui viene fatto il download o il caricamento da disco locale della lista di sostituzione e della libreria dei Dataset di default. Avendo la possibilità di estendere il protocollo di comunicazione in modo da rendere espandibili queste due librerie durante l'esecuzione, è possibile mantenere la loro dimensione iniziale contenuta.
 
+\section{Infrastruttura di rete} 
+\label{sec:rete}
+Date le specifiche iniziali esposte nel capitolo \ref{ch:introduzione}, una parte fondamentale del progetto è stata decidere quale infrastruttura per la comunicazione di rete sfruttare per poter utilizzare e testare il modulo \textbf{RemoteDataCenter Tool}, che si occupa della gestione delle richieste di Dataset.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se da lato client è ovvia la necessità di sviluppare uno strato dell'applicazione che si occupa della comunicazione di rete, da lato server si sono presentate diverse possibilità: 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}
+	\item  utilizzare un file server che permettesse semplicemente di accedere ai file contenti i dati tramite la rete;
+	\item  utilizzare un application server java, come Tomcat o Glassfish, a cui un'applicazione client potesse connettersi e che attraverso l'esecuzione di servlet realizzasse il trasferimento dei dati da server a client;
+	\item  utilizzare un'applicazione server ad-hoc appositamente sviluppata;
+\end{enumerate}
+
+La prima soluzione è probabilmente la più semplice, ma la meno flessibile dato che consente solo di un accesso diretto ai file di descrizione dei dati senza alcuna possibilità di un'elaborazione lato server e spostando tutto il peso di un'eventuale interazione tra client direttamente su quest'ultimi.
+
+La seconda soluzione offre più possibilità e flessibilità rispetto alla prima: l'utilizzo di un application server java mette a disposizione una piattaforma che consente una pre-elaborazione dei dati lato server e che possiede direttamente una serie di componenti per la gestione di compiti complessi legati alle sessioni degli utenti, come ad esempio l'autenticazione e la sicurezza. Nonostante i pregi, questo tipo di soluzione possiede anche lati negativi: gli application server generici non sono sviluppati per questo tipo di applicazioni e non era garantita una flessibilità sufficiente per cui all'aumentare della complessità del progetto e delle sue esigenze non fosse necessario abbandonare l'architettura. 
+
+La terza soluzione è sicuramente la più flessibile ed estendibile dato che, se necessario, consente di modificare direttamente il server per adattarsi alle esigenze dell'applicazione. Lo svantaggio è la necessità di dover implementare da zero tutte quelle funzionalità non solo di comunicazione, ma anche di autenticazione o di sicurezza che una soluzione già pronta potrebbe possedere nativamente.
+
+Nella scelta tra le tre soluzioni hanno pesato prevalentemente la volontà di realizzare un'architettura funzionante con la scrittura di meno codice possibile e quella di mantenere una bassa complessità iniziale che non penalizzasse però un'estensione futura delle funzionalità. In quest'ottica la prima soluzione è stata anche la prima ad essere scartata, perché sebbene garantisse un tempo di messa in opera molto basso non consente un'estensione di funzionalità. 
+
+La scelta finale è ricaduta sulla terza soluzione che pur costringendo a rinunciare alle funzionalità avanzate della seconda, elimina difficoltà e tempistiche di una installazione e configurazione dell'application server. Inoltre, limitando inizialmente lo sviluppo a funzionalità di base, è possibile limitare la complessità del codice ad un livello non molto più elevato rispetto alla seconda soluzione.
+
+\subsection{Protocollo di comunicazione}
+\label{sub:comprotocol}
+Una volta stabilito di utilizzare un server sviluppato appositamente è stato necessario stabilire le modalità di comunicazione
+
+
+
 
 \section{I Package java} 
 \label{sec:sfrc_packages}
+La classi che compongono il progetto sono suddivise in una serie di package. % TODO: decidere se la prossima frase va bene
+Alcuni di questi sono pensati per rappresentare una possibile estensione a quelli forniti dal framework stesso e ne riproducono la struttura e le convenzioni sui nomi, gli altri sono librerie che affiancano il framework nella costruzione dell'applicazione.

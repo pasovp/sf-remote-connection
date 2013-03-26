@@ -10,8 +10,9 @@ In questo capitolo viene presentata l'astrazione utilizzata dallo Shadow Framewo
 \section{L'astrazione della gestione dati}
 \label{sec:astrazione}
 All'interno di un'applicazione \ac{SF} l'unità base di dati può essere identificata con quello che viene definito SFDataset (\ref{sub:sfdataset}). Con Dataset si identifica quasi ogni tipo di dato, sia grafico che non, utilizzato all'interno del framework.
-La gestione dei dataset viene effettuata mediante un meccanismo centralizzato: ogni applicazione in esecuzione possiede un'istanza di SFDataCenter, questa classe è un oggetto \textit{Singleton}\footnote{Con \textit{Singleton} si intende il design pattern omonimo descritto in maniera più accurata nella sezione \ref{sub:singleton}}
-a cui ogni componente può accede per richiedere operazioni sui Dataset di interesse, operazioni che possono essere la lettura o la scrittura da uno stream specifico, la richiesta di una particolare istanza di un Dataset, identificata per nome, o la richiesta di una nuova istanza di Dataset, identificata per tipo.
+La gestione dei dataset viene effettuata mediante un meccanismo centralizzato: ogni applicazione in esecuzione possiede un'istanza di SFDataCenter, questa classe è un oggetto \textit{Singleton} che realizza un \textit{Bridge}
+tra l'astrazione di reperimento dati e la sua implementazione concreta\footnote{Con \textit{Singleton} e \textit{Bridge} si intendono i design pattern omonimi descritti più in dettaglio nell'appendice \ref{a:designpatterns}}.
+Ogni componente può accedere al DataCenter per richiedere operazioni sui Dataset di interesse, operazioni che possono essere la lettura o la scrittura da uno stream specifico, la richiesta di una particolare istanza di un Dataset, identificata per nome, o la richiesta di una nuova istanza di Dataset, identificata per tipo.
 L'oggetto Singleton espone queste funzionalità traducendole internamente con chiamate ad una factory concreta\footnote{Si fa riferimento al pattern di programmazione \textit{Abstract Factory} descritto nella sezione \ref{sub:abstractfactory}}
 di Dataset e ad una istanza dell'interfaccia SFIDataCenter, creando un'astrazione su come i Dataset siano effettivamente costruiti e reperiti.
 La factory concreta deve essere un'implementazione dell'interfaccia SFAbstractDatasetFactory in grado di istanziare, leggere o scrivere ogni tipo di Dataset utilizzato dall'applicazione.
@@ -23,6 +24,10 @@ L'istanza dell'interfaccia SFIDataCenter tiene traccia dei Dataset istanziati co
 \section{Il package \texttt{shadow.system.data}}
 \label{sec:shadow_system_data}
 Questo package contiene una serie di classi ed interfacce su cui si basa l'astrazione dei dati del framework.
+
+\subsection{SFInputputStream e SFOutputStream}
+\label{sub:sfinoutstream}
+Queste interfacce definiscono le operazioni necessarie che uno stream di input o di output deve implementare affinchè sia possibile leggere o scrivere su di esso dei DataObject.
 
 \subsection{SFDataObject}
 \label{sub:sfdataobject}
@@ -73,7 +78,7 @@ Questa callback viene richiamata quando il Dataset richiesto è pronto.
 % TODO: evitare di ripetere quanto detto in sec:astrazione
 Il \textbf{DataCenter} é il nodo fondamentale della gestione dei dati all'interno del framework. 
 
-É un oggetto \textit{singleton} a cui le applicazioni accedono per richiedere i Dataset di cui hanno bisogno fornendo un'astrazione su come i dati sono effettivamente reperiti.
+É un oggetto \textit{Singleton} (\ref{sub:singleton}) a cui le applicazioni accedono per richiedere i Dataset di cui hanno bisogno. Questa classe utilizza anche il pattern \textit{Bridge} (\ref{sub:bridge}) per fornendo un'astrazione su come i dati sono effettivamente reperiti.
 
 Per poter funzionare, al DataCenter deve essere fornita un'implementazione per:
 \begin{itemize}
@@ -94,7 +99,3 @@ Un \texttt{SFObjectsLibrary} è a sua volta un Dataset, così che un ObjectsLibr
 \subsection{SFLibraryreference}
 \label{sub:sflibraryreference}
 Un LibraryReference è un DataObject che può essere usato da qualsiasi componente per avere un riferimento ad un Dataset memorizzato in una libreria.
-
-\subsection{SFInputputStream e SFOutputStream}
-\label{sub:sfinoutstream}
-Queste interfacce definiscono le operazioni necessarie che uno stream di input o di output deve implementare affinchè sia possibile leggere o scrivere su di esso dei DataObject.

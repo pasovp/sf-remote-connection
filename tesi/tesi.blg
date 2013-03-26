@@ -12,38 +12,34 @@ A level-1 auxiliary file: Capitoli/A_NoteSoftware.aux
 A level-1 auxiliary file: Capitoli/A_DesignPattern.aux
 The style file: plain.bst
 Database file #1: Varie/Bibliografia.bib
-Too many commas in name 1 of "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides" for entry book:designpattern
-while executing---line 1049 of file plain.bst
-Too many commas in name 1 of "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides" for entry book:designpattern
-while executing---line 1090 of file plain.bst
 You've used 1 entry,
             2118 wiz_defined-function locations,
-            512 strings with 4433 characters,
-and the built_in function-call counts, 235 in all, are:
-= -- 19
-> -- 7
+            512 strings with 4442 characters,
+and the built_in function-call counts, 333 in all, are:
+= -- 26
+> -- 23
 < -- 0
-+ -- 3
-- -- 2
-* -- 10
-:= -- 47
++ -- 9
+- -- 8
+* -- 23
+:= -- 65
 add.period$ -- 3
 call.type$ -- 1
-change.case$ -- 3
+change.case$ -- 6
 chr.to.int$ -- 0
 cite$ -- 1
 duplicate$ -- 12
 empty$ -- 23
-format.name$ -- 2
-if$ -- 47
+format.name$ -- 8
+if$ -- 64
 int.to.chr$ -- 0
 int.to.str$ -- 1
 missing$ -- 2
 newline$ -- 8
 num.names$ -- 2
-pop$ -- 8
+pop$ -- 11
 preamble$ -- 1
-purify$ -- 3
+purify$ -- 6
 quote$ -- 0
 skip$ -- 6
 stack$ -- 0
@@ -57,4 +53,3 @@ warning$ -- 0
 while$ -- 2
 width$ -- 2
 write$ -- 12
-(There were 2 error messages)

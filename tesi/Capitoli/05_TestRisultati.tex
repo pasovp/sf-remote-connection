@@ -3,3 +3,30 @@
 \chapter{Test e Risultati}
 \label{ch:testerisultati}
 Dopo aver definito nel precedente capitolo la struttura del progetto, vengono qui presentati i test effettuati ed i risultati ottenuti.
+
+
+\section{Test Client}
+\label{sec:tclientmodule}
+
+\textbf{Test Client}
+
+In questo modulo sono raccolte le implementazioni delle applicazioni di test per le componenti lato client. Questi test sono stati creati principalmente per riprodurre quelli già presenti nel progetto % TODO: aggiungere riferimento online
+SF20LiteTestWorld e usati per mostrare le capacità del framework.
+Ne fanno parte anche le classi che implementano i task del protocollo di comunicazione lato client, per la cui trattazione fare riferimento alla sezione \ref{sub:comprotocol}.
+
+Il package che compone questo modulo è \texttt{sfrc.application.client.test} e e \texttt{sfrc.application.client.task}.
+
+
+
+\section{Test Server}
+\label{sec:tservermodule}
+
+\textbf{Test Server}
+
+Di questo modulo fanno parte le implementazioni di server e applicazioni di test utilizzati per verificare il comportamento delle componenti lato server. Oltre a queste vengono usati per testare i client in differenti condizioni di comunicazione simulate dai server, come ad esempio una risposta a singhiozzo, ecc.
+Ne fanno parte anche le classi che implementano i task del protocollo di comunicazione lato server, fare riferimento alla sezione \ref{sub:comprotocol} per una trattazione più approfondita.
+
+Di questo modulo fanno parte i package \texttt{sfrc.application.server.test} e \texttt{sfrc.application.server.task}.
+
+
+

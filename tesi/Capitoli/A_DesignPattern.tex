@@ -36,6 +36,29 @@ Utilizzare questo schema consente di avere un più stretto controllo degli acces
 Questo tipo di pattern si occupano di come classi e oggetti vengono composte e interagiscono nella formazione di strutture più complesse. 
 Un obbiettivo di questi pattern è permettere la composizione di oggetti complessi che uniscano le funzionalità di moduli più piccoli rendendo quest'ultimi il più possibile riutilizzabili.
 
+\subsection{Bridge}
+\label{sub:bridge}
+Questo pattern ha l'intento di disaccoppiare un'astrazione dalla sua implementazione in modo che entrambe possano evolversi in maniera indipendente.
+
+Ciò è particolarmente utile quando si desidera evitare un legame permanente tra astrazione e implementazione, e si vuole permettere di scegliere o cambiare quest'ultima durante l'esecuzione. É utile inoltre quando sia astrazione che implementazione hanno la necessità di essere estendibili attraverso sottoclassi. 
+
+Un utile esempio per illustrare questo pattern è prendere in esame un ipotetico toolkit per interfacce grafiche, per renderlo il più possibile portabile su piattaforme diverse esso deve utilizzare un'astrazione che descriva le finestre in modo più generico possibile. Se per ottenere queste proprietà usassimo semplicemente una classe astratta \texttt{Window} da cui, usando l'ereditarietà, costruire sottoclassi specifiche per ogni sistema da supportare, otterremmo due svantaggi:
+\begin{enumerate}
+	\item Nell'evenienza di voler estendere la classe \texttt{Window} per coprire l'astrazione di altri tipi di finestra grafica esistente, per poter supportare tutte le piattaforme per cui esisteva una implementazione di \texttt{Window} dovremmo creare una sottoclasse specifica per ognuna di esse.
+	\item Il codice del client diventa dipendente dalla piattaforma. Quando vi è la necessità di creare una finestra, deve essere istanziata una classe concreta specifica e questo lega fortemente l'astrazione con l'implementazione utilizzata rendendo più complesso portare il codice del client su altre piattaforme.
+\end{enumerate}
+Per eludere questi problemi il pattern Bridge separa la gerarchia delle classi che appartengono all'astrazione da quella delle classi di implementazione. In cima alle due gerarchie vi sono le classi \texttt{Window} e \texttt{WindowImplementation}, che compongono il Bridge vero e proprio. La prima rappresenta l'astrazione della finestra che verrà utilizzata dal client, la seconda è invece l'interfaccia che un'implementazione concreta deve utilizzare per essere utilizzata dall'astrazione.
+Come si può vedere nella figura \ref{f:bridgepattern}, la classe \texttt{Window} rimappa i propri metodi su quelli dell'interfaccia \texttt{WindowImplementation}, o con una combinazione di essi. Questi vengono chiamati su di una implementazione concreta di \texttt{WindowImplementation} di cui \texttt{Window} possiede un riferimento \texttt{imp}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=12cm]{Immagini/BridgePattern}
+\caption{Esempio di schema gerarchico dovuto all'applicazione del pattern Bridge.\label{f:bridgepattern}} 
+\end{center} 
+\end{figure}
+
+L'utilizzo di questo schema permette di nascondere i dettagli implementativi ai client e di non avere effetti diretti su di esse quando l'implementazione cambia così che il codice dei client non non ha un'effettiva necessità di essere ricompilato. 
+
 \subsection{Composite}
 \label{sub:composite}
 Lo scopo di questo pattern è consentire una gestione uniforme tra oggetti semplici ed oggetti compositi. Questo si traduce in una organizzazione degli oggetti in una struttura ad albero in cui ogni nodo è un oggetto aggregato e ogni foglia è un oggetto semplice.

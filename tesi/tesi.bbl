@@ -1,7 +1,7 @@
 \begin{thebibliography}{1}
 
 \bibitem{book:designpattern}
-Ralph Johnson John~Vlissides Erich~Gamma, Richard~Helm.
+Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.
 \newblock {\em Design Patterns: Elements of Reusable Object-Oriented Software}.
 \newblock AddisonWesley Professional, 1994.
 

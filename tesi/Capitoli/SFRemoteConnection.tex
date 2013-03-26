@@ -1,28 +1,25 @@
 %!TEX root = ../tesi.tex
 
 % NOME PROVVISORIO
-\chapter{SFRemoteConnection}
-
 Appunti sparsi sul progetto
 
 % cambiare titolo
-\subsection{Infrastruttura di rete} 
+\section{Infrastruttura di rete} 
 \label{sub:rete}
-Date le specifiche iniziali \`e stato necessario stabilire quali componenti fosse necessario sviluppare ed in quale ordine. 
-Come prima cosa si \`e stabilito di sviluppare una serie di test che replicassero quelli gi\`a funzionanti in locale, per poter fare questo era necessario creare innanzitutto una infrastruttura per la comunicazione di rete tra client e server.
+Date le specifiche iniziali esposte nel capitolo \ref{ch:introduzione}, una parte fondamentale del progetto è stata decidere quale infrastruttura per la comunicazione di rete sfruttare per poter utilizzare e testare il modulo \textbf{RemoteDataCenter Tool}, che si occupa della gestione delle richieste di Dataset.
 
-Se da lato client \`e ovvia la necessit\`a di sviluppare uno strato dell'applicazione che si occupasse della comunicazione di rete, da lato server si presentano diverse possibilit\`a: 
+Se da lato client è ovvia la necessità di sviluppare uno strato dell'applicazione che si occupa della comunicazione di rete, da lato server si sono presentate diverse possibilità: 
 \begin{enumerate}
 	\item  utilizzare un file server che permettesse semplicemente di accedere ai file contenti i dati tramite la rete;
 	\item  utilizzare un application server java, come Tomcat o Glassfish, a cui un'applicazione client potesse connettersi e che attraverso l'esecuzione di servlet realizzasse il trasferimento dei dati da server a client;
 	\item  utilizzare un'applicazione server ad hoc appositamente sviluppata;
 \end{enumerate}
 
-La prima soluzione \`e probabilmente la pi\`u semplice, ma la meno flessibile dato che consente solo di un accesso diretto ai file di descrizione dei dati senza alcuna possibilit\`a di un'elaborazione lato server e spostando tutto il peso di un'eventuale interazione tra client direttamente su quest'ultimi.
+La prima soluzione è probabilmente la più semplice, ma la meno flessibile dato che consente solo di un accesso diretto ai file di descrizione dei dati senza alcuna possibilità di un'elaborazione lato server e spostando tutto il peso di un'eventuale interazione tra client direttamente su quest'ultimi.
 
-La seconda soluzione offre pi\`u possibilit\`a e flessibilit\`a rispetto alla prima: l'utilizzo di un application server java mette a disposizione una piattaforma che consente una pre-elaborazione dei dati lato server e che possiede direttamente una serie di componenti per la gestione di compiti complessi legati alle sessioni degli utenti, come ad esempio l'autenticazione e la sicurezza. Nonostante i pregi, questo tipo di soluzione possiede anche lati negativi: gli application server generici non sono sviluppati per questo tipo di applicazioni e non era garantita una flessibilit\`a sufficiente per cui all'aumentare della complessit\`a del progetto e delle sue esigenze non fosse necessario abbandonare l'architettura. 
+La seconda soluzione offre più possibilità e flessibilità rispetto alla prima: l'utilizzo di un application server java mette a disposizione una piattaforma che consente una pre-elaborazione dei dati lato server e che possiede direttamente una serie di componenti per la gestione di compiti complessi legati alle sessioni degli utenti, come ad esempio l'autenticazione e la sicurezza. Nonostante i pregi, questo tipo di soluzione possiede anche lati negativi: gli application server generici non sono sviluppati per questo tipo di applicazioni e non era garantita una flessibilità sufficiente per cui all'aumentare della complessità del progetto e delle sue esigenze non fosse necessario abbandonare l'architettura. 
 
-La terza soluzione \`e sicuramente la pi\`u flessibile ed estendibile dato che, se necessario, consente di modificare direttamente il server per adattarsi alle esigenze dell'applicazione. Lo svantaggio \`e la necessit\`a di dover implementare da zero tutte quelle funzionalit\`a non solo di comunicazione, ma anche di autenticazione o di sicurezza che una soluzione gi\`a pronta potrebbe possedere nativamente.
+La terza soluzione è sicuramente la più flessibile ed estendibile dato che, se necessario, consente di modificare direttamente il server per adattarsi alle esigenze dell'applicazione. Lo svantaggio è la necessità di dover implementare da zero tutte quelle funzionalità non solo di comunicazione, ma anche di autenticazione o di sicurezza che una soluzione già pronta potrebbe possedere nativamente.
 
-Nella scelta tra le tre soluzioni hanno pesato prevalentemente la volont\`a di realizzare un'architettura funzionante con la scrittura di meno codice possibile e quella di mantenere una bassa complessit\`a iniziale che non penalizzasse per\`o un'estensione futura delle funzionalit\`a. In quest'ottica la prima soluzione è stata anche la prima ad essere scartata, perché sebbene garantisse un tempo di messa in opera molto basso non consente un'estensione di funzionalità. 
+Nella scelta tra le tre soluzioni hanno pesato prevalentemente la volontà di realizzare un'architettura funzionante con la scrittura di meno codice possibile e quella di mantenere una bassa complessità iniziale che non penalizzasse però un'estensione futura delle funzionalità. In quest'ottica la prima soluzione è stata anche la prima ad essere scartata, perché sebbene garantisse un tempo di messa in opera molto basso non consente un'estensione di funzionalità. 
 La scelta finale è ricaduta sulla terza soluzione che pur costringendo a rinunciare alle funzionalità avanzate della seconda, elimina difficoltà e tempistiche di una installazione e configurazione dell'application server. Inoltre, limitando inizialmente lo sviluppo a funzionalità di base, è possibile limitare la complessità del codice ad un livello non molto più elevato rispetto alla seconda soluzione.
