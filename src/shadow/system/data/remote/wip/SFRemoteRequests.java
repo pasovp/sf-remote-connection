@@ -58,6 +58,7 @@ public class SFRemoteRequests<R extends IRequest> {
 					listenersList.clear();
 				}
 			});
+			System.err.println("Time:" + System.currentTimeMillis() + " Updatable for:"+ name);
 		}
 	}
 	

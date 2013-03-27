@@ -1,8 +1,6 @@
 package sfrc.application.client.tasks;
 
-import java.util.ArrayList;
-
-import sfrc.application.client.ClientCommunicator;
+import sfrc.application.client.ClientCommunicationSessionData;
 import sfrc.application.client.IClientCommunicationProtocolTask;
 import shadow.system.data.remote.wip.SFRemoteDataCenterRequests;
 
@@ -13,11 +11,13 @@ public class FailClientCommunicationTask implements IClientCommunicationProtocol
 	}
 	
 	@Override
-	public String doTask(ArrayList<String> requests, ClientCommunicator communicator) {
-		
-		String name = communicator.readLine();
+	public String doTask(ClientCommunicationSessionData data) {
+		System.err.println(Thread.currentThread().getName() + " state: fail");
+
+		String name = data.getMessage();
 		SFRemoteDataCenterRequests.getRequest().onRequestFail(name);
-		requests.remove(name);
+		data.getRequests().remove(name);
+		data.setMessage("");
 		return "analize-reply";
 	}
 	

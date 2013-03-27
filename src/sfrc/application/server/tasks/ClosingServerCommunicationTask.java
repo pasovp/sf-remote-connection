@@ -1,8 +1,7 @@
 package sfrc.application.server.tasks;
 
-import java.util.ArrayList;
-
 import sfrc.application.server.IServerCommunicationProtocolTask;
+import sfrc.application.server.ServerCommunicationSessionData;
 import sfrc.application.server.ServerCommunicator;
 
 public class ClosingServerCommunicationTask implements IServerCommunicationProtocolTask{
@@ -15,7 +14,7 @@ public class ClosingServerCommunicationTask implements IServerCommunicationProto
 	}
 
 	@Override
-	public String doTask(ArrayList<String> requests) {
+	public String doTask(ServerCommunicationSessionData data) {
 		System.out.println(Thread.currentThread().getName() + " state: closing");
 		communicator.closeCommunication();
 		return "close";

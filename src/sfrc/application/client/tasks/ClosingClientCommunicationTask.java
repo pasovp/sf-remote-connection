@@ -1,8 +1,6 @@
 package sfrc.application.client.tasks;
 
-import java.util.ArrayList;
-
-import sfrc.application.client.ClientCommunicator;
+import sfrc.application.client.ClientCommunicationSessionData;
 import sfrc.application.client.IClientCommunicationProtocolTask;
 
 public class ClosingClientCommunicationTask implements IClientCommunicationProtocolTask {
@@ -12,10 +10,15 @@ public class ClosingClientCommunicationTask implements IClientCommunicationProto
 	}
 
 	@Override
-	public String doTask(ArrayList<String> requests, ClientCommunicator communicator) {
-		communicator.sendLine("closing");
-		communicator.readLine();
-		communicator.closeCommunication();
+	public String doTask(ClientCommunicationSessionData data) {
+		System.err.println(Thread.currentThread().getName() + " state: closing");
+
+		data.getCommunicator().sendLine("closing");
+		
+		
+		data.getCommunicator().closeCommunication();
+		
+		System.err.println(Thread.currentThread().getName() + " state: communication closed");
 		return "close";
 	}
 	

@@ -1,7 +1,5 @@
 package sfrc.application.client.test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -14,7 +12,6 @@ import shadow.image.SFRenderedTexturesSet;
 import shadow.image.SFTexture;
 import shadow.renderer.SFNode;
 import shadow.renderer.SFObjectModel;
-import shadow.renderer.contents.tests.common.CommonMaterial;
 import shadow.renderer.contents.tests.common.CommonPipeline;
 import shadow.renderer.contents.tests.common.CommonTextures;
 import shadow.renderer.data.SFDataAsset;
@@ -30,8 +27,8 @@ import shadow.system.data.remote.wip.SFRemoteDataCenter;
 public abstract class AbstractClient {
 	
 	private static ExecutorService threadExecutor = Executors.newCachedThreadPool();
-	private boolean windowOpened = false;
-	private SFViewer viewer;
+	private Boolean windowOpened = false;
+	private SFViewer viewer = null;
 	private SFTextureViewerN txviewer;
 	private CommunicationProtocol<IClientCommunicationProtocolTask> protocol = new CommunicationProtocol<IClientCommunicationProtocolTask>();
 	
@@ -92,35 +89,13 @@ public abstract class AbstractClient {
 	 * @param controllers the controllers this frame should use
 	 */
 	public void viewNode(String nodeName,final boolean colorController, final boolean textureController ,final SFFrameController... controllers){
+		
+		viewer = SFViewer.generateFrame(new SFObjectModel(),controllers);
+		
 		SFDataCenter.getDataCenter().makeDatasetAvailable(nodeName, new SFDataCenterListener<SFDataAsset<SFNode>>() {
 			@Override
 			public void onDatasetAvailable(String name, SFDataAsset<SFNode> dataset) {
-				ArrayList<SFFrameController> controls = new ArrayList<SFFrameController>(Arrays.asList(controllers));
-				
-				if(colorController) {
-					SFFrameController cController = CommonMaterial.generateColoursController((SFObjectModel)dataset.getResource());
-					controls.add(cController);
-				}
-				
-				int n = ((SFObjectModel)dataset.getResource()).getModel().getMaterialComponent().getTextures().size();
-				if(textureController && (n>0)) {
-					//int n = ((SFObjectModel)dataset.getResource()).getModel().getMaterialComponent().getTextures().size();
-					SFFrameController tController = CommonTextures.generateTextureSelectionController(((SFObjectModel)dataset.getResource()).getModel().getMaterialComponent().getTextures().get(0), n);
-					controls.add(tController);
-				}
-				
-				if(windowOpened == false) {
-					viewer = SFViewer.generateFrame(dataset.getResource(),controls.toArray(new SFFrameController[controls.size()]));
-					windowOpened = true;
-				} else {
-					
-					JMenuBar bar=new JMenuBar();
-					for (SFFrameController sfFrameController : controls) {
-						bar.add(viewer.getFrame().generateMenu(sfFrameController));
-					}
-					viewer.getFrame().setJMenuBar(bar);
-					viewer.setNode(dataset.getResource());
-				}
+				viewer.setNode(dataset.getResource());
 			}
 		});
 	}

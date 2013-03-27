@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import sfrc.application.server.IServerCommunicationProtocolTask;
+import sfrc.application.server.ServerCommunicationSessionData;
 import sfrc.application.server.ServerCommunicator;
 
 public class IdleServerCommunicationTask implements IServerCommunicationProtocolTask{
@@ -43,5 +44,11 @@ public class IdleServerCommunicationTask implements IServerCommunicationProtocol
 	
 	public static String getTaskName() {
 		return "idle";
+	}
+
+	@Override
+	public String doTask(ServerCommunicationSessionData data) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

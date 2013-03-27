@@ -1,8 +1,9 @@
 package sfrc.application.server.tasks;
 
-import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import sfrc.application.server.IServerCommunicationProtocolTask;
+import sfrc.application.server.ServerCommunicationSessionData;
 import sfrc.application.server.ServerCommunicator;
 
 public class IdleServerCommunicationTask implements IServerCommunicationProtocolTask{
@@ -13,16 +14,21 @@ public class IdleServerCommunicationTask implements IServerCommunicationProtocol
 		super();
 		this.communicator = communicator;
 	}
+	
+	@Override
+	public String doTask(ServerCommunicationSessionData data){
 
-	public String doTask(ArrayList<String> requests){
-
-		
 		System.out.println(Thread.currentThread().getName() + " state: idle");
-		String input = communicator.readLine();
-		communicator.sendLine(input+":ack");
-		System.out.println(Thread.currentThread().getName() + " input: " + input);
+		String message = communicator.readLine();
 		
-		return input;
+		StringTokenizer tokenizer = new StringTokenizer(message,":");
+		String token = tokenizer.nextToken();
+		
+		//communicator.sendLine(input+":ack");
+		System.out.println(Thread.currentThread().getName() + " input: " + token);
+		data.setMessage(message.replaceFirst(token+":", ""));
+		
+		return token;
 	}
 	
 	public static String getTaskName() {

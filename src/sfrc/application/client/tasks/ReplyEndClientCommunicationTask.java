@@ -1,8 +1,6 @@
 package sfrc.application.client.tasks;
 
-import java.util.ArrayList;
-
-import sfrc.application.client.ClientCommunicator;
+import sfrc.application.client.ClientCommunicationSessionData;
 import sfrc.application.client.IClientCommunicationProtocolTask;
 
 public class ReplyEndClientCommunicationTask implements IClientCommunicationProtocolTask {
@@ -12,8 +10,9 @@ public class ReplyEndClientCommunicationTask implements IClientCommunicationProt
 	}
 	
 	@Override
-	public String doTask(ArrayList<String> requests, ClientCommunicator communicator) {
-		
+	public String doTask(ClientCommunicationSessionData data) {
+		System.err.println(Thread.currentThread().getName() + " state: reply-end");
+
 		return "closing";
 	}
 	

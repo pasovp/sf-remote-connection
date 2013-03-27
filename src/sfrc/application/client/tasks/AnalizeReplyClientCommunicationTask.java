@@ -1,8 +1,8 @@
 package sfrc.application.client.tasks;
 
-import java.util.ArrayList;
+import java.util.StringTokenizer;
 
-import sfrc.application.client.ClientCommunicator;
+import sfrc.application.client.ClientCommunicationSessionData;
 import sfrc.application.client.IClientCommunicationProtocolTask;
 
 public class AnalizeReplyClientCommunicationTask implements IClientCommunicationProtocolTask {
@@ -12,15 +12,20 @@ public class AnalizeReplyClientCommunicationTask implements IClientCommunication
 	}
 	
 	@Override
-	public String doTask(ArrayList<String> requests, ClientCommunicator communicator) {
+	public String doTask(ClientCommunicationSessionData data) {
 		// TODO: add better control on protocol messages 
-		String input = communicator.readLine();
-		communicator.sendLine(input+":ack");
-		return input;
+		System.err.println(Thread.currentThread().getName() + " state: analize-reply");
+		String message = data.getCommunicator().readLine();
+		
+		StringTokenizer tokenizer = new StringTokenizer(message,":");
+		String token = tokenizer.nextToken();
+		
+		data.setMessage(message.replaceFirst(token+":", ""));
+		
+		return token;
 	}
 	
 	public static String getTaskName() {
 		return "analize-reply";
 	}
-
 }

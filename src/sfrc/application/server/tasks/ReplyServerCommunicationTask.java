@@ -1,9 +1,8 @@
 package sfrc.application.server.tasks;
 
-import java.util.ArrayList;
-
 import sfrc.application.server.IServerCommunicationProtocolTask;
 import sfrc.application.server.IServerDataLibrary;
+import sfrc.application.server.ServerCommunicationSessionData;
 import sfrc.application.server.ServerCommunicator;
 import shadow.system.data.SFDataset;
 
@@ -20,21 +19,16 @@ public class ReplyServerCommunicationTask implements IServerCommunicationProtoco
 	}
 
 	@Override
-	public String doTask(ArrayList<String> requests) {
+	public String doTask(ServerCommunicationSessionData data) {
 		System.out.println(Thread.currentThread().getName() + " state: reply");
-		while (!requests.isEmpty()) {
-			String datasetName = requests.remove(0);
+		
+		while (!data.getRequests().isEmpty()) {
+			String datasetName = data.getRequests().remove(0);
+			
 			SFDataset dataset = library.getDataset(datasetName);
 			if (dataset!=null) {
-				communicator.sendLine("reply");
-				
-				System.out.println(Thread.currentThread().getName() + " sent: reply ");
-				//System.out.println(Thread.currentThread().getName() + " client response: " + communicator.readLine());
-				
-				communicator.readLine();
-				communicator.sendLine(datasetName);
+				communicator.sendLine("reply:"+datasetName);
 				System.out.println(Thread.currentThread().getName() + " sending: "+datasetName);
-				
 				
 				communicator.readLine();
 				
@@ -42,20 +36,14 @@ public class ReplyServerCommunicationTask implements IServerCommunicationProtoco
 				System.out.println(Thread.currentThread().getName() + " sent: "+datasetName);
 				
 			} else {
-				communicator.sendLine("fail");
-				
-				System.out.println(Thread.currentThread().getName() + " sent: fail ");
-				//System.out.println(Thread.currentThread().getName() + " client response: " + communicator.readLine());
-				
-				communicator.readLine();
-				communicator.sendLine(datasetName);
-				System.out.println(Thread.currentThread().getName() + " fail: "+ datasetName);
+				communicator.sendLine("fail:"+datasetName);
+				System.out.println(Thread.currentThread().getName() + " sent: fail "+ datasetName);
 			}
 		}
 		communicator.sendLine("reply-end");
 		
 		System.out.println(Thread.currentThread().getName() + " sent: reply-end ");
-		communicator.readLine();
+		
 		return "idle";
 	}
 	

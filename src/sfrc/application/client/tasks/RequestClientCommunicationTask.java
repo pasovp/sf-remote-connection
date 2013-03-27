@@ -1,8 +1,6 @@
 package sfrc.application.client.tasks;
 
-import java.util.ArrayList;
-
-import sfrc.application.client.ClientCommunicator;
+import sfrc.application.client.ClientCommunicationSessionData;
 import sfrc.application.client.IClientCommunicationProtocolTask;
 import shadow.system.data.remote.wip.SFRemoteDataCenterRequests;
 
@@ -13,17 +11,20 @@ public class RequestClientCommunicationTask implements IClientCommunicationProto
 	}
 
 	@Override
-	public String doTask(ArrayList<String> requests, ClientCommunicator communicator) {
-		communicator.sendLine("request");
-		communicator.readLine();
+	public String doTask(ClientCommunicationSessionData data) {
+		System.err.println(Thread.currentThread().getName() + " state: request");
+
+		String requestString = new String("request:");
 		
-		requests.addAll(SFRemoteDataCenterRequests.getRequest().removeRequests());
-		String requestString = requests.remove(0);
+		data.getRequests().addAll(SFRemoteDataCenterRequests.getRequest().removeRequests());
 		
-		for (String req : requests) {
+		
+		requestString = requestString.concat(data.getRequests().remove(0));
+		
+		for (String req : data.getRequests()) {
 			requestString = requestString.concat("," + req);
 		}
-		communicator.sendLine(requestString);
+		data.getCommunicator().sendLine(requestString);
 		return "analize-reply";
 	}
 	

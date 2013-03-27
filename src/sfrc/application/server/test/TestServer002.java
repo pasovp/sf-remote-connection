@@ -8,14 +8,14 @@ import sfrc.application.server.tasks.IdleServerCommunicationTask;
 import sfrc.application.server.tasks.ReplyServerCommunicationTask;
 import sfrc.application.server.tasks.RequestServerCommunicationTask;
 
-public class TestServer001 extends AbstractTestServer {
+public class TestServer002 extends AbstractTestServer {
 
 	/**
 	 * @param args
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		execute(new TestServer001());
+		execute(new TestServer002());
 	}
 
 	@Override
