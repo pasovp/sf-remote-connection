@@ -113,7 +113,26 @@ La scelta finale è ricaduta sulla terza soluzione che pur costringendo a rinunc
 
 \subsection{Protocollo di comunicazione}
 \label{sub:comprotocol}
-Una volta stabilito di utilizzare un server sviluppato appositamente è stato necessario stabilire le modalità di comunicazione
+Una volta stabilito di utilizzare un server sviluppato appositamente è stato necessario stabilire le modalità di comunicazione tra client e server. 
+
+La comunicazione tra le applicazioni viene effettuata attraverso un protocollo basato su messaggi testuali che si colloca idealmente a livello di Sessione nel modello ISO/OSI \cite{book:computernetworking} mentre a livello inferiore viene utilizzato il protocollo TCP/IP.
+L'utilizzo del TCP in quanto protocollo confermato è giustificato in quanto consente di garantire l'arrivo dei messaggi di comunicazione. Questi messaggi sono principalmente dedicati allo scambio dei dati grafici, per cui la garanzia di arrivo e l'integrità dei dati sono prioritarie rispetto alle prestazioni.
+
+% TODO: sistemare
+
+I messaggi di comunicazione finora previsti sono strutturati secondo la seguente forma:
+\begin{verbatim}
+etichetta_messaggio [dati...]
+\end{verbatim}
+
+in cui \texttt{etichetta\_messaggio} identifica il tipo di messaggio, mentre i dati opzionali dipendono dal messaggio stesso.
+
+
+
+Usare messaggi testuali per la comunicazione consente di semplificarne la gestione, inoltre è possibile espandere il linguaggio semplicemente utilizzando nuove etichette.
+
+I messaggi attualmente implementati sono:
+
 
 
 

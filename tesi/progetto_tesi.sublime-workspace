@@ -48,10 +48,10 @@
 			}
 		},
 		{
-			"file": "TMP/tmp.tex",
+			"file": "/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/devnotes/com protocol",
 			"settings":
 			{
-				"buffer_size": 183,
+				"buffer_size": 699,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,7 +75,7 @@
 			"file": "Capitoli/04_SFRemoteConnection.tex",
 			"settings":
 			{
-				"buffer_size": 12407,
+				"buffer_size": 13528,
 				"line_ending": "Unix"
 			}
 		},
@@ -200,6 +200,8 @@
 	},
 	"file_history":
 	[
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/TMP/tmp.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/devnotes/com protocol",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/06_Conclusioni.tex",
 		"/home/luigi/Documenti/latex/esempio/esempio.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Bibliografia.bib",
@@ -207,7 +209,6 @@
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/Chapters/Chapter01.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/ClassicThesis.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/A_NoteSoftware.tex",
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/TMP/tmp.tex",
 		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/LaTeX.sublime-build",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Immagini/BridgePattern.graphml",
 		"/home/luigi/.cache/.fr-eS1WkB/tesi.synctex",
@@ -236,7 +237,6 @@
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/FrontBackmatter/Contents.tex",
 		"/tmp/salari_ufficiali_NBA.csv",
 		"/home/luigi/Documenti/uni/Grafica 3d/HelloWorld.sh",
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/devnotes/com protocol",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/A_AppendiceA.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/03_GestioneDati.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/GestioneDati.tex",
@@ -348,7 +348,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -363,8 +363,8 @@
 						"selection":
 						[
 							[
-								1061,
-								1061
+								331,
+								331
 							]
 						],
 						"settings":
@@ -570,8 +570,8 @@
 						"selection":
 						[
 							[
-								4739,
-								4739
+								3912,
+								3912
 							]
 						],
 						"settings":
@@ -622,25 +622,25 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1412.0,
+						"translation.y": 1429.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "TMP/tmp.tex",
+					"file": "/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/devnotes/com protocol",
 					"settings":
 					{
-						"buffer_size": 183,
+						"buffer_size": 699,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								159,
-								159
+								527,
+								527
 							]
 						],
 						"settings":
@@ -688,10 +688,11 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close"
 							],
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 204.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -837,7 +838,7 @@
 			]
 		},
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -845,15 +846,15 @@
 					"file": "Capitoli/04_SFRemoteConnection.tex",
 					"settings":
 					{
-						"buffer_size": 12407,
+						"buffer_size": 13528,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1330,
-								1330
+								13092,
+								13092
 							]
 						],
 						"settings":
@@ -905,7 +906,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 48.0,
+						"translation.y": 4361.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -991,8 +992,8 @@
 						"selection":
 						[
 							[
-								77,
-								77
+								78,
+								78
 							]
 						],
 						"settings":

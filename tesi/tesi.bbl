@@ -5,4 +5,9 @@ Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.
 \newblock {\em Design Patterns: Elements of Reusable Object-Oriented Software}.
 \newblock AddisonWesley Professional, 1994.
 
+\bibitem{book:computernetworking}
+Kurose J. and Ross K.
+\newblock {\em Computer Networking - A Top-Down Approach}.
+\newblock Addison Wesley, 6th edition, 2012.
+
 \end{thebibliography}

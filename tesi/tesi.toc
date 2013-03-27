@@ -27,18 +27,18 @@
 \contentsline {section}{\numberline {4.2}Dataset sostitutivi}{24}{section.4.2}
 \contentsline {section}{\numberline {4.3}Infrastruttura di rete}{25}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Protocollo di comunicazione}{26}{subsection.4.3.1}
-\contentsline {section}{\numberline {4.4}I Package java}{26}{section.4.4}
-\contentsline {chapter}{\numberline {5}Test e Risultati}{27}{chapter.5}
-\contentsline {section}{\numberline {5.1}Test Client}{27}{section.5.1}
-\contentsline {section}{\numberline {5.2}Test Server}{27}{section.5.2}
-\contentsline {chapter}{\numberline {6}Conclusioni}{29}{chapter.6}
-\contentsline {chapter}{\numberline {A}Note sul Software}{31}{appendix.A}
-\contentsline {section}{\numberline {A.1}Codice sorgente del progetto SF-Remote-Connection}{31}{section.A.1}
-\contentsline {section}{\numberline {A.2}Versioni dei software utilizzati}{31}{section.A.2}
-\contentsline {chapter}{\numberline {B}Design Pattern}{33}{appendix.B}
-\contentsline {section}{\numberline {B.1}Pattern Creazionali}{33}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}Abstract Factory}{34}{subsection.B.1.1}
-\contentsline {subsection}{\numberline {B.1.2}Singleton}{34}{subsection.B.1.2}
-\contentsline {section}{\numberline {B.2}Pattern Strutturali}{35}{section.B.2}
-\contentsline {subsection}{\numberline {B.2.1}Bridge}{35}{subsection.B.2.1}
-\contentsline {subsection}{\numberline {B.2.2}Composite}{37}{subsection.B.2.2}
+\contentsline {section}{\numberline {4.4}I Package java}{27}{section.4.4}
+\contentsline {chapter}{\numberline {5}Test e Risultati}{29}{chapter.5}
+\contentsline {section}{\numberline {5.1}Test Client}{29}{section.5.1}
+\contentsline {section}{\numberline {5.2}Test Server}{29}{section.5.2}
+\contentsline {chapter}{\numberline {6}Conclusioni}{31}{chapter.6}
+\contentsline {chapter}{\numberline {A}Note sul Software}{33}{appendix.A}
+\contentsline {section}{\numberline {A.1}Codice sorgente del progetto SF-Remote-Connection}{33}{section.A.1}
+\contentsline {section}{\numberline {A.2}Versioni dei software utilizzati}{33}{section.A.2}
+\contentsline {chapter}{\numberline {B}Design Pattern}{35}{appendix.B}
+\contentsline {section}{\numberline {B.1}Pattern Creazionali}{35}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}Abstract Factory}{36}{subsection.B.1.1}
+\contentsline {subsection}{\numberline {B.1.2}Singleton}{36}{subsection.B.1.2}
+\contentsline {section}{\numberline {B.2}Pattern Strutturali}{37}{section.B.2}
+\contentsline {subsection}{\numberline {B.2.1}Bridge}{37}{subsection.B.2.1}
+\contentsline {subsection}{\numberline {B.2.2}Composite}{39}{subsection.B.2.2}
