@@ -122,14 +122,19 @@ L'utilizzo del TCP in quanto protocollo confermato è giustificato in quanto con
 
 I messaggi di comunicazione finora previsti sono strutturati secondo la seguente forma:
 \begin{verbatim}
-etichetta_messaggio [dati...]
+     etichetta_messaggio[:dati:opzionali:...]
 \end{verbatim}
+in cui \texttt{etichetta\_messaggio} identifica il tipo di messaggio, mentre i dati opzionali dipendono dal messaggio stesso e sono divisi dall'etichetta e tra loro dal carattere `` : ''.
 
-in cui \texttt{etichetta\_messaggio} identifica il tipo di messaggio, mentre i dati opzionali dipendono dal messaggio stesso.
+La gestione della comunicazione viene effettuata tramite una macchina a stati specifica per client e server, le quali si occupano di leggere ed effettuare l'analisi logico-sintattica dei messaggi generando le eventuali risposte o semplicemente modificando lo stato interno della macchina stessa.
+
+% TODO: spiegare con un schemi il tipo di interazione tra le macchine.
 
 
+Usare messaggi testuali per la comunicazione consente di semplificarne la gestione e rende possibile espandere il linguaggio semplicemente utilizzando nuove etichette, consentire tutto ciò ha però reso necessario strutturare l'implementazione delle macchine a stati in modo che fossero altrettanto espandibili.
 
-Usare messaggi testuali per la comunicazione consente di semplificarne la gestione, inoltre è possibile espandere il linguaggio semplicemente utilizzando nuove etichette.
+% TODO: spiegare l'espandibilità dello state pattern
+
 
 I messaggi attualmente implementati sono:
 
@@ -141,3 +146,4 @@ I messaggi attualmente implementati sono:
 \label{sec:sfrc_packages}
 La classi che compongono il progetto sono suddivise in una serie di package. % TODO: decidere se la prossima frase va bene
 Alcuni di questi sono pensati per rappresentare una possibile estensione a quelli forniti dal framework stesso e ne riproducono la struttura e le convenzioni sui nomi, gli altri sono librerie che affiancano il framework nella costruzione dell'applicazione.
+

@@ -38,7 +38,9 @@
 \contentsline {chapter}{\numberline {B}Design Pattern}{35}{appendix.B}
 \contentsline {section}{\numberline {B.1}Pattern Creazionali}{35}{section.B.1}
 \contentsline {subsection}{\numberline {B.1.1}Abstract Factory}{36}{subsection.B.1.1}
-\contentsline {subsection}{\numberline {B.1.2}Singleton}{36}{subsection.B.1.2}
+\contentsline {subsection}{\numberline {B.1.2}Singleton}{37}{subsection.B.1.2}
 \contentsline {section}{\numberline {B.2}Pattern Strutturali}{37}{section.B.2}
-\contentsline {subsection}{\numberline {B.2.1}Bridge}{37}{subsection.B.2.1}
+\contentsline {subsection}{\numberline {B.2.1}Bridge}{38}{subsection.B.2.1}
 \contentsline {subsection}{\numberline {B.2.2}Composite}{39}{subsection.B.2.2}
+\contentsline {section}{\numberline {B.3}Pattern Comportamentali}{41}{section.B.3}
+\contentsline {subsection}{\numberline {B.3.1}State}{41}{subsection.B.3.1}

@@ -75,7 +75,7 @@
 			"file": "Capitoli/04_SFRemoteConnection.tex",
 			"settings":
 			{
-				"buffer_size": 13528,
+				"buffer_size": 14170,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,7 +83,7 @@
 			"file": "Capitoli/A_DesignPattern.tex",
 			"settings":
 			{
-				"buffer_size": 8602,
+				"buffer_size": 12738,
 				"line_ending": "Unix"
 			}
 		},
@@ -200,6 +200,10 @@
 	},
 	"file_history":
 	[
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Immagini/BridgePattern.graphml",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Immagini/BridgePattern.png.bak",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Acronimi.tex",
+		"/home/luigi/Documenti/registrazioni/poste.txt",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/TMP/tmp.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/devnotes/com protocol",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/06_Conclusioni.tex",
@@ -210,7 +214,6 @@
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/ClassicThesis.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/A_NoteSoftware.tex",
 		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/LaTeX.sublime-build",
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Immagini/BridgePattern.graphml",
 		"/home/luigi/.cache/.fr-eS1WkB/tesi.synctex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.blg",
 		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/README.markdown",
@@ -230,7 +233,6 @@
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Bibliografia.bib",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Bibiografia.aux",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/Bibliography.bib",
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Acronimi.tex",
 		"/home/luigi/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/luigi/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Acronimi.aux",
@@ -348,7 +350,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -830,7 +832,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1003.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -838,7 +840,7 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -846,15 +848,15 @@
 					"file": "Capitoli/04_SFRemoteConnection.tex",
 					"settings":
 					{
-						"buffer_size": 13528,
+						"buffer_size": 14170,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13092,
-								13092
+								13320,
+								13320
 							]
 						],
 						"settings":
@@ -906,7 +908,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4361.0,
+						"translation.y": 4465.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -916,15 +918,15 @@
 					"file": "Capitoli/A_DesignPattern.tex",
 					"settings":
 					{
-						"buffer_size": 8602,
+						"buffer_size": 12738,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4453,
-								4453
+								4676,
+								4676
 							]
 						],
 						"settings":
@@ -975,7 +977,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1318.0,
+						"translation.y": 1242.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
