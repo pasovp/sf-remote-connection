@@ -20,8 +20,25 @@ Request		request 		---->
 			closing			---->			
 							<----			ok
 
+
+
+			CLIENT							SERVER
+Request		request:x,y,z	---->			
+							<----			reply:x
+			ok				---->			
+							<----			xDataset
+							<----			reply:y
+			ok				---->			
+							<----			yDataset
+							<----			fail:z
+							<----			reply-end
+			closing			---->			
+			close							close
+
+
+
 Request:		"request\n" + "name1,name2,name3,...,nameN\n"
-Close:			"close\n"
+Close:			"closing\n"
 
 
 Reply:			"reply\n" + "nameX\n" + Dataset

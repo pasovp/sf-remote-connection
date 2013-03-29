@@ -6,17 +6,15 @@
 Vengono ora presentati i moduli software realizzati nel corso dello sviluppo del progetto di tesi.
 Per meglio comprendere gli aspetti di sviluppo legati al progetto è importante tener conto degli obbiettivi di progetto esposti al paragrafo \ref{sec:obbiettivo} e della descrizione dei meccanismi di gestione dati interni del framework, descritti nel capitolo \ref{ch:gestionedati}.
 
+Nella sezione \ref{sec:moduli} del capitolo viene fornita innanzitutto una suddivisione e una descrizione dei moduli, nella sezione \ref{sec:dataset_sost} viene descritto il meccanismo dei Dataset sostitutivi
+e nella \ref{sec:rete} l'infrastruttura di ret e il protocollo di comunicazione.
+Infine è presente una panoramica sui package java e le principali classi di ognuno di essi nella sezione \ref{sec:sfrc_packages}.
+
 È giusto sottolineare che l'obbiettivo principale è stato la produzione di librerie e tool per lo sviluppo di applicazioni, focalizzandosi sull'estendibilità e il riutilizzo del codice. Non a caso sono infatti presenti alcuni riferimenti di appendice ad alcuni design pattern particolarmente significativi nella produzione di questo tipo di softwaree e che sono utilizzati sia dal framework che dai moduli stessi.
 
 Per il processo di sviluppo è stata di fondamentale importanza la produzione parallela di una serie di test, presentati nel capitolo \ref{ch:testerisultati}. Infatti la progettazione e la realizzazione dei moduli e dei meccanismi presentati in questo capitolo non è stata svolta in maniera distinta, ma si è trattato di un processo iterativo in cui i test hanno svolto più di una volta un ruolo di guida nel refactoring del codice.
 
-Il capitolo è strutturato in modo da fornire 
-innanzitutto una suddivisione e una descrizione dei moduli, 
-vengono poi descritti il meccanismo dei Dataset sostitutivi
-e il protocollo di comunicazione.
-Infine è presente una panoramica sui package java e le principali classi di ognuno di essi.
-
-Si rimanda all'appendice \ref{a:notesoftware} informazioni sul codice sorgente relativo al progetto e per informazioni sulle versioni delle librerie utilizzate.
+Si rimanda all'appendice \ref{a:notesoftware} per informazioni sul codice sorgente relativo al progetto e per informazioni sulle versioni delle librerie utilizzate.
 
 % TODO: cambiare titolo?
 \section{Moduli} 
@@ -126,14 +124,27 @@ I messaggi di comunicazione finora previsti sono strutturati secondo la seguente
 \end{verbatim}
 in cui \texttt{etichetta\_messaggio} identifica il tipo di messaggio, mentre i dati opzionali dipendono dal messaggio stesso e sono divisi dall'etichetta e tra loro dal carattere `` : ''.
 
-La gestione della comunicazione viene effettuata tramite una macchina a stati specifica per client e server, le quali si occupano di leggere ed effettuare l'analisi logico-sintattica dei messaggi generando le eventuali risposte o semplicemente modificando lo stato interno della macchina stessa.
+Questi messaggi sono utilizzati all'interno di un preciso schema di interazione tra client e server di cui possiamo vedere un esempio nella figura \ref{f:clientserverinteraction}, da notare che la numerazione dei nodi rappresenta la sequenza temporale dello scambio di messaggi. Lo schema presentato mostra che, quando la coda delle richieste non è vuota, il client apre una connessione con il server ed invia un messaggio di tipo \textbf{request} in cui sono elencati i nomi dei Dataset di cui ha bisogno. Il server a questo punto genera una sequenza di risposte attraverso cui invia, se possibile, i dati richiesti. Al termine della sequenza invia un messaggio di tipo \textbf{reply-end} a cui il client risponde con un messaggio \textbf{closing} per terminare la connnessione.
 
-% TODO: spiegare con un schemi il tipo di interazione tra le macchine.
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm]{Immagini/InterazioniClientServer}
+\caption{Esempio dello schema implementato per l'interazione tra client e server.\label{f:clientserverinteraction}} 
+\end{center} 
+\end{figure}
 
+La gestione della comunicazione e dello schema di interazione viene effettuata tramite una macchina a stati specifica per client e server, le quali si occupano di leggere ed effettuare l'analisi logico-sintattica dei messaggi generando le eventuali risposte o semplicemente modificando lo stato interno della macchina stessa.
 
-Usare messaggi testuali per la comunicazione consente di semplificarne la gestione e rende possibile espandere il linguaggio semplicemente utilizzando nuove etichette, consentire tutto ciò ha però reso necessario strutturare l'implementazione delle macchine a stati in modo che fossero altrettanto espandibili.
+\begin{figure}
+\begin{center}
+\includegraphics[width=11cm]{Immagini/StateMachineClient}
+\caption{Diagramma a stati per la gestione della comunicazione delle richieste da parte del client.\label{f:stateclient}} 
+\end{center} 
+\end{figure}
 
-% TODO: spiegare l'espandibilità dello state pattern
+Usare messaggi testuali per la comunicazione consente di semplificarne la gestione e rende possibile espandere il linguaggio semplicemente utilizzando nuove etichette, consentire tutto ciò ha però reso necessario strutturare l'implementazione delle macchine a stati in modo che fossero altrettanto espandibili. Per far questo è stato preso come modello il pattern \textit{State}, descritto al paragrafo \ref{sub:state}, e la logica di ogni stato è stata incapsulata in un oggetto differente. Questo consente di espandere la macchina a stati semplicemente definendo nuovi oggetti i quali sono totalmente indipendenti dagli altri.
+
+% TODO: rimandare alla classe protocol per la mappa del protocollo
 
 
 I messaggi attualmente implementati sono:

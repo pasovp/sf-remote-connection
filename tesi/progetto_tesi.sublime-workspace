@@ -200,6 +200,9 @@
 	},
 	"file_history":
 	[
+		"/home/luigi/Documenti/pippo.txt",
+		"/tmp/38UC-1.txt",
+		"/tmp/38UC.txt",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Immagini/BridgePattern.graphml",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Immagini/BridgePattern.png.bak",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Acronimi.tex",
@@ -832,7 +835,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1003.0,
+						"translation.y": 1071.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -977,7 +980,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1242.0,
+						"translation.y": 69.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

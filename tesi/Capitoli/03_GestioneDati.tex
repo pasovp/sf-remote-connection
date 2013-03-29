@@ -9,7 +9,7 @@ In questo capitolo viene presentata l'astrazione utilizzata dallo Shadow Framewo
 
 \section{L'astrazione della gestione dati}
 \label{sec:astrazione}
-All'interno di un'applicazione \ac{SF} l'unità base di dati può essere identificata con quello che viene definito SFDataset (\ref{sub:sfdataset}). Con Dataset si identifica quasi ogni tipo di dato, sia grafico che non, utilizzato all'interno del framework.
+All'interno di un'applicazione \ac{SF} l'unità base di dati può essere identificata con quello che viene definito SFDataset e di cui si può trovare una descrizione più dettagliata al paragrafo \ref{sub:sfdataset}. Con Dataset si identifica quasi ogni tipo di dato, sia grafico che non, utilizzato all'interno del framework.
 La gestione dei dataset viene effettuata mediante un meccanismo centralizzato: ogni applicazione in esecuzione possiede un'istanza di SFDataCenter, questa classe è un oggetto \textit{Singleton} che realizza un \textit{Bridge}
 tra l'astrazione di reperimento dati e la sua implementazione concreta\footnote{Con \textit{Singleton} e \textit{Bridge} si intendono i design pattern omonimi descritti più in dettaglio nell'appendice \ref{a:designpatterns}}.
 Ogni componente può accedere al DataCenter per richiedere operazioni sui Dataset di interesse, operazioni che possono essere la lettura o la scrittura da uno stream specifico, la richiesta di una particolare istanza di un Dataset, identificata per nome, o la richiesta di una nuova istanza di Dataset, identificata per tipo.
