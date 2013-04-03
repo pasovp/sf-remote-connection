@@ -1,5 +1,20 @@
 \begin{thebibliography}{1}
 
+\bibitem{site:adobestage3d}
+Adobe.
+\newblock How stage3d works, 2013.
+\newblock [Online; controllata il 1-aprile-2013].
+
+\bibitem{book:realtimerendering}
+Tomas Akenine-Möller, Eric Haines, and Naty Hoffman.
+\newblock {\em Real-Time Rendering}.
+\newblock A K Peters, Ltd., 3rd edition, 2008.
+
+\bibitem{site:unigineannounce}
+UNIGINE Corp.
+\newblock Unigine's crypt demo is ported into a browser, 2013.
+\newblock [Online; controllata il 1-aprile-2013].
+
 \bibitem{book:designpattern}
 Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.
 \newblock {\em Design Patterns: Elements of Reusable Object-Oriented Software}.
@@ -9,5 +24,21 @@ Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.
 Kurose J. and Ross K.
 \newblock {\em Computer Networking - A Top-Down Approach}.
 \newblock Addison Wesley, 6th edition, 2012.
+
+\bibitem{site:mozillaunrealannounce}
+Mozilla.
+\newblock Mozilla is unlocking the power of the web as a platform for gaming,
+  2013.
+\newblock [Online; controllata il 1-aprile-2013].
+
+\bibitem{wiki:rendering-it}
+Wikipedia.
+\newblock Rendering --- wikipedia{,} l'enciclopedia libera, 2013.
+\newblock [Online; controllata il 1-aprile-2013].
+
+\bibitem{wiki:rendering-en}
+Wikipedia.
+\newblock Rendering --- {W}ikipedia{,} the free encyclopedia, 2013.
+\newblock [Online; accessed 1-April-2013].
 
 \end{thebibliography}

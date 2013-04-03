@@ -2,6 +2,51 @@
 
 \chapter{Lo Shadow Framework 2.0}
 \label{ch:shadowframework}
-Questo capitolo presenta inizialmente una panoramica sui moderni sistemi per la programmazione di grafica tridimensionale. Successivamente viene presentato lo ShadowFramework 2.0, le sue caratteristiche, la sua struttura e i suoi sviluppi futuri.
+Questo capitolo presenta inizialmente una panoramica sugli attuali sistemi per la realizzazione di applicazioni che fanno uso di grafica tridimensionale real-time. Successivamente viene presentato lo ShadowFramework 2.0, le sue caratteristiche, la sua struttura e i suoi sviluppi futuri.
 
 % TODO: decidere se descrivere anche l'evoluzione rispetto alla precedente versione
+
+\section{Titolo provvisorio}
+\label{sec:titolo_provvisorio}
+Lo scopo della presente tesi di laurea \`e quello di produrre dei moduli di estensione per lo Shadow Framework utili alla realizzazione di applicativi 3D orientati al web. 
+Per lo stesso scopo esistono sul mercato una grande quantit\`a di soluzioni le cui caratteristiche possono essere notevolmente differenti in base al target di sviluppo a cui si rivolgono.
+
+Prima di fornire una descrizione di alcune di queste soluzioni \`e bene introdurre alcuni concetti utili a comprendere quali sono i punti focali che distinguono un prodotto da un altro. L'elemento fondamentale di ognuno di questi questi software \`e l'\textbf{engine}, altrimenti detto rendering engine o 3D-engine. Questo \`e il nucleo di ogni programma grafico e fornisce una serie di meccanismi che, sfruttando le \ac{API} di programmazione grafica, permettono di disegnare su schermo i modelli tridimensionali voluti. Quando un prodotto consiste nel solo engine viene fornito nella forma di una libreria che permette permette di interagire con esso e configurarlo.
+
+Dato che la pi\`u grande fetta di mercato per queste soluzioni software proviene dallo sviluppo di videogames sono nati una serie di software definiti \textbf{game engine}, questi sono veri e propri framework per la produzione di applicazioni 3D e, oltre al rendering engine, integrano al loro interno moduli per la gestione della fisica, del suono, delle animazioni e di tutte quelle componenti utili per lo sviluppo di giochi per computer. Questi framework possono essere forniti sia sotto forma di libreria da integrare nel proprio codice che con tool grafici che permettono di creare la propria applicazione da zero, utilizzando solamente gli strumenti forniti.
+
+Seguendo questa classificazione e dato che l'intento dello Shadow Framework \`e fornire un set di librerie completo per la creare applicazioni grafiche, con moduli per gestire animazioni e dati oltre che alla semplice renderizzazione, senza per\`o vincolare all'utilizzo di librerie specifiche per elementi come l'intelligenza artificiale, il suono o altro che non sia direttamente coinvolto nella gestione della grafica, esso si trova a met\`a strada tra un rendering engine puro e un game engine.
+
+Vengono ora presentati alcuni dei prodotti presenti sul mercato, la scelta di quali di essi presentare rispetto ad altri che non verranno citati non riflette la loro qualit\`a, ma sono stati scelti in base rappresentativa.
+
+% TODO: inserire i simboli di copyright ecc
+\subsection{Game engine per Adobe Flash}
+In questo caso invece che un prodotto specifico si preferisce citare una categoria di software. Per l'ambiente di Adobe esistono una grande quantit\`a di game engine che sfruttano le \ac{API} Flash per effettuare il rendering dei contenuti. Sebbene questo framework venga utilizzato da molti anni per la realizzazione di applicativi e che per lungo tempo abbia rappresentato l'ambiente di riferimento per applicativi web 3D, solo dalla release 11 comincia a sfruttare l'accelerazione hardware per la grafica tridimensionale.
+
+Attualmente l'accelerazione consente di sfruttare le GPU a pipeline programmabile, ma non consente di usare le modalit\`a legacy a pipeline fissa. 
+Inoltre non vengono rese disponibili le \ac{API} grafiche per la programmazione nativa come OpenGL o DirectX, ma una \ac{API} proprietaria di nome Stage3D che fornisce un'astrazione di livello pi\`u alto e semplifica la gestione delle risorse.
+Questo sebbene consenta di semplificare e unificare tutte le piattaforme compatibili rende necessarie delle limitazioni per conservare la compatibilit\`a, rendendo inaccessibili le funzionalit\`a pi\`u avanzate degli hardware moderni (ad esempio \`e supportato lo Shader Model solo fino alla versione 2.0 sebbene oggi sia disponibile la versione 5.0).
+Questi dati sono reperiti da \cite{site:adobestage3d}.
+
+\subsection{Unity 3D}
+Unity 3D \`e un game engine completo che dal 2005 ad oggi ha accresciuto molto la sua popolarit\`a. Uno dei maggiori punti di forza di questo ambiente consiste nella presenza di una discreta quantit\`a di tool grafici integrati tra loro, per il controllo del workflow di sviluppo. Sono inoltre integrati molti moduli per controllare aspetti quali le animazioni, la verifica delle performance ed il networking.
+Un qualit\`a di primo piano \`e la compatibilit\`a di un elevato numero di piattaforme, consentendo di pubblicare le applicazioni realizzate su piattaforme mobile (android e iOS), desktop (Windows, Mac e Linux), console e web (via browser).
+A proposito di quest'ultimo caso la fruizione dei contenuti via web \`e effettuata con due diversi metodi: o tramite un player flash o tramite l'\ac{API} Google Native Client del browser Chrome che permette l'esecuzione di codice nativo all'interno del browser.
+In generale Unity 3D \`e un game engine moderno con pieno supporto alle ultime tecnologie grafiche rendendolo uno prodotto molto rappresentativo.
+Oltre alle caratteristiche citate buona parte del suo successo \`e probabilmente dovuto alla grande comunit\`a di sviluppatori, anche indipendenti, ed alla numerosa quantit\`a di asset grafici disponibili.
+
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=3cm]{Immagini/Unreal_Engine_3_logo}
+% \includegraphics[width=5cm]{Immagini/logo_unigine}
+% \caption{Logo dell'Unreal Engine. Unreal, Unreal Engine, Unreal Technology, the Unreal Technology logo, and the Circle-U logo are trademarks or registered trademarks of Epic Games, Inc., in the United States of America and elsewhere. Other brands or product names are the trademarks of their respective owners. \label{f:unreallogo}} 
+% \end{center} 
+% \end{figure}
+
+\subsection{Unreal Engine e Unigine engine}
+Entrambi questi prodotti sono game engine completi piuttosto famosi per l'elevatissima qualit\`a delle loro capacit\`a di rendering. Entrambi vengono infatti spesso utilizzati come benchmark per testare le capacit\`a grafiche hardware. Entrambi questi progetti sono maturi e moderni essendo dotati di tool grafici specifici e supportando le pi\`u recenti architetture grafiche. Entrambi supportano la maggior parte delle piattaforme desktop, mobile e consolle. Sebbene L'Unreal engine supporti anche flash e L'Unigine no, sono presentati insieme in quanto esempio di nuovo approccio alla distribuzione via web: entrambe le compagnie produttrici di questi software stanno infatti investendo nel portare i loro framework a supportare \ac{API} WebGL. Gli annunci ufficiali possono essere trovati a questi riferimenti \cite{site:mozillaunrealannounce,site:unigineannounce}.
+
+
+
+\section{Struttura dello Shadow Framework 2.0}
+\label{sec:sfstructure}

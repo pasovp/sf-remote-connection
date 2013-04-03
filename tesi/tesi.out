@@ -1,9 +1,13 @@
 \BOOKMARK [0][-]{chapter.1}{Introduzione}{}
-\BOOKMARK [1][-]{section.1.1}{Lo Shadow Framework}{chapter.1}
-\BOOKMARK [1][-]{section.1.2}{Obbiettivo del progetto}{chapter.1}
-\BOOKMARK [1][-]{section.1.3}{Considerazioni generali}{chapter.1}
-\BOOKMARK [1][-]{section.1.4}{Organizzazione del documento}{chapter.1}
+\BOOKMARK [1][-]{section.1.1}{Obbiettivo del progetto}{chapter.1}
+\BOOKMARK [1][-]{section.1.2}{Considerazioni generali}{chapter.1}
+\BOOKMARK [1][-]{section.1.3}{Organizzazione del documento}{chapter.1}
 \BOOKMARK [0][-]{chapter.2}{Lo Shadow Framework 2.0}{}
+\BOOKMARK [1][-]{section.2.1}{Titolo provvisorio}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.1.1}{Game engine per Adobe Flash}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.2}{Unity 3D}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.3}{Unreal Engine e Unigine engine}{section.2.1}
+\BOOKMARK [1][-]{section.2.2}{Struttura dello Shadow Framework 2.0}{chapter.2}
 \BOOKMARK [0][-]{chapter.3}{Gestione dei dati nello Shadow Framework 2.0}{}
 \BOOKMARK [1][-]{section.3.1}{L'astrazione della gestione dati}{chapter.3}
 \BOOKMARK [1][-]{section.3.2}{Il package shadow.system.data}{chapter.3}
@@ -11,12 +15,13 @@
 \BOOKMARK [2][-]{subsection.3.2.2}{SFDataObject}{section.3.2}
 \BOOKMARK [2][-]{subsection.3.2.3}{SFDataset}{section.3.2}
 \BOOKMARK [2][-]{subsection.3.2.4}{SFAbstractDatasetFactory}{section.3.2}
-\BOOKMARK [2][-]{subsection.3.2.5}{SFGenericDatasetFactory}{section.3.2}
-\BOOKMARK [2][-]{subsection.3.2.6}{SFIDataCenter}{section.3.2}
-\BOOKMARK [2][-]{subsection.3.2.7}{SFDataCenterListener}{section.3.2}
-\BOOKMARK [2][-]{subsection.3.2.8}{SFDataCenter}{section.3.2}
-\BOOKMARK [2][-]{subsection.3.2.9}{SFObjectsLibrary}{section.3.2}
-\BOOKMARK [2][-]{subsection.3.2.10}{SFLibraryreference}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.5}{SFIDataCenter}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.6}{SFDataCenterListener}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.7}{SFDataCenter}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.8}{SFObjectsLibrary}{section.3.2}
+\BOOKMARK [1][-]{section.3.3}{Classi di utilit\340 per il layer dati}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.3.1}{SFLibraryreference}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.2}{SFGenericDatasetFactory}{section.3.3}
 \BOOKMARK [0][-]{chapter.4}{Il Progetto SF-Remote-Connection}{}
 \BOOKMARK [1][-]{section.4.1}{Moduli}{chapter.4}
 \BOOKMARK [2][-]{subsection.4.1.1}{Base Communication}{section.4.1}

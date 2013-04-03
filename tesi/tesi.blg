@@ -12,44 +12,46 @@ A level-1 auxiliary file: Capitoli/A_NoteSoftware.aux
 A level-1 auxiliary file: Capitoli/A_DesignPattern.aux
 The style file: plain.bst
 Database file #1: Varie/Bibliografia.bib
-You've used 2 entries,
+Warning--can't use both author and editor fields in book:realtimerendering
+You've used 8 entries,
             2118 wiz_defined-function locations,
-            518 strings with 4548 characters,
-and the built_in function-call counts, 592 in all, are:
-= -- 50
-> -- 36
+            541 strings with 5096 characters,
+and the built_in function-call counts, 1917 in all, are:
+= -- 171
+> -- 89
 < -- 0
-+ -- 14
-- -- 12
-* -- 37
-:= -- 110
-add.period$ -- 6
-call.type$ -- 2
-change.case$ -- 11
++ -- 36
+- -- 28
+* -- 89
+:= -- 331
+add.period$ -- 24
+call.type$ -- 8
+change.case$ -- 37
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 24
-empty$ -- 45
-format.name$ -- 12
-if$ -- 119
+cite$ -- 9
+duplicate$ -- 71
+empty$ -- 177
+format.name$ -- 28
+if$ -- 404
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 4
-newline$ -- 13
-num.names$ -- 4
-pop$ -- 19
+int.to.str$ -- 8
+missing$ -- 6
+newline$ -- 43
+num.names$ -- 16
+pop$ -- 72
 preamble$ -- 1
-purify$ -- 10
+purify$ -- 30
 quote$ -- 0
-skip$ -- 13
+skip$ -- 54
 stack$ -- 0
-substring$ -- 10
-swap$ -- 2
+substring$ -- 40
+swap$ -- 9
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
-warning$ -- 0
-while$ -- 4
-width$ -- 3
-write$ -- 23
+type$ -- 26
+warning$ -- 1
+while$ -- 16
+width$ -- 9
+write$ -- 84
+(There was 1 warning)

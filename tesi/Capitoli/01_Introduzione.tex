@@ -2,35 +2,54 @@
 
 \chapter{Introduzione}
 \label{ch:introduzione}
-% TODO: decidere se togliere o come cambiare le righe iniziali di ogni capitolo
-In questo capitolo vengono presentati brevemente i contenuti dei diversi capitoli della presente tesi di laurea, vengono fornite una descrizione iniziale del progetto di tesi e dei suoi obbietti e presentate alcune considerazioni generali in merito al progetto stesso.
+Questo progetto di tesi \`e stato realizzato nell'ambito dello sviluppo dello \ac{SF} 2.0, un framework per lo sviluppo di applicazioni che fanno uso di grafica tridimensionale real-time ideato e sviluppato dall'Ingegner Alessandro Martinelli.
 
-\section{Lo Shadow Framework}
-\label{sec:sfintro}
-% TODO: acronimi
-Questa tesi è stata realizzata nell'ambito dello sviluppo dello Shadow Framework 2.0, progetto ideato e sviluppato dall'ingegner Alessandro Martinelli.
-Lo \ac{SF} è un framework per lo sviluppo di applicazioni che fanno uso di grafica tridimensionale sia in ambito scientifico che per l'intrattenimento.
-Tra le sue caratteristiche principali vi sono la portabilità, la possibilità di lavorare sia con dati locali che con dati in remoto, la capacità di sfruttare in maniera estesa le caratteristiche delle moderne \ac{GPU}.\footnote{Una \ac{GPU} è un microprocessore dedicato alla generazione delle immagini visualizzate sullo schermo di un dispositivo, alleggerendo da questo carico il processore principale.}
-% TODO: decidere se aggiungere la fonte http://www.springerreference.com/docs/html/chapterdbid/305953.html
+La grafica tridimensionale, o computer grafica 3d, consiste nell'utilizzo di modelli geometrici tridimensionali da parte di un computer per il calcolo e il rendering\footnote{Con rendering, in computer grafica, si intende il processo che attraverso l'elaborazione di un modello determina il colore di ogni pixel contenuto in una immagine digitale.\cite{wiki:rendering-it,wiki:rendering-en}} di immagini digitali.
+Essa \`e attualmente molto diffusa ed utilizzata in moltissimi campi, cosa che la ha resa un'esperienza comune nella vita di tutti i giorni, non solo infatti ne viene fatto un uso intensivo nella pubblicit\`a e nell'intrattenimento, ma anche in campi come la medicina e la ricerca scientifica.
 
-Una descrizione più dettagliata delle caratteristiche del framework viene fornita nel capitolo \ref{ch:shadowframework}.
+La grafica tridimensionale real-time \`e un ramo specifico della grafica tridimensionale che si focalizza sulla generazione di simulazioni di ambienti e/o oggetti con la quale un utente pu\`o interagire osservando una reazione coerente nella simulazione. Questo senso di interazione viene fornito da una generazione sequenziale di immagini che, come nelle pellicole cinematografiche, danno un'illusione di movimento, ma in cui l'effettivo contenuto dei fotogrammi non \`e predeterminato ed \`e calcolato al momento sulla base degli input forniti.
 
+In base a quanto esplicato in \cite{book:realtimerendering}, per poter avere un'interazione soddisfacente \`e molto importante che la velocit\`a con cui vengono visualizzate le immagini, misurata in \ac{fps}, si mantenga stabile ed il pi\`u possibile elevata in modo da minimizzare i tempi di risposta ed impedire che questi interferiscano con l'interazione stessa.
+Ci\`o pone il problema di ottenere un alto valore di \ac{fps} che a sua volta implica dei vincoli temporali sulla possibile elaborazione dei modelli tridimensionali, se infatti si volesse mantenere una velocit\`a di visualizzazione pari a 60 \ac{fps}, il tempo di calcolo a disposizione per l'elaborazione di un frame rispetto al precedente ammonta a circa 15 millisecondi.
+Questa caratteristica differenzia profondamente la grafica real-time da quella non-real-time, in cui non avendo vincoli temporali stretti per la generazione dei frame, il focus \`e invece spostato sull'applicazione di modelli di elaborazione complessi a volte anche computazionalmente onerosi, che siano in grado per\`o di generare immagini il pi\`u possibile fotorealistiche. 
+
+Le problematiche della grafica real-time hanno imposto nel corso degli anni lo sviluppo di tecniche e tecnologie specifiche di settore il cui stato dell'arte \`e oggi rappresentato dall'ultima generazione di \ac{API} di programmazione grafica, dalle \ac{GPU}\footnote{Una \ac{GPU} \`e un microprocessore dedicato alla generazione delle immagini visualizzate sullo schermo di un dispositivo, alleggerendo da questo carico il processore principale.} a pipeline programmabile e dai Linguaggi di Shading.
+
+Queste tecnologie hanno assunto una grande importanza perch\'e non solo consentono di raggiungere elevatissimi livelli di qualit\`a e prestazioni quando sono utilizzate per la generazione di grafica 3D real-time, ma la ricerca su di esse ha portato allo sviluppo del \ac{GPGPU} ovvero la possibilit\`a di utilizzare la capacit\`a di calcolo delle \ac{GPU} per processare anche dati differenti da quelli grafici.
+
+Le \ac{GPU} a pipeline programmabile, in contrapposizione a quelle con pipeline fissa, permettono di adattare gli stadi della pipeline di renderizzazione mediante l'utilizzo dei linguaggi di Shading. In sostanza l'hardware viene programmato per il calcolo di algoritmi specifici da applicare ai dati grafici. Ci\`o consente di adattare il processo di renderizzazione agli effetti che si desidera ottenere e di sfruttare l'hardware della \ac{GPU} per velocizzarne la computazione. Questo paradigma si \`e rivelato molto efficace ed efficiente, tanto esso viene oggi applicato nella maggior parte delle \ac{GPU} moderne, sia che si tratti di dispositivi di fascia alta che di processori grafici dedicati ad architetture mobile come i cellulari.
+
+Parallelamente, le \ac{API} di programmazione grafica moderne si sono sviluppate consentendo lo sfruttamento sempre pi\`u efficiente delle risorse hardware delle \ac{GPU}, ma non solo: la loro integrazione su piattaforme pensate per il mercato embedded ha consentito di osservare una proliferazione di applicazioni che fanno uso di grafica tridimensionale sia su cellulari che tablet. Per questi dispositivi, dotati ormai quasi obbligatoriamente di fotocamera, non \`e difficile trovare applicazioni di realt\`a aumentata che sfruttino le \ac{API} per inserire elementi grafici tridimensionali nelle immagini catturate dal sensore ottico. Un evento che nei prossimi anni avr\`a probabilmente un impatto molto significativo nel mercato consiste nel fatto che molti sviluppatori di browser per la navigazione di internet stanno attualmente lavorando per integrare l'\ac{API} grafica WebGL tramite JavaScrip, all'interno dei loro software. Questo consentir\`a l'esecuzione di applicazioni 3D direttamente all'interno dei browser stessi, eliminando la transizione tra contenuti 3D e contenuti non-3D e consentendo una integrazione diretta con servizi internet di terze parti.
+
+Di pari passo i produttori di middleware, engine e framework\footnote{Nel contesto delle applicazioni per la grafica tridimensionale con middleware di solito si intendono componenti software dedicate a compiti specifici, come la gestione della fisica o il pathfinding, che vengono affiancate agli engine ed ai framework. Per una descrizione di cosa si intende e le differenze tra engine e framework fare riferimento alla sezione \ref{sec:titolo_provvisorio}} % TODO:controllare il riferimento alla sezione corretta
+ per applicazioni di grafica hanno integrato nelle loro funzionalit\`a la capacit\`a di sfruttare le pipeline programmabili e tool per testare e comporre nuovi shader\footnote{Uno shader \`e un programma scritto con un linguaggio di shading, che viene caricato ed eseguito in hardware da una \ac{GPU}.}. Una sempre maggiore quantit\`a di queste case produttrici supportano le piattaforme mobile (come Android e iOS) e rilasciano plugin o applicazioni WebPlayer per distribuire contenuti attraverso i browser web. 
+In alcuni casi, come quello citato in \cite{site:mozillaunrealannounce}, produttori di browser e case di sviluppo collaborano per migliorare le prestazioni di WebGL e convertire in JavaScript gli engine e i framework per eseguili direttamente nelle pagine web.
+
+In questo contesto si inserisce lo Shadow Framework. Esso \`e stato progettato non solo per utilizzare e supportare tutte le tecnologie che costituiscono lo stato dell'arte nel campo della grafica 3D real-time, ma il suo obbiettivo \`e quello di farlo sperimentando un nuovo approccio nella generazione e nella gestione dei dati grafici tridimensionali. La chiave di questo approccio consiste nell'abbandonare la vecchia concezione per cui gli oggetti tridimensionali sono scolpiti generando mesh di vertici che compongono triangoli, ma utilizzare primitive parametriche pi\`u complesse dei semplici triangoli per poi sfruttare le capacit\`a delle pipeline programmabili e far generare dall'hardware stesso le mesh di punti necessarie per il processo di renderizzazione.
+Questo tipo di procedimento permette di adattare la qualit\`a  del risultato visivo finale in base alle prestazioni dell'hardware a disposizione senza la necessit\`a di produrre diverse versioni dello stesso modello la cui unica differenze consiste nel numero di vertici. \`E infatti sufficiente programmare la pipeline per produrre un minor numero di vertici per alleggerire il calcolo, mantenendo inalterato il modello parametrico di partenza. Oltre hai vantaggi descritti, l'utilizzo di primitive parametriche permette di produrre file di dimensione molto contenuta rispetto ai sistemi classici in cui i file contengono l'elenco dei vertici che descrivono l'oggetto. Lo stesso paradigma viene usato all'interno del framework non solo per i modelli 3D, ma anche per la generazione delle texture da applicarvi, garantendo un meccanismo per scalarne la qualit\`a in base alle esigenze.
+
+Sebbene una descrizione pi\`u dettagliata delle caratteristiche del framework venga fornita nel capitolo \ref{ch:shadowframework} vale la pena citare alcune delle sue caratteristiche salienti come: 
+\begin{itemize}
+	\item  la possibilit\`a di definire nuove primitive grafiche con un linguaggio specifico del framework;
+	\item  la grande portabilit\`a in quanto sviluppato in linguaggio Java;
+	\item  il design web-oriented, infatti i meccanismi interni sono stati progettati per supportare l'utilizzo di dati in remoto ed \`e in corso di realizzazione una versione del framework in JavaScript;
+\end{itemize}
 %
-% TODO: DA RIVEDERE, SE È IL CASO DI RISCRIVERE IL DISCORSO IN MANIERA PIÙ OGGETTIVA
+% TODO: DA RIVEDERE, deve essere chiaro che l'applicativo voluto deve essere orientato al web
 %
 \section{Obbiettivo del progetto}
 \label{sec:obbiettivo}
-L'obbiettivo del progetto di tesi nasce dall'idea di produrre un'applicazione dimostrativa delle funzionalità di rete offerte dallo Shadow Framework.
-L'applicazione che si voleva ottenere era una coppia client-server in cui il server fosse in grado di gestire connessioni simultanee da parte di un numero indefinito di client. 
-Ogni client, ottenuta una connessione con il server, doveva assere in grado di visualizzare una scena iniziale navigabile, richiedendo solamente i dati relativi all'ambiente in prossimità di un eventuale avatar.
-Successivamente si voleva analizzare due possibili approcci: uno in cui, secondo le necessità, il client avrebbe richiesto al server i dati aggiuntivi riguardo la scena, ad esempio una volta raggiunti i bordi dell'ambiente, oppure un secondo in cui il server, comunicando attivamente con il client, tiene traccia degli spostamenti nella navigazione e fosse in grado di comporre in modo dinamico dei pacchetti di dati prevedendo le necessità del client.
+L'obbiettivo del progetto di tesi nasce dall'idea di produrre un'applicazione dimostrativa delle funzionalit\`a di rete offerte dallo Shadow Framework.
+Ci\`o che si voleva ottenere era una coppia client-server in cui il server fosse in grado di gestire connessioni simultanee da parte di un numero indefinito di client. 
+Ogni client, ottenuta una connessione con il server, doveva assere in grado di visualizzare una scena iniziale navigabile, richiedendo solamente i dati relativi all'ambiente in prossimit\`a di un eventuale avatar.
+Successivamente si voleva analizzare due possibili approcci: uno in cui, secondo le necessit\`a, il client avrebbe richiesto al server i dati aggiuntivi riguardo la scena, ad esempio una volta raggiunti i bordi dell'ambiente, oppure un secondo in cui il server, comunicando attivamente con il client, tiene traccia degli spostamenti nella navigazione e fosse in grado di comporre in modo dinamico dei pacchetti di dati prevedendo le necessit\`a del client.
 
-Le astrazioni del layer dati del framework sono state progettate specificatamente per consentire lo sfruttamento della comunicazione di rete, ma fino a quel momento non era stata fatta alcuna specifica implementazione che la utilizzasse. Si desiderava perciò produrre questo tipo di applicazione anche per individuare e correggere i probabili bug presenti nel codice dovuti a vincoli di sincronizzazione non evidenziati dai test effettuati con dati sulla macchina locale.
+Le astrazioni del layer dati del framework sono state progettate specificatamente per consentire lo sfruttamento della comunicazione di rete, ma fino a quel momento non era stata fatta alcuna specifica implementazione che la utilizzasse. Si desiderava perci\`o produrre questo tipo di applicazione anche per individuare e correggere i probabili bug presenti nel codice dovuti a vincoli di sincronizzazione non evidenziati dai test effettuati con dati sulla macchina locale.
 
-L'obbiettivo della tesi è così diventato quello di produrre dei moduli di libreria che fossero utili allo sviluppo di applicazioni client-server.
+L'obbiettivo della tesi \`e cos{\`\i} diventato quello di produrre dei moduli di libreria che fossero utili allo sviluppo di applicazioni client-server.
 
-La progettazione di questi moduli si è focalizzata su alcuni punti cardine che rappresentano la chiave dell'aspetto di sviluppo legato al progetto. Dato che la struttura del framework è ideata con l'obbiettivo di essere fortemente estendibile, si voleva che i moduli utilizzassero i meccanismi e le astrazioni previste.
-Si desiderava inoltre che i moduli fossero a loro volta progettati per l'estendibilità e il riutilizzo del codice.
+La progettazione di questi moduli si \`e focalizzata su alcuni punti cardine che rappresentano la chiave dell'aspetto di sviluppo legato al progetto. Dato che la struttura del framework \`e ideata con l'obbiettivo di essere fortemente estendibile, si voleva che i moduli utilizzassero i meccanismi e le astrazioni previste.
+Si desiderava inoltre che i moduli fossero a loro volta progettati per l'estendibilit\`a e il riutilizzo del codice.
 
 
 \section{Considerazioni generali}
@@ -38,17 +57,17 @@ Si desiderava inoltre che i moduli fossero a loro volta progettati per l'estendi
 % questa parte probabilmente va accorpata alla precedente
 MENZIONARE I TEST
 
-Qui si può fare un discorso sulle parti del framework su cui è necessario focalizzarsi facendo riferimenti ai capitoli 2 e 3.
+Qui si pu\`o fare un discorso sulle parti del framework su cui \`e necessario focalizzarsi facendo riferimenti ai capitoli 2 e 3.
 
 \section{Organizzazione del documento}
 \label{sec:orgtesi}
-Il presente documento è organizzato secondo la seguente suddivisione in capitoli:
+Il presente documento \`e organizzato secondo la seguente suddivisione in capitoli:
 \begin{itemize}
 	\item  \textbf{Capitolo \ref{ch:shadowframework}:} in cui viene presentata una panoramica generale sullo Shadow Framework 2.0 in rapporto al panorama generale sui framework di programmazione di grafica tridimensionale real-time.
-	\item  \textbf{Capitolo \ref{ch:gestionedati}:} in descritta l'astrazione di gestione dei dati interna al framework e come essa viene utilizzata dalle applicazioni \ac{SF}.
-	\item  \textbf{Capitolo \ref{ch:sfremoteconnection}:} in cui viene descritto il progetto Sf-Remote-Connection, i moduli che lo compongono, le funzionalità offerte e i package java prodotti.
-	\item  \textbf{Capitolo \ref{ch:testerisultati}:}
-	\item  \textbf{Capitolo \ref{ch:conclusioni}:}
+	\item  \textbf{Capitolo \ref{ch:gestionedati}:} in cui \`e descritta l'astrazione di gestione dei dati interna al framework e come essa viene utilizzata dalle applicazioni \ac{SF}.
+	\item  \textbf{Capitolo \ref{ch:sfremoteconnection}:} in cui viene descritto il progetto Sf-Remote-Connection, i moduli che lo compongono, le funzionalit\`a offerte e i package java prodotti..
+	\item  \textbf{Capitolo \ref{ch:testerisultati}:} in cui sono presentate le applicazioni di test ed i risultati prodotti.
+	\item  \textbf{Capitolo \ref{ch:conclusioni}:} in cui viene presentato un riassunto del lavoro svolto, i risultati e vengono proposti alcuni sviluppi futuri.
 \end{itemize}
 
 

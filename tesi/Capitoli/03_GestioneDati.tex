@@ -4,20 +4,33 @@
 \label{ch:gestionedati}
 
 % TODO: ampliare l'introduzione
-La gestione dei dati è un compito molto importante all'interno del framework. Attraverso l'utilizzo di un layer di gestione dati astratto, ogni mudulo del framework può essere salvato e caricato da file o trasferito attraverso un qualsiasi flusso di dati.
-In questo capitolo viene presentata l'astrazione utilizzata dallo Shadow Framework nella gestione dei dati, le funzionalità messe a disposizione ed i principali package e moduli coinvolti.
+La gestione dei dati \`e un compito molto importante all'interno del framework. Attraverso l'utilizzo di un layer di gestione dati astratto, ogni mudulo del framework pu\`o essere salvato e caricato da file o trasferito attraverso un qualsiasi flusso di dati.
+In questo capitolo viene presentata l'astrazione utilizzata dallo Shadow Framework nella gestione dei dati, le funzionalit\`a messe a disposizione ed i principali package e moduli coinvolti.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\textwidth]{Immagini/DataCenterfactory}
+\caption{Diagramma del Bridge composto da SFDataCenter e da un'istanza concreta di SFAbstractFactory.\label{f:datacenterfactory}} 
+\end{center} 
+\end{figure}
 
 \section{L'astrazione della gestione dati}
 \label{sec:astrazione}
-All'interno di un'applicazione \ac{SF} l'unità base di dati può essere identificata con quello che viene definito SFDataset e di cui si può trovare una descrizione più dettagliata al paragrafo \ref{sub:sfdataset}. Con Dataset si identifica quasi ogni tipo di dato, sia grafico che non, utilizzato all'interno del framework.
-La gestione dei dataset viene effettuata mediante un meccanismo centralizzato: ogni applicazione in esecuzione possiede un'istanza di SFDataCenter, questa classe è un oggetto \textit{Singleton} che realizza un \textit{Bridge}
-tra l'astrazione di reperimento dati e la sua implementazione concreta\footnote{Con \textit{Singleton} e \textit{Bridge} si intendono i design pattern omonimi descritti più in dettaglio nell'appendice \ref{a:designpatterns}}.
-Ogni componente può accedere al DataCenter per richiedere operazioni sui Dataset di interesse, operazioni che possono essere la lettura o la scrittura da uno stream specifico, la richiesta di una particolare istanza di un Dataset, identificata per nome, o la richiesta di una nuova istanza di Dataset, identificata per tipo.
-L'oggetto Singleton espone queste funzionalità traducendole internamente con chiamate ad una factory concreta\footnote{Si fa riferimento al pattern di programmazione \textit{Abstract Factory} descritto nella sezione \ref{sub:abstractfactory}}
-di Dataset e ad una istanza dell'interfaccia SFIDataCenter, creando un'astrazione su come i Dataset siano effettivamente costruiti e reperiti.
+All'interno di un'applicazione \ac{SF} l'unit\`a base di dati pu\`o essere identificata con quello che viene definito SFDataset e di cui si pu\`o trovare una descrizione pi\`u dettagliata al paragrafo \ref{sub:sfdataset}. Con Dataset si identifica quasi ogni tipo di dato, sia grafico che non, utilizzato all'interno del framework.
+La gestione dei dataset viene effettuata mediante un meccanismo centralizzato: ogni applicazione in esecuzione possiede un'istanza di SFDataCenter, questa classe \`e un oggetto \textit{Singleton} che realizza un \textit{Bridge}
+tra l'astrazione di reperimento dati e la sua implementazione concreta\footnote{Con \textit{Singleton} e \textit{Bridge} si intendono i design pattern omonimi descritti pi\`u in dettaglio nell'appendice \ref{a:designpatterns}}.
+Ogni componente pu\`o accedere al DataCenter per richiedere operazioni sui Dataset di interesse, operazioni che possono essere la lettura o la scrittura da uno stream specifico, la richiesta di una particolare istanza di un Dataset, identificata per nome, o la richiesta di una nuova istanza di Dataset, identificata per tipo.
+L'oggetto Singleton espone queste funzionalit\`a traducendole internamente con chiamate ad una factory concreta\footnote{Si fa riferimento al pattern di programmazione \textit{Abstract Factory} descritto nella sezione \ref{sub:abstractfactory}}
+di Dataset e ad una istanza dell'interfaccia SFIDataCenter, creando un'astrazione su come i Dataset siano effettivamente costruiti e reperiti esattamente come mostrato nelle immagini \ref{f:datacenterfactory} e \ref{f:datacenterimplementation}
 La factory concreta deve essere un'implementazione dell'interfaccia SFAbstractDatasetFactory in grado di istanziare, leggere o scrivere ogni tipo di Dataset utilizzato dall'applicazione.
 L'istanza dell'interfaccia SFIDataCenter tiene traccia dei Dataset istanziati con nome, restituendone un riferimento a chi ne fa richiesta attraverso la chiamata a funzioni di callback.
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=\textwidth]{Immagini/DataCenter}
+\caption{Diagramma del Bridge composto da SFDataCenter e da un'istanza concreta di SFIDataCenter.\label{f:datacenterimplementation}} 
+\end{center} 
+\end{figure}
 % TODO: aggiungere immagine
 
 
@@ -27,27 +40,34 @@ Questo package contiene una serie di classi ed interfacce su cui si basa l'astra
 
 \subsection{SFInputputStream e SFOutputStream}
 \label{sub:sfinoutstream}
-Queste interfacce definiscono le operazioni necessarie che uno stream di input o di output deve implementare affinchè sia possibile leggere o scrivere su di esso dei DataObject.
+Queste interfacce definiscono le operazioni necessarie che uno stream di input o di output deve implementare affinch\'e sia possibile leggere o scrivere su di esso dei DataObject e insieme costituiscono un elemento molto importante per l'estendibilit\`a del framework sui dati. Su di esse si basa infatti l'astrazione che i dati utilizzano per completare le operazioni di lettura e scrittura. Utilizzando la medesima interfaccia di astrazione \`e possibile far comunicare tra loro anche implementazioni diverse del framework.
 
 \subsection{SFDataObject}
 \label{sub:sfdataobject}
-Uno dei moduli principali del package è \texttt{SFDataObject}, che rappresenta un'interfaccia con funzionalità di base comuni ad ogni oggetto che contiene dati. 
-Ogni oggetto di questo tipo può perciò:
+Uno dei moduli principali del package \`e \texttt{SFDataObject}, che rappresenta un'interfaccia con funzionalit\`a di base comuni ad ogni oggetto che contiene dati. 
+Ogni oggetto di questo tipo pu\`o perci\`o:
 \begin{itemize}
 	\item essere scritto su di un \texttt{SFOutputStream};
 	\item essere letto da un \texttt{SFInputStream};
 	\item essere clonato;
 \end{itemize}
-I DataObject si basano sul \textit{Composite Pattern}\ref{sub:composite}: possono essere semplici o contenere un insieme di oggetti figli, il fatto che sia gli oggetti complessi che gli oggetti semplici condividano la stessa interfaccia permette di trattare gli oggetti in modo uniforme. Un oggetto contenitore dovrà semplicemente richiamare lo stesso metodo di interfaccia per tutti gli oggetti figli i quali, se oggetti semplici, hanno la responsabilità di implementare l'algoritmo per leggere o scrivere se stessi da uno stream.
+I DataObject si basano sul \textit{Composite Pattern}\ref{sub:composite}: possono essere semplici o contenere un insieme di oggetti figli, il fatto che sia gli oggetti complessi che gli oggetti semplici condividano la stessa interfaccia permette di trattare gli oggetti in modo uniforme. Un oggetto contenitore dovr\`a semplicemente richiamare lo stesso metodo di interfaccia per tutti gli oggetti figli i quali, se oggetti semplici, hanno la responsabilit\`a di implementare l'algoritmo per leggere o scrivere se stessi da uno stream.
 
 Tutti i componenti SF utilizzano dei DataObject per incapsulare i dati in modo che questi ultimi possano essere letti e scritti utilizzando stream appropriati.
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=11cm]{Immagini/relazione-dataset-dataobject-stream}
+\caption{Diagramma della relazione tra le classi SFDataset, SFDataObject, SFInputStream e SFOutputStream.\label{f:dataset-dataobj-stream}} 
+\end{center} 
+\end{figure}
+
 \subsection{SFDataset}
 \label{sub:sfdataset}
-Un altro modulo importante per la gestione dei dati è \texttt{SFDataset}. Un Dataset è un oggetto che contiene un DataObject e informazioni sul proprio tipo, rappresentato tramite una stringa. 
+Un altro modulo importante per la gestione dei dati \`e \texttt{SFDataset}. Un Dataset \`e un oggetto che contiene un DataObject e informazioni sul proprio tipo, rappresentato tramite una stringa.
+Da come si pu\`o intuire dalla figura \ref{f:dataset-dataobj-stream} il DataObject viene sfruttato dal Dataset per incapsulare i suoi dati interni ed incorporarne le funzionalit\`a di lettura e scrittura.
 L'interfaccia SFDataset definisce un'interfaccia per oggetti di questo tipo, la quale consente di accedere al nome del tipo specifico, al DataObject contenuto e di creare una nuova istanza delle stesso tipo.
 A loro volta i Dataset possono essere incapsulati in un DataObject usando un oggetto \texttt{SFDatasetObject}.
-
 
 \subsection{SFAbstractDatasetFactory}
 \label{sub:sfabstractdatasetfactory}
@@ -57,28 +77,29 @@ Questa interfaccia definisce le operazioni base richieste ad una DatasetFactory,
 	\item la creazione di una nuova istanza di un Dataset specificato per tipo
 \end{itemize}
 
-\subsection{SFGenericDatasetFactory}
-\label{sub:sfgenericdatasetfactory}
-Consiste in una implementazione concreta di default dell'interfaccia \texttt{SFAbstractDatasetFactory}.
-Per consentire il riutilizzo del codice è stata resa configurabile: l'aggiunta di un metodo addSFDataset() consente di generare, in un oggetto GenericDatasetFactory, un elenco di Dataset istanziabili.
-Quando verranno chiamati i metodi dell'interfaccia SFAbstractDatasetFactory sull' oggetto GenericDatasetFactory diviene sufficiente richiamare il metodo opportuno del Dataset del tipo richiesto o del DataObject in esso contenuto.
-
 \subsection{SFIDataCenter}
 \label{sub:sfidatacenter}
 L'interfaccia \texttt{SFIDataCenter} fornisce l'astrazione di una Mappa di Dataset identificati attraverso il proprio nome, attraverso di essa possiamo chiedere di recuperare un Dataset ad un oggetto che la implementa.
-Quest'oggetto non deve restituire direttamente il Dataset recuperato, ma deve farlo attraverso un meccanismo di callback ad una implementazione dell'interfaccia \texttt{SFDataCenterListener} passata come parametro, nel momento in cui il dato è disponibile.
+Quest'oggetto non deve restituire direttamente il Dataset recuperato, ma deve farlo attraverso un meccanismo di callback ad una implementazione dell'interfaccia \texttt{SFDataCenterListener} passata come parametro, nel momento in cui il dato \`e disponibile.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\textwidth]{Immagini/DataCenterBridge}
+\caption{In questo diagramma viene mostrata la relazione tra le classi SFDataCenter, SFIDataCenter e SFAbstractDatasetFactory. Da notare che SFDataCenter \`e una classe Singleton in quanto contiene una istanza statica di se stessa (l'istanza dataCenter sottolineata) e possiede un costruttore privato (evidenziato in rosso). Inoltre, in riferimento alla sezione \ref{sub:bridge}, si pu\`o notare come SFDataCenter realizzi un Bridge sia con SFIDataCenter che con SFAbstractDatasetFactory \label{f:datacenterbridge}} 
+\end{center} 
+\end{figure}
 
 \subsection{SFDataCenterListener}
 \label{sub:sfdatacenterlistener}
 Questa interfaccia definisce la callback che un componente deve implementare per effettuare una richiesta al DataCenter.
-Questa callback viene richiamata quando il Dataset richiesto è pronto.
+Questa callback viene richiamata quando il Dataset richiesto \`e pronto.
 
 \subsection{SFDataCenter}
 \label{sub:sfdatacenter} 
 % TODO: evitare di ripetere quanto detto in sec:astrazione
-Il \textbf{DataCenter} é il nodo fondamentale della gestione dei dati all'interno del framework. 
+Il \textbf{DataCenter} \`e il nodo fondamentale della gestione dei dati all'interno del framework. 
 
-É un oggetto \textit{Singleton} (\ref{sub:singleton}) a cui le applicazioni accedono per richiedere i Dataset di cui hanno bisogno. Questa classe utilizza anche il pattern \textit{Bridge} (\ref{sub:bridge}) per fornendo un'astrazione su come i dati sono effettivamente reperiti.
+\'E un oggetto \textit{Singleton} (\ref{sub:singleton}) a cui le applicazioni accedono per richiedere i Dataset di cui hanno bisogno. Questa classe utilizza anche il pattern \textit{Bridge} (\ref{sub:bridge}) per fornendo un'astrazione su come i dati sono effettivamente reperiti.
 
 Per poter funzionare, al DataCenter deve essere fornita un'implementazione per:
 \begin{itemize}
@@ -92,10 +113,19 @@ Questo tipo di astrazione permette di separare la logica di utilizzo del Dataset
 
 \subsection{SFObjectsLibrary}
 \label{sub:sfobjectslibrary}
-É usata per memorizzare un set di Dataset ed al suo interno ogni elemento è identificato tramite un nome univoco.
-Un \texttt{SFObjectsLibrary} è a sua volta un Dataset, così che un ObjectsLibrary possa essere contenuta in altre ObjectsLibrary.
-É possibile, ad esempio, utilizzare una ObjectLibrary all'interno di implementazione di \texttt{SFIDataCenter} per creare una mappa di Dataset necessari al funzionamento di un'applicazione.
+\'E usata per memorizzare un set di Dataset ed al suo interno ogni elemento \`e identificato tramite un nome univoco.
+Un \texttt{SFObjectsLibrary} \`e a sua volta un Dataset, cos{\`\i} che un ObjectsLibrary possa essere contenuta in altre ObjectsLibrary.
+\'E possibile, ad esempio, utilizzare una ObjectLibrary all'interno di implementazione di \texttt{SFIDataCenter} per creare una mappa di Dataset necessari al funzionamento di un'applicazione.
+
+\section{Classi di utilit\`a per il layer dati}
 
 \subsection{SFLibraryreference}
 \label{sub:sflibraryreference}
-Un LibraryReference è un DataObject che può essere usato da qualsiasi componente per avere un riferimento ad un Dataset memorizzato in una libreria.
+Un LibraryReference \`e un DataObject che pu\`o essere usato da qualsiasi componente per avere un riferimento ad un Dataset memorizzato in una libreria. Viene utilizzato all'interno di DataObject o di Dataset per non avere istanze doppie dello stesso dato.
+
+
+\subsection{SFGenericDatasetFactory}
+\label{sub:sfgenericdatasetfactory}
+Questa classe di utilit\`a consiste in una implementazione concreta di default dell'interfaccia \texttt{SFAbstractDatasetFactory}.
+Per consentire il riutilizzo del codice \`e stata resa configurabile: l'aggiunta di un metodo addSFDataset() consente di generare, in un oggetto GenericDatasetFactory, un elenco di Dataset istanziabili.
+Quando verranno chiamati i metodi dell'interfaccia SFAbstractDatasetFactory sull' oggetto GenericDatasetFactory diviene sufficiente richiamare il metodo opportuno del Dataset del tipo richiesto o del DataObject in esso contenuto.
