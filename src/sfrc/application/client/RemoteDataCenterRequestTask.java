@@ -15,7 +15,6 @@ public class RemoteDataCenterRequestTask implements Runnable {
 	private ClientCommunicator communicator;
 	private String state = "request";
 	
-	
 	public RemoteDataCenterRequestTask(CommunicationProtocol<IClientCommunicationProtocolTask> protocol,  ClientCommunicator communicator) {
 		super();
 		this.protocol = protocol;
@@ -32,8 +31,6 @@ public class RemoteDataCenterRequestTask implements Runnable {
 		data.setCommunicator(communicator);
 		
 		while (!state.equalsIgnoreCase("close")) {
-			
-			
 			IClientCommunicationProtocolTask task=protocol.getProtocolMap().get(state);
 			if(task!=null){
 				state = task.doTask(data);

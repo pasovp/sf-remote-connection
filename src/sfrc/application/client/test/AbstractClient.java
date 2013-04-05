@@ -19,10 +19,17 @@ import shadow.renderer.data.utils.SFViewerDatasetFactory;
 import shadow.renderer.viewer.SFFrameController;
 import shadow.renderer.viewer.SFViewer;
 import shadow.renderer.viewer.wip.SFTextureViewerN;
+import shadow.system.SFUpdater;
 import shadow.system.data.SFDataCenter;
 import shadow.system.data.SFDataCenterListener;
+import shadow.system.data.SFDataset;
+import shadow.system.data.SFObjectsLibrary;
+import shadow.system.data.remote.wip.DataCenterRequest;
+import shadow.system.data.remote.wip.IFailedRequestListener;
+import shadow.system.data.remote.wip.SFDataCenterCreationException;
 import shadow.system.data.remote.wip.SFDatasetReplacement;
 import shadow.system.data.remote.wip.SFRemoteDataCenter;
+import shadow.system.data.remote.wip.SFRemoteDataCenterRequests;
 
 public abstract class AbstractClient {
 	
@@ -34,6 +41,13 @@ public abstract class AbstractClient {
 	
 	private String host = "acquarius";
 	private int	port = 4444;
+	
+	private Boolean loadDefaultReps = false;
+	private Boolean loadDefaultAssets = false;
+	private Boolean defaultLibrariesError = false;
+	
+	private final String REPLACEMENTSLIB = "DefaultReplacements";
+	private final String DEFAULTASSETSLIB = "DefaultAssetLibrary";
 	
 	public static void execute(AbstractClient test){
 		test.execute();
@@ -60,8 +74,8 @@ public abstract class AbstractClient {
 		SFRemoteDataCenter implementation = new SFRemoteDataCenter();
 		SFDataCenter.setDataCenterImplementation(implementation);
 		
-		
-		implementation.loadDefaultData();
+		loadDefaultData();
+		//implementation.loadDefaultData();
 		CommonPipeline.prepare();
 	}
 	
@@ -128,6 +142,68 @@ public abstract class AbstractClient {
 				}
 			}
 		});	
+	}
+	
+	
+	public void loadDefaultData() {
+		
+		SFRemoteDataCenterRequests.getRequest().addUpdateListener(REPLACEMENTSLIB, new DataCenterRequest(
+			new SFDataCenterListener<SFDataset>() {
+				@Override
+				public void onDatasetAvailable(String name, SFDataset dataset) {
+					((SFRemoteDataCenter)(SFDataCenter.getDataCenter().getDataCenterImplementation())).setDefaultReplacementsLibrary((SFObjectsLibrary)dataset);
+					
+					//defaultReplacementsLibrary.addLibrary((SFObjectsLibrary)dataset);
+					loadDefaultReps = true;
+				}
+			},
+			new IFailedRequestListener() {
+				
+				@Override
+				public void onFailedRequest() {
+					defaultLibrariesError = true;
+					loadDefaultReps = true;
+				}
+			}
+		));
+		
+		SFRemoteDataCenterRequests.getRequest().addUpdateListener(DEFAULTASSETSLIB, new DataCenterRequest(
+			new SFDataCenterListener<SFDataset>() {
+				@Override
+				public void onDatasetAvailable(String name, SFDataset dataset) {
+					((SFRemoteDataCenter)(SFDataCenter.getDataCenter().getDataCenterImplementation())).setLibrary((SFObjectsLibrary)dataset);
+					
+					//library.addLibrary((SFObjectsLibrary)dataset);
+					loadDefaultAssets = true;
+				}
+			},
+			new IFailedRequestListener() {
+				
+				@Override
+				public void onFailedRequest() {
+					defaultLibrariesError = true;
+					loadDefaultAssets = true;
+				}
+			}
+		));
+		
+		SFRemoteDataCenterRequests.getRequest().addRequest(REPLACEMENTSLIB);
+		SFRemoteDataCenterRequests.getRequest().addRequest(DEFAULTASSETSLIB);
+		System.err.println("Time:" + System.currentTimeMillis() + " default libraries requested");
+		
+		while(!loadDefaultReps || !loadDefaultAssets){
+			SFUpdater.refresh();
+			try {
+				Thread.sleep(100);
+				System.err.println("Time:" + System.currentTimeMillis() + " waiting for default libraries ");
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(defaultLibrariesError){
+			throw new SFDataCenterCreationException("Client: can't download default assets libraries");
+		}
 	}
 	
 }

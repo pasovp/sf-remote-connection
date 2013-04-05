@@ -111,6 +111,34 @@
 		<firstElement>0</firstElement>
 		<lastElement>6</lastElement>
 	</SFMeshGeometryData>
+	<SFMeshGeometryData name="CubeBumpMapping">
+		<SFPrimitiveArrayData name="linesData">
+			<primitive>QuadBumpMap</primitive>
+			<references id="primitiveData">
+				<reference>CubeVertexes</reference>
+				<reference>CubeNormals</reference>
+				<reference>CubeNormals</reference>
+				<reference>CubeNormals</reference>
+				<reference>CubeTexCoord</reference>
+			</references>
+			<primitives>
+				<!-- front face -->
+				<primitives_element>(0,1,2,3,0,0,0,0,2,2,2,2,4,4,4,4,0,1,2,3)</primitives_element>
+				<!-- back face -->
+				<primitives_element>(4,5,6,7,1,1,1,1,2,2,2,2,4,4,4,4,0,1,2,3)</primitives_element>
+				<!-- up face -->
+				<primitives_element>(3,2,6,7,2,2,2,2,1,1,1,1,4,4,4,4,0,1,2,3)</primitives_element>
+				<!-- down face -->
+				<primitives_element>(0,1,5,4,3,3,3,3,1,1,1,1,4,4,4,4,0,1,2,3)</primitives_element>
+				<!-- right face -->
+				<primitives_element>(1,5,6,2,4,4,4,4,1,1,1,1,2,2,2,2,0,1,2,3)</primitives_element>
+				<!-- left face -->
+				<primitives_element>(0,4,7,3,5,5,5,5,1,1,1,1,2,2,2,2,0,1,2,3)</primitives_element>
+			</primitives>
+		</SFPrimitiveArrayData>
+		<firstElement>0</firstElement>
+		<lastElement>6</lastElement>
+	</SFMeshGeometryData>
 	<SFBitmapTextureData name="Texture">
 		<SFBitmapPerlinNoiseData name="bitmap">
 			<width>200</width>
@@ -186,6 +214,262 @@
 			<textures>
 				<textures_element>Texture:</textures_element>
 			</textures>
+		</SFProgramAssetData>	</SFObjectModelData>
+	<SFObjectModelData name="BumpMapCube">
+		<SFTranslateAndScaleFixed16Data name="transform">
+			<x>0.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+			<scale>1.0</scale>
+		</SFTranslateAndScaleFixed16Data>
+		<geometry>CubeBumpMapping</geometry>
+		<SFProgramAssetData name="transformComponent">
+			<program>BasicBumpMapTransform</program>
+			<structures>
+			</structures>
+			<textures>
+			</textures>
+		</SFProgramAssetData>
+		<SFProgramAssetData name="materialComponent">
+			<program>BumpMappedMat</program>
+			<structures>
+			</structures>
+			<textures>
+				<textures_element>Texture:</textures_element>
+				<textures_element>Texture:</textures_element>
+			</textures>
 		</SFProgramAssetData>
 	</SFObjectModelData>
+	<SFStructureArrayDataUnit8 name="BasicMatColours">
+		<structure>Mat01</structure>
+		<values>
+			<values_element>(0.5,0.0,0.0)</values_element>
+			<values_element>(1.0,0.0,0.0)</values_element>
+			<values_element>(0.0,0.5,0.0)</values_element>
+			<values_element>(0.5,0.5,0.0)</values_element>
+			<values_element>(0.5,0.0,0.5)</values_element>
+			<values_element>(0.0,0.0,0.5)</values_element>
+			<values_element>(0.5,0.0,1.0)</values_element>
+			<values_element>(0.5,1.0,0.0)</values_element>
+			<values_element>(0.6,1.0,0.4)</values_element>
+			<values_element>(0.0,1.0,1.0)</values_element>
+			<values_element>(1.0,0.6,0.0)</values_element>
+			<values_element>(1.0,0.84800005,0.0)</values_element>
+			<values_element>(0.0,0.6,0.2)</values_element>
+			<values_element>(0.1,0.0,0.3)</values_element>
+			<values_element>(1.0,1.0,1.0)</values_element>
+			<values_element>(0.6,0.6,0.6)</values_element>
+			<values_element>(0.0,0.0,1.0)</values_element>
+		</values>
+	</SFStructureArrayDataUnit8>
+	<SFQuadsSurfaceGeometryData name="BumpMappingsMushroom">
+		<NuNv>(8,8)</NuNv>
+		<SFCurvedTubeFunctionData name="surfaceFunction">
+			<SFBasisSplineData name="firstCurve">
+				<SFVertexListDataUnit8 name="vertices">
+					<vertices>
+						<vertices_element>(0.0,0.0)</vertices_element>
+						<vertices_element>(0.0,0.1)</vertices_element>
+						<vertices_element>(0.024,0.2)</vertices_element>
+						<vertices_element>(0.0,0.3)</vertices_element>
+						<vertices_element>(0.0,0.4)</vertices_element>
+						<vertices_element>(0.0,0.5)</vertices_element>
+					</vertices>
+				</SFVertexListDataUnit8>
+				<closed>0</closed>
+			</SFBasisSplineData>
+			<SFBasisSplineData name="secondCurve">
+				<SFVertexListDataUnit8 name="vertices">
+					<vertices>
+						<vertices_element>(0.1,0.0)</vertices_element>
+						<vertices_element>(0.2,0.1)</vertices_element>
+						<vertices_element>(0.2,0.2)</vertices_element>
+						<vertices_element>(0.048,0.3)</vertices_element>
+						<vertices_element>(0.048,0.4)</vertices_element>
+						<vertices_element>(0.448,0.5)</vertices_element>
+						<vertices_element>(0.048,0.5)</vertices_element>
+					</vertices>
+				</SFVertexListDataUnit8>
+				<closed>0</closed>
+			</SFBasisSplineData>
+		</SFCurvedTubeFunctionData>
+		<SFSimpleTexCoordGeometryuvData name="texCoordFunction">
+			<du>20.0</du>
+			<dv>20.0</dv>
+		</SFSimpleTexCoordGeometryuvData>
+		<primitive>Triangle2BumpMap</primitive>
+	</SFQuadsSurfaceGeometryData>
+	<SFObjectModelData name="TileMushroom">
+		<SFTranslateAndScaleFixed16Data name="transform">
+			<x>0.0</x>
+			<y>-0.6</y>
+			<z>0.0</z>
+			<scale>2.4</scale>
+		</SFTranslateAndScaleFixed16Data>
+		<geometry>BumpMappingsMushroom</geometry>
+		<SFProgramAssetData name="transformComponent">
+			<program>BasicBumpMapTransform</program>
+			<structures>
+			</structures>
+			<textures>
+			</textures>
+		</SFProgramAssetData>
+		<SFProgramAssetData name="materialComponent">
+			<program>BumpMappedMat</program>
+			<structures>
+			</structures>
+			<textures>
+				<textures_element>TileTexture:</textures_element>
+				<textures_element>TileTexture:</textures_element>
+			</textures>
+		</SFProgramAssetData>
+	</SFObjectModelData>
+	<SFDrawnRenderedTextureData name="TileTexture">
+		<textures>
+			<textures_element>200:200:RGB8:LINEAR:REPEAT:REPEAT:</textures_element>
+			<textures_element>200:200:RGB8:LINEAR:REPEAT:REPEAT:</textures_element>
+		</textures>
+		<node>TileTextureModel</node>
+		<SFRendererData name="renderer">
+			<SF2DCameraData name="camera">
+				<leftL>0.5</leftL>
+				<upL>0.5</upL>
+			</SF2DCameraData>
+			<SFProgramAssetData name="light">
+				<program>BumpMaps</program>
+				<structures>
+				</structures>
+				<textures>
+				</textures>
+			</SFProgramAssetData>
+		</SFRendererData>
+		<depthUse>0</depthUse>
+	</SFDrawnRenderedTextureData>
+	<SFReferenceNodeData name="TileTextureModel">
+		<SFNoTransformData name="transform">
+		</SFNoTransformData>
+		<references id="nodes">
+			<reference>PebblesGround</reference>
+			<reference>TileModel</reference>
+		</references>
+	</SFReferenceNodeData>
+	<SFObjectModelData name="TileModel">
+		<SFNoTransformData name="transform">
+		</SFNoTransformData>
+		<geometry>Tile</geometry>
+		<SFProgramAssetData name="transformComponent">
+			<program>BasicPNTransform</program>
+			<structures>
+			</structures>
+			<textures>
+			</textures>
+		</SFProgramAssetData>
+		<SFProgramAssetData name="materialComponent">
+			<program>BasicMat</program>
+			<structures>
+				<structures_element>BasicMatColours:1</structures_element>
+			</structures>
+			<textures>
+			</textures>
+		</SFProgramAssetData>
+	</SFObjectModelData>
+	<SFQuadsSurfaceGeometryData name="Tile">
+		<NuNv>(8,8)</NuNv>
+		<SFSplineCurvedTubeFunctionData name="surfaceFunction">
+			<references id="curvesData">
+				<SFLineData name="reference">
+					<SFVertexListData16 name="vertices">
+						<vertices>
+							<vertices_element>(-0.90000004,-0.90000004,0.0)</vertices_element>
+							<vertices_element>(-0.90000004,0.90000004,0.0)</vertices_element>
+						</vertices>
+					</SFVertexListData16>
+					<closed>0</closed>
+				</SFLineData>
+				<SFBasisSplineData name="reference">
+					<SFVertexListData16 name="vertices">
+						<vertices>
+							<vertices_element>(-0.8,-0.90000004,0.0)</vertices_element>
+							<vertices_element>(-0.8,-0.8,-0.1)</vertices_element>
+							<vertices_element>(-0.8,0.8,-0.1)</vertices_element>
+							<vertices_element>(-0.8,0.90000004,0.0)</vertices_element>
+						</vertices>
+					</SFVertexListData16>
+					<closed>0</closed>
+				</SFBasisSplineData>
+				<SFBasisSplineData name="reference">
+					<SFVertexListData16 name="vertices">
+						<vertices>
+							<vertices_element>(0.8,-0.90000004,0.0)</vertices_element>
+							<vertices_element>(0.8,-0.8,-0.1)</vertices_element>
+							<vertices_element>(0.8,0.8,-0.1)</vertices_element>
+							<vertices_element>(0.8,0.90000004,0.0)</vertices_element>
+						</vertices>
+					</SFVertexListData16>
+					<closed>0</closed>
+				</SFBasisSplineData>
+				<SFLineData name="reference">
+					<SFVertexListData16 name="vertices">
+						<vertices>
+							<vertices_element>(0.90000004,-0.90000004,0.0)</vertices_element>
+							<vertices_element>(0.90000004,0.90000004,0.0)</vertices_element>
+						</vertices>
+					</SFVertexListData16>
+					<closed>0</closed>
+				</SFLineData>
+			</references>
+		</SFSplineCurvedTubeFunctionData>
+		<texCoordFunction>0</texCoordFunction>
+		<primitive>Triangle2PN</primitive>
+	</SFQuadsSurfaceGeometryData>
+	<SFObjectModelData name="PebblesGround">
+		<SFNoTransformData name="transform">
+		</SFNoTransformData>
+		<geometry>FullScreenRectangle</geometry>
+		<SFProgramAssetData name="transformComponent">
+			<program>BasicPNTx0Transform</program>
+			<structures>
+			</structures>
+			<textures>
+			</textures>
+		</SFProgramAssetData>
+		<SFProgramAssetData name="materialComponent">
+			<program>TexturedMat</program>
+			<structures>
+			</structures>
+			<textures>
+				<textures_element>PerlinTexture2:</textures_element>
+			</textures>
+		</SFProgramAssetData>
+	</SFObjectModelData>
+	<SFQuadsSurfaceGeometryData name="FullScreenRectangle">
+		<NuNv>(2,2)</NuNv>
+		<SFRectangle2DFunctionData name="surfaceFunction">
+			<x>-1.0</x>
+			<y>-1.0</y>
+			<w>2.0</w>
+			<h>2.0</h>
+		</SFRectangle2DFunctionData>
+		<SFSimpleTexCoordGeometryuvData name="texCoordFunction">
+			<du>1.0</du>
+			<dv>1.0</dv>
+		</SFSimpleTexCoordGeometryuvData>
+		<primitive>Triangle2PNTxO</primitive>
+	</SFQuadsSurfaceGeometryData>
+	<SFBitmapTextureData name="PerlinTexture2">
+		<SFBitmapPerlinNoiseData name="bitmap">
+			<width>200</width>
+			<height>200</height>
+			<weights>(0.5,0.2,0.148,0.048,0.1,0.1,0.1)</weights>
+			<interpolant>Linear</interpolant>
+			<bitmap>OriginalNoise</bitmap>
+		</SFBitmapPerlinNoiseData>
+	</SFBitmapTextureData>
+	<SFFunction2DBitmapData name="OriginalNoise">
+		<width>8</width>
+		<height>8</height>
+		<SFFunctionRandomizerData name="function">
+			<seed>500</seed>
+		</SFFunctionRandomizerData>
+	</SFFunction2DBitmapData>
 </library>

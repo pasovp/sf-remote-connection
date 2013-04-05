@@ -13,7 +13,6 @@ public class ServerCommunicationTask implements Runnable {
 	private String state = "idle";
 	private CommunicationProtocol<IServerCommunicationProtocolTask> protocol;
 	
-	
 	/**
 	 * @param connection
 	 */
