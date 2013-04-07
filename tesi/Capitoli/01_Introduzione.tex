@@ -19,10 +19,9 @@ Queste tecnologie hanno assunto una grande importanza perch\'e non solo consento
 
 Le \ac{GPU} a pipeline programmabile, in contrapposizione a quelle con pipeline fissa, permettono di adattare gli stadi della pipeline di renderizzazione mediante l'utilizzo dei linguaggi di Shading. In sostanza l'hardware viene programmato per il calcolo di algoritmi specifici da applicare ai dati grafici. Ci\`o consente di adattare il processo di renderizzazione agli effetti che si desidera ottenere e di sfruttare l'hardware della \ac{GPU} per velocizzarne la computazione. Questo paradigma si \`e rivelato molto efficace ed efficiente, tanto esso viene oggi applicato nella maggior parte delle \ac{GPU} moderne, sia che si tratti di dispositivi di fascia alta che di processori grafici dedicati ad architetture mobile come i cellulari.
 
-Parallelamente, le \ac{API} di programmazione grafica moderne si sono sviluppate consentendo lo sfruttamento sempre pi\`u efficiente delle risorse hardware delle \ac{GPU}, ma non solo: la loro integrazione su piattaforme pensate per il mercato embedded ha consentito di osservare una proliferazione di applicazioni che fanno uso di grafica tridimensionale sia su cellulari che tablet. Per questi dispositivi, dotati ormai quasi obbligatoriamente di fotocamera, non \`e difficile trovare applicazioni di realt\`a aumentata che sfruttino le \ac{API} per inserire elementi grafici tridimensionali nelle immagini catturate dal sensore ottico. Un evento che nei prossimi anni avr\`a probabilmente un impatto molto significativo nel mercato consiste nel fatto che molti sviluppatori di browser per la navigazione di internet stanno attualmente lavorando per integrare l'\ac{API} grafica WebGL tramite JavaScrip, all'interno dei loro software. Questo consentir\`a l'esecuzione di applicazioni 3D direttamente all'interno dei browser stessi, eliminando la transizione tra contenuti 3D e contenuti non-3D e consentendo una integrazione diretta con servizi internet di terze parti.
+Parallelamente, le \ac{API} di programmazione grafica moderne si sono sviluppate consentendo lo sfruttamento sempre pi\`u efficiente delle risorse hardware delle \ac{GPU}, ma non solo: la loro integrazione su piattaforme pensate per il mercato embedded ha consentito di osservare una proliferazione di applicazioni che fanno uso di grafica tridimensionale sia su cellulari che tablet. Per questi dispositivi, dotati ormai quasi obbligatoriamente di fotocamera, non \`e difficile trovare applicazioni di realt\`a aumentata che sfruttino le \ac{API} per inserire elementi grafici tridimensionali nelle immagini catturate dal sensore ottico. Un evento che nei prossimi anni avr\`a probabilmente un impatto molto significativo nel mercato consiste nel fatto che molti sviluppatori di browser per la navigazione di internet stanno attualmente lavorando per integrare l'\ac{API} grafica WebGL tramite JavaScript, all'interno dei loro software. Questo consentir\`a l'esecuzione di applicazioni 3D direttamente all'interno dei browser stessi, eliminando la transizione tra contenuti 3D e contenuti non-3D e consentendo una integrazione diretta con servizi internet di terze parti.
 
-Di pari passo i produttori di middleware, engine e framework\footnote{Nel contesto delle applicazioni per la grafica tridimensionale con middleware di solito si intendono componenti software dedicate a compiti specifici, come la gestione della fisica o il pathfinding, che vengono affiancate agli engine ed ai framework. Per una descrizione di cosa si intende e le differenze tra engine e framework fare riferimento alla sezione \ref{sec:titolo_provvisorio}} % TODO:controllare il riferimento alla sezione corretta
- per applicazioni di grafica hanno integrato nelle loro funzionalit\`a la capacit\`a di sfruttare le pipeline programmabili e tool per testare e comporre nuovi shader\footnote{Uno shader \`e un programma scritto con un linguaggio di shading, che viene caricato ed eseguito in hardware da una \ac{GPU}.}. Una sempre maggiore quantit\`a di queste case produttrici supportano le piattaforme mobile (come Android e iOS) e rilasciano plugin o applicazioni WebPlayer per distribuire contenuti attraverso i browser web. 
+Di pari passo i produttori di middleware, engine e framework\footnote{Nel contesto delle applicazioni per la grafica tridimensionale con middleware di solito si intendono componenti software dedicate a compiti specifici, come la gestione della fisica o il pathfinding, che vengono affiancate agli engine ed ai framework. Per una descrizione di cosa si intende e le differenze tra engine e framework fare riferimento alla sezione \ref{sec:considerazionigenerali}} per applicazioni di grafica hanno integrato nelle loro funzionalit\`a la capacit\`a di sfruttare le pipeline programmabili e tool per testare e comporre nuovi shader\footnote{Uno shader \`e un programma scritto con un linguaggio di shading, che viene caricato ed eseguito in hardware da una \ac{GPU}.}. Una sempre maggiore quantit\`a di queste case produttrici supportano le piattaforme mobile (come Android e iOS) e rilasciano plugin o applicazioni WebPlayer per distribuire contenuti attraverso i browser web. 
 In alcuni casi, come quello citato in \cite{site:mozillaunrealannounce}, produttori di browser e case di sviluppo collaborano per migliorare le prestazioni di WebGL e convertire in JavaScript gli engine e i framework per eseguili direttamente nelle pagine web.
 
 In questo contesto si inserisce lo Shadow Framework. Esso \`e stato progettato non solo per utilizzare e supportare tutte le tecnologie che costituiscono lo stato dell'arte nel campo della grafica 3D real-time, ma il suo obbiettivo \`e quello di farlo sperimentando un nuovo approccio nella generazione e nella gestione dei dati grafici tridimensionali. La chiave di questo approccio consiste nell'abbandonare la vecchia concezione per cui gli oggetti tridimensionali sono scolpiti generando mesh di vertici che compongono triangoli, ma utilizzare primitive parametriche pi\`u complesse dei semplici triangoli per poi sfruttare le capacit\`a delle pipeline programmabili e far generare dall'hardware stesso le mesh di punti necessarie per il processo di renderizzazione.
@@ -31,9 +30,10 @@ Questo tipo di procedimento permette di adattare la qualit\`a  del risultato vis
 Sebbene una descrizione pi\`u dettagliata delle caratteristiche del framework venga fornita nel capitolo \ref{ch:shadowframework} vale la pena citare alcune delle sue caratteristiche salienti come: 
 \begin{itemize}
 	\item  la possibilit\`a di definire nuove primitive grafiche con un linguaggio specifico del framework;
-	\item  la grande portabilit\`a in quanto sviluppato in linguaggio Java;
-	\item  il design web-oriented, infatti i meccanismi interni sono stati progettati per supportare l'utilizzo di dati in remoto ed \`e in corso di realizzazione una versione del framework in JavaScript;
+	\item  la grande portabilit\`a: la versione di riferimento \`e sviluppata in linguaggio Java, ma \`e in corso di realizzazione un porting in C++ (iOS);
+	\item  il design web-oriented: i meccanismi interni sono stati progettati per supportare l'utilizzo di dati in remoto ed \`e in corso di realizzazione una versione del framework in JavaScript;
 \end{itemize}
+
 %
 % TODO: DA RIVEDERE, deve essere chiaro che l'applicativo voluto deve essere orientato al web
 %
@@ -48,14 +48,15 @@ Le astrazioni del layer dati del framework sono state progettate specificatament
 
 L'obbiettivo della tesi \`e cos{\`\i} diventato quello di produrre dei moduli di libreria che fossero utili allo sviluppo di applicazioni client-server.
 
-La progettazione di questi moduli si \`e focalizzata su alcuni punti cardine che rappresentano la chiave dell'aspetto di sviluppo legato al progetto. Dato che la struttura del framework \`e ideata con l'obbiettivo di essere fortemente estendibile, si voleva che i moduli utilizzassero i meccanismi e le astrazioni previste.
-Si desiderava inoltre che i moduli fossero a loro volta progettati per l'estendibilit\`a e il riutilizzo del codice.
-
+La progettazione di questi moduli si \`e focalizzata su alcuni punti cardine che rappresentano la chiave dell'aspetto di sviluppo legato al progetto. Dato che la struttura del framework \`e ideata con l'obbiettivo di essere fortemente estendibile, \`e stato di fondamentale importanza utilizzare all'interno dei moduli i meccanismi e le astrazioni previste in tal senso e lo sviluppo dei moduli stessi \`e stato a sua volta guidato dai principi di estendibilit\`a e riutilizzo del codice.
 
 \section{Considerazioni generali}
 \label{sec:considerazioni}
-% questa parte probabilmente va accorpata alla precedente
 MENZIONARE I TEST
+
+% Sulla base degli obbiettivi di progetto e a quanto che viene esposto successivamente nei capitoli \ref{ch:shadowframework} e \ref{ch:gestionedati}
+
+%  il lavoro svolto nel progetto di tesi
 
 Qui si pu\`o fare un discorso sulle parti del framework su cui \`e necessario focalizzarsi facendo riferimenti ai capitoli 2 e 3.
 

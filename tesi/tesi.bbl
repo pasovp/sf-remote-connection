@@ -1,9 +1,11 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{site:adobestage3d}
 Adobe.
-\newblock How stage3d works, 2013.
-\newblock [Online; controllata il 1-aprile-2013].
+\newblock How stage3d works.
+\newblock \\
+  \url{http://www.adobe.com/devnet/flashplayer/articles/how-stage3d-works.html}
+  [Online; controllata il 1-aprile-2013].
 
 \bibitem{book:realtimerendering}
 Tomas Akenine-Möller, Eric Haines, and Naty Hoffman.
@@ -13,32 +15,58 @@ Tomas Akenine-Möller, Eric Haines, and Naty Hoffman.
 \bibitem{site:unigineannounce}
 UNIGINE Corp.
 \newblock Unigine's crypt demo is ported into a browser, 2013.
-\newblock [Online; controllata il 1-aprile-2013].
+\newblock \\ \url{http://unigine.com/news/2013/02/20/crypt-in-browser} [Online;
+  controllata il 1-aprile-2013].
 
 \bibitem{book:designpattern}
 Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.
 \newblock {\em Design Patterns: Elements of Reusable Object-Oriented Software}.
 \newblock AddisonWesley Professional, 1994.
 
+\bibitem{site:gaikai}
+Gaikai Inc.
+\newblock Gaikai.
+\newblock \\ \url{http://www.gaikai.com} [Online - controllata il
+  5-aprile-2013].
+
 \bibitem{book:computernetworking}
 Kurose J. and Ross K.
 \newblock {\em Computer Networking - A Top-Down Approach}.
 \newblock Addison Wesley, 6th edition, 2012.
 
+\bibitem{site:shadowframework}
+Alessandro Martinelli.
+\newblock Lo shadowframework, 2013.
+\newblock \\
+  \url{http://www.shadowframework.com/page/projects/shadowframework/mainpage&m%
+enu=shadowframework} [Online; controllata il 7-aprile-2013].
+
 \bibitem{site:mozillaunrealannounce}
 Mozilla.
 \newblock Mozilla is unlocking the power of the web as a platform for gaming,
   2013.
-\newblock [Online; controllata il 1-aprile-2013].
+\newblock \\
+  \url{https://blog.mozilla.org/blog/2013/03/27/mozilla-is-unlocking-the-power%
+-of-the-web-as-a-platform-for-gaming/} [Online; controllata il 1-aprile-2013].
+
+\bibitem{site:onlive}
+Onlive.
+\newblock Onlive.
+\newblock \\ \url{http://www.onlive.com/} [Online - controllata il
+  5-aprile-2013].
 
 \bibitem{wiki:rendering-it}
 Wikipedia.
 \newblock Rendering --- wikipedia{,} l'enciclopedia libera, 2013.
-\newblock [Online; controllata il 1-aprile-2013].
+\newblock \\
+  \url{http://it.wikipedia.org/w/index.php?title=Rendering&oldid=57850976}
+  [Online; controllata il 1-aprile-2013].
 
 \bibitem{wiki:rendering-en}
 Wikipedia.
-\newblock Rendering --- {W}ikipedia{,} the free encyclopedia, 2013.
-\newblock [Online; accessed 1-April-2013].
+\newblock Rendering --- wikipedia{,} the free encyclopedia, 2013.
+\newblock \\
+  \url{http://en.wikipedia.org/w/index.php?title=Rendering_(computer_graphics)%
+&oldid=542051916} [Online; accessed 1-April-2013].
 
 \end{thebibliography}

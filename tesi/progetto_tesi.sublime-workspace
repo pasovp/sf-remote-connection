@@ -19,7 +19,7 @@
 			"file": "tesi.tex",
 			"settings":
 			{
-				"buffer_size": 1538,
+				"buffer_size": 1560,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +35,7 @@
 			"file": "Capitoli/01_Introduzione.tex",
 			"settings":
 			{
-				"buffer_size": 7362,
+				"buffer_size": 12837,
 				"line_ending": "Unix"
 			}
 		},
@@ -51,7 +51,7 @@
 			"file": "Capitoli/02_ShadowFramework.tex",
 			"settings":
 			{
-				"buffer_size": 418,
+				"buffer_size": 10745,
 				"line_ending": "Unix"
 			}
 		},
@@ -59,7 +59,7 @@
 			"file": "Capitoli/03_GestioneDati.tex",
 			"settings":
 			{
-				"buffer_size": 8235,
+				"buffer_size": 10541,
 				"line_ending": "Unix"
 			}
 		},
@@ -67,7 +67,7 @@
 			"file": "Capitoli/04_SFRemoteConnection.tex",
 			"settings":
 			{
-				"buffer_size": 15848,
+				"buffer_size": 17566,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,7 +75,7 @@
 			"file": "Capitoli/A_DesignPattern.tex",
 			"settings":
 			{
-				"buffer_size": 12738,
+				"buffer_size": 12872,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,7 +83,7 @@
 			"file": "Capitoli/05_TestRisultati.tex",
 			"settings":
 			{
-				"buffer_size": 1591,
+				"buffer_size": 1599,
 				"line_ending": "Unix"
 			}
 		}
@@ -91,16 +91,28 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 285.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
-				"Package Control: ",
-				"Package Control: Upgrade Package"
+				"lat",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"lt",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"l",
+				"LaTeX Accents: Encode accents"
 			],
 			[
 				"ltx",
-				"LaTeX Accents: Decode accents"
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade Package"
 			],
 			[
 				"late",
@@ -117,14 +129,6 @@
 			[
 				"upda",
 				"Package Control: Upgrade/Overwrite All Packages"
-			],
-			[
-				"l",
-				"LaTeX Accents: Decode accents"
-			],
-			[
-				"lt",
-				"LaTeX Accents: Encode accents"
 			],
 			[
 				"ltxe",
@@ -175,7 +179,7 @@
 				"Snippet: Lorem ipsum"
 			]
 		],
-		"width": 515.0
+		"width": 446.0
 	},
 	"console":
 	{
@@ -192,8 +196,18 @@
 	},
 	"file_history":
 	[
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/01_Introduzione.tex",
+		"/home/luigi/.cache/.fr-WAtSeR/jediOutcast/code/JediAcademy.sln",
+		"/home/luigi/.cache/.fr-NWseyC/jediOutcast/code/cgame/cg_camera.cpp",
+		"/home/luigi/.cache/.fr-sLnzn7/jediOutcast/code/cgame/cg_camera.h",
+		"/home/luigi/.cache/.fr-xAuw1W/jediOutcast/code/mp3code/l3init.c",
+		"/home/luigi/.cache/.fr-Sm7G0X/jediOutcast/base/ext_data/npcs/Bartender.npc",
+		"/home/luigi/.cache/.fr-axxFVO/jediAcademy/tools/jawa/jawa.cpp",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Bibliografia.bib",
+		"/home/luigi/Programmi/DeadCyborg-Episode1-Linux_v002/readme.linux",
+		"/home/luigi/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/luigi/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Materiale/TODO",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/01_Introduzione.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Materiale/Struttura",
 		"/home/luigi/Progetti/Eclipse Workspace/uniconvertor-2.x/setup.py",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Immagini/InterazioniClientServer.graphml",
@@ -241,7 +255,6 @@
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/03_GestioneDati.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/GestioneDati.tex",
 		"/home/luigi/Progetti/Eclipse Workspace/print-design-1.x/tools/colors.py",
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Materiale/TODO",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/05_TestRisultati.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/04_SFRemoteConnection.tex",
 		"/home/luigi/Progetti/Eclipse Workspace/uniconvertor-2.x/build/scripts-2.7/uniconvertor",
@@ -275,8 +288,6 @@
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.log",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/log/log01.txt",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/ShadowFramework.tex",
-		"/home/luigi/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
-		"/home/luigi/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/GestioneDati.fdb_latexmk",
 		"/home/luigi/C:\\nppdf32Log\\debuglog.txt",
 		"/home/luigi/.config/sublime-text-2/Packages/BracketHighlighter/BracketHighlighter.sublime-settings",
@@ -308,6 +319,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"titolo_provvisorio",
+			"javascrip",
+			"shift+alt",
 			"update",
 			"in oltre",
 			"spell",
@@ -346,7 +360,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -354,15 +368,15 @@
 					"file": "tesi.tex",
 					"settings":
 					{
-						"buffer_size": 1538,
+						"buffer_size": 1560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								279,
-								279
+								331,
+								331
 							]
 						],
 						"settings":
@@ -492,15 +506,15 @@
 					"file": "Capitoli/01_Introduzione.tex",
 					"settings":
 					{
-						"buffer_size": 7362,
+						"buffer_size": 12837,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3582,
-								3582
+								6546,
+								6546
 							]
 						],
 						"settings":
@@ -551,7 +565,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 833.0,
+						"translation.y": 3764.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -630,15 +644,15 @@
 					"file": "Capitoli/02_ShadowFramework.tex",
 					"settings":
 					{
-						"buffer_size": 418,
+						"buffer_size": 10745,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								85,
-								85
+								10673,
+								10673
 							]
 						],
 						"settings":
@@ -689,7 +703,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3151.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -699,15 +713,15 @@
 					"file": "Capitoli/03_GestioneDati.tex",
 					"settings":
 					{
-						"buffer_size": 8235,
+						"buffer_size": 10541,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								842,
-								842
+								103,
+								103
 							]
 						],
 						"settings":
@@ -774,15 +788,15 @@
 					"file": "Capitoli/04_SFRemoteConnection.tex",
 					"settings":
 					{
-						"buffer_size": 15848,
+						"buffer_size": 17566,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1801,
-								1801
+								6603,
+								6603
 							]
 						],
 						"settings":
@@ -834,7 +848,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 255.0,
+						"translation.y": 1925.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -844,15 +858,15 @@
 					"file": "Capitoli/A_DesignPattern.tex",
 					"settings":
 					{
-						"buffer_size": 12738,
+						"buffer_size": 12872,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10763,
-								10763
+								9166,
+								9166
 							]
 						],
 						"settings":
@@ -903,7 +917,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3741.0,
+						"translation.y": 2721.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -913,15 +927,15 @@
 					"file": "Capitoli/05_TestRisultati.tex",
 					"settings":
 					{
-						"buffer_size": 1591,
+						"buffer_size": 1599,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								769,
-								769
+								597,
+								597
 							]
 						],
 						"settings":
@@ -972,7 +986,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 221.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1008,7 +1022,7 @@
 		"cols":
 		[
 			0.0,
-			0.465658217498,
+			0.508176614881,
 			1.0
 		],
 		"rows":
@@ -1020,7 +1034,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 213.0
+		"height": 172.0
 	},
 	"replace":
 	{

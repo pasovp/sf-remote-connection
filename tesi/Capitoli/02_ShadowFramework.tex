@@ -6,9 +6,9 @@ Questo capitolo presenta inizialmente una panoramica sugli attuali sistemi per l
 
 % TODO: decidere se descrivere anche l'evoluzione rispetto alla precedente versione
 
-\section{Titolo provvisorio}
-\label{sec:titolo_provvisorio}
-Lo scopo della presente tesi di laurea \`e quello di produrre dei moduli di estensione per lo Shadow Framework utili alla realizzazione di applicativi 3D orientati al web. 
+\section{Considerazioni generali}
+\label{sec:considerazionigenerali}
+Lo scopo della presente tesi di laurea \`e quello di produrre dei moduli di estensione per lo Shadow Framework, utili alla realizzazione di applicativi 3D orientati al web. 
 Per lo stesso scopo esistono sul mercato una grande quantit\`a di soluzioni le cui caratteristiche possono essere notevolmente differenti in base al target di sviluppo a cui si rivolgono.
 
 Prima di fornire una descrizione di alcune di queste soluzioni \`e bene introdurre alcuni concetti utili a comprendere quali sono i punti focali che distinguono un prodotto da un altro. L'elemento fondamentale di ognuno di questi questi software \`e l'\textbf{engine}, altrimenti detto rendering engine o 3D-engine. Questo \`e il nucleo di ogni programma grafico e fornisce una serie di meccanismi che, sfruttando le \ac{API} di programmazione grafica, permettono di disegnare su schermo i modelli tridimensionali voluti. Quando un prodotto consiste nel solo engine viene fornito nella forma di una libreria che permette permette di interagire con esso e configurarlo.
@@ -17,7 +17,7 @@ Dato che la pi\`u grande fetta di mercato per queste soluzioni software proviene
 
 Seguendo questa classificazione e dato che l'intento dello Shadow Framework \`e fornire un set di librerie completo per la creare applicazioni grafiche, con moduli per gestire animazioni e dati oltre che alla semplice renderizzazione, senza per\`o vincolare all'utilizzo di librerie specifiche per elementi come l'intelligenza artificiale, il suono o altro che non sia direttamente coinvolto nella gestione della grafica, esso si trova a met\`a strada tra un rendering engine puro e un game engine.
 
-Vengono ora presentati alcuni dei prodotti presenti sul mercato, la scelta di quali di essi presentare rispetto ad altri che non verranno citati non riflette la loro qualit\`a, ma sono stati scelti in base rappresentativa.
+Vengono ora presentati alcuni dei prodotti presenti sul mercato, la scelta di quali di essi presentare rispetto ad altri che non verranno citati non riflette la loro qualit\`a, ma è stata fatta su base rappresentativa.
 
 % TODO: inserire i simboli di copyright ecc
 \subsection{Game engine per Adobe Flash}
@@ -44,7 +44,29 @@ Oltre alle caratteristiche citate buona parte del suo successo \`e probabilmente
 % \end{figure}
 
 \subsection{Unreal Engine e Unigine engine}
-Entrambi questi prodotti sono game engine completi piuttosto famosi per l'elevatissima qualit\`a delle loro capacit\`a di rendering. Entrambi vengono infatti spesso utilizzati come benchmark per testare le capacit\`a grafiche hardware. Entrambi questi progetti sono maturi e moderni essendo dotati di tool grafici specifici e supportando le pi\`u recenti architetture grafiche. Entrambi supportano la maggior parte delle piattaforme desktop, mobile e consolle. Sebbene L'Unreal engine supporti anche flash e L'Unigine no, sono presentati insieme in quanto esempio di nuovo approccio alla distribuzione via web: entrambe le compagnie produttrici di questi software stanno infatti investendo nel portare i loro framework a supportare \ac{API} WebGL. Gli annunci ufficiali possono essere trovati a questi riferimenti \cite{site:mozillaunrealannounce,site:unigineannounce}.
+Entrambi questi prodotti sono game engine completi piuttosto famosi per l'elevatissima qualit\`a delle loro capacit\`a di rendering. Entrambi vengono infatti spesso utilizzati come benchmark per testare le capacit\`a grafiche hardware. Entrambi questi progetti sono maturi e moderni essendo dotati di tool grafici specifici e supportando le pi\`u recenti architetture grafiche. Entrambi supportano la maggior parte delle piattaforme desktop, mobile e consolle. Sebbene l'Unreal engine supporti anche flash e l'Unigine no, sono presentati insieme in quanto esempio di nuovo approccio alla distribuzione via web: entrambe le compagnie produttrici di questi software stanno infatti investendo nel portare i loro framework a supportare \ac{API} WebGL. Gli annunci ufficiali possono essere trovati a questi riferimenti \cite{site:mozillaunrealannounce,site:unigineannounce}.
+
+\subsection{OnLive e Gaikai}
+I due citati nel titolo non sono software per produrre applicazioni di grafica, ma due servizi a pagamento per la fruizione di applicazioni e videogiochi attraverso lo streaming online e vengono qui citati come esempio di una tecnologia alternativa per la fruizione di contenuti basati su grafica 3D real-time. 
+
+Entrambe le soluzioni eseguono su richiesta le applicazioni su server proprietari e all'utente viene fornito di un client, hardware o software, che attraverso una connessione ad internet permette di ricevere l'output video del server mediante un video in live streaming. Il client si occupa inoltre di intercettare l'input dell'utente e inviarlo ai server che stanno eseguendo l'applicazione in modo che possano processarlo per rendere interattiva la fruizione del servizio.
+
+L'utilizzo di questo approccio consente all'utente di non doversi dotare di dispositivi hardware dall'elevata potenza di calcolo dato che il peso della computazione della grafica è totalmente a carico dei server. In questo caso il punto focale che influenza la qualità dell'interazione consiste nelle prestazioni della connessione di rete, che deve essere continuata, con una elevata larghezza di banda e mantenere una bassa latenza.
+Informazioni relative a questi servizi sono reperibili tramite \cite{site:onlive,site:gaikai}.
+
+\section{Introduzione allo Shadow Framework 2.0}
+\label{sec:sfintro}
+Le tecnologie della pipeline di rendering programmabile e delle \ac{API} 3D, tra cui lo standard più diffuso è OpenGL, hanno avuto una notevole influenza sull'industria della produzione di applicazioni di grafica tridimensionale, ma un impatto altrettanto significativo si è verificato anche nel campo della ricerca in cui, grazie ad esse, si è raggiunto lo sviluppo di numerose soluzioni innovative e la generazione di effetti che senza l'ausilio delle suddette tecnologie, erano impossibili da implementare.
+Nonostante la bontà di molte di queste ricerche, solamente una parte di esse ha effettivamente trovato un'applicazione nel mondo dell'industria di settore e anche in quel caso la loro applicazione è stata indirizzata ad un miglioramento delle tecniche e delle consuetudini definite negli anni piuttosto che ad un rinnovamento radicale.
+
+L'obbiettivo fondamentale dichiarato per lo Shadow Framework è proprio quello di ridefinire l'architettura classica delle applicazioni di grafica attraverso l'utilizzo dei nuovi paradigmi consentiti dalla nuova tecnologia: ``Noi sosteniamo che cambiare si può. La tecnologia è matura quanto basta per sperimentare soluzioni alternative che siano più in linea con le tecnologie moderne e che siano in grado di rispondere in modo migliore alle esigenze del Web 3D''\cite{site:shadowframework}.
+
+Per meglio comprendere l'approccio innovativo sperimentato dal framework dobbiamo individuare dove e perché un'applicazione di questo tipo utilizza al suo interno i dati grafici tridimensionali.
+
+\subsection{I tre ``momenti'' di utilizzo dei dati}
+``Nei casi pratici ogni applicazione fa uso della grafica tridimensionale per tre momenti molto importanti: \textbf{accesso} ai dati tridimensionali, la fase di \textbf{costruzione e inizializzazione} e la \textbf{visualizzazione}''\cite{site:shadowframework}.
+
+Con \textbf{accesso} ai dati tridimensionali si intende il caricamento dei dati in memoria ram. In un'applicazione tradizionale questi dati sono memorizzati all'interno di file già presenti sulla memoria di massa locale, per questo motivo il loro caricamento non è mai considerato critico per quanto riguarda le prestazioni
 
 
 
