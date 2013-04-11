@@ -11,44 +11,52 @@
 \contentsline {subsection}{\numberline {2.1.4}OnLive e Gaikai}{17}{subsection.2.1.4}
 \contentsline {section}{\numberline {2.2}Introduzione allo Shadow Framework 2.0}{18}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}I tre ``momenti'' di utilizzo dei dati}{19}{subsection.2.2.1}
-\contentsline {section}{\numberline {2.3}Struttura dello Shadow Framework 2.0}{19}{section.2.3}
-\contentsline {chapter}{\numberline {3}Gestione dei dati nello Shadow Framework 2.0}{21}{chapter.3}
-\contentsline {section}{\numberline {3.1}L'astrazione della gestione dati}{21}{section.3.1}
-\contentsline {section}{\numberline {3.2}Il package \texttt {shadow.system.data}}{23}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}SFInputputStream e SFOutputStream}{24}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}SFDataObject}{24}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}SFDataset}{24}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}SFAbstractDatasetFactory}{25}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}SFIDataCenter}{25}{subsection.3.2.5}
-\contentsline {subsection}{\numberline {3.2.6}SFDataCenterListener}{26}{subsection.3.2.6}
-\contentsline {subsection}{\numberline {3.2.7}SFDataCenter}{27}{subsection.3.2.7}
-\contentsline {subsection}{\numberline {3.2.8}SFObjectsLibrary}{27}{subsection.3.2.8}
-\contentsline {section}{\numberline {3.3}Classi di utilit\`a per il layer dati}{27}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}SFLibraryreference}{27}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}SFGenericDatasetFactory}{28}{subsection.3.3.2}
-\contentsline {chapter}{\numberline {4}Il Progetto SF-Remote-Connection}{29}{chapter.4}
-\contentsline {section}{\numberline {4.1}Moduli}{30}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Base Communication}{30}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}RemoteDataCenter Tool}{30}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Client}{32}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Server}{32}{subsection.4.1.4}
-\contentsline {section}{\numberline {4.2}Dataset sostitutivi}{34}{section.4.2}
-\contentsline {section}{\numberline {4.3}Infrastruttura di rete}{35}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Protocollo di comunicazione}{36}{subsection.4.3.1}
-\contentsline {section}{\numberline {4.4}I Package java}{39}{section.4.4}
-\contentsline {chapter}{\numberline {5}Test e Risultati}{41}{chapter.5}
-\contentsline {section}{\numberline {5.1}Test Client}{41}{section.5.1}
-\contentsline {section}{\numberline {5.2}Test Server}{41}{section.5.2}
-\contentsline {chapter}{\numberline {6}Conclusioni}{43}{chapter.6}
-\contentsline {chapter}{\numberline {A}Note sul Software}{45}{appendix.A}
-\contentsline {section}{\numberline {A.1}Codice sorgente del progetto SF-Remote-Connection}{45}{section.A.1}
-\contentsline {section}{\numberline {A.2}Versioni dei software utilizzati}{45}{section.A.2}
-\contentsline {chapter}{\numberline {B}Design Pattern}{47}{appendix.B}
-\contentsline {section}{\numberline {B.1}Pattern Creazionali}{47}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}Abstract Factory}{48}{subsection.B.1.1}
-\contentsline {subsection}{\numberline {B.1.2}Singleton}{49}{subsection.B.1.2}
-\contentsline {section}{\numberline {B.2}Pattern Strutturali}{50}{section.B.2}
-\contentsline {subsection}{\numberline {B.2.1}Bridge}{50}{subsection.B.2.1}
-\contentsline {subsection}{\numberline {B.2.2}Composite}{51}{subsection.B.2.2}
-\contentsline {section}{\numberline {B.3}Pattern Comportamentali}{53}{section.B.3}
-\contentsline {subsection}{\numberline {B.3.1}State}{53}{subsection.B.3.1}
+\contentsline {subsection}{\numberline {2.2.2}Applicazioni orientate al Web 3D}{20}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Funzionalit\`a avanzate}{22}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Considerazioni finali sul framework}{24}{subsection.2.2.4}
+\contentsline {section}{\numberline {2.3}Struttura dello Shadow Framework 2.0}{24}{section.2.3}
+\contentsline {chapter}{\numberline {3}Gestione dei dati nello Shadow Framework 2.0}{27}{chapter.3}
+\contentsline {section}{\numberline {3.1}L'astrazione della gestione dati}{27}{section.3.1}
+\contentsline {section}{\numberline {3.2}Il package \texttt {shadow.system.data}}{29}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}SFInputputStream e SFOutputStream}{30}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}SFDataObject}{30}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}SFDataset}{30}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}SFAbstractDatasetFactory}{31}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}SFIDataCenter}{31}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}SFDataCenterListener}{32}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.7}SFDataCenter}{33}{subsection.3.2.7}
+\contentsline {subsection}{\numberline {3.2.8}SFObjectsLibrary}{33}{subsection.3.2.8}
+\contentsline {section}{\numberline {3.3}Classi di utilit\`a per il layer dati}{33}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}SFLibraryreference}{33}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}SFGenericDatasetFactory}{34}{subsection.3.3.2}
+\contentsline {chapter}{\numberline {4}Il Progetto SF-Remote-Connection}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Moduli}{36}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Base Communication}{36}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}RemoteDataCenter Tool}{36}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Client}{38}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Server}{38}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}Dataset sostitutivi}{38}{section.4.2}
+\contentsline {section}{\numberline {4.3}Infrastruttura di rete}{40}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Protocollo di comunicazione}{42}{subsection.4.3.1}
+\contentsline {section}{\numberline {4.4}I Package java}{45}{section.4.4}
+\contentsline {chapter}{\numberline {5}Test e Risultati}{47}{chapter.5}
+\contentsline {section}{\numberline {5.1}Struttura dei test}{47}{section.5.1}
+\contentsline {section}{\numberline {5.2}Test significativi}{49}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Test0006}{49}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Test0019}{51}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Attivit\`a correlate}{51}{section.5.3}
+\contentsline {chapter}{\numberline {6}Conclusioni}{55}{chapter.6}
+\contentsline {chapter}{\numberline {A}Note sul Software}{57}{appendix.A}
+\contentsline {section}{\numberline {A.1}Codice sorgente del progetto SF-Remote-Connection}{57}{section.A.1}
+\contentsline {section}{\numberline {A.2}Versioni dei software utilizzati}{57}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Shadow Framework 2.0}{57}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}JOGL}{57}{subsection.A.2.2}
+\contentsline {chapter}{\numberline {B}Design Pattern}{59}{appendix.B}
+\contentsline {section}{\numberline {B.1}Pattern Creazionali}{59}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}Abstract Factory}{60}{subsection.B.1.1}
+\contentsline {subsection}{\numberline {B.1.2}Singleton}{61}{subsection.B.1.2}
+\contentsline {section}{\numberline {B.2}Pattern Strutturali}{62}{section.B.2}
+\contentsline {subsection}{\numberline {B.2.1}Bridge}{62}{subsection.B.2.1}
+\contentsline {subsection}{\numberline {B.2.2}Composite}{63}{subsection.B.2.2}
+\contentsline {section}{\numberline {B.3}Pattern Comportamentali}{65}{section.B.3}
+\contentsline {subsection}{\numberline {B.3.1}State}{65}{subsection.B.3.1}

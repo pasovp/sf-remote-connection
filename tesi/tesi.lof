@@ -1,22 +1,30 @@
 \select@language {italian}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Schema agenti della distribuzione dei dati}}{20}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Grafico della modellizzazione gerarchica del framework.}}{23}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Struttura dei moduli del framework.}}{25}{figure.2.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagramma del Bridge composto da SFDataCenter e da un'istanza concreta di SFAbstractFactory.}}{22}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagramma del Bridge composto da SFDataCenter e da un'istanza concreta di SFIDataCenter.}}{23}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagramma della relazione tra le classi SFDataset, SFDataObject, SFInputStream e SFOutputStream.}}{25}{figure.3.3}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces In questo diagramma viene mostrata la relazione tra le classi SFDataCenter, SFIDataCenter e SFAbstractDatasetFactory. Da notare che SFDataCenter \`e una classe Singleton in quanto contiene una istanza statica di se stessa (l'istanza dataCenter sottolineata) e possiede un costruttore privato (evidenziato in rosso). Inoltre, in riferimento alla sezione \ref {sub:bridge}, si pu\`o notare come SFDataCenter realizzi un Bridge sia con SFIDataCenter che con SFAbstractDatasetFactory }}{26}{figure.3.4}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Bridge composto da SFDataCenter e SFAbstractFactory}}{28}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Bridge composto da SFDataCenter e SFIDataCenter}}{29}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagramma della relazione tra le classi SFDataset, SFDataObject, SFInputStream e SFOutputStream.}}{31}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces In questo diagramma viene mostrata la relazione tra le classi SFDataCenter, SFIDataCenter e SFAbstractDatasetFactory. Da notare che SFDataCenter \`e una classe Singleton in quanto contiene una istanza statica di se stessa (l'istanza dataCenter sottolineata) e possiede un costruttore privato (evidenziato in rosso). Inoltre, in riferimento alla sezione \ref {sub:bridge}, si pu\`o notare come SFDataCenter realizzi un Bridge sia con SFIDataCenter che con SFAbstractDatasetFactory }}{32}{figure.3.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Lo schema mostra la sequenza di eventi dovuti ad una richiesta a SFDataCenter che utilizza un SFRemoteDataCenter come implementazione interna.}}{31}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Dinamica del modulo client. Nello schema viene messa in evidenza la sostanziale indipendenza dei thread \texttt {RemoteDataCenterRequestsCreationTask} e \texttt {RemoteDataCenterRequestTask}, infatti a parte il fatto che i thread del secondo tipo sono creati dal primo non vi sono comunicazioni dirette tra i due.}}{33}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio dello schema implementato per l'interazione tra client e server.}}{37}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Diagramma a stati per la gestione della comunicazione delle richieste da parte del client.}}{38}{figure.4.4}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Lo schema mostra la sequenza di eventi dovuti ad una richiesta a SFDataCenter che utilizza un SFRemoteDataCenter come implementazione interna.}}{37}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Dinamica del modulo client. Nello schema viene messa in evidenza la sostanziale indipendenza dei thread \texttt {RemoteDataCenterRequestsCreationTask} e \texttt {RemoteDataCenterRequestTask}, infatti a parte il fatto che i thread del secondo tipo sono creati dal primo non vi sono comunicazioni dirette tra i due.}}{39}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio dello schema implementato per l'interazione tra client e server.}}{43}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Diagramma a stati per la gestione della comunicazione delle richieste da parte del client.}}{44}{figure.4.4}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Gerarchia delle classi di implementazione dei client.}}{48}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Gerarchia delle classi di implementazione dei server.}}{49}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Fotogrammi estratti dall'esecuzione del test Test0006. }}{50}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Fotogrammi estratti dall'esecuzione del test Test0019. }}{52}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Particolare di un fotogramma estratto dall'esecuzione del test Test0019, è posta in evidenza la tassellazione in triangoli operata sul modello del fungo. }}{53}{figure.5.5}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Struttura UML del pattern Abstract Factory.}}{48}{figure.B.1}
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Struttura UML del pattern Singleton.}}{49}{figure.B.2}
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Esempio di schema gerarchico dovuto all'applicazione del pattern Bridge.}}{51}{figure.B.3}
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Struttura UML del pattern Composite.}}{52}{figure.B.4}
-\contentsline {figure}{\numberline {B.5}{\ignorespaces Schema UML del pattern State.}}{53}{figure.B.5}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Struttura UML del pattern Abstract Factory.}}{60}{figure.B.1}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Struttura UML del pattern Singleton.}}{61}{figure.B.2}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Schema gerarchico dell'applicazione del pattern Bridge.}}{63}{figure.B.3}
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Struttura UML del pattern Composite.}}{64}{figure.B.4}
+\contentsline {figure}{\numberline {B.5}{\ignorespaces Schema UML del pattern State.}}{65}{figure.B.5}

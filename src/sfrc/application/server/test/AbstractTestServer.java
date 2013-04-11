@@ -38,11 +38,14 @@ public abstract class AbstractTestServer {
 	}
 	
 	public void loadLibraries() {
+		dataHandler.setFileList(setFiles());
 		dataHandler.generateTestLibrariesFromXML();
 		dataHandler.generateDefaultDataFromXML();
 		dataHandler.loadTestLibraries();
 		dataHandler.loadDefaultData();
 	}
+	
+	public abstract String[] setFiles();
 	
 	public void listenForConnection() {
 		try {

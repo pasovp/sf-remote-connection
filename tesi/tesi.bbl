@@ -25,9 +25,8 @@ Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.
 
 \bibitem{site:gaikai}
 Gaikai Inc.
-\newblock Gaikai.
-\newblock \\ \url{http://www.gaikai.com} [Online - controllata il
-  5-aprile-2013].
+\newblock \url{http://www.gaikai.com}.
+\newblock {\\}[Online - controllata il 5-aprile-2013].
 
 \bibitem{book:computernetworking}
 Kurose J. and Ross K.
@@ -51,9 +50,8 @@ Mozilla.
 
 \bibitem{site:onlive}
 Onlive.
-\newblock Onlive.
-\newblock \\ \url{http://www.onlive.com/} [Online - controllata il
-  5-aprile-2013].
+\newblock \url{http://www.onlive.com/}.
+\newblock {\\}[Online - controllata il 5-aprile-2013].
 
 \bibitem{wiki:rendering-it}
 Wikipedia.

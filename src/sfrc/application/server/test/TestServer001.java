@@ -26,4 +26,10 @@ public class TestServer001 extends AbstractTestServer {
 		getProtocol().getProtocolMap().put(RequestServerCommunicationTask.getTaskName(),  new RequestServerCommunicationTask());
 	}
 
+	@Override
+	public String[] setFiles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

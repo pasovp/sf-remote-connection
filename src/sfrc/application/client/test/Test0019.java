@@ -24,7 +24,7 @@ public class Test0019 extends AbstractClient {
 
 	@Override
 	public void viewTestData() {
-		viewNode("BumpMapCube");
+		viewNode("TileMushroom");
 	}
 
 	@Override

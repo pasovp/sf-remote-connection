@@ -108,4 +108,14 @@ public class ServerDataHandler implements IServerDataLibrary {
 		SFDataset dataset = library.retrieveDataset(datasetName);
 		return dataset;
 	}
+
+	public String[] getFileList() {
+		return fileList;
+	}
+
+	public void setFileList(String[] fileList) {
+		if(fileList!=null){
+			this.fileList = fileList;
+		}
+	}
 }

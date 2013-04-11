@@ -24,10 +24,18 @@
 			}
 		},
 		{
+			"file": "Capitoli/05_TestRisultati.tex",
+			"settings":
+			{
+				"buffer_size": 8746,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "Capitoli/A_NoteSoftware.tex",
 			"settings":
 			{
-				"buffer_size": 556,
+				"buffer_size": 1142,
 				"line_ending": "Unix"
 			}
 		},
@@ -40,18 +48,10 @@
 			}
 		},
 		{
-			"file": "Varie/Acronimi.tex",
-			"settings":
-			{
-				"buffer_size": 337,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "Capitoli/02_ShadowFramework.tex",
 			"settings":
 			{
-				"buffer_size": 10745,
+				"buffer_size": 24207,
 				"line_ending": "Unix"
 			}
 		},
@@ -59,7 +59,7 @@
 			"file": "Capitoli/03_GestioneDati.tex",
 			"settings":
 			{
-				"buffer_size": 10541,
+				"buffer_size": 10643,
 				"line_ending": "Unix"
 			}
 		},
@@ -67,7 +67,7 @@
 			"file": "Capitoli/04_SFRemoteConnection.tex",
 			"settings":
 			{
-				"buffer_size": 17566,
+				"buffer_size": 17569,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,15 +75,7 @@
 			"file": "Capitoli/A_DesignPattern.tex",
 			"settings":
 			{
-				"buffer_size": 12872,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Capitoli/05_TestRisultati.tex",
-			"settings":
-			{
-				"buffer_size": 1599,
+				"buffer_size": 12929,
 				"line_ending": "Unix"
 			}
 		}
@@ -95,19 +87,19 @@
 		"selected_items":
 		[
 			[
-				"lat",
-				"LaTeX Accents: Encode accents"
-			],
-			[
-				"lt",
-				"LaTeX Accents: Encode accents"
-			],
-			[
 				"l",
 				"LaTeX Accents: Encode accents"
 			],
 			[
+				"lat",
+				"LaTeX Accents: Encode accents"
+			],
+			[
 				"ltx",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"lt",
 				"LaTeX Accents: Encode accents"
 			],
 			[
@@ -179,7 +171,7 @@
 				"Snippet: Lorem ipsum"
 			]
 		],
-		"width": 446.0
+		"width": 480.0
 	},
 	"console":
 	{
@@ -196,13 +188,17 @@
 	},
 	"file_history":
 	[
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Acronimi.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Sommario.tex",
+		"/home/luigi/.cache/.fr-zMoOwh/jogamp-all-platforms/joal.README.txt",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Bibliografia.bib",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.bbl",
 		"/home/luigi/.cache/.fr-WAtSeR/jediOutcast/code/JediAcademy.sln",
 		"/home/luigi/.cache/.fr-NWseyC/jediOutcast/code/cgame/cg_camera.cpp",
 		"/home/luigi/.cache/.fr-sLnzn7/jediOutcast/code/cgame/cg_camera.h",
 		"/home/luigi/.cache/.fr-xAuw1W/jediOutcast/code/mp3code/l3init.c",
 		"/home/luigi/.cache/.fr-Sm7G0X/jediOutcast/base/ext_data/npcs/Bartender.npc",
 		"/home/luigi/.cache/.fr-axxFVO/jediAcademy/tools/jawa/jawa.cpp",
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Bibliografia.bib",
 		"/home/luigi/Programmi/DeadCyborg-Episode1-Linux_v002/readme.linux",
 		"/home/luigi/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 		"/home/luigi/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
@@ -216,7 +212,6 @@
 		"/tmp/38UC.txt",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Immagini/BridgePattern.graphml",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Immagini/BridgePattern.png.bak",
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Acronimi.tex",
 		"/home/luigi/Documenti/registrazioni/poste.txt",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/TMP/tmp.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/devnotes/com protocol",
@@ -239,7 +234,6 @@
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Materiale/titoli possibili",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/SFRemoteConnection.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/A_DesignPattern.tex",
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.bbl",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Bibliografia.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/Bibliografia.bib",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Bibliografia.bib",
@@ -283,7 +277,6 @@
 		"/etc/apt/sources.list.d/xorg-edgers-ppa-precise.list.save",
 		"/home/luigi/2",
 		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/LaTeX.sublime-commands",
-		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Sommario.tex",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Sommario.aux",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.log",
 		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/log/log01.txt",
@@ -319,6 +312,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"illu",
+			"mesh",
 			"titolo_provvisorio",
 			"javascrip",
 			"shift+alt",
@@ -360,7 +355,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -375,8 +370,8 @@
 						"selection":
 						[
 							[
-								331,
-								331
+								1510,
+								1510
 							]
 						],
 						"settings":
@@ -427,25 +422,25 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 561.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Capitoli/A_NoteSoftware.tex",
+					"file": "Capitoli/05_TestRisultati.tex",
 					"settings":
 					{
-						"buffer_size": 556,
+						"buffer_size": 8746,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								117,
-								117
+								8199,
+								8199
 							]
 						],
 						"settings":
@@ -496,13 +491,88 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2784.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "Capitoli/A_NoteSoftware.tex",
+					"settings":
+					{
+						"buffer_size": 1142,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								873,
+								873
+							]
+						],
+						"settings":
+						{
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 3,
 					"file": "Capitoli/01_Introduzione.tex",
 					"settings":
 					{
@@ -513,77 +583,8 @@
 						"selection":
 						[
 							[
-								6546,
-								6546
-							]
-						],
-						"settings":
-						{
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 3764.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Varie/Acronimi.tex",
-					"settings":
-					{
-						"buffer_size": 337,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								270,
-								270
+								972,
+								972
 							]
 						],
 						"settings":
@@ -644,15 +645,15 @@
 					"file": "Capitoli/02_ShadowFramework.tex",
 					"settings":
 					{
-						"buffer_size": 10745,
+						"buffer_size": 24207,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10673,
-								10673
+								23402,
+								23402
 							]
 						],
 						"settings":
@@ -703,7 +704,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3151.0,
+						"translation.y": 7323.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -713,15 +714,15 @@
 					"file": "Capitoli/03_GestioneDati.tex",
 					"settings":
 					{
-						"buffer_size": 10541,
+						"buffer_size": 10643,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								103,
-								103
+								34,
+								34
 							]
 						],
 						"settings":
@@ -776,27 +777,21 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 6,
 					"file": "Capitoli/04_SFRemoteConnection.tex",
 					"settings":
 					{
-						"buffer_size": 17566,
+						"buffer_size": 17569,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6603,
-								6603
+								6261,
+								6261
 							]
 						],
 						"settings":
@@ -848,7 +843,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1925.0,
+						"translation.y": 2301.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -858,15 +853,15 @@
 					"file": "Capitoli/A_DesignPattern.tex",
 					"settings":
 					{
-						"buffer_size": 12872,
+						"buffer_size": 12929,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9166,
-								9166
+								8005,
+								8005
 							]
 						],
 						"settings":
@@ -917,76 +912,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2721.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "Capitoli/05_TestRisultati.tex",
-					"settings":
-					{
-						"buffer_size": 1599,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								597,
-								597
-							]
-						],
-						"settings":
-						{
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 221.0,
+						"translation.y": 2641.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1022,7 +948,7 @@
 		"cols":
 		[
 			0.0,
-			0.508176614881,
+			0.5,
 			1.0
 		],
 		"rows":

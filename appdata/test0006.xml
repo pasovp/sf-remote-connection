@@ -69,6 +69,29 @@
 			</textures>
 		</SFProgramAssetData>
 	</SFObjectModelData>
+	<SFObjectModelData name="MushroomObject04">
+		<SFTranslateFixed16Data name="transform">
+			<x>0.5</x>
+			<y>-0.70000005</y>
+			<z>0.0</z>
+		</SFTranslateFixed16Data>
+		<geometry>TexturedMushroom</geometry>
+		<SFProgramAssetData name="transformComponent">
+			<program>BasicPNTx0Transform</program>
+			<structures>
+			</structures>
+			<textures>
+			</textures>
+		</SFProgramAssetData>
+		<SFProgramAssetData name="materialComponent">
+			<program>TexturedMat</program>
+			<structures>
+			</structures>
+			<textures>
+				<textures_element>PerlinTexture::</textures_element>
+			</textures>
+		</SFProgramAssetData>
+	</SFObjectModelData>
 	<SFBitmapTextureData name="PerlinTexture">
 		<SFBitmapPerlinNoiseData name="bitmap">
 			<width>200</width>
@@ -108,8 +131,9 @@
 		</SFNoTransformData>
 		<references id="nodes">
 			<reference>MushroomObject01</reference>
-			<reference>MushroomObject02</reference>
+<!-- 			<reference>MushroomObject02</reference> -->
 			<reference>MushroomObject03</reference>
+			<reference>MushroomObject04</reference>
 <!-- 			<reference>TexturedCube</reference> -->
 		</references>
 	</SFReferenceNodeData>
