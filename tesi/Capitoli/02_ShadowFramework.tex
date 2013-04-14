@@ -4,14 +4,12 @@
 \label{ch:shadowframework}
 Questo capitolo presenta inizialmente una panoramica sugli attuali sistemi per la realizzazione di applicazioni che fanno uso di grafica tridimensionale real-time. Successivamente viene presentato lo ShadowFramework 2.0, le sue caratteristiche, la sua struttura e i suoi sviluppi futuri.
 
-% La versione del framework di riferimento, nonch\`e quella oggetto di sviluppo in questo progetto di tesi, \`e quella realizzata in linguaggio Java. Per questa versione l'interfacciamento con le \ac{API} OpenGL \`e effettuata tramite la libreria del progetto JOGL\footnote{Per informazioni sulla libreria JOGL fare riferimento al paragrafo \ref{sub:jogl}.}.
-
-\section{Considerazioni generali}
-\label{sec:considerazionigenerali}
+\section{Panoramica sui framework per la grafica 3D interattiva}
+\label{sec:panoramicastrumenti}
 Lo scopo della presente tesi di laurea \`e quello di produrre dei moduli di estensione per lo Shadow Framework, utili alla realizzazione di applicativi 3D orientati al web. 
 Per lo stesso scopo esistono sul mercato una grande quantit\`a di soluzioni le cui caratteristiche possono essere notevolmente differenti in base al target di sviluppo a cui si rivolgono.
 
-Prima di fornire una descrizione di alcune di queste soluzioni \`e bene introdurre alcuni concetti utili a comprendere quali sono i punti focali che distinguono un prodotto da un altro. L'elemento fondamentale di ognuno di questi questi software \`e l'\textbf{engine}, altrimenti detto rendering engine o 3D-engine. Questo \`e il nucleo di ogni programma grafico e fornisce una serie di meccanismi che, sfruttando le \ac{API} di programmazione grafica, permettono di disegnare su schermo i modelli tridimensionali voluti. Quando un prodotto consiste nel solo engine viene fornito nella forma di una libreria che permette permette di interagire con esso e configurarlo.
+Prima di fornire una descrizione di alcune di queste soluzioni \`e bene introdurre alcuni concetti utili a comprendere quali sono i punti focali che distinguono un prodotto da un altro. L'elemento fondamentale di ognuno di questi questi software \`e l'\textbf{engine}, altrimenti detto rendering engine o 3D-engine. Questo \`e il nucleo di ogni programma grafico e fornisce una serie di meccanismi che, sfruttando le \ac{API} di programmazione grafica, permettono di disegnare su schermo i modelli tridimensionali voluti. Quando un prodotto consiste nel solo engine viene fornito nella forma di una libreria con cui \`e possibile interagire attraverso una \ac{API} specifica e che permette di configurare i passaggi della fase di rendering.
 
 Dato che la pi\`u grande fetta di mercato per queste soluzioni software proviene dallo sviluppo di videogames sono nati una serie di software definiti \textbf{game engine}, questi sono veri e propri framework per la produzione di applicazioni 3D e, oltre al rendering engine, integrano al loro interno moduli per la gestione della fisica, del suono, delle animazioni e di tutte quelle componenti utili per lo sviluppo di giochi per computer. Questi framework possono essere forniti sia sotto forma di libreria da integrare nel proprio codice che con tool grafici che permettono di creare la propria applicazione da zero, utilizzando solamente gli strumenti forniti.
 
@@ -118,13 +116,23 @@ Questo \`e uno degli aspetti di ricerca e sperimentazione pi\`u interessanti del
 
 \section{Struttura dello Shadow Framework 2.0}
 \label{sec:sfstructure}
-La versione del framework di riferimento, nonch\`e quella oggetto di sviluppo in questo progetto di tesi, \`e quella realizzata in linguaggio Java e disponibile tramite la fonte indicata al paragrafo \ref{sub:sfsource}. Per questa versione l'interfacciamento con le \ac{API} OpenGL \`e effettuata tramite la libreria del progetto JOGL\footnote{Per informazioni sulla libreria JOGL fare riferimento al paragrafo \ref{sub:jogl}.}.
-Il framework \`e strutturato in moduli gerarchici, la figura \ref{f:sfstructure} nel illustra i livelli e le loro dipendenze.
-
 \begin{figure}
 \begin{center}
 \includegraphics[width=10cm]{Immagini/sfstructure}
 \caption{Struttura dei moduli del framework.\label{f:sfstructure}} 
 \end{center} 
 \end{figure}
+Il framework \`e strutturato in moduli gerarchici e la figura \ref{f:sfstructure} ne illustra i livelli e le loro dipendenze. Il livello pi\`u basso \`e quello denominato \textbf{system} e contiene al suo interno le astrazioni base sfruttate da tutti gli altri moduli. Ad un livello superiore troviamo il modulo \textbf{data} che si occupa di tutti gli aspetti riguardanti la gestione dati all'interno del framework. Per raggiungere gli obbiettivi prefissati il progetto di tesi \`e incentrato sull'estensione delle funzionalit\`a di questo livello e il capitolo \ref{ch:gestionedati} offre un approfondimento su meccanismi e le astrazioni su cui \`e fondato. Il livello \textbf{graphics} offre un'astrazione su di una pipeline di rendering ideale di cui possiamo osservare una rappresentazione in figura \ref{f:sfpipeline}. Dato che non esiste una implementazione diretta di questa pipeline, il framework la realizza configurando una pipeline programmabile attraverso l'\ac{API} OpenGL a cui si interfaccia tramite il modulo \textbf{graphics OpenGL}.
+\begin{figure}
+\begin{center}
+\includegraphics[width=\textwidth]{Immagini/Pipeline}
+\caption{Rappresentazione della pipeline ideale implementata dal framework.\label{f:sfpipeline}} 
+\end{center} 
+\end{figure}
+Al di sopra del modulo graphics vi \`e \textbf{rendering}, che contiene il rendering engine vero e proprio che basa il suo funzionamento sulle caratteristiche della pipeline astratta del livello inferiore.
+Il livello \textbf{rendering data} definisce infine la struttura dei dati grafici, questa struttura dipende dai livelli inferiori perch\`e deve tenere conto del modulo data per quanto concerne il reperimento dei dati, e del modulo rendering per i meccanismi di costruzione dei dati.
 
+Le applicazioni costruite basandosi sul framework non hanno necessità di operare direttamente sulle \ac{API} grafiche a basso livello, ma possono essere strutturate per lavorare sulle astrazioni di alto livello offerte dal framework.
+
+La versione del framework di riferimento, nonch\`e quella oggetto di sviluppo in questo progetto di tesi, \`e quella realizzata in linguaggio Java e disponibile tramite la fonte indicata al paragrafo \ref{sub:sfsource}. 
+Per questa versione il modulo \textbf{graphics OpenGL} non si interfaccia direttamente con le \ac{API} OpenGL, ma sfrutta a tal scopo la libreria del progetto JOGL\footnote{Per informazioni sulla libreria JOGL fare riferimento al paragrafo \ref{sub:jogl}.}.

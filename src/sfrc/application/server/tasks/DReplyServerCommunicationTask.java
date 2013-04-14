@@ -49,7 +49,7 @@ public class DReplyServerCommunicationTask implements IServerCommunicationProtoc
 		
 		System.out.println(Thread.currentThread().getName() + " sent: reply-end ");
 		
-		return "idle";
+		return AnalizeRequestServerCommunicationTask.getTaskName();
 	}
 	
 	public static String getTaskName() {

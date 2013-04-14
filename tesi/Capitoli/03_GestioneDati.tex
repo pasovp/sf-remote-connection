@@ -7,32 +7,55 @@
 La gestione dei dati \`e un compito molto importante all'interno del framework. Attraverso l'utilizzo di un layer di gestione dati astratto, ogni mudulo del framework pu\`o essere salvato e caricato da file o trasferito attraverso un qualsiasi flusso di dati.
 In questo capitolo viene presentata l'astrazione utilizzata dallo Shadow Framework nella gestione dei dati, le funzionalit\`a messe a disposizione ed i principali package e moduli coinvolti.
 
+\section{Dati grafici}
+\label{sec:dati grafici}
+Data la natura del framework la tipologia di dato pi\`u critica e importante \`e quella che descrive le informazioni grafiche. 
+L'unit\`a base di ogni dato di tipo grafico \`e l'\texttt{SFDataAsset}, questa \`e una classe astratta generica che serve ad automatizzare il processo di costruzione dei dati e inizializzazione degli stessi nella memoria grafica. Questo processo non pu\`o per\`o essere effettuato in qualsiasi momento, ma deve essere correttamente sincronizzato con il processo di rendering della pipeline del framework, in caso contrario i dati potrebbero venir alterati durante il disegno della scena portando ad effetti inaspettati.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\textwidth]{Immagini/sequenzaDataAsset}
+\caption{Diagramma di sequenza della fase di costruzione di un SFDataAsset.\label{f:seqdataasset}} 
+\end{center} 
+\end{figure}
+
+Il diagramma della figura \ref{f:seqdataasset} mostra la sequenza di operazioni necessarie affinch\'e le informazioni del DataAsset grafico vengano costruite correttamente e inizializzate nella memoria grafica in modo sincrono con il processo di rendering, gestito dal frame grafico \textbf{SFDrawableFrame}. Partendo da in alto a sinistra l'applicazione richiede la risorsa all'\texttt{SFDataAsset}, questo la costruisce con il metodo \texttt{build()} e notifica all'\texttt{SFInitiator} che la risorsa necessita di essere inizializzata nella memoria grafica tramite la chiamata \texttt{addInitiable()}, dopo di che il riferimento alla risorsa viene restituito all'applicazione.
+Il processo di rendering chiede all'Initiator, ciclicamente e nel momento opportuno, di inizializzare nella memoria grafica tutti i DataAsset che sono in attesa di farlo. L'Initiator richiama allora il metodo \texttt{init()} di tutte le risorse in attesa di inizializzazione.
+Questo procedimento assicura che tutte le risorse necessarie al processo di rendering siano inizializzate correttamente prima di essere usate.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\textwidth]{Immagini/sequenzaUpdatable}
+\caption{Diagramma di sequenza dell'update dei dati.\label{f:sequpdate}} 
+\end{center} 
+\end{figure}
+
+Internamente al framework esiste inoltre un meccanismo di sincronizzazione analogo pensato per effettuare un aggiornamento dei dati che sono gi\`a stati inizializzati. Questo sistema si basa sull'utilizzo di un Updater in modo simile a quanto visto con l'Initiator. Il diagramma di sequenza in figura \ref{f:sequpdate} mostra la sequenza temporale di un update dei dati: quando l'applicazione necessita di aggiornare dei dati grafici passa all'\texttt{SFUpdater} un metodo di callback che contiene al suo interno tutte le operazioni da eseguire durante l'aggiornamento.
+Il frame grafico che esegue ciclicamente il rendering, prima di effettuarlo, chiede prima all'Updater e poi all'Initiator di risolvere tutte le operazioni che hanno in sospeso. L'ordine in questo caso \`e di fondamentale importanza perch\`e l'aggionamento dei dati potrebbe comportare l'aggiunta di DataAsset che necessitano di essere inizializzati. Questo sistema \`e stato inizialmente pensato per gli aggiornamenti delle animazioni, ma pu\`o essere sfruttato per qualsiasi operazione critica di aggiornamento dei dati.
+
+\section{L'astrazione della gestione dati}
+\label{sec:astrazione}
+All'interno di un'applicazione \ac{SF} l'unit\`a base di dati pu\`o essere identificata con quello che viene definito SFDataset e di cui si pu\`o trovare una descrizione pi\`u dettagliata al paragrafo \ref{sub:sfdataset}. Con Dataset si identifica quasi ogni tipo di dato, sia grafico che non, utilizzato all'interno del framework, un \texttt{SFDataAsset} ad esempio \`e una sottoclasse di \texttt{SFDataset}.
+La gestione dei dataset viene effettuata mediante un meccanismo centralizzato: ogni applicazione in esecuzione possiede un'istanza di SFDataCenter, questa classe \`e un oggetto \textit{Singleton} che realizza un \textit{Bridge}
+tra l'astrazione di reperimento dati e la sua implementazione concreta\footnote{Con \textit{Singleton} e \textit{Bridge} si intendono i design pattern omonimi descritti pi\`u in dettaglio nell'appendice \ref{a:designpatterns}}.
+Ogni componente pu\`o accedere al DataCenter per richiedere operazioni sui Dataset di interesse, operazioni che possono essere la lettura o la scrittura da uno stream specifico, la richiesta di una particolare istanza di un Dataset, identificata per nome, o la richiesta di una nuova istanza di Dataset, identificata per tipo.
+L'oggetto Singleton espone queste funzionalit\`a traducendole internamente con chiamate ad una \textit{factory} concreta\footnote{Si fa riferimento al pattern di programmazione \textit{Abstract Factory} descritto nella sezione \ref{sub:abstractfactory}}
+di Dataset e ad una istanza dell'interfaccia SFIDataCenter, creando un'astrazione su come i Dataset siano effettivamente costruiti e reperiti esattamente come mostrato nelle immagini \ref{f:datacenterfactory} e \ref{f:datacenterimplementation}.
+La factory concreta deve essere un'implementazione dell'interfaccia SFAbstractDatasetFactory in grado di istanziare, leggere o scrivere ogni tipo di Dataset utilizzato dall'applicazione.
+L'istanza dell'interfaccia SFIDataCenter tiene traccia dei Dataset istanziati con nome, restituendone un riferimento a chi ne fa richiesta attraverso la chiamata a funzioni di callback.
+
 \begin{figure}
 \begin{center}
 \includegraphics[width=\textwidth]{Immagini/DataCenterfactory}
 \caption[Bridge composto da SFDataCenter e SFAbstractFactory]{Diagramma del Bridge composto da SFDataCenter e da un'istanza concreta di SFAbstractFactory.\label{f:datacenterfactory}} 
 \end{center} 
 \end{figure}
-
-\section{L'astrazione della gestione dati}
-\label{sec:astrazione}
-All'interno di un'applicazione \ac{SF} l'unit\`a base di dati pu\`o essere identificata con quello che viene definito SFDataset e di cui si pu\`o trovare una descrizione pi\`u dettagliata al paragrafo \ref{sub:sfdataset}. Con Dataset si identifica quasi ogni tipo di dato, sia grafico che non, utilizzato all'interno del framework.
-La gestione dei dataset viene effettuata mediante un meccanismo centralizzato: ogni applicazione in esecuzione possiede un'istanza di SFDataCenter, questa classe \`e un oggetto \textit{Singleton} che realizza un \textit{Bridge}
-tra l'astrazione di reperimento dati e la sua implementazione concreta\footnote{Con \textit{Singleton} e \textit{Bridge} si intendono i design pattern omonimi descritti pi\`u in dettaglio nell'appendice \ref{a:designpatterns}}.
-Ogni componente pu\`o accedere al DataCenter per richiedere operazioni sui Dataset di interesse, operazioni che possono essere la lettura o la scrittura da uno stream specifico, la richiesta di una particolare istanza di un Dataset, identificata per nome, o la richiesta di una nuova istanza di Dataset, identificata per tipo.
-L'oggetto Singleton espone queste funzionalit\`a traducendole internamente con chiamate ad una factory concreta\footnote{Si fa riferimento al pattern di programmazione \textit{Abstract Factory} descritto nella sezione \ref{sub:abstractfactory}}
-di Dataset e ad una istanza dell'interfaccia SFIDataCenter, creando un'astrazione su come i Dataset siano effettivamente costruiti e reperiti esattamente come mostrato nelle immagini \ref{f:datacenterfactory} e \ref{f:datacenterimplementation}
-La factory concreta deve essere un'implementazione dell'interfaccia SFAbstractDatasetFactory in grado di istanziare, leggere o scrivere ogni tipo di Dataset utilizzato dall'applicazione.
-L'istanza dell'interfaccia SFIDataCenter tiene traccia dei Dataset istanziati con nome, restituendone un riferimento a chi ne fa richiesta attraverso la chiamata a funzioni di callback.
-
 \begin{figure}
 \begin{center}
 \includegraphics[width=\textwidth]{Immagini/DataCenter}
 \caption[Bridge composto da SFDataCenter e SFIDataCenter]{Diagramma del Bridge composto da SFDataCenter e da un'istanza concreta di SFIDataCenter.\label{f:datacenterimplementation}} 
 \end{center} 
 \end{figure}
-% TODO: aggiungere immagine
-
 
 \section{Il package \texttt{shadow.system.data}}
 \label{sec:shadow_system_data}
@@ -85,7 +108,7 @@ Quest'oggetto non deve restituire direttamente il Dataset recuperato, ma deve fa
 \begin{figure}
 \begin{center}
 \includegraphics[width=\textwidth]{Immagini/DataCenterBridge}
-\caption{In questo diagramma viene mostrata la relazione tra le classi SFDataCenter, SFIDataCenter e SFAbstractDatasetFactory. Da notare che SFDataCenter \`e una classe Singleton in quanto contiene una istanza statica di se stessa (l'istanza dataCenter sottolineata) e possiede un costruttore privato (evidenziato in rosso). Inoltre, in riferimento alla sezione \ref{sub:bridge}, si pu\`o notare come SFDataCenter realizzi un Bridge sia con SFIDataCenter che con SFAbstractDatasetFactory \label{f:datacenterbridge}} 
+\caption[Diagramma delle classi di SFDataCenter,SFIDataCenter e SFAbstractDatasetFactory]{In questo diagramma viene mostrata la relazione tra le classi SFDataCenter, SFIDataCenter e SFAbstractDatasetFactory. Da notare che SFDataCenter \`e una classe Singleton in quanto contiene una istanza statica di se stessa (l'istanza dataCenter sottolineata) e possiede un costruttore privato (evidenziato in rosso). Inoltre, in riferimento alla sezione \ref{sub:bridge}, si pu\`o notare come SFDataCenter realizzi un Bridge sia con SFIDataCenter che con SFAbstractDatasetFactory \label{f:datacenterbridge}} 
 \end{center} 
 \end{figure}
 
@@ -123,9 +146,10 @@ Un \texttt{SFObjectsLibrary} \`e a sua volta un Dataset, cos{\`\i} che un Object
 \label{sub:sflibraryreference}
 Un LibraryReference \`e un DataObject che pu\`o essere usato da qualsiasi componente per avere un riferimento ad un Dataset memorizzato in una libreria. Viene utilizzato all'interno di DataObject o di Dataset per non avere istanze doppie dello stesso dato.
 
-
 \subsection{SFGenericDatasetFactory}
 \label{sub:sfgenericdatasetfactory}
 Questa classe di utilit\`a consiste in una implementazione concreta di default dell'interfaccia \texttt{SFAbstractDatasetFactory}.
-Per consentire il riutilizzo del codice \`e stata resa configurabile: l'aggiunta di un metodo addSFDataset() consente di generare, in un oggetto GenericDatasetFactory, un elenco di Dataset istanziabili.
-Quando verranno chiamati i metodi dell'interfaccia SFAbstractDatasetFactory sull' oggetto GenericDatasetFactory diviene sufficiente richiamare il metodo opportuno del Dataset del tipo richiesto o del DataObject in esso contenuto.
+Per consentire il riutilizzo del codice questa implementazione sfrutta il meccanismo di \textit{factory con prototipo}: una \textit{factory} pura deve avere un metodo specifico per ogni tipo di oggetto che pu\`o istanziare, questo rende predeterminato il numero di tipi istanziabili e rende necessario modificare il codice, aggiungendo un nuovo metodo, quando si desidera modificare le capacit\`a della \textit{factory}. Una che invece sfrutta il meccanismo dei prototipi non ha un numero predeterminato di tipi istanziabili perch\`e \`e configurabile: attraverso un metodo apposito vengono passati come parametro i prototipi di ogni oggetto che la \textit{factory} deve essere in grado di creare.
+Questo sposta la responsabilit\`a dalla conoscenza di come ogni singolo oggetto deve essere allocato sull'oggetto stesso, evitando di dover andare a modificare la \textit{factory} ogni volta che un oggetto viene modificato.
+Nel concreto la \texttt{SFGenericDatasetFactory} \`e resa configurabile tramite l'aggiunta di un metodo addSFDataset() consente di generare, in un oggetto GenericDatasetFactory, un elenco di Dataset istanziabili.
+Quando verranno chiamati i metodi dell'interfaccia SFAbstractDatasetFactory sull' oggetto GenericDatasetFactory diviene sufficiente richiamare il metodo \texttt{generateNewDatasetInstance()} del Dataset del tipo richiesto.

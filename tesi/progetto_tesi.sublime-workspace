@@ -27,7 +27,15 @@
 			"file": "Capitoli/05_TestRisultati.tex",
 			"settings":
 			{
-				"buffer_size": 8746,
+				"buffer_size": 11147,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Capitoli/06_Conclusioni.tex",
+			"settings":
+			{
+				"buffer_size": 2657,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +43,7 @@
 			"file": "Capitoli/A_NoteSoftware.tex",
 			"settings":
 			{
-				"buffer_size": 1142,
+				"buffer_size": 1199,
 				"line_ending": "Unix"
 			}
 		},
@@ -355,7 +363,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -370,8 +378,8 @@
 						"selection":
 						[
 							[
-								1510,
-								1510
+								1522,
+								1522
 							]
 						],
 						"settings":
@@ -422,7 +430,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 561.0,
+						"translation.y": 659.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -432,15 +440,15 @@
 					"file": "Capitoli/05_TestRisultati.tex",
 					"settings":
 					{
-						"buffer_size": 8746,
+						"buffer_size": 11147,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8199,
-								8199
+								9520,
+								9520
 							]
 						],
 						"settings":
@@ -491,25 +499,25 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2784.0,
+						"translation.y": 3179.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "Capitoli/A_NoteSoftware.tex",
+					"file": "Capitoli/06_Conclusioni.tex",
 					"settings":
 					{
-						"buffer_size": 1142,
+						"buffer_size": 2657,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								873,
-								873
+								2372,
+								2372
 							]
 						],
 						"settings":
@@ -560,31 +568,25 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 102.0,
+						"translation.y": 459.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 4,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 3,
-					"file": "Capitoli/01_Introduzione.tex",
+					"file": "Capitoli/A_NoteSoftware.tex",
 					"settings":
 					{
-						"buffer_size": 12837,
+						"buffer_size": 1199,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								972,
-								972
+								1198,
+								1198
 							]
 						],
 						"settings":
@@ -639,9 +641,84 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
 				{
 					"buffer": 4,
+					"file": "Capitoli/01_Introduzione.tex",
+					"settings":
+					{
+						"buffer_size": 12837,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8741,
+								8741
+							]
+						],
+						"settings":
+						{
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2703.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "Capitoli/02_ShadowFramework.tex",
 					"settings":
 					{
@@ -710,7 +787,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "Capitoli/03_GestioneDati.tex",
 					"settings":
 					{
@@ -779,7 +856,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "Capitoli/04_SFRemoteConnection.tex",
 					"settings":
 					{
@@ -790,8 +867,8 @@
 						"selection":
 						[
 							[
-								6261,
-								6261
+								2256,
+								2256
 							]
 						],
 						"settings":
@@ -843,13 +920,13 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2301.0,
+						"translation.y": 754.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "Capitoli/A_DesignPattern.tex",
 					"settings":
 					{
@@ -912,7 +989,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2641.0,
+						"translation.y": 2692.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

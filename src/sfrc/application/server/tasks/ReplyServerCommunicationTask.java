@@ -44,7 +44,7 @@ public class ReplyServerCommunicationTask implements IServerCommunicationProtoco
 		
 		System.out.println(Thread.currentThread().getName() + " sent: reply-end ");
 		
-		return "idle";
+		return AnalizeRequestServerCommunicationTask.getTaskName();
 	}
 	
 	public static String getTaskName() {

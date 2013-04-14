@@ -6,9 +6,8 @@
 Vengono ora presentati i moduli software realizzati nel corso dello sviluppo del progetto di tesi.
 Per meglio comprendere gli aspetti di sviluppo legati al progetto \`e importante tener conto degli obbiettivi di progetto esposti al paragrafo \ref{sec:obbiettivo} e della descrizione dei meccanismi di gestione dati interni del framework, descritti nel capitolo \ref{ch:gestionedati}.
 
-Nella sezione \ref{sec:moduli} del capitolo viene fornita innanzitutto una suddivisione e una descrizione dei moduli, nella sezione \ref{sec:dataset_sost} viene descritto il meccanismo dei Dataset sostitutivi
-e nella \ref{sec:rete} l'infrastruttura di ret e il protocollo di comunicazione.
-Infine \`e presente una panoramica sui package java e le principali classi di ognuno di essi nella sezione \ref{sec:sfrc_packages}.
+Nella sezione \ref{sec:moduli} del capitolo viene fornita innanzitutto una suddivisione e una descrizione dei moduli, nella sezione \ref{sec:dataset_sost} viene descritto il meccanismo dei Dataset sostitutivi e nella \ref{sec:rete} l'infrastruttura di rete e il protocollo di comunicazione.
+%Infine \`e presente una panoramica sui package java e le principali classi di ognuno di essi nella sezione \ref{sec:sfrc_packages}.
 
 \`E giusto sottolineare che l'obbiettivo principale \`e stato la produzione di librerie e tool per lo sviluppo di applicazioni, focalizzandosi sull'estendibilit\`a e il riutilizzo del codice. Non a caso sono infatti presenti alcuni riferimenti di appendice ad alcuni design pattern particolarmente significativi nella produzione di questo tipo di softwaree e che sono utilizzati sia dal framework che dai moduli stessi.
 
@@ -16,7 +15,6 @@ Per il processo di sviluppo \`e stata di fondamentale importanza la produzione p
 
 Si rimanda all'appendice \ref{a:notesoftware} per informazioni sul codice sorgente relativo al progetto e per informazioni sulle versioni delle librerie utilizzate.
 
-% TODO: cambiare titolo?
 \section{Moduli} 
 \label{sec:moduli}
 La libreria di classi realizzata pu\`o essere suddivisa in quattro macro-moduli suddivisi in base alle finalit\`a e alle funzionalit\`a.
@@ -36,6 +34,8 @@ Di seguito viene data una descrizione degli stessi in questo ordine:
 \label{sub:basecommodule}
 Questo modulo riunisce le classi che consentono la creazione e la gestione di connessioni TCP/IP tra applicazioni client/server. Ne fa parte anche la classe di utilit\`a \texttt{GenericCommunicator} che oltre a consentire la gestione della connessione assegnatagli la utilizza per fornire funzionalit\`a di lettura e scrittura di messaggi testuali attraverso il canale aperto.
 
+Di grande importanza per questo modulo sono anche la classe \texttt{CommunicationProtocol} e l'interfaccia \texttt{ICommunicationProtocolTask} che, come vedremo nei casi di \textbf{Client} e \textbf{Server}, possono essere utilizzate da moduli esterni che sfruttano il design pattern \textit{State}\footnote{Il pattern \textit{State} viene descritto al paragrafo \ref{sub:state}} per gestire il protocollo di comunicazione attraverso una macchina a stati.
+
 Il modulo \`e composto dai package \texttt{sfrc.base.communication} e \\\texttt{sfrc.base.communication.sfutil}.
 
 \subsection{RemoteDataCenter Tool}
@@ -52,7 +52,7 @@ Questo modulo raggruppa una serie di classi pensate per essere una estensione de
 La sua funzione principale consiste nel fornire uno strato di comunicazione tra l'astrazione del reperimento dati fornita dal framework e il meccanismo di effettivo reperimento dei dati.
 
 La classe chiave del modulo \`e \texttt{SFRemoteDataCenter}: questa \`e una classe di implementazione utilizzabile nel \textit{Bridge} realizzato da \texttt{SFDataCenter}\footnote{Per la classe \texttt{SFDataCenter} si rimanda al paragrafo \ref{sub:sfdatacenter} mentre per il pattern \textit{Bridge} al paragrafo \ref{sub:bridge}.}.
-Dallo schema in figura \ref{f:dinamicasfremotedatacenter} osserviamo che le richieste di Dataset effettuate al DataCenter vengono passate a questa classe che le esamina verificando che il dato richiesto sia presente nella libreria dell'applicazione. Se il Dataset non \`e presente viene generata una richiesta e aggiunta ad un buffer di richieste di nome SFRemoteRequests, successivamente al richiedente \`e restituito un Dataset sostitutivo temporaneo scelto opportunamente. Il buffer, che supporta la sincronizzazione, pu\`o contemporaneamente essere utilizzato da un modulo esterno in grado di effettuare l'effettivo reperimento dei dati.
+Dallo schema in figura \ref{f:dinamicasfremotedatacenter} osserviamo che le richieste di Dataset effettuate al DataCenter vengono passate a questa classe che le esamina verificando che il dato richiesto sia presente nella libreria dell'applicazione. Se il Dataset non \`e presente viene generata una richiesta e aggiunta ad un buffer di richieste di nome \texttt{SFRemoteDataCenterRequests}, successivamente al richiedente \`e restituito un Dataset sostitutivo temporaneo scelto opportunamente. Il buffer, che supporta la sincronizzazione, pu\`o contemporaneamente essere utilizzato da un modulo esterno in grado di effettuare l'effettivo reperimento dei dati.
 Il meccanismo dei Dataset sostitutivi viene descritto esaustivamente nella sezione \ref{sec:dataset_sost}.
 
 % TODO: decidere se i 2 package aggiuntivi andrebbero inseriti nel modulo
@@ -85,22 +85,28 @@ Il modulo \`e composto dal package \texttt{sfrc.application.server}
 
 \section{Dataset sostitutivi}
 \label{sec:dataset_sost}
-Per evitare che, in seguito alla richiesta di un Dataset non presente nella libreria locale di un'applicazione, i moduli richiedenti rimanessero in attesa dei dati bloccando di fatto l'esecuzione, \`e stato deciso di realizzare un meccanismo di sostituzione dei Dataset con successivo update delle richieste.
-Successivamente ad una richiesta il RemoteDataCenter restituisce, attraverso la callback del richiedente, un Dataset sostitutivo temporaneo di tipo compatibile a quello richiesto.
-Contemporaneamente viene generata una richiesta remota che attende di essere evasa. Quando i dati effettivi arrivano dalla rete viene eseguito un update del dato richiamando nuovamente la callback del richiedente.
-Dato che pi\`u moduli dell'applicazione potrebbero fare richiesta dello stesso Dataset, tutte le callback dei richiedenti vengono memorizzate e, al momento dell'update, richiamate in successione.
-% TODO: decidere se parlare dell'Updater
-Per permettere il funzionamento di questo automatismo si \`e resa necessaria la realizzazione di un nuovo tipo di Dataset, l'SFDatasetReplacement, e di una libreria di Dataset sostitutivi.
+Per evitare che, in seguito alla richiesta di un Dataset non presente nella libreria locale di un'applicazione, i moduli richiedenti rimanessero in attesa dei dati bloccando di fatto l'esecuzione, \`e stato realizzato un meccanismo che sostituisce i dati richiesti con dei Dataset alternativi, gi\`a presenti nella memoria del client. Al successivo arrivo dei dati reali viene effettuato un update dei dati tramite i meccanismi di sincronizzazione offerti dal framework.
 
-Utilizzato all'interno di una ObjectsLibrary un DatasetReplacement permette di realizzare una lista di sostituzione che associa il nome di un Dataset "Alfa" richiesto, a quello di un Dataset sostitutivo di default "Beta" e ad un timestamp.
-L'associazione tra nomi viene usata per una ricerca diretta del dato sostitutivo da utilizzare, mentre il timestamp \`e stato introdotto per lo sviluppo futuro di logiche di aggiornamento della lista di sostituzione.
-Le liste di sostituzione sono state inoltre rese configurabili attraverso file XML leggibili dal decoder interno del framework.
-% TODO: parlare del tool di generazione automatico?
+\begin{figure}
+\begin{center}
+\includegraphics[width=\textwidth]{Immagini/sequenzaDatiSost}
+\caption{Diagramma di sequenza del meccanismo a Dataset sostitutivi.\label{f:seqsost}} 
+\end{center} 
+\end{figure}
 
-La libreria dei Dataset di default \`e stata invece realizzata progressivamente durante l'implementazione dei test, quando si rendeva necessaria la costruzione di un Dataset specifico dato che quelli gi\`a realizzati erano di tipo incompatibile.
-% TODO: specificare cosa si intende per tipo incompatibile
+Il diagramma di sequenza in figura \ref{f:seqsost} mostra la dinamica temporale di funzionamento del sistema nel caso in cui l'applicazione richieda un Dataset non ancora presente in memoria e che di cui ancora non \`e stata fatta una richiesta: l'applicazione effettua la richiesta ad \texttt{SFDataCenter} passandone il nome e la callback da chiamare per restituire il dato, questi vengono passati ad \texttt{SFRemoteDataCenter} che, una volta appurata l'assenza del dato in memoria, registra alla coda delle richieste \texttt{SFRemoteDataCenterRequests} prima la callback e poi la richiesta stessa. L'\texttt{SFRemoteDataCenter} genera successivamente un Dataset sostitutivo (TmpDataset) che viene usato come parametro quando viene chiamata la callback \texttt{listener.onDatasetAvailable(TmpDataset)}.
+Quando il modulo di reperimento dei dati riceve il Dataset reale lo notifica alla coda attraverso il metodo \texttt{onRequestUpdate(...)}. \texttt{SFRemoteDataCenterRequests} prende in carico il compito di effettuare l'update, richiamando tutte le callback registrate e associate al dato ricevuto.
+Dato che l'aggiornamento dei dati, sopratutto quelli grafici, pu\`o essere critico, questo update viene effettuato sfruttando il meccanismo dell'Updater mostrato nella sezione \ref{sec:dati grafici}.
+
+Data che consente di non bloccare l'esecuzione in attesa dei dati, un utilizzo intelligente di questi Dataset sostitutivi consente la visualizzazione di una scena in cui i modelli oggetto della simulazione sono temporaneamente rimpiazzati da dei segnaposto, ma in cui \`e gi\`a possibile navigare all'interno e avviare l'interazione con l'ambiente circostante. La scelta dei dati sostitutivi da parte di \texttt{SFRemoteDataCenter} deve essere effettuata in maniera appropriata a seconda dell'oggetto che si deve rimpiazzare, ma per permettere il funzionamento di questo automatismo si \`e resa necessaria la realizzazione di un nuovo tipo di Dataset, l'SFDatasetReplacement, e di una libreria di Dataset sostitutivi.
+
+Utilizzato all'interno di una ObjectsLibrary un DatasetReplacement permette di realizzare una lista di sostituzione che associa il nome di un Dataset ``Alfa'' richiesto, a quello di un Dataset sostitutivo di default ``Beta'' e ad un timestamp.
+
+Se l'associazione tra nomi viene usata per una ricerca diretta del dato sostitutivo da utilizzare, il timestamp \`e stato introdotto per lo sviluppo futuro di logiche di aggiornamento della lista di sostituzione, attraverso un confronto dei timestamp locali e sul server si potrebbero inserire meccaniche di modifica o di espansione dell'ambiente simulato centralizzate e automatizzate che non richiedano all'utente di bloccare la fruizione dei contenuti nell'attesa del download degli aggiornamenti.
 
 L'utilizzo di questo meccanismo richiede necessariamente una fase di inizializzazione in cui viene fatto il download o il caricamento da disco locale della lista di sostituzione e della libreria dei Dataset di default. Avendo la possibilit\`a di estendere il protocollo di comunicazione in modo da rendere espandibili queste due librerie durante l'esecuzione, \`e possibile mantenere la loro dimensione iniziale contenuta.
+
+Per quanto riguarda la libreria di Dataset sostitutivi nella sezione \ref{sec:correlate} \`e possibile trovare maggiori dettagli.
 
 \section{Infrastruttura di rete} 
 \label{sec:rete}
@@ -142,16 +148,17 @@ I messaggi di comunicazione finora previsti sono strutturati secondo la seguente
 \end{verbatim}
 in cui \texttt{etichetta\_messaggio} identifica il tipo di messaggio, mentre i dati opzionali dipendono dal messaggio stesso e sono divisi dall'etichetta e tra loro dal carattere `` : ''.
 
-Questi messaggi sono utilizzati all'interno di un preciso schema di interazione tra client e server di cui possiamo vedere un esempio nella figura \ref{f:clientserverinteraction}, da notare che la numerazione dei nodi rappresenta la sequenza temporale dello scambio di messaggi. Lo schema presentato mostra che, quando la coda delle richieste non \`e vuota, il client apre una connessione con il server ed invia un messaggio di tipo \textbf{request} in cui sono elencati i nomi dei Dataset di cui ha bisogno. Il server a questo punto genera una sequenza di risposte attraverso cui invia, se possibile, i dati richiesti. Al termine della sequenza invia un messaggio di tipo \textbf{reply-end} a cui il client risponde con un messaggio \textbf{closing} per terminare la connnessione.
-
-\begin{figure}
+\begin{figure}[t]
 \begin{center}
 \includegraphics[width=10cm]{Immagini/InterazioniClientServer}
 \caption{Esempio dello schema implementato per l'interazione tra client e server.\label{f:clientserverinteraction}} 
 \end{center} 
 \end{figure}
 
-La gestione della comunicazione e dello schema di interazione viene effettuata tramite una macchina a stati specifica per client e server, le quali si occupano di leggere ed effettuare l'analisi logico-sintattica dei messaggi generando le eventuali risposte o semplicemente modificando lo stato interno della macchina stessa.
+Questi messaggi sono utilizzati all'interno di un preciso schema di interazione tra client e server di cui possiamo vedere un esempio nella figura \ref{f:clientserverinteraction}, da notare che la numerazione dei nodi rappresenta la sequenza temporale dello scambio di messaggi. Lo schema presentato mostra che, quando la coda delle richieste non \`e vuota, il client apre una connessione con il server ed invia un messaggio di tipo \textbf{request} in cui sono elencati i nomi dei Dataset di cui ha bisogno. Il server a questo punto genera una sequenza di risposte attraverso cui invia, se possibile, i dati richiesti. Al termine della sequenza invia un messaggio di tipo \textbf{reply-end} a cui il client risponde con un messaggio \textbf{closing} per terminare la connessione. La gestione della comunicazione e dello schema di interazione viene effettuata tramite una macchina a stati specifica per client e server, le quali si occupano di leggere ed effettuare l'analisi logico-sintattica dei messaggi generando le eventuali risposte o semplicemente modificando lo stato interno della macchina stessa. 
+Usare messaggi testuali per la comunicazione consente di semplificarne la gestione e rende possibile espandere il linguaggio semplicemente utilizzando nuove etichette, ma allo stesso tempo anche l'implementazione delle macchine a stati deve essere strutturata in modo da essere altrettanto espandibile.
+% TODO: mettere a posto il discorso in base a quanto scritto nella descrizione dei moduli
+Per questo motivo \`e stato preso come modello il pattern \textit{State}, descritto al paragrafo \ref{sub:state}, e la logica di ogni stato \`e stata incapsulata in un oggetto differente. Questo consente di espandere la macchina a stati semplicemente definendo nuovi oggetti separando il codice della logica di gestione di ogni stato da quello degli altri.
 
 \begin{figure}
 \begin{center}
@@ -160,19 +167,28 @@ La gestione della comunicazione e dello schema di interazione viene effettuata t
 \end{center} 
 \end{figure}
 
-Usare messaggi testuali per la comunicazione consente di semplificarne la gestione e rende possibile espandere il linguaggio semplicemente utilizzando nuove etichette, consentire tutto ci\`o ha per\`o reso necessario strutturare l'implementazione delle macchine a stati in modo che fossero altrettanto espandibili. Per far questo \`e stato preso come modello il pattern \textit{State}, descritto al paragrafo \ref{sub:state}, e la logica di ogni stato \`e stata incapsulata in un oggetto differente. Questo consente di espandere la macchina a stati semplicemente definendo nuovi oggetti i quali sono totalmente indipendenti dagli altri.
+L'immagine in figura \ref{f:stateclient} mostra lo schema a blocchi della macchina a stati attualmente implementata nel modulo client per la gestione del protocollo di comunicazione. Lo stato iniziale dello schema \`e \textbf{request} ed \`e innescato dalla presenza di richieste nella coda, in questo stato il processo che gestisce la comunicazione invia le richieste al server e successivamente passa allo stato \textbf{analize-reply} in attesa di riceve le risposte.
+Quando viene ricevuto il messaggio di risposta, viene estratto l'informazione sul tipo di messaggio determinando lo stato successivo della macchina, se ad esempio la risposta \`e un messaggio di tipo \texttt{reply:nomedataset} lo stato successivo sar\`a quello corrispondente alla gestione di quel tipo di messaggio. Gli stati \textbf{reply} e \textbf{fail} si occupano di gestire il tipo di messaggio corrispondente e al termine della loro esecuzione la macchina torna nello stato di \textbf{analize-reply} in attesa di altri messaggi. All'arrivo del messaggio di fine delle risposte lo schema passa allo stato corrispondente di \textbf{reply-end} e poi a quello di \textbf{closing} dove chiede al server di chiudere la connessione. 
 
-% TODO: rimandare alla classe protocol per la mappa del protocollo
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm]{Immagini/StateMachineServer}
+\caption{Diagramma a stati per la gestione della comunicazione delle richieste da parte del server.\label{f:stateserver}} 
+\end{center} 
+\end{figure}
+
+La figura \ref{f:stateserver} rappresenta invece lo schema implementato nel modulo server. All'apertura di una connessione il server entra nello stato \textbf{analize-request} dove rimane in attesa di messaggi di richiesta da parte del client. Alla ricezione di un messaggio di questo tipo, passa in uno stato \textbf{request} dove estrae dal messaggio i nomi di tutti i Dataset richiesti. Successivamente entra nello stato \textbf{reply} dove uno ad uno vengono inviati i dati di ogni Dataset richiesto per poi inviare un messaggio \texttt{reply-end} al termine della sequenza. Ritornato nello stato \textbf{analize-request} il server \`e in attesa di ulteriori richieste o di un messaggio di \texttt{closing} per entrare nello stato corrispondente dove viene terminata la comunicazione.
+
+Le strutture delle macchine a stati di client e server sono state definite in questo modo per consentire la verifica dei meccanismi di livello pi\`u alto in differenti condizioni. In ogni caso \`e bene far notare che la loro implementazione \`e stata indirizzata nel senso dell'espandibilit\`a e non \`e stata intesa per l'efficienza.
+
+%I messaggi attualmente implementati sono:
 
 
-I messaggi attualmente implementati sono:
 
 
 
-
-
-\section{I Package java} 
-\label{sec:sfrc_packages}
-La classi che compongono il progetto sono suddivise in una serie di package. % TODO: decidere se la prossima frase va bene
-Alcuni di questi sono pensati per rappresentare una possibile estensione a quelli forniti dal framework stesso e ne riproducono la struttura e le convenzioni sui nomi, gli altri sono librerie che affiancano il framework nella costruzione dell'applicazione.
+% \section{I Package java} 
+% \label{sec:sfrc_packages}
+% La classi che compongono il progetto sono suddivise in una serie di package. % TODO: decidere se la prossima frase va bene
+% Alcuni di questi sono pensati per rappresentare una possibile estensione a quelli forniti dal framework stesso e ne riproducono la struttura e le convenzioni sui nomi, gli altri sono librerie che affiancano il framework nella costruzione dell'applicazione.
 

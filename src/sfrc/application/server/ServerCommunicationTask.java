@@ -10,7 +10,7 @@ import sfrc.base.communication.CommunicationProtocol;
  */
 public class ServerCommunicationTask implements Runnable {
 	
-	private String state = "idle";
+	private String state = "";
 	private CommunicationProtocol<IServerCommunicationProtocolTask> protocol;
 	
 	/**
@@ -19,6 +19,7 @@ public class ServerCommunicationTask implements Runnable {
 	public ServerCommunicationTask(CommunicationProtocol<IServerCommunicationProtocolTask> protocol) {
 		super();
 		this.protocol = protocol;
+		this.state = protocol.getInitialState();
 	}
 
 	/* (non-Javadoc)

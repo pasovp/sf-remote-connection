@@ -6,11 +6,11 @@ import sfrc.application.server.IServerCommunicationProtocolTask;
 import sfrc.application.server.ServerCommunicationSessionData;
 import sfrc.application.server.ServerCommunicator;
 
-public class IdleServerCommunicationTask implements IServerCommunicationProtocolTask{
+public class AnalizeRequestServerCommunicationTask implements IServerCommunicationProtocolTask{
 
 	private ServerCommunicator communicator;
 	
-	public IdleServerCommunicationTask(ServerCommunicator communicator) {
+	public AnalizeRequestServerCommunicationTask(ServerCommunicator communicator) {
 		super();
 		this.communicator = communicator;
 	}
@@ -18,7 +18,7 @@ public class IdleServerCommunicationTask implements IServerCommunicationProtocol
 	@Override
 	public String doTask(ServerCommunicationSessionData data){
 
-		System.out.println(Thread.currentThread().getName() + " state: idle");
+		System.out.println(Thread.currentThread().getName() + " state: analize-request");
 		String message = communicator.readLine();
 		
 		StringTokenizer tokenizer = new StringTokenizer(message,":");
@@ -32,6 +32,6 @@ public class IdleServerCommunicationTask implements IServerCommunicationProtocol
 	}
 	
 	public static String getTaskName() {
-		return "idle";
+		return "analize-request";
 	}
 }

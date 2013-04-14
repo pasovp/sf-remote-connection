@@ -33,7 +33,7 @@ public class RequestServerCommunicationTask implements IServerCommunicationProto
 		}
 		
 		data.setMessage(data.getMessage().replaceFirst(reqString+":", ""));
-		return "reply";
+		return ReplyServerCommunicationTask.getTaskName();
 	}
 	
 	public static String getTaskName() {

@@ -58,8 +58,7 @@ Nella penultima immagine (fig.\ref{f:test0006-wall} in basso al centro) si vede 
 Per non appesantire la precedente descrizione si \`e omesso che durante l'esecuzione sono stati richiesti e trasferiti anche i dati relativi alle texture da applicare ai modelli, la transizione non \`e direttamente visibile dato che le texture sostitutive hanno la stessa trama e non sono visivamente distinguibili.
 
 \subsection{Test0019}
-Questo test prevede la visualizzazione di un oggetto avente geometria a fungo a cui viene applicata una texture e una bumpmap\footnote{Una bumpmap \`e un particolare tipo di texture che viene utilizzata tramite la tecnica del BumpMapping. Questa tecnica si serve delle informazioni della bumpmap per descrivere la variazione da applicare al vettore normale di ogni punto di una superficie a cui \`e applicata. Ci\`o permette di ottenere l'effetto visivo di superfici irregolari senza per\`o effettivamente spostare i vertici della superficie stessa}. Anche in questo caso sia la geometria che le texture sono ottenute proceduralmente attraverso il rendering della \ac{GPU}.
-
+Questo test prevede la visualizzazione di un oggetto avente geometria a fungo a cui viene applicata una texture e una bump map\footnote{Una bumpmap \`e un particolare tipo di texture che viene utilizzata tramite la tecnica del Bump Mapping. Questa tecnica si serve delle informazioni della bump map per descrivere la variazione da applicare al vettore normale di ogni punto di una superficie a cui \`e applicata. Ci\`o permette di ottenere l'effetto visivo di superfici irregolari senza per\`o effettivamente spostare i vertici della superficie stessa}. Anche in questo caso sia la geometria che le texture sono ottenute proceduralmente attraverso il rendering della \ac{GPU}.
 \begin{figure}%[t]
 \begin{center}
 \includegraphics[width=\textwidth]{Immagini/test0019/test0019-wall1}
@@ -67,17 +66,21 @@ Questo test prevede la visualizzazione di un oggetto avente geometria a fungo a 
 \caption{Fotogrammi estratti dall'esecuzione del test Test0019. \label{f:test0019-wall}} 
 \end{center} 
 \end{figure}
+Nei primi due fotogrammi in alto a sinistra della figura \ref{f:test0019-wall} vediamo le immagini della geometria sostitutiva, il cubo, e dell'oggetto reale della scena richiesta, anche in questo caso un fungo. L'obbiettivo del test \`e verificare che l'effetto di Bump Mapping venga applicato correttamente alla geometria del fungo una volta che essa viene ottenuta tramite la connessione e nella seconda immagine si pu\`o infatti notare l'effetto ``piastrellato'' sulla superficie dell'oggetto. Sebbene dalla prima immagine non sia ben distinguibile, anche il cubo sostitutivo fa uso di questa tecnica: nel terzo fotogramma (fig.\ref{f:test0019-wall} in alto a destra) il cubo viene disegnato in modo che ogni punto della sua superficie sia di un colore diverso in base alla direzione del vettore normale del punto stesso. Le facce, pur essendo piatte, non hanno un colore uniforme dimostrando la corretta applicazione della tecnica. Il quarto fotogramma (fig.\ref{f:test0019-wall} in basso a sinistra) mostra lo stesso effetto applicato al fungo: a un colore diverso sulla superficie corrisponde una normale puntata in una diversa direzione. Gli ultimi due fotogrammi mostrano rispettivamente la geometria finale colorata in base alla direzione della luce senza tener conto delle normali e la geometria colorata applicando la texture in modo piatto senza illuminazione.
 
-
-
-\begin{figure}%[t]
+\begin{figure}
 \begin{center}
 \includegraphics[width=\textwidth]{Immagini/test0019/test0019-tessel}
 \caption{Particolare di un fotogramma estratto dall'esecuzione del test Test0019, \`e posta in evidenza la tassellazione in triangoli operata sul modello del fungo. \label{f:test0019-tessel}} 
 \end{center} 
 \end{figure}
+Come esplicato la tecnica applicata non effettua una reale traslazione dei vertici della geometria, in figura \ref{f:test0019-tessel} vediamo messo in risalto questo particolare grazie ad uno zoom ravvicinato, con questa immagine possiamo vedere anche il livello di tassellazione della geometria generata dalla pipeline programmabile.
 
 \section{Attivit\`a correlate}
 \label{sec:correlate}
-La variet\`a dei contenuti dei test di riferimento ha reso necessario un lavoro aggiuntivo orientato alla creazione di un insieme di dataset sostitutivi da inserire nella libreria di oggetti di default usati come rimpiazzo temporaneo.
+La variet\`a dei contenuti dei test di riferimento ha reso necessario un lavoro aggiuntivo dedicato alla creazione di un insieme di dataset sostitutivi da inserire nella libreria di oggetti di default usati come rimpiazzo temporaneo.
+Questa libreria \`e stata realizzata progressivamente durante l'implementazione dei test, quando si rendeva necessaria la costruzione di un Dataset specifico dato che quelli gi\`a realizzati erano di tipo incompatibile.
+Queste incompatibilit\`a tra Dataset dipendono da ci\`o che essi rappresentano: come geometrie, texture, etc. 
+
+Oltre a ci\`o \`e stato necessario implementare un metodo pratico per definire la lista di dataset sostitutivi con cui effettuare gli scambi, la sola creazione della classe \texttt{SFDatasetReplacement} infatti rendeva necessario definire a runtime la lista che poteva essere memorizzata solamente in un file binario non leggibile ne modificabile senza un apposito tool. Per risolvere il problema \`e stato modificato il modulo di lettura/scrittura dei file xml preesistente nel framework rendendolo in grado codificare e decodificare i dati contenuti in un \texttt{SFDatasetReplacement}, in modo che la lista dei sostituti sia editabile a mano modificando un file testuale chiaramente leggibile.
 
