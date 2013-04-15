@@ -1,63 +1,63 @@
 \select@language {italian}
-\contentsline {chapter}{\numberline {1}Introduzione}{9}{chapter.1}
-\contentsline {section}{\numberline {1.1}Obbiettivo del progetto}{12}{section.1.1}
-\contentsline {section}{\numberline {1.2}Organizzazione del documento}{13}{section.1.2}
-\contentsline {chapter}{\numberline {2}Lo Shadow Framework 2.0}{15}{chapter.2}
-\contentsline {section}{\numberline {2.1}Panoramica sui framework per la grafica 3D interattiva}{15}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Game engine per Adobe Flash}{16}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Unity 3D}{17}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Unreal Engine e Unigine engine}{17}{subsection.2.1.3}
-\contentsline {subsection}{\numberline {2.1.4}OnLive e Gaikai}{18}{subsection.2.1.4}
-\contentsline {section}{\numberline {2.2}Introduzione allo Shadow Framework 2.0}{18}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}I tre ``momenti'' di utilizzo dei dati}{19}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Applicazioni orientate al Web 3D}{20}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Funzionalit\`a avanzate}{22}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Considerazioni finali sul framework}{24}{subsection.2.2.4}
-\contentsline {section}{\numberline {2.3}Struttura dello Shadow Framework 2.0}{24}{section.2.3}
-\contentsline {chapter}{\numberline {3}Gestione dei dati nello Shadow Framework 2.0}{27}{chapter.3}
-\contentsline {section}{\numberline {3.1}Dati grafici}{27}{section.3.1}
-\contentsline {section}{\numberline {3.2}L'astrazione della gestione dati}{29}{section.3.2}
-\contentsline {section}{\numberline {3.3}Il package \texttt {shadow.system.data}}{30}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}SFInputputStream e SFOutputStream}{30}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}SFDataObject}{31}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}SFDataset}{32}{subsection.3.3.3}
-\contentsline {subsection}{\numberline {3.3.4}SFAbstractDatasetFactory}{33}{subsection.3.3.4}
-\contentsline {subsection}{\numberline {3.3.5}SFIDataCenter}{33}{subsection.3.3.5}
-\contentsline {subsection}{\numberline {3.3.6}SFDataCenterListener}{33}{subsection.3.3.6}
-\contentsline {subsection}{\numberline {3.3.7}SFDataCenter}{33}{subsection.3.3.7}
-\contentsline {subsection}{\numberline {3.3.8}SFObjectsLibrary}{35}{subsection.3.3.8}
-\contentsline {section}{\numberline {3.4}Classi di utilit\`a per il layer dati}{35}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}SFLibraryreference}{35}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}SFGenericDatasetFactory}{35}{subsection.3.4.2}
-\contentsline {chapter}{\numberline {4}Il Progetto SF-Remote-Connection}{37}{chapter.4}
-\contentsline {section}{\numberline {4.1}Moduli}{38}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Base Communication}{38}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}RemoteDataCenter Tool}{38}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Client}{40}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Server}{40}{subsection.4.1.4}
-\contentsline {section}{\numberline {4.2}Dataset sostitutivi}{42}{section.4.2}
-\contentsline {section}{\numberline {4.3}Infrastruttura di rete}{43}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Protocollo di comunicazione}{45}{subsection.4.3.1}
-\contentsline {chapter}{\numberline {5}Test e Risultati}{51}{chapter.5}
-\contentsline {section}{\numberline {5.1}Struttura dei test}{51}{section.5.1}
-\contentsline {section}{\numberline {5.2}Test significativi}{53}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Test0006}{53}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Test0019}{55}{subsection.5.2.2}
-\contentsline {section}{\numberline {5.3}Attivit\`a correlate}{58}{section.5.3}
-\contentsline {chapter}{\numberline {6}Conclusioni}{59}{chapter.6}
-\contentsline {section}{\numberline {6.1}Sviluppi futuri}{59}{section.6.1}
-\contentsline {chapter}{\numberline {A}Note sul Software}{61}{appendix.A}
-\contentsline {section}{\numberline {A.1}Codice sorgente del progetto SF-Remote-Connection}{61}{section.A.1}
-\contentsline {section}{\numberline {A.2}Versioni dei software utilizzati}{61}{section.A.2}
-\contentsline {subsection}{\numberline {A.2.1}Shadow Framework 2.0}{61}{subsection.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}JOGL}{61}{subsection.A.2.2}
-\contentsline {subsection}{\numberline {A.2.3}Sviluppo del progetto}{61}{subsection.A.2.3}
-\contentsline {chapter}{\numberline {B}Design Pattern}{63}{appendix.B}
-\contentsline {section}{\numberline {B.1}Pattern Creazionali}{63}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}Abstract Factory}{64}{subsection.B.1.1}
-\contentsline {subsection}{\numberline {B.1.2}Singleton}{65}{subsection.B.1.2}
-\contentsline {section}{\numberline {B.2}Pattern Strutturali}{66}{section.B.2}
-\contentsline {subsection}{\numberline {B.2.1}Bridge}{66}{subsection.B.2.1}
-\contentsline {subsection}{\numberline {B.2.2}Composite}{67}{subsection.B.2.2}
-\contentsline {section}{\numberline {B.3}Pattern Comportamentali}{69}{section.B.3}
-\contentsline {subsection}{\numberline {B.3.1}State}{69}{subsection.B.3.1}
+\contentsline {chapter}{\numberline {1}Introduzione}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Obbiettivo del progetto}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Organizzazione del documento}{5}{section.1.2}
+\contentsline {chapter}{\numberline {2}Lo Shadow Framework 2.0}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Panoramica sui framework per la grafica 3D interattiva}{7}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Game engine per Adobe Flash}{8}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Unity 3D}{9}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Unreal Engine e Unigine engine}{9}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}OnLive e Gaikai}{9}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}Introduzione allo Shadow Framework 2.0}{10}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}I tre ``momenti'' di utilizzo dei dati}{11}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Applicazioni orientate al Web 3D}{12}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Funzionalit\`a avanzate}{14}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Considerazioni finali sul framework}{16}{subsection.2.2.4}
+\contentsline {section}{\numberline {2.3}Struttura dello Shadow Framework 2.0}{17}{section.2.3}
+\contentsline {chapter}{\numberline {3}Gestione dei dati nello Shadow Framework 2.0}{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}Dati grafici}{21}{section.3.1}
+\contentsline {section}{\numberline {3.2}L'astrazione della gestione dati}{23}{section.3.2}
+\contentsline {section}{\numberline {3.3}Il package \texttt {shadow.system.data}}{24}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}SFInputputStream e SFOutputStream}{24}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}SFDataObject}{25}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}SFDataset}{26}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}SFAbstractDatasetFactory}{27}{subsection.3.3.4}
+\contentsline {subsection}{\numberline {3.3.5}SFIDataCenter}{27}{subsection.3.3.5}
+\contentsline {subsection}{\numberline {3.3.6}SFDataCenterListener}{27}{subsection.3.3.6}
+\contentsline {subsection}{\numberline {3.3.7}SFDataCenter}{27}{subsection.3.3.7}
+\contentsline {subsection}{\numberline {3.3.8}SFObjectsLibrary}{29}{subsection.3.3.8}
+\contentsline {section}{\numberline {3.4}Classi di utilit\`a per il layer dati}{29}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}SFLibraryreference}{29}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}SFGenericDatasetFactory}{29}{subsection.3.4.2}
+\contentsline {chapter}{\numberline {4}Il Progetto SF-Remote-Connection}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}Moduli}{32}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Base Communication}{32}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}RemoteDataCenter Tool}{32}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Client}{34}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Server}{34}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}Dataset sostitutivi}{34}{section.4.2}
+\contentsline {section}{\numberline {4.3}Infrastruttura di rete}{37}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Protocollo di comunicazione}{39}{subsection.4.3.1}
+\contentsline {chapter}{\numberline {5}Test e Risultati}{45}{chapter.5}
+\contentsline {section}{\numberline {5.1}Struttura dei test}{45}{section.5.1}
+\contentsline {section}{\numberline {5.2}Test significativi}{47}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Test0006}{47}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Test0019}{50}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Attivit\`a correlate}{52}{section.5.3}
+\contentsline {chapter}{\numberline {6}Conclusioni}{53}{chapter.6}
+\contentsline {section}{\numberline {6.1}Sviluppi futuri}{53}{section.6.1}
+\contentsline {chapter}{\numberline {A}Note sul Software}{55}{appendix.A}
+\contentsline {section}{\numberline {A.1}Codice sorgente del progetto SF-Remote-Connection}{55}{section.A.1}
+\contentsline {section}{\numberline {A.2}Versioni dei software utilizzati}{55}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Shadow Framework 2.0}{55}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}JOGL}{55}{subsection.A.2.2}
+\contentsline {subsection}{\numberline {A.2.3}Sviluppo del progetto}{56}{subsection.A.2.3}
+\contentsline {chapter}{\numberline {B}Design Pattern}{57}{appendix.B}
+\contentsline {section}{\numberline {B.1}Pattern Creazionali}{57}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}Abstract Factory}{58}{subsection.B.1.1}
+\contentsline {subsection}{\numberline {B.1.2}Singleton}{59}{subsection.B.1.2}
+\contentsline {section}{\numberline {B.2}Pattern Strutturali}{60}{section.B.2}
+\contentsline {subsection}{\numberline {B.2.1}Bridge}{60}{subsection.B.2.1}
+\contentsline {subsection}{\numberline {B.2.2}Composite}{61}{subsection.B.2.2}
+\contentsline {section}{\numberline {B.3}Pattern Comportamentali}{63}{section.B.3}
+\contentsline {subsection}{\numberline {B.3.1}State}{63}{subsection.B.3.1}

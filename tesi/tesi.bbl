@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{site:git}
+Git - documentation.
+\newblock \\ \url{http://git-scm.com/documentation} [Online - controllata il
+  14-aprile-2013].
+
 \bibitem{site:adobestage3d}
 Adobe.
 \newblock How stage3d works.
@@ -18,10 +23,20 @@ UNIGINE Corp.
 \newblock \\ \url{http://unigine.com/news/2013/02/20/crypt-in-browser} [Online;
   controllata il 1-aprile-2013].
 
+\bibitem{book:java}
+Harvey~M. Deitel and Paul~J. Deitel.
+\newblock {\em Programmazione Java Tecniche avanzate}.
+\newblock 7th edition, 2008.
+
 \bibitem{book:designpattern}
 Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.
 \newblock {\em Design Patterns: Elements of Reusable Object-Oriented Software}.
 \newblock AddisonWesley Professional, 1994.
+
+\bibitem{book:eclipse}
+Steve Holzner.
+\newblock {\em Eclipse}.
+\newblock O'Reilly Media, 2004.
 
 \bibitem{site:gaikai}
 Gaikai Inc.
@@ -53,6 +68,17 @@ Onlive.
 \newblock \url{http://www.onlive.com/}.
 \newblock {\\}[Online - controllata il 5-aprile-2013].
 
+\bibitem{book:svn}
+C.~Michael Pilato, Ben Collins-Sussman, and Brian~W. Fitzpatrick.
+\newblock {\em Version Control with Subversion, Next Generation Open Source
+  Version Control}.
+\newblock O'Reilly Media, 2nd edition, 2008.
+
+\bibitem{book:librografica}
+Riccardo Scateni, Paolo Cignoni, Claudio Montani, and Roberto Scopigno.
+\newblock {\em Fondamenti di grafica tridimensionale interattiva}.
+\newblock McGraw Hill.
+
 \bibitem{tesi:truzzi}
 Davide Truzzi.
 \newblock Sviluppo di un'applicazione peer-to-peer soft real-time per la
@@ -72,5 +98,10 @@ Wikipedia.
 \newblock \\
   \url{http://en.wikipedia.org/w/index.php?title=Rendering_(computer_graphics)%
 &oldid=542051916} [Online; accessed 1-April-2013].
+
+\bibitem{book:openglbible}
+Richard~S. Wright, Nicholas Haemel, Graham Sellers, and Benjamin Lipchak.
+\newblock {\em OpenGL SuperBible}.
+\newblock Addison Wesley, 2010.
 
 \end{thebibliography}
