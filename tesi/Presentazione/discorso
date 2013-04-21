@@ -1,0 +1,119 @@
+pg.2
+Nel corso di questa presentazione verrà effettuata inizialmente un'introduzione in cui verranno esposti 
+gli obbiettivi della tesi;
+il concetto di web3d con le relative problematiche, le tecnologie attuali che ne fanno uso e l'approccio dello shadow framework a queste problematiche
+verrà poi presentato il progetto di tesi, i moduli che lo compongono i il meccanismo a dataset sostitutivi che ha introdotto.
+vedremo un esempio di test funzionamento
+ed infine i risultati ottenuti e gli sviluppi futuri
+
+pg.3
+per comprendere l'obbiettivo della tesi è necessario spiegare cosa sia lo shadow framework, esso è un framework per lo sviluppo di applicazioni grafiche tridimensionali interattive ideato e sviluppato dall'ingegnegner Alessandro Martinelli
+Le sue principali caratteristiche sono:
+-un'elevata portabilita: la versione di riferimento è scritta in java, ma è in sviluppo una versione c++, che consentono la sue esecuzione anche su piattaforme mobile android e ios
+-ha un design web-oriented xkè i suoi meccanismi interni sono strutturati per l'utilizzo della comunicazione di rete ed è in sviluppo una versione javascript che usa l'api webgl
+-è un framework moderno xkè sfrutta le più recenti caratteristiche delle gpu a pipeline programmabile
+-infine è estendibile xkè progettato con struttura modulare
+
+l'obbiettivo della tesi è lo sviluppo di moduli per la la produzione di applicativi client-server orientati al web estendendo il livello di gestione dati del framework e focalizzando l'attenzione sulla trasmissione progressiva dei dati grafici via rete.
+
+pg.4
+x web3d si intende la fruizione di contenuti interattivi 3d tramite web, per esempio nella navigazione, nell'intrattenimento e nell'ecommerce.
+La principale problematica di questo settore è la dimensione dei dati grafici che può raggiungere anche alcuni gigabyte.
+
+pg.5
+le tecnologie usate oggigiorno da framework e applicazioni per consentire la visualizzazione dei contenuti 3d sono:
+plugin per browser
+webgl: tramite javascipt
+e il live streaming
+
+queste soluzioni presentano differenti modalità di trasmissione dati con relative problematiche
+-ad esempio molte applicazioni usano un approccio simile a quello stand-alone dove i dati vengono scaricati tutti all'avvio con lunghi tempi di caricamento
+-le applicazioni live streaming usano un flusso continuo di trasmissione che ha una grande occupazione di banda
+-invece le applicazioni che usano il trasferimento progressivo dei dati grafici x diminuirne la dimensione sono costrette a limitarne la qualità
+
+pg.6-1
+l'approccio dello sf al problema della dimensione dei dati si basa sulla rirelaborazione dei 3 momenti di accesso ai dati grafici.
+in figura possiamo vedere le tre fasi nel caso di un applicazione  client-server con approccio classico:
+-la fase di accesso consiste nel caricamento nella ram del client dei dati grafici memorizzati in un file che in questo caso è sul server.
+-nella fase di costruzione e inizializzazione questi dati vengono usati per costruire le strutture dati da memorizzare nella memoria grafica della gpu, operando una decompressione se necessario
+-in fase di visualizzazione il processo di rendering usa i dati per generare le immagini
+
+pg.6-2
+nell'approccio live streaming il rendering è sul server, dall'output grafico si ricava un flusso video ricevuto dal client nella sua fase di accesso.
+in fase di costruzione avviene la decompressione dei dati
+la gpu ha solo il compito di visualizzarli e non influenza influenza la qualità visiva.
+
+pg.6 - 3
+la fase di visualizzazione è storicamente considerata la + critica per il raggiungimento di una migliore qualità visiva, tuttavia nel contesto web ad essa si aggiunge la fase di accesso.
+Lo SF diminuisce il peso di questa criticità spostandone parte sulla fase di costruzione.
+I dati vengono memorizzati perciò in forma parametrica all'interno dei file diminuendone le dimensioni.
+Successivamente durante la fase di costruzione e inizializzazione viene utilizzata la capacità dio calcolo della GPU per estrarre i dati.
+....
+pg.7
+In figura vediamo la stessa geometria in ....
+Si nota ke nonostante la migliore qualità del rendering del framework, la dimensione dei file è molto contenuta: [e descrivi i dati].
+
+pg.8
+all'interno del fw i dati vengono gestiti tramite una serie di astrazioni. L'unità base dei dati è identificata con quello che viene chiamato dataset di cui ogni applicazione ha un gestore centralizzato.
+Questo gestore è un punto di accesso univoco per l'astrazione del reperimento dati.
+La richiesta di un dataset viene passata ad un'implementazione concreta di questa astrazione.
+
+pg.9
+Il software sviluppato nel corso della tesi è suddiviso per funzionalità, in 4 moduli distinti:
+-il primo (base comunication) è una libreria per la comunicazione via rete
+-il mod. remotedatacenter tool è un'implementazione concreta dell'astrazione di reperimento dati
+- gli ultimi 2 sono librerie per la costruzione di applicativi client e server che sfruttano gli i primi 2
+
+pg.10
+il mod. di comunicazione gestisce le connessioni sia da lato client che da lato server e permette l'invio reciproco di messaggi testuali. consente inoltre di configurare una macchina a stati per la gestione del protocollo di comunicazione tramite il pattern state: che prevede la separazione della logica di ogni stato in un oggetto concreto differente.
+
+pg.11
+L'implementazione concreta dell'astrazione di reperimento dati non sfrutta direttamente il modulo di comunicazione per ottenerli, ma inserisce le richieste in una coda. Il richiedente viene registrato per un update dei dati e nel frattempo gli viene fornito un Dataset sostitutivo selezionato tramite una lista. La coda di richieste ha un punto di accesso visibile da moduli esterni che possono leggerla per poi richiedere i dati via rete.
+
+pg.12
+il modulo Client contiene l'implementazione del reperimento dati, la quale verifica periodicamente lo stato della coda. quando vengono trovate richieste al suo interno, viene svuotata e viene lanciato un thread separato che si occupa di comunicarle al server tramite il modulo di comunicazione.
+la comunicazione è gestita da una macchina a stati di cui possiamo vedere lo schema in figura:
+-quando la coda non è vuota si passa inizialmente ad uno stato "request" dove vengono inviate tutte le richieste
+-al termine dell'invio la macchina attende le risposte nello stato "analize-reply" da cui, a seconda del tipo di messaggio, passerà nello stato appropriato
+-i messaggi di "reply" contengono i dati che, una volta ricevuti, provocheranno un update
+-i messaggi di "fail" comunicano se un dato non è presente sul server e provocano la cancellazione della lista dei richiedenti
+-al termine di tutte le risposte un messaggio "reply-end" indica che il server ha terminato e viene chiusa la connessione.
+Per l'attuale macchina a stati si è preferito focalizzarsi su un approccio che garantisse la possibilità di testare diverse configurazioni tralasciando per il momento l'ottimizzazione.
+
+pg.13
+La libreria per applicazioni server non necessita lo sfruttamento di funzionalità del framework legate al rendering, ma usa quelle legate alla gestione dati.
+Ogni richiesta di connessione è gestita da un thread separato che, come nel caso precedente usa una macchina a stati per il protocollo di comunicazione, strutturata in modo da consentire differenti tipi di test.
+-In figura vediamo che all'apertura di una connessione, nello stato di "analize-request", viene esaminato il tipo di messaggio
+-nel caso di una richiesta, nello stato "request", vengono estratte le richieste dal messaggio
+-successivamente nello stato "reply" vengono inviate una alla volta tutte le risposte
+-nel caso di un messaggio di chiusura lo stato "closing" chiude la connessione prima di terminare il thread
+
+pg.14-1
+Il meccanismo dei dataset sostitutivi è stato introdotto per rendere l'attesa del reperimento dati non bloccante nei confronti del client e consente di definire degli oggetti segnaposto che rendono visualizzabile la scena nell'attesa.
+In figura vediamo la sequenza di un'applicazione che richiede un dato al datacenter fornendo un metodo di callback per restituire il dataset.
+Richiesta e callback vengono passate all'implementazione concreta dell'astrazione che le inserisce nella coda restituendo il sostituto tramite la callback.
+Quando il modulo di reperimento dati riceve il dataset lo notifica alla coda che richiama nuovamente la callback.
+
+pg14-2
+Dato che il sostituto è valido per la visualizzazione, un update improvviso può causare problemi di accesso concorrente
+
+pg14-3
+Nel caso dei dati grafici infatti essi devono essere costruiti e inizializzati in modo sincrono al processo di rendering. Il framework fornisce appositamente un updater e un initiator a cui è possibile registrare dei task. Il frame grafico ciclicamente chiede ai due di eseguire tutti i task registrati prima di effettuare il rendering.
+Inizialmente pensati per le animazioni, queste componenti si sono rivelate utili per il processo di update dei dati. 
+
+pg.15
+test
+
+pg.16
+I test effettuati hanno dimostrato come i moduli soddisfino i requisiti.
+La loro struttura è ben definita, semplice da estendere con poche modifiche al codice esistente.
+Il progetto di tesi mi ha consentito di approfondire l'utilizzo di tecniche riconosciute di sviluppo software come l'uso di design pattern e tecniche di sviluppo agile.
+
+Ha inoltre fornito un feedback importante al processo di sviluppo del framework, individuando punti di possibile modifica o di riutilizzo dei meccanismi interni come nel caso dell'updater.
+
+In futuro è in previsione l'integrazione di logiche di comunicazione più articolate: con scambio di messaggi di controllo e l'invio di librerie di dataset.
+
+l'introduzione dei dataset sostitutivi ha aperto la possibilità di sviluppare in futuro un tool automatico per la generazione della lista di sostituzione.
+
+pg.17
+vi ringrazio dell'attenzione e sono a disposizione per eventuali domande

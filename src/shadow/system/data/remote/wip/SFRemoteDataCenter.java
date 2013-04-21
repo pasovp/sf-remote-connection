@@ -57,6 +57,7 @@ public class SFRemoteDataCenter implements SFIDataCenter {
 	@Override
 	public void makeDatasetAvailable(String name, SFDataCenterListener<?> listener) {
 		SFDataset dataset;
+		System.err.println("REQUEST TO REMOTE-DATACENTER: " + name);
 		synchronized (SFRemoteDataCenterRequests.getRequest()) {
 			dataset = library.retrieveDataset(name);
 			if (dataset == null) {

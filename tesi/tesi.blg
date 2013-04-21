@@ -1,6 +1,7 @@
 This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: tesi.aux
 A level-1 auxiliary file: Varie/Fronte.aux
+A level-1 auxiliary file: Varie/Dedica.aux
 A level-1 auxiliary file: Varie/Sommario.aux
 A level-1 auxiliary file: Varie/Acronimi.aux
 A level-1 auxiliary file: Capitoli/01_Introduzione.aux
@@ -12,6 +13,7 @@ A level-1 auxiliary file: Capitoli/06_Conclusioni.aux
 A level-1 auxiliary file: Capitoli/A_NoteSoftware.aux
 A level-1 auxiliary file: Capitoli/A_DesignPattern.aux
 The style file: plain.bst
+A level-1 auxiliary file: Varie/Ringraziamenti.aux
 Database file #1: Varie/Bibliografia.bib
 Warning--to sort, need author or key in site:git
 Warning--can't use both author and editor fields in book:realtimerendering
@@ -20,7 +22,7 @@ Warning--empty publisher in book:java
 Warning--empty year in book:librografica
 You've used 18 entries,
             2118 wiz_defined-function locations,
-            586 strings with 6810 characters,
+            588 strings with 6850 characters,
 and the built_in function-call counts, 4273 in all, are:
 = -- 379
 > -- 202

@@ -13,18 +13,20 @@ import sfrc.application.client.tasks.RequestClientCommunicationTask;
  * @author Luigi Pasotti
  * 
  */
-public class Test001902 extends AbstractClient {
+public class Test0610_Demo extends AbstractClient {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args){
-		execute(new Test001902());
+		execute(new Test0610_Demo());
 	}
 
 	@Override
 	public void viewTestData() {
-		viewNode("BumpMapCube");
+//		viewNode("House01");
+		viewNode("House04");
+
 	}
 
 	@Override

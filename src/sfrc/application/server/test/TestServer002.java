@@ -3,10 +3,9 @@ package sfrc.application.server.test;
 import java.io.IOException;
 
 import sfrc.application.server.ServerCommunicator;
+import sfrc.application.server.tasks.AnalizeRequestServerCommunicationTask;
 import sfrc.application.server.tasks.ClosingServerCommunicationTask;
 import sfrc.application.server.tasks.DReplyServerCommunicationTask;
-import sfrc.application.server.tasks.AnalizeRequestServerCommunicationTask;
-import sfrc.application.server.tasks.ReplyServerCommunicationTask;
 import sfrc.application.server.tasks.RequestServerCommunicationTask;
 
 public class TestServer002 extends AbstractTestServer {

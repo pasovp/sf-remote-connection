@@ -24,8 +24,8 @@ In questo modo un sistema pu\`o essere indipendente da come vengono creati gli o
 \end{center} 
 \end{figure}
 
-Per ottenere ci\`o \`e possibile definire una classe astratta o un'interfaccia differente per ogni componente generico desiderato, come \texttt{AbstractComponentA} e \texttt{AbstractComponentB} nella figura \ref{f:abstractfactorypattern}.
-Si definisce poi una classe \texttt{AbstractFactory} astratta la cui funzione sia quella di creare istanze delle componenti astratte generiche. Se per ogni famiglia che si desidera implementare si generano sottoclassi concrete per ogni componente astratta e si definisce una Factory concreta in grado di istanziarle, come \texttt{ComponentA1} e \texttt{ConcreteFactory1} nell'esempio raffigurato, l'applicazione potr\`a utilizzare la Factory concreta che preferisce in modo del tutto indipendente da quale famiglia essa gestisce.
+Per ottenere ci\`o \`e possibile definire una classe astratta o un'interfaccia differente per ogni componente generico desiderato, come nel caso in figura \ref{f:abstractfactorypattern} per \texttt{AbstractComponentA} e \texttt{AbstractComponentB}.
+Si definisce poi \texttt{AbstractFactory}, una classe astratta la cui funzione sia quella di creare istanze delle componenti astratte generiche. Se per ogni famiglia che si desidera implementare si generano sottoclassi concrete per ogni componente astratta e si definisce una Factory concreta in grado di istanziarle, come \texttt{ComponentA1} e \texttt{ConcreteFactory1} nell'esempio raffigurato, l'applicazione potr\`a utilizzare la Factory concreta che preferisce in modo del tutto indipendente da quale famiglia essa gestisce.
 
 Questo schema permette di cambiare le famiglie di componenti in modo semplice e consente di isolare le classi concrete, poich\'e le componenti vengono utilizzate attraverso la loro interfaccia.
 

@@ -1,0 +1,11 @@
+\beamer@endinputifotherversion {3.10pt}
+\select@language {italian}
+\beamer@sectionintoc {1}{Introduzione}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Obbiettivo della tesi}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Web 3D e Tecnologie attuali}{4}{0}{1}
+\beamer@subsectionintoc {1}{3}{Shadow Framework}{6}{0}{1}
+\beamer@sectionintoc {2}{SF-Remote-Connection}{11}{0}{2}
+\beamer@subsectionintoc {2}{1}{Moduli}{12}{0}{2}
+\beamer@subsectionintoc {2}{2}{Dataset sostitutivi}{16}{0}{2}
+\beamer@sectionintoc {3}{Test}{19}{0}{3}
+\beamer@sectionintoc {4}{Risultati e sviluppi futuri}{20}{0}{4}

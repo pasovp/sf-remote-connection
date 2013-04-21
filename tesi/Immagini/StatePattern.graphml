@@ -19,7 +19,7 @@
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="63.0" width="82.0" x="139.0" y="88.5"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="61.357421875" x="10.3212890625" y="3.0">Context<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -40,7 +40,7 @@
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="63.0" width="100.0" x="400.0" y="88.5"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bolditalic" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="43.380859375" x="28.3095703125" y="3.0">State<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -61,7 +61,7 @@
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="75.0" width="136.0" x="292.0" y="202.5"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="119.1337890625" x="8.43310546875" y="3.0">ConcreteStateA<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -82,7 +82,7 @@
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="75.0" width="136.0" x="472.0" y="202.5"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="118.9814453125" x="8.50927734375" y="3.0">ConcreteStateB<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -103,7 +103,7 @@
       <data key="d6">
         <y:UMLNoteNode>
           <y:Geometry height="67.5" width="136.0" x="139.0" y="210.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="129.4140625" x="3.29296875" y="24.765625">actualState-&gt;Handle<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>

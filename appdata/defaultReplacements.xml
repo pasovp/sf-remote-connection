@@ -60,20 +60,73 @@
 		<replacement>CubeBumpMapping</replacement>
 		<timestamp>1362586268763</timestamp>
 	</SFDatasetReplacement>
-	
 	<SFDatasetReplacement name="TileTexture">
 		<replacement>Texture</replacement>
 		<timestamp>1362586268763</timestamp>
 	</SFDatasetReplacement>
 	
-	<SFDatasetReplacement name="BumpMappingsMushroom">
-		<replacement>CubeBumpMapping</replacement>
+	<SFDatasetReplacement name="House01">
+		<replacement>TexturedCube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="House02">
+		<replacement>TexturedCube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="House03">
+		<replacement>TexturedCube</replacement>
 		<timestamp>1362586268763</timestamp>
 	</SFDatasetReplacement>
 	
-	<SFDatasetReplacement name="BumpMappingsMushroom">
-		<replacement>CubeBumpMapping</replacement>
+	<SFDatasetReplacement name="House04">
+		<replacement>Quad2Cube</replacement>
 		<timestamp>1362586268763</timestamp>
 	</SFDatasetReplacement>
 	
+	
+	<SFDatasetReplacement name="Dummy01">
+		<replacement>GreenCube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="Dummy02">
+		<replacement>GreenCube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="Dummygeom">
+		<replacement>Cube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="Parallelepiped">
+		<replacement>CubeTx</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+
+	<SFDatasetReplacement name="PerlinTexture04">
+		<replacement>Texture</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="RainbowQuarterMats">
+		<replacement>MatColours</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="TexturedDoorModel">
+		<replacement>CubeTxQuad2</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="TexturedHouseModel">
+		<replacement>CubeTxQuad2</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="TexturedRoofModel">
+		<replacement>CubeTxQuad2</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="TexturedStair">
+		<replacement>TexturedCube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
+	<SFDatasetReplacement name="Scene0610_Demo">
+		<replacement>Quad2Cube</replacement>
+		<timestamp>1362586268763</timestamp>
+	</SFDatasetReplacement>
 </library>

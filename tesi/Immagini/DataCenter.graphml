@@ -16,11 +16,10 @@
     <data key="d7"/>
     <node id="n0">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="128.0" width="180.25" x="239.875" y="136.0"/>
-          <y:Fill color="#99CCFF" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="104.013671875" x="38.1181640625" y="3.0">SFDatacenter<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -38,11 +37,10 @@
     </node>
     <node id="n1">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="39.25" width="118.75" x="90.625" y="-24.0"/>
-          <y:Fill color="#99CCFF" transparent="false"/>
+          <y:Geometry height="39.25" width="118.75" x="120.625" y="-24.0"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="22.625" modelName="custom" textColor="#000000" visible="true" width="56.6015625" x="31.07421875" y="3.0">Client<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -60,11 +58,10 @@
     </node>
     <node id="n2">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLNoteNode>
           <y:Geometry height="80.5" width="234.0" x="239.875" y="307.25"/>
-          <y:Fill color="#99CCFF" transparent="false"/>
+          <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="214.755859375" x="9.6220703125" y="17.296875">makeDatasetAvailable(x,y) {
   impl-&gt;makeDatasetAvailable(x,y)
@@ -80,11 +77,10 @@
     </node>
     <node id="n3">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="128.0" width="180.25" x="599.875" y="136.0"/>
-          <y:Fill color="#99CCFF" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="176.376953125" x="1.9365234375" y="3.0">ConcreteSFIDataCenter<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -102,11 +98,10 @@
     </node>
     <node id="n4">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="80.5" width="234.0" x="393.0" y="-24.0"/>
-          <y:Fill color="#99CCFF" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bolditalic" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="108.8505859375" x="62.57470703125" y="3.0">SFIDatacenter<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -125,11 +120,10 @@
     </node>
     <node id="n5">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLNoteNode>
           <y:Geometry height="80.5" width="234.0" x="546.125" y="307.25"/>
-          <y:Fill color="#99CCFF" transparent="false"/>
+          <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="73.84375" modelName="custom" textColor="#000000" visible="true" width="178.216796875" x="27.8916015625" y="3.328125">makeDatasetAvailable(x,y) {
   data=retrieveDataset(x)
@@ -146,11 +140,10 @@
       </data>
     </node>
     <edge id="e0" source="n1" target="n0">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="-20.0">
-            <y:Point x="150.0" y="180.0"/>
+            <y:Point x="180.0" y="180.0"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
@@ -160,7 +153,6 @@
     </edge>
     <edge id="e1" source="n0" target="n4">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="30.0">
@@ -175,7 +167,6 @@
     </edge>
     <edge id="e2" source="n3" target="n4">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="30.0">
@@ -190,7 +181,6 @@
     </edge>
     <edge id="e3" source="n0" target="n3">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-46.25" tx="0.0" ty="-46.25"/>
@@ -204,7 +194,6 @@
     </edge>
     <edge id="e4" source="n0" target="n2">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="47.44600000000014" sy="10.645999999999958" tx="93.125" ty="0.0">
@@ -218,7 +207,6 @@
     </edge>
     <edge id="e5" source="n5" target="n3">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-93.125" sy="0.0" tx="-16.30399999999986" ty="10.0">

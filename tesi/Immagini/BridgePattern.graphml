@@ -18,7 +18,7 @@
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.process">
           <y:Geometry height="102.20000000000005" width="572.5999999999998" x="270.2" y="162.89999999999998"/>
-          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="tl" textColor="#000000" visible="true" width="43.1171875" x="4.0" y="4.0">Bridge</y:NodeLabel>
         </y:GenericNode>
@@ -29,7 +29,7 @@
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="60.79999999999998" width="123.19999999999999" x="298.4" y="193.60000000000002"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bolditalic" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="62.296875" x="30.451562499999994" y="3.0">Window<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -50,7 +50,7 @@
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="60.79999999999998" width="179.60000000000002" x="601.3999999999999" y="193.60000000000002"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bolditalic" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="165.279296875" x="7.160351562500011" y="3.0">WindowImplementation<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -71,7 +71,7 @@
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="179.60000000000002" x="270.2" y="393.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="131.27685546875" x="24.16157226562501" y="3.0">ExtendedWindow<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -92,7 +92,7 @@
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="123.19999999999993" x="539.5999999999999" y="393.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="100.00830078125" x="11.595849609374966" y="3.0">ImpXWindow<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -113,7 +113,7 @@
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="123.19999999999993" x="719.5999999999998" y="393.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="99.39892578125" x="11.900537109374966" y="3.0">ImpYWindow<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -134,7 +134,7 @@
       <data key="d6">
         <y:UMLNoteNode>
           <y:Geometry height="44.20000000000012" width="185.0" x="447.5" y="277.8999999999999"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="130.890625" x="27.0546875" y="13.11562500000008">imp-&gt;impDrawText()<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>

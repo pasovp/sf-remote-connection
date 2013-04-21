@@ -16,11 +16,10 @@
     <data key="d7"/>
     <node id="n0">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="105.0" width="141.0" x="229.5" y="76.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bolditalic" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="87.79541015625" x="26.602294921875" y="3.0">Component<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -41,11 +40,10 @@ GetChild()</y:MethodLabel>
     </node>
     <node id="n1">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="68.0" width="84.0" x="168.0" y="236.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="35.52880859375" x="24.235595703125" y="3.0">Leaf<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -63,11 +61,10 @@ GetChild()</y:MethodLabel>
     </node>
     <node id="n2">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="105.0" width="141.0" x="319.5" y="236.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="81.4794921875" x="29.76025390625" y="3.0">Composite<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -88,11 +85,10 @@ GetChild()</y:MethodLabel>
     </node>
     <node id="n3">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="84.0" x="108.0" y="76.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="46.73876953125" x="18.630615234375" y="3.0">Client<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -110,11 +106,10 @@ GetChild()</y:MethodLabel>
     </node>
     <node id="n4">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLNoteNode>
           <y:Geometry height="53.60000000000002" width="326.0" x="108.0" y="371.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="224.095703125" x="50.9521484375" y="3.8468750000000114">Quando viene chiamato Operation(),
 per ogni nodo g in children
@@ -130,7 +125,6 @@ viene chiamato g.Operation()<y:LabelModel>
     </node>
     <edge id="e0" source="n1" target="n0">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -145,7 +139,6 @@ viene chiamato g.Operation()<y:LabelModel>
     </edge>
     <edge id="e1" source="n2" target="n0">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -160,7 +153,6 @@ viene chiamato g.Operation()<y:LabelModel>
     </edge>
     <edge id="e2" source="n2" target="n0">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="4.0678400000000465" sy="-34.18384000000003" tx="16.317840000000047" ty="-38.5">
@@ -177,7 +169,6 @@ viene chiamato g.Operation()<y:LabelModel>
     </edge>
     <edge id="e3" source="n3" target="n0">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-9.682159999999953" ty="-38.5"/>
@@ -189,7 +180,6 @@ viene chiamato g.Operation()<y:LabelModel>
     </edge>
     <edge id="e4" source="n2" target="n4">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="10.54000000000002" sy="-4.0400000000000205" tx="2.7271153846154004" ty="-7.800000000000011">

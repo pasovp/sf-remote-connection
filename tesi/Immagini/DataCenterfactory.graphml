@@ -16,11 +16,10 @@
     <data key="d7"/>
     <node id="n0">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="128.0" width="180.25" x="239.875" y="136.0"/>
-          <y:Fill color="#99CCFF" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="104.013671875" x="38.1181640625" y="3.0">SFDatacenter<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -40,11 +39,10 @@
     </node>
     <node id="n1">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="39.25" width="118.75" x="90.625" y="-24.0"/>
-          <y:Fill color="#99CCFF" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="22.625" modelName="custom" textColor="#000000" visible="true" width="56.6015625" x="31.07421875" y="3.0">Client<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -62,11 +60,10 @@
     </node>
     <node id="n2">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLNoteNode>
           <y:Geometry height="138.0" width="242.75" x="239.875" y="307.25"/>
-          <y:Fill color="#99CCFF" transparent="false"/>
+          <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="129.71875" modelName="custom" textColor="#000000" visible="true" width="237.8359375" x="2.45703125" y="4.140625">writeDataset(out ,x){
   datasetFactory-&gt;writeDataset(out ,x)
@@ -88,11 +85,10 @@ createDataset(type){
     </node>
     <node id="n3">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="128.0" width="180.25" x="599.875" y="136.0"/>
-          <y:Fill color="#99CCFF" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="125.08154296875" x="27.584228515625" y="3.0">ConcreteFactory<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -112,11 +108,10 @@ createDataset(type){
     </node>
     <node id="n4">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="93.0" width="312.75" x="357.25" y="-36.5"/>
-          <y:Fill color="#99CCFF" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bolditalic" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="140.0556640625" x="86.34716796875" y="3.0">SFAbstractFactory<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -136,11 +131,10 @@ createDataset(type){
     </node>
     <node id="n5">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLNoteNode>
           <y:Geometry height="174.25" width="299.0" x="533.625" y="307.25"/>
-          <y:Fill color="#99CCFF" transparent="false"/>
+          <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="171.625" modelName="custom" textColor="#000000" visible="true" width="284.78125" x="7.109375" y="1.3125">writeDataset(out ,x){
   x-&gt;getDatasetObject()-&gt;writeOnStream(out)
@@ -164,7 +158,6 @@ createDataset(type){
       </data>
     </node>
     <edge id="e0" source="n1" target="n0">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="-20.0">
@@ -178,7 +171,6 @@ createDataset(type){
     </edge>
     <edge id="e1" source="n0" target="n4">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="34.6583850931677">
@@ -193,7 +185,6 @@ createDataset(type){
     </edge>
     <edge id="e2" source="n3" target="n4">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="34.6583850931677">
@@ -208,7 +199,6 @@ createDataset(type){
     </edge>
     <edge id="e3" source="n0" target="n3">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-46.25" tx="0.0" ty="-46.25"/>
@@ -222,7 +212,6 @@ createDataset(type){
     </edge>
     <edge id="e4" source="n0" target="n2">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="47.44600000000014" sy="10.645999999999958" tx="96.60723824786322" ty="0.0">
@@ -236,7 +225,6 @@ createDataset(type){
     </edge>
     <edge id="e5" source="n5" target="n3">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-118.9930555555556" sy="0.0" tx="-16.30399999999986" ty="10.0">

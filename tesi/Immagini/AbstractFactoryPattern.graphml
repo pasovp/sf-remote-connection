@@ -19,7 +19,7 @@
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="76.0" width="150.0" x="75.0" y="106.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bolditalic" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="121.8125" x="14.09375" y="3.0">AbstractFactory<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -41,7 +41,7 @@ CreateComponentB()</y:MethodLabel>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="76.0" width="156.0" x="-36.0" y="278.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="134.126953125" x="10.9365234375" y="3.0">ConcreteFactory1<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -63,7 +63,7 @@ CreateComponentB()</y:MethodLabel>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="76.0" width="156.0" x="176.25" y="278.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="134.126953125" x="10.9365234375" y="3.0">ConcreteFactory2<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -85,7 +85,7 @@ CreateComponentB()</y:MethodLabel>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="100.0" x="658.0" y="106.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="46.73876953125" x="26.630615234375" y="3.0">Client<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -106,7 +106,7 @@ CreateComponentB()</y:MethodLabel>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="194.0" x="427.99999999999994" y="154.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bolditalic" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="160.279296875" x="16.8603515625" y="3.0">AbstractComponentA<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -127,7 +127,7 @@ CreateComponentB()</y:MethodLabel>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="194.0" x="428.0" y="278.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bolditalic" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="160.126953125" x="16.9365234375" y="3.0">AbstractComponentB<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -148,7 +148,7 @@ CreateComponentB()</y:MethodLabel>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="123.0" x="388.49999999999994" y="226.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="106.90185546875" x="8.049072265625" y="3.0">ComponentA2<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -169,7 +169,7 @@ CreateComponentB()</y:MethodLabel>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="123.0" x="538.5" y="226.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="106.90185546875" x="8.049072265625" y="3.0">ComponentA1<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -190,7 +190,7 @@ CreateComponentB()</y:MethodLabel>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="123.0" x="388.5" y="350.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="106.74951171875" x="8.125244140625" y="3.0">ComponentB2<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -211,7 +211,7 @@ CreateComponentB()</y:MethodLabel>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="123.0" x="538.5" y="350.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="106.74951171875" x="8.125244140625" y="3.0">ComponentB1<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>

@@ -1,0 +1,1045 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sub",
+				"subsection"
+			],
+			[
+				"su",
+				"subsection"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Presentazione/Presentazione.tex",
+			"settings":
+			{
+				"buffer_size": 12051,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Presentazione/presentazione/main.tex",
+			"settings":
+			{
+				"buffer_size": 15334,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tesi.tex",
+			"settings":
+			{
+				"buffer_size": 1564,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Capitoli/01_Introduzione.tex",
+			"settings":
+			{
+				"buffer_size": 12285,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Varie/Fronte.tex",
+			"settings":
+			{
+				"buffer_size": 989,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/luigi/Documenti/Tesi Specialistica/Pipeline di Rendering 1/Pipeline.tex",
+			"settings":
+			{
+				"buffer_size": 45825,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/appjar/server/server.sh",
+			"settings":
+			{
+				"buffer_size": 167,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/appjar/client/client.sh",
+			"settings":
+			{
+				"buffer_size": 120,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"l",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"lo",
+				"Convert Case: Lower Case"
+			],
+			[
+				"lowe",
+				"Convert Case: Lower Case"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"con",
+				"Convert Case: Upper Case"
+			],
+			[
+				"",
+				"Convert Case: Upper Case"
+			],
+			[
+				"lat",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"ltx",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"lt",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"late",
+				"LaTeX Accents: Decode accents"
+			],
+			[
+				"latex",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"upgr",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"upda",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"ltxe",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"la",
+				"LaTeX Accents: Decode accents"
+			],
+			[
+				"Snippet: ",
+				"Snippet: add"
+			],
+			[
+				"ltxen",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"ltxd",
+				"LaTeX Accents: Decode accents"
+			],
+			[
+				"vi",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"pa",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"Package Control: l",
+				"Package Control: List Packages"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"Snippet: xm",
+				"Snippet: XML Processing Instruction"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/appjar/client/log.txt",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/appjar/server/server.sh",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/appjar/client/client.sh",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Presentazione/discorso",
+		"/home/luigi/Progetti/Eclipse Indigo/AttachmentSettingTool/tool/tool",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Presentazione/presentazione/beamerouterthemeinfolines2.sty",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Materiale/mushroom.blend",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/03_GestioneDati.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/04_SFRemoteConnection.tex",
+		"/home/luigi/Documenti/Tesi Specialistica/Pipeline di Rendering 1/PipelinePresentation.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Fronte.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Presentazione/Presentazione.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Presentazione/Presentazione",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/FrontBackmatter/Dedication.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/FrontBackmatter/Acknowledgments.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Dedica.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Ringraziamenti.tex",
+		"/home/luigi/Documenti/latex/tesi/tesi.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/layaureo.sty",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/LISTOFFILES",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/FrontBackmatter/Declaration.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/FrontBackmatter/Titlepage.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/A_DesignPattern.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/02_ShadowFramework.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/01_Introduzione.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/06_Conclusioni.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/05_TestRisultati.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/A_NoteSoftware.tex",
+		"/home/luigi/Dropbox/GGSara/.dropbox",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Acronimi.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Materiale/titoli possibili",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Materiale/title.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Bibiografia.aux",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/SFRemoteConnection.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/GestioneDati.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/GestioneDati.log",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/GestioneDati.fdb_latexmk",
+		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/LaTeXTools Preferences.sublime-settings",
+		"/home/luigi/.config/sublime-text-2/Packages/User/LaTeXTools Preferences.sublime-settings",
+		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/LaTeX.sublime-build",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Sommario.tex",
+		"/home/luigi/.cache/.fr-zMoOwh/jogamp-all-platforms/joal.README.txt",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Bibliografia.bib",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.bbl",
+		"/home/luigi/.cache/.fr-WAtSeR/jediOutcast/code/JediAcademy.sln",
+		"/home/luigi/.cache/.fr-NWseyC/jediOutcast/code/cgame/cg_camera.cpp",
+		"/home/luigi/.cache/.fr-sLnzn7/jediOutcast/code/cgame/cg_camera.h",
+		"/home/luigi/.cache/.fr-xAuw1W/jediOutcast/code/mp3code/l3init.c",
+		"/home/luigi/.cache/.fr-Sm7G0X/jediOutcast/base/ext_data/npcs/Bartender.npc",
+		"/home/luigi/.cache/.fr-axxFVO/jediAcademy/tools/jawa/jawa.cpp",
+		"/home/luigi/Programmi/DeadCyborg-Episode1-Linux_v002/readme.linux",
+		"/home/luigi/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/luigi/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Materiale/TODO",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Materiale/Struttura",
+		"/home/luigi/Progetti/Eclipse Workspace/uniconvertor-2.x/setup.py",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Immagini/InterazioniClientServer.graphml",
+		"/home/luigi/Documenti/pippo.txt",
+		"/tmp/38UC-1.txt",
+		"/tmp/38UC.txt",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Immagini/BridgePattern.graphml",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Immagini/BridgePattern.png.bak",
+		"/home/luigi/Documenti/registrazioni/poste.txt",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/TMP/tmp.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/devnotes/com protocol",
+		"/home/luigi/Documenti/latex/esempio/esempio.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/ClassicThesis.tcp",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/Chapters/Chapter01.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/ClassicThesis.tex",
+		"/home/luigi/.cache/.fr-eS1WkB/tesi.synctex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.blg",
+		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/README.markdown",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Tesi.tks",
+		"/home/luigi/.config/sublime-text-2/Packages/BracketHighlighter/bh_core.sublime-settings",
+		"/home/luigi/.config/sublime-text-2/Packages/User/bh_core.sublime-settings",
+		"/home/luigi/Progetti/Eclipse Workspace/uniconvertor-2.x/README",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Bibliografia.tex",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/Bibliografia.bib",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Bibliografia.bib",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/Bibliography.bib",
+		"/home/luigi/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/luigi/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Acronimi.aux",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/classicthesis/FrontBackmatter/Contents.tex",
+		"/tmp/salari_ufficiali_NBA.csv",
+		"/home/luigi/Documenti/uni/Grafica 3d/HelloWorld.sh",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/A_AppendiceA.tex",
+		"/home/luigi/Progetti/Eclipse Workspace/print-design-1.x/tools/colors.py",
+		"/home/luigi/Progetti/Eclipse Workspace/uniconvertor-2.x/build/scripts-2.7/uniconvertor",
+		"/home/luigi/Progetti/Eclipse Workspace/uniconvertor-2.x/src/uc2/cms/_cms.c",
+		"/home/luigi/Programmi/print-design-read-only/src/pdesign-launcher.py",
+		"/home/luigi/Programmi/print-design-read-only/src/pdesign/mainwindow.py",
+		"/home/luigi/Programmi/print-design-read-only/setup.py",
+		"/home/luigi/Programmi/print-design-read-only/README",
+		"/home/luigi/Programmi/yEd-3.10.2_32-bit_setup.sh",
+		"/home/luigi/Programmi/LibreOffice_4.0.1.2_Linux_x86_deb/readmes/README_en-US",
+		"/home/luigi/missfont.log",
+		"/home/luigi/Desktop",
+		"/media/C6E6-0D2B/install/README.sbm",
+		"/home/luigi/.cache/.fr-f5yyWV/SFRemoteConnection/src/shadow/system/data/wip/SFRemoteDataCenter.java",
+		"/home/luigi/Documenti/latex/fronte/fronte.tex",
+		"/home/luigi/.config/sublime-text-2/Packages/Dictionaries/Italian.dic",
+		"/home/luigi/.config/sublime-text-2/Packages/Dictionaries/Italian.aff",
+		"/home/luigi/.config/sublime-text-2/Packages/Dictionaries/Italian.txt",
+		"/home/luigi/Progetti/singapore/soluzione_sia.c",
+		"/home/luigi/log.txt",
+		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/LaTeX.sublime-completions",
+		"/etc/apt/sources.list.d/spotify-deb-stable.list",
+		"/etc/apt/sources.list.d/ubuntu-wine-ppa-precise.list.save",
+		"/etc/apt/sources.list.d/xorg-edgers-ppa-precise.list",
+		"/etc/apt/sources.list.d/xorg-edgers-ppa-precise.list.save",
+		"/home/luigi/2",
+		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/LaTeX.sublime-commands",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Varie/Sommario.aux",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.log",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/log/log01.txt",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/Capitoli/ShadowFramework.tex",
+		"/home/luigi/C:\\nppdf32Log\\debuglog.txt",
+		"/home/luigi/.config/sublime-text-2/Packages/BracketHighlighter/BracketHighlighter.sublime-settings",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.log.old",
+		"/home/luigi/.config/sublime-text-2/Packages/LaTeXTools/Default (Linux).sublime-keymap",
+		"/home/luigi/.cache/.fr-2jZ748/tesi.synctex",
+		"/home/luigi/.cache/.fr-ffkVoY/tesi.synctex",
+		"/home/luigi/.config/sublime-text-2/Packages/Terminal/Default (Linux).sublime-keymap",
+		"/home/luigi/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
+		"/home/luigi/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
+		"/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/tesi/tesi.fdb_latexmk"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"java",
+			"flusso",
+			"3d",
+			"3D",
+			"3d",
+			"mesh",
+			"update",
+			"factory",
+			"state",
+			"bridge",
+			"illu",
+			"mesh",
+			"titolo_provvisorio",
+			"javascrip",
+			"shift+alt",
+			"update",
+			"in oltre",
+			"spell",
+			"ctrl+alt+s",
+			"ctrl+b",
+			"\\end",
+			"wrap",
+			"wrapping",
+			"\\\\",
+			"ctrl+",
+			"ctrl+\\",
+			"ctrl+space",
+			"alt+q",
+			"alt+shift",
+			"pippo\n",
+			"pippo",
+			"ctrl+'",
+			">\n",
+			"autoc",
+			"\"",
+			"ping"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Java"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 7,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Presentazione/Presentazione.tex",
+					"settings":
+					{
+						"buffer_size": 12051,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1785,
+								1785
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/LaTeX/LaTeX Beamer.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 811.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Presentazione/presentazione/main.tex",
+					"settings":
+					{
+						"buffer_size": 15334,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								504,
+								504
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "tesi.tex",
+					"settings":
+					{
+						"buffer_size": 1564,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								710,
+								710
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 408.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Capitoli/01_Introduzione.tex",
+					"settings":
+					{
+						"buffer_size": 12285,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								314,
+								314
+							]
+						],
+						"settings":
+						{
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Varie/Fronte.tex",
+					"settings":
+					{
+						"buffer_size": 989,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								490,
+								490
+							]
+						],
+						"settings":
+						{
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/luigi/Documenti/Tesi Specialistica/Pipeline di Rendering 1/Pipeline.tex",
+					"settings":
+					{
+						"buffer_size": 45825,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								578,
+								578
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 17.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/appjar/server/server.sh",
+					"settings":
+					{
+						"buffer_size": 167,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								71,
+								71
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/luigi/Progetti/Eclipse Indigo/SFRemoteConnection/appjar/client/client.sh",
+					"settings":
+					{
+						"buffer_size": 120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								120,
+								120
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 172.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

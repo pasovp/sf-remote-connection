@@ -19,7 +19,7 @@
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="119.0" width="164.0" x="188.0" y="84.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="74.052734375" x="44.9736328125" y="3.0">Singleton<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -45,7 +45,7 @@ GetSingletonData()
       <data key="d6">
         <y:UMLNoteNode>
           <y:Geometry height="34.0" width="181.0" x="389.5" y="84.0"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="137.171875" x="21.9140625" y="8.015625">return uniqueInstance<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
